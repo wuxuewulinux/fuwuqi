@@ -1,0 +1,4 @@
+Thu Nov 22 15:03:02 2018          TCP/IP bind fail!
+Thu Nov 22 15:03:06 2018          TCP/IP bind fail!
+Thu Nov 22 15:03:27 2018          TCP/IP bind fail!
+Thu Nov 22 17:19:51 2018          TCP/IP bind fail!
