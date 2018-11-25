@@ -1,0 +1,13 @@
+
+
+
+
+package MY;
+message msg
+{
+    required int32 id = 1;     //必选字段
+    required int32 type = 2;    //必选字段
+    optional string name = 3;        //可选字段
+    optional string role = 4;
+    optional int32 error = 5;		
+}
