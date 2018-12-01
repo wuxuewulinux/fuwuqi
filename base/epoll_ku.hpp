@@ -11,13 +11,15 @@
 #include <sys/epoll.h>
 #include"socketku.hpp"
 
+#define EPOLLKU Epoll_Ku::Instance()
 
 class Epoll_Ku
 {
   public:
 
+static Epoll_Ku * Instance();
 Epoll_Ku(){EpollId=0;} 
-void Epoll_Creat();
+int Epoll_Creat();
 void Epoll_Size(int count);
 void Epoll_Add(int conns);
 void Epoll_ShanChu(int conns);

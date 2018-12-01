@@ -14,7 +14,9 @@ void * writexiancheng(void *canshu);     //°ÑÒª·¢ËÍ¸ø¿Í»§¶ËµÄÊı¾İÈÃĞ´Ïß³ÌÈ¥´¦Àí·
 
 void * timexiancheng(void * canshu);     //¶¨Ê±Æ÷Ö´ĞĞÏß³Ì
 
-void ChuLiAgemess(struct message * message,int * io);      //´¦ÀíÊ¶±ğÖ´ĞĞÄÄ¸ö¹¦ÄÜÄ£¿éÈë¿Ú
+void ChuLiAgemessClient(struct message * message,int * io);      //´¦ÀíÊ¶±ğÖ´ĞĞÄÄ¸ö¹¦ÄÜÄ£¿éÈë¿Ú(¿Í»§¶ËÖ÷¶¯)
+
+void ChuLiAgemessServer(struct message * message,int * io);		//·şÎñÆ÷Ö÷¶¯ÏòÊı¾İ¿â×ª·¢
 
 int pthreadstart();     //ËùÓĞÏß³ÌµÄÆô¶¯Èë¿Ú
 

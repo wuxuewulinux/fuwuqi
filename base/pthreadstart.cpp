@@ -2,6 +2,8 @@
 #include "quanju.hpp"
 #include "pthreadstart.hpp"
 #include <errno.h>
+#include "HandlerList.hpp"
+#include "SocketDBClient.hpp"
 
 const int MAX_BUFF=255;                  //设置数据包的最大范围
 
@@ -28,7 +30,7 @@ void * readxiancheng(void *canshu)
 			ret=readline(sockio,&agemess.mess,MAX_BUFF);     //开始对该IO的数据进行读取
 			if(ret == -2)
 			{      
-				std::cout<<"cuowubao"<<std::endl;
+				std::cout<<"接收到错误的消息包!"<<std::endl;
 				log.printflog("接收到错误的消息包!");
 
 				//如果数据发生错误，就需要对该IO进行处理
@@ -36,7 +38,7 @@ void * readxiancheng(void *canshu)
 			}
 			if(ret == -1)
 			{
-				std::cout<<"client quit(客户端退出)！"<<std::endl;
+				std::cout<<"客户端退出"<<std::endl;
 				//如果收到客户端退出，就需要对该IO进行处理
 
 			}	
@@ -65,26 +67,47 @@ void * readxiancheng(void *canshu)
 
 //工作线程的执行函数
 
-void ChuLiAgemess(struct message * message,int * io)
+void ChuLiAgemessClient(struct message * message,int * io)
 {
-	MY::msg mess_ti;
+	CSMsg mess_ti;
 
 	//反序列化数据包
 
 	if (!mess_ti.ParseFromArray(message->buff, message->len))
 	{
-		std::cout << "xu lie hua fail！" << std::endl;
+		std::cout << "反序列失败！" << std::endl;
 		log.printflog("反序列失败！");     
 		return;
 	}
-
-	switch(mess_ti.id())   //获取protobuf协议执行功能ID，每个ID对应相应的模块
+	//获取模块入口
+	if (CS_MSGID_MIN < mess_ti.head().msgid() && mess_ti.head().msgid() < CS_MSGID_MAX)
 	{
-		//根据游戏需求进行模块扩展.....
-	default:
-		break;
+		IHandler* handler = HANDLERLIST->GetHandler(mess_ti.head().msgid());
+		//执行模块功能
+		handler->OnClientMsg(mess_ti,*io);
 	}
+}
 
+
+
+void ChuLiAgemessServer(struct message * message,int * io)
+{
+	SSMsg mess_ti;
+
+	//反序列化数据包
+
+	if (!mess_ti.ParseFromArray(message->buff, message->len))
+	{
+		std::cout << "反序列失败！" << std::endl;
+		log.printflog("反序列失败！");     
+		return;
+	}
+	if (SS_MSGID_MIN < mess_ti.head().msgid() && mess_ti.head().msgid() < SS_MSGID_MAX)
+	{
+		IHandler* handler = HANDLERLIST->GetHandler(mess_ti.head().msgid());
+		//执行模块功能
+		handler->OnServerMsg(mess_ti);		//游戏服务器主动向别人转发数据，然后别的服务器返回就调用OnServerMsg
+	}
 }
 
 
@@ -103,8 +126,10 @@ void * chulimessage(void *canshu)
 		while(!messageduilie.empty())   //如果队列有数据将要处理
 		{
 			test=messageduilie.front();
-
-			ChuLiAgemess(&test.mess,&test.io);      //该函数负责解析数据和转发到对应的功能模块中    
+			if(DBCLIENT->GetSocketIo() == test.io)
+				ChuLiAgemessServer(&test.mess,&test.io);
+			else
+			    ChuLiAgemessClient(&test.mess,&test.io);      //该函数负责解析数据和转发到对应的功能模块中    
 
 			messageduilie.pop();         //处理完的消息就要从队列去除          
 

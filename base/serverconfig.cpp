@@ -84,6 +84,23 @@ bool ServerConfig::Init(std::string configname)
 		}
 	}
 	
+	//读取mysql服务器的IP地址和端口号
+	{
+		TiXmlElement *server_element = RootElement->FirstChildElement("mysqlserver");
+		if (NULL == server_element)
+		{
+			std::cout<<": no [server]."<<std::endl;
+			return false;
+		}
+
+		iRet = InitMysqlServerConfigg(server_element);
+		if (iRet)
+		{
+			std::cout<<"InitMysqlServerConfigg failed : "<<std::cout<<iRet<<std::endl;;
+
+			return false;
+		}
+	}
 
 	//如果以后该模块增加其他配置信息就在这里进行扩展
 
@@ -99,7 +116,6 @@ int ServerConfig::InitServerConfigg(TiXmlElement *RootElement)
 	TiXmlElement *dataElement = RootElement->FirstChildElement("data");
 	while (NULL != dataElement)
 	{
-		short grade = 0;
 		if (!GetSubNodeValue(dataElement, "ip", server.ip) || server.ip.empty())
 		{
 			return -1;
@@ -119,6 +135,30 @@ int ServerConfig::InitServerConfigg(TiXmlElement *RootElement)
 }
 
 
+
+int ServerConfig::InitMysqlServerConfigg(TiXmlElement *RootElement)
+{
+
+	TiXmlElement *dataElement = RootElement->FirstChildElement("data");
+	while (NULL != dataElement)
+	{
+		
+		if (!GetSubNodeValue(dataElement, "ip", mMysqlServer.ip) || mMysqlServer.ip.empty())
+		{
+			return -1;
+		}
+
+		if (!GetSubNodeValue(dataElement, "port", mMysqlServer.port) || mMysqlServer.port < 0 )
+		{
+			return -2;
+		}
+
+		dataElement = dataElement->NextSiblingElement();
+
+	}
+	return 0;
+
+}
 
 
 

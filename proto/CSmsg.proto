@@ -1,0 +1,111 @@
+
+//注册登录模块为标准书写
+
+
+
+enum CSRegisterLoginCmd
+{
+	//填写每个模块的子功能枚举ID号
+	
+	CSRegisterLoginCmd_Register = 1;  			//注册功能
+	CSRegisterLoginCmd_Login = 2;	  			//登录功能
+}
+
+message CSLoginReq								//登陆		
+{
+	optional string account = 1; 				//账号
+	optional string password = 2;				//密码
+}
+
+message CSLoginRsp								//登陆		
+{
+	optional uint32 type = 1;					//返回：1表示账号和密码错误，2表示有人在登陆，3表示登陆成功
+}
+
+message CSRegisterReq								//注册 		
+{
+	optional string account = 1; 				//账号
+	optional string password = 2;				//密码
+	optional string name = 3;					//名称
+	optional uint32 sex = 4;					//性别：1 表示男，2表示女
+}
+
+message CSRegisterRsp								//注册 		
+{
+	optional uint32 type = 1;					//返回：1表示账号已存在，2表示名称已存在，3表示注册成功
+}
+
+
+message CSRegisterLoginReqParam
+{
+
+ //该模块所有子功能的数据都保存在这里，（服务器需要的数据)
+ 
+	optional CSLoginReq LoginReq = 1;
+	optional CSRegisterReq RegisterReq = 2;
+}
+
+
+message CSRegisterLoginRspParam
+{
+
+   //该模块所有子功能的数据都保存在这里，（客户端需要的数据)
+	optional CSLoginRsp LoginRsp = 1;
+	optional CSRegisterRsp RegisterRsp = 2;
+}
+
+
+message CSRegisterLoginReq	//把模块所有结果或者数据整合起来（服务器需要的)
+{
+	required CSRegisterLoginCmd  cmd = 1;						//模块功能的ID号
+	optional CSRegisterLoginReqParam reqParam = 2;			//模块的所有子功能结构体数据都保存在该结果中
+}
+
+
+message CSRegisterLoginRsp									//把模块所有结果或者数据整合起来（客户端需要的)
+{
+	optional int32 result = 1;								//模块的错误码提示（只有客户端才多一个错误码)
+	required CSRegisterLoginCmd cmd = 2;  						//模块功能的ID号
+	optional CSRegisterLoginRspParam rspParam = 3 ;  			//模块的所有子功能结构体数据都保存在该结果中
+}
+
+
+enum CSMsgID
+{
+	//填写模块的ID号
+	
+	CS_MSGID_MIN = 0;
+	
+	CS_MSGID_RegisterLogin = 1; 							//注册登录模块的模块ID号
+	
+	//如果还有别的模块就这里进行扩展
+	
+	CS_MSGID_MAX = 2;
+}
+
+
+message CSMsgBody
+{
+	//把每个模块的数据结构添加到这里(每增加一个模块就要添加 ...Req 和 ..Rsp两个结构
+	
+	optional CSRegisterLoginReq RegisterLoginReq = 1;
+	optional CSRegisterLoginRsp RegisterLoginRsp = 2;
+}
+
+
+
+message CSMsgHead
+{
+	required uint64 uid = 1;      							//唯一uid
+	required CSMsgID msgID = 2;   							//每个模块都有自己的ID号
+}
+
+
+
+message CSMsg   //总的数据包（发送出去的数据包）
+{
+	required CSMsgHead head = 1;   							//头部，这个是固定的
+	required CSMsgBody body = 2;							//传递的数据保存在这里
+}
+
+

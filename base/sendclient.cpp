@@ -1,12 +1,10 @@
 
 #include"quanju.hpp"
 #include<string.h>
-#include"../proto/msg.pb.h"
+#include "sendclient.hpp"
 
-namespace quanju
-{
 
-void worksend(int userio,MY::msg * test)
+void SendClient(int userio,CSMsg * test)
 {
 	//¿ªÊ¼ĞòÁĞ»¯Êı¾İ
 
@@ -41,6 +39,40 @@ void worksend(int userio,MY::msg * test)
 
 }
 
+
+
+void SendServer(int userio,SSMsg * test)
+{
+	//¿ªÊ¼ĞòÁĞ»¯Êı¾İ
+	int len = test->ByteSize();
+	char buff[len+1];
+	if (!test->SerializeToArray(buff,len)) 
+	{ 
+		std::cout << "ĞòÁĞ»¯Êı¾İÊ§°Ü" << std::endl; 
+		log.printflog("ĞòÁĞ»¯Êı¾İÊ§°Ü£¡"); 
+		return;
+	}
+	//¿ªÊ¼°Ñ¸ÃÊı¾İËÍÍù·¢ËÍÏß³ÌÈ¥´¦Àí·¢ËÍÊı¾İ
+	struct sendshuji sendtest;
+	sendtest.io=userio;
+	sendtest.length=len;
+	memcpy(sendtest.buff,buff,len);
+	if(sendduilie.empty() )                 //Ö¤Ã÷ÓĞÒ»¸öÍêÕû°üĞèÒª·¢ËÍ³öÈ¥
+	{
+		//·ÀÖ¹ËÀËø³öÏÖ
+		pthread_mutex_lock(&writesuo);
+		pthread_mutex_unlock(&writesuo);
+		sendduilie.push(sendtest);        //°ÑÒª·¢ËÍµÄÊı¾İ°üÑ¹Èë¶ÓÁĞÖĞ£¬
+		pthread_cond_signal(&writecode);  //·¢ËÍĞÅºÅ
+	}
+	else
+	{
+		sendduilie.push(sendtest);
+		pthread_cond_signal(&writecode);            
+	}
+
+
+}
 
 
 //ÉÏ²ãÂß¼­¶¨Ê±Æ÷½Ó¿Úº¯Êı
@@ -80,10 +112,12 @@ void timesend(int kaiguan,int index,int miao,int userid)
 void errorsend(int userio,int error)
 {
 	//¿ªÊ¼ĞòÁĞ»¯Êı¾İ
-	MY::msg test;
-    test.set_type(3);                  //ÉèÖÃ´íÎóÄ£¿éÎª 3 ±êÊ¶£¬¸ÃÉèÖÃÒÔºó¿ÉÄÜ»áĞŞ¸Ä£¬set_type±íÊ¾·ÃÎÊÄ£¿éµÄÀàĞÍÖµ
-	test.set_id(1);
-	test.set_error(error);                 //´íÎóIDºÅÎªerror£¬ÔÚ¿Í»§¶ËÌáÊ¾ error Ó¦¸ÃÏÔÊ¾ÄÇ¸öĞÅÏ¢
+	
+	CSMsg test;
+	CSMsgHead * head = test.mutable_head();
+    head->set_uid(3);                  //ÉèÖÃ´íÎóÄ£¿éÎª 3 ±êÊ¶£¬¸ÃÉèÖÃÒÔºó¿ÉÄÜ»áĞŞ¸Ä£¬set_type±íÊ¾·ÃÎÊÄ£¿éµÄÀàĞÍÖµ
+	head->set_msgid(CS_MSGID_RegisterLogin);
+	//test.set_error(error);                 //´íÎóIDºÅÎªerror£¬ÔÚ¿Í»§¶ËÌáÊ¾ error Ó¦¸ÃÏÔÊ¾ÄÇ¸öĞÅÏ¢
 	int len = test.ByteSize();
 	char buff[len+1];
 	if (!test.SerializeToArray(buff,len)) 
@@ -113,7 +147,7 @@ void errorsend(int userio,int error)
   pthread_cond_signal(&writecode);            
    }
 
-}
+   }
 
 
 /*
@@ -138,4 +172,3 @@ worksendÔÚÉÏ²ãÂß¼­ÖĞÊ¹ÓÃËµÃ÷£º Ã¿¸öÉÏ²ã¹¦ÄÜÄ£¿éĞèÒª·¢ËÍÊı¾İÊ±£¬¶¼»á·â×°Ò»¸ö·¢ËÍº
 
 */
 
-}

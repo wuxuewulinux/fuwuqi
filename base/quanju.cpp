@@ -1,5 +1,7 @@
 #include "quanju.hpp"
 
+char BUFF[200];
+
 pthread_cond_t readcode;       //读数据条件变量的变量
 
 pthread_mutex_t readsuo;      //读数据的锁
@@ -32,10 +34,11 @@ std::queue<sendshuji> sendduilie;      //把要发送给客户端的数据保存到队列中
 
 std::queue<struct timeduilie> timequeue;    //处理定时时间的结构保存到一个定时队列中，让定时器线程去处理所有定时时间
 
+std::map<int,CRoleObj> mRoleList;
+
 //Epoll_Ku epoll_lei;              //声明一个epoll全局类
 
 txtlog log;                    //声明一个记录错误日志的全局类。
 
 timeku timelei;                //声明一个时间库类，专门管理所有的定时时间变化
 
-Epoll_Ku epoll_lei;			//声明一个epoll全局类

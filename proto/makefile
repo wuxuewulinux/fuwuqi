@@ -1,6 +1,10 @@
 
 #有多少个proto协议文件就要在这里增加一样的命令
-$(shell protoc --cpp_out=. msg.proto)
+$(shell rm *.pb.h *.pb.cc)
+$(shell rm ../dep/*.pb.d ../link_obj/*.pb.o)
+$(shell protoc --cpp_out=. CSmsg.proto)
+$(shell protoc --cpp_out=. DBmsg.proto)
+$(shell protoc --cpp_out=. SSmsg.proto)
 .PHONY:all
 SRCS = $(wildcard *.cc)
 OBJS = $(SRCS:.cc=.o)

@@ -3,11 +3,18 @@
 
   <server>
     <data>
-      <ip>192.168.136.128</ip>
+      <ip>192.168.146.129</ip>
       <port>5050</port>
     </data>
   </server>
-
+	
+	<mysqlserver>
+		<data>
+			<ip>192.168.146.129</ip>
+			<port>5060</port>
+		</data>
+	</mysqlserver>
+	
   <mysql>
     <data>
       <mysql_user>root</mysql_user>

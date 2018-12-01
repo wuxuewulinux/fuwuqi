@@ -24,6 +24,6 @@ $(BIN):$(LINK_OBJ)
 $(LINK_OBJ_DIR)/%.o:%.cpp
 	g++ -g -o $@ -c $(filter %.cpp,$^)
 $(DEP_DIR)/%.d:%.cpp 
-	gcc -MM $(filter %.cpp,$^) | sed 's,\(.*\).o[ :]*,$(LINK_OBJ_DIR)/\1.o $@:,g' > $@
+	g++ -MM $(filter %.cpp,$^) | sed 's,\(.*\).o[ :]*,$(LINK_OBJ_DIR)/\1.o $@:,g' > $@
 #clean:
 #	rm -f  $(BIN) $(OBJS) $(DEPS)

@@ -2,16 +2,30 @@
 #define _QUANJU_HPP_
 
 //该头文件定义存储日志线程所需要的准备资源
-
+//
 #include <pthread.h>
 #include <queue>
 #include <unistd.h>
 #include <iostream>
+#include <map>
 #include "readn.hpp"
-#include "epoll_ku.hpp"
 #include "txtlog.hpp"
 #include "timeku.hpp"
-#include "../proto/msg.pb.h"
+#include "../proto/CSmsg.pb.h"
+#include "RoleObj.hpp"
+
+//判断指针的宏函数
+#define HANDCHECH_P(a,b) \
+if (a == NULL)\
+{\
+	return b;\
+}\
+
+#define HANDCHECH_I(a,b) \
+	if (a < 0 )\
+{\
+	return b;\
+}\
 
 
 struct shuji
@@ -42,6 +56,7 @@ struct timeduilie       //定时器需要保存的结构体
 	int userid;
 };
 
+	extern char BUFF[200];
 
 	extern pthread_cond_t readcode;       //读数据条件变量的变量
 
@@ -75,16 +90,12 @@ struct timeduilie       //定时器需要保存的结构体
 
 	extern std::queue<struct timeduilie> timequeue;    //处理定时时间的结构保存到一个定时队列中，让定时器线程去处理所有定时时间
 
+	extern std::map<int,CRoleObj> mRoleList;	
+
 	extern txtlog log;                    //声明一个记录错误日志的全局类。
 
 	extern timeku timelei;                //声明一个时间库类，专门管理所有的定时时间变化
 
-	extern Epoll_Ku epoll_lei;			//声明一个epoll全局类
-
-
-
-
-
-
+	
 
 #endif

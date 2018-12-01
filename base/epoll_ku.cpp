@@ -4,12 +4,29 @@
 #include"quanju.hpp"
 using namespace std;
 
-void Epoll_Ku::Epoll_Creat()
-{
+Epoll_Ku *gs_Epoll = NULL;
 
-	EpollId=epoll_create1(EPOLL_CLOEXEC);
+Epoll_Ku * Epoll_Ku::Instance()
+{
+	if (NULL == gs_Epoll)
+	{
+		gs_Epoll = new Epoll_Ku();
+	}
+
+	return gs_Epoll;
+}
+
+
+int Epoll_Ku::Epoll_Creat()
+{
+	if((EpollId=epoll_create1(EPOLL_CLOEXEC)) < 0)
+	{
+		cout<<"Creat Epoll fail !"<<endl;
+		return -1;
+	}
 	nread=-1;
 	eventts.resize(100);
+	return 0;
 }
 
 
