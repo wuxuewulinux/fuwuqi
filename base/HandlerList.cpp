@@ -6,15 +6,8 @@ IHandler* CHandlerList::m_apCSHandler[CS_MSGID_SIZE];
 IHandler* CHandlerList::m_apSSHandler[SS_MSGID_SIZE];
 
 
-/*
-初始化你所有静态Handler类
-CLoginoutHandler	CHandlerList::m_oLoginoutHandler;
-CCardHandler		CHandlerList::m_oCardHandler;
-CGMHandler			CHandlerList::m_oGMHandler;
-
-*/
-RegisterLoginHandler CHandlerList::m_oRegisterLoginHandler;      //初始化登陆注册handler
-
+RegisterLoginHandler CHandlerList::m_oRegisterLoginHandler;					//初始化登陆注册handler
+CBagHandler CHandlerList::m_oBagHandler;									//初始化背包handler
 
 CHandlerList* gm_hand = NULL;
 
@@ -30,15 +23,8 @@ CHandlerList * CHandlerList::Instance()
 
 int CHandlerList::Init()  //把Handler压到m_apCSHandler数组中。
 {
-
-	/*
-	先屏蔽掉，CS_MSGID_LOGINOUT_REQ是CSmsg协议文件的CSMsgID枚举号，每有多少个模块就要按照这样去添加
-
-	RegisterHandler(CS_MSGID_LOGINOUT_REQ,		&m_oRegisterLoginHandler);
-	RegisterHandler(CS_MSGID_CARD_REQ,			&m_oCardHandler );
-	RegisterHandler(CS_MSGID_GM_REQ,			&m_oGMHandler );
-	*/
 	RegisterHandler(CS_MSGID_RegisterLogin,		&m_oRegisterLoginHandler);
+	RegisterHandler(CS_MSGID_BAG,		&m_oBagHandler);
 
 	return 0;
 }

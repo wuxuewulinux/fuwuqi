@@ -3,6 +3,7 @@
 
 #include "Handler.hpp"
 #include "RegisterLoginHandler.hpp"
+#include "BagHandler.hpp"
 
 #define HANDLERLIST CHandlerList::Instance()
 
@@ -29,14 +30,11 @@ private:
 	static IHandler* m_apSSHandler[SS_MSGID_SIZE];
 	
 
-
-	/*
 	//把你模块的Handler类添加到这里
-	static CLoginoutHandler 	m_oLoginoutHandler;  //CLoginoutHandler为模块Handler的类
-	static CCardHandler 		m_oCardHandler;
-	static CGMHandler 			m_oGMHandler;
-	*/
-	static RegisterLoginHandler m_oRegisterLoginHandler;    //登陆注册模块handler
+	
+	static RegisterLoginHandler m_oRegisterLoginHandler;					//登陆注册模块handler
+	static CBagHandler m_oBagHandler;										//背包模块handler
+
 };
 
 

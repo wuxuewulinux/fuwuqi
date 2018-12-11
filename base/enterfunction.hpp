@@ -10,8 +10,10 @@ void gateway();         //启动服务器。
 
 bool LogInit(std::string path);       //启动所有日志文件
 
-CRoleObj * GetRole(int Uid);
+CRoleObj * GetRole(uint64_t Uid);
 
-void PushRole(int Uid,CRoleObj* rRole);
+void PushRole(uint64_t Uid,CRoleObj* rRole);
+
+void DeleteRole(uint64_t Uid);
 
 #endif // !_ENTERFUNCTION_HPP_

@@ -1,14 +1,15 @@
 
 //注册登录模块为标准书写
 
-
-
+import "DBmsg.proto";	//引用要保存到数据库结构的proto文件，该文件保存大量的各个模块的数据结构
+///////////////////////////////////////////注册登录模块///////////////////////////////////////////////////////////
 enum CSRegisterLoginCmd
 {
 	//填写每个模块的子功能枚举ID号
 	
 	CSRegisterLoginCmd_Register = 1;  			//注册功能
 	CSRegisterLoginCmd_Login = 2;	  			//登录功能
+	CSRegisterLoginCmd_Quit = 3;				//退出游戏功能 (重点)退出有两种情况:1.一种是还没有登录角色进游戏，2.一种是已经登陆角色在游戏 . 如果还没有登录角色退出就要给UID赋值为 0传到传到服务器
 }
 
 message CSLoginReq								//登陆		
@@ -20,6 +21,7 @@ message CSLoginReq								//登陆
 message CSLoginRsp								//登陆		
 {
 	optional uint32 type = 1;					//返回：1表示账号和密码错误，2表示有人在登陆，3表示登陆成功
+	optional DBRoleInfo Role = 2;				//role结构体，该结构体是保存所有模块的结构体和基本人物属性信息
 }
 
 message CSRegisterReq								//注册 		
@@ -27,7 +29,6 @@ message CSRegisterReq								//注册
 	optional string account = 1; 				//账号
 	optional string password = 2;				//密码
 	optional string name = 3;					//名称
-	optional uint32 sex = 4;					//性别：1 表示男，2表示女
 }
 
 message CSRegisterRsp								//注册 		
@@ -35,6 +36,10 @@ message CSRegisterRsp								//注册
 	optional uint32 type = 1;					//返回：1表示账号已存在，2表示名称已存在，3表示注册成功
 }
 
+message CSQuitReq
+{
+	optional uint32 pad = 1;					//退出，不需要填，客户端填个0就可以
+}
 
 message CSRegisterLoginReqParam
 {
@@ -43,6 +48,7 @@ message CSRegisterLoginReqParam
  
 	optional CSLoginReq LoginReq = 1;
 	optional CSRegisterReq RegisterReq = 2;
+	optional CSQuitReq QuitReq = 3;
 }
 
 
@@ -69,6 +75,90 @@ message CSRegisterLoginRsp									//把模块所有结果或者数据整合起�
 	optional CSRegisterLoginRspParam rspParam = 3 ;  			//模块的所有子功能结构体数据都保存在该结果中
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////注册登录模块///////////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////背包模块/////////////////////////////////////////////////////////////////
+
+enum CSBagCmd
+{
+	//填写每个模块的子功能枚举ID号
+	
+	CSBagCmd_Fetch = 1;								//背包界面展现功能 
+	CSBagCmd_Use = 2;								//背包物品使用功能		  				
+}
+
+message CSBagFetchReq
+{
+	optional uint32 pad = 1 ; 						//填充字段，不需要填.客户端填0就可以了
+}
+
+message CSBagGridInfo
+{
+	optional uint32	ItemId = 1; 					//物品ID
+	optional uint32 Num = 2; 						//物品数量
+}
+
+message CSBagBagInfo
+{
+	repeated CSBagGridInfo GridInfo = 1; 			//物品
+}
+
+message CSBagFetchRsp
+{
+	optional CSBagBagInfo BagInfo = 1; 				// 背包
+}
+
+message CSBagUseReq									//物品使用功能
+{
+	optional uint32 ItemId = 1; 					//使用的物品ID
+	optional uint32 ItemNum = 2; 					//使用的物品数量
+	optional uint32 PickedId = 3; 					//针对特殊宝箱 选择的ID，该字段留给以后的特殊物品使用会用到。
+}
+
+message CSItemInfo
+{
+	optional int32 ID = 1;  						//物品ID，包括 金币， 石头等资源类
+	optional int32 num  = 2; 						// 物品数量
+}
+
+message CSItemInfoList
+{
+	repeated CSItemInfo ItemInfo = 1;  
+}
+
+message CSBagUseRsp									//物品使用功能
+{
+	optional CSItemInfoList ItemInfoList = 1; 		// 返回背包列表
+}
+
+message CSBagReqParam
+{
+	optional CSBagFetchReq FetchReq = 1 ;
+	optional CSBagUseReq UseReq = 2;
+}
+
+message CSBagRspParam
+{
+	optional CSBagFetchRsp FetchRsp = 1 ;
+	optional CSBagUseRsp UseRsp = 2;
+}
+
+message CSBagReq
+{
+	required CSBagCmd cmd = 1 ;
+	optional CSBagReqParam reqParam = 2;
+}
+
+message CSBagRsp
+{
+	optional int32 result = 1 ;								
+	required CSBagCmd cmd = 2 ;
+	optional CSBagRspParam  rspParam = 3 ;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////背包模块///////////////////////////////////////////////////////////////////
 
 enum CSMsgID
 {
@@ -78,9 +168,11 @@ enum CSMsgID
 	
 	CS_MSGID_RegisterLogin = 1; 							//注册登录模块的模块ID号
 	
+	CS_MSGID_BAG = 2;										//背包模块
+	
 	//如果还有别的模块就这里进行扩展
 	
-	CS_MSGID_MAX = 2;
+	CS_MSGID_MAX = 3;
 }
 
 
@@ -90,6 +182,9 @@ message CSMsgBody
 	
 	optional CSRegisterLoginReq RegisterLoginReq = 1;
 	optional CSRegisterLoginRsp RegisterLoginRsp = 2;
+	
+	optional CSBagReq BagReq = 3;
+	optional CSBagRsp BagRsp = 4;
 }
 
 

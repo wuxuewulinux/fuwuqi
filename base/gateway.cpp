@@ -27,7 +27,7 @@ if(!LogInit("/home/wuxuewu/fuwuqi/"))
 return;
 }
 //初始化记录错误信息的日志
-if(!log.Init("/home/wuxuewu/fuwuqi/log/error.txt"))
+if(!MYLOG.Init("/home/wuxuewu/fuwuqi/log/error.txt"))
 {
 std::cout<<"error log create fail !"<<std::endl;
 return;

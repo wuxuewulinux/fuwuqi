@@ -12,21 +12,39 @@
 
 //ST2PB表示把数据存到数据库的操作，PB2ST表示从数据库取数据出来
 
-/*
-typedef struct tagDBTreasureInfo  //该结构体保存在模块类中
+//背包模块保存的数据
+
+const int DB_MAX_BAG_GRID_NUM = 100;			//最多只有100种物品
+
+typedef struct tagDBBagGrid
 {
-TDBTreasureList m_stTreasureList; // TreasureList
-uint32_t m_uiLastFreeTime; // LastFreeTime
-uint32_t m_uiLastAstrologyTime; // LastAstrologyTime
-uint32_t m_uiDailyAstrologyTimes; // DailyAstrologyTimes
-uint32_t m_uiTotalAstrologyTimes; // TotalAstrologyTimes
-uint8_t m_ucHadDrop200; // HadDrop200
+	uint32_t m_uiID; // Item ID
+	uint32_t m_uiNum; // Item Num
 
-int ST2PB(DBTreasureInfo& msg);            
-int PB2ST(const DBTreasureInfo& msg);
-} TDBTreasureInfo;
-*/
+	int ST2PB(DBBagGrid& msg);
+	int PB2ST(const DBBagGrid& msg);
+	static int Compare(const void* p1, const void* p2);
+} TDBBagGrid;
 
+typedef struct tagDBBagGridList
+{
+	int16_t m_nGridsRef; // Grids's ref
+	TDBBagGrid m_astGrids[DB_MAX_BAG_GRID_NUM]; // Grids
+
+	int ST2PB(DBBagGridList& msg);
+	int PB2ST(const DBBagGridList& msg);
+} TDBBagGridList;
+
+typedef struct tagDBBagInfo
+{
+	TDBBagGridList m_stGridList; // CridList
+
+	int ST2PB(DBBagInfo& msg);
+	int PB2ST(const DBBagInfo& msg);
+} TDBBagInfo;
+
+
+//背包模块保存的数据
 
 
 #endif // !_DATASTORE_HPP_

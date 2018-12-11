@@ -13,7 +13,7 @@ void SendClient(int userio,CSMsg * test)
 	if (!test->SerializeToArray(buff,len)) 
 	{ 
 		std::cout << "序列化数据失败" << std::endl; 
-	    log.printflog("序列化数据失败！"); 
+	    MYLOG.printflog("序列化数据失败！"); 
 		return;
 	}
 
@@ -49,7 +49,7 @@ void SendServer(int userio,SSMsg * test)
 	if (!test->SerializeToArray(buff,len)) 
 	{ 
 		std::cout << "序列化数据失败" << std::endl; 
-		log.printflog("序列化数据失败！"); 
+		MYLOG.printflog("序列化数据失败！"); 
 		return;
 	}
 	//开始把该数据送往发送线程去处理发送数据
@@ -123,7 +123,7 @@ void errorsend(int userio,int error)
 	if (!test.SerializeToArray(buff,len)) 
 	{ 
 		std::cout << "序列化数据失败" << std::endl; 
-	    log.printflog("序列化数据失败！"); 
+	    MYLOG.printflog("序列化数据失败！"); 
 		return;
 	}
 

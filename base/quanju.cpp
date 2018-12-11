@@ -38,7 +38,7 @@ std::map<int,CRoleObj> mRoleList;
 
 //Epoll_Ku epoll_lei;              //声明一个epoll全局类
 
-txtlog log;                    //声明一个记录错误日志的全局类。
+txtlog MYLOG;                    //声明一个记录错误日志的全局类。
 
 timeku timelei;                //声明一个时间库类，专门管理所有的定时时间变化
 

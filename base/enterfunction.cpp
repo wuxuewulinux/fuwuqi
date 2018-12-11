@@ -1,7 +1,7 @@
 
 #include "enterfunction.hpp"
 
-CRoleObj * GetRole(int Uid)
+CRoleObj * GetRole(uint64_t Uid)
 {
 	std::map<int, CRoleObj>::iterator iter = mRoleList.find(Uid);
 	if (mRoleList.end() != iter)
@@ -12,7 +12,7 @@ CRoleObj * GetRole(int Uid)
 	return  NULL;
 }
 
-void PushRole(int Uid,CRoleObj* rRole)
+void PushRole(uint64_t Uid,CRoleObj* rRole)
 {
 	if (rRole)
 	{
@@ -20,4 +20,9 @@ void PushRole(int Uid,CRoleObj* rRole)
 	}
 
 	return;
+}
+
+void DeleteRole(uint64_t Uid)
+{
+	mRoleList.erase(Uid);
 }

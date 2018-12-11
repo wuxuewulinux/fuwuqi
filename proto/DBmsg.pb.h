@@ -31,9 +31,273 @@ void  protobuf_AddDesc_DBmsg_2eproto();
 void protobuf_AssignDesc_DBmsg_2eproto();
 void protobuf_ShutdownFile_DBmsg_2eproto();
 
+class DBBagGrid;
+class DBBagGridList;
+class DBBagInfo;
 class DBRoleInfo;
 
 // ===================================================================
+
+class DBBagGrid : public ::google::protobuf::Message {
+ public:
+  DBBagGrid();
+  virtual ~DBBagGrid();
+
+  DBBagGrid(const DBBagGrid& from);
+
+  inline DBBagGrid& operator=(const DBBagGrid& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DBBagGrid& default_instance();
+
+  void Swap(DBBagGrid* other);
+
+  // implements Message ----------------------------------------------
+
+  DBBagGrid* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DBBagGrid& from);
+  void MergeFrom(const DBBagGrid& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 ID = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIDFieldNumber = 1;
+  inline ::google::protobuf::uint32 id() const;
+  inline void set_id(::google::protobuf::uint32 value);
+
+  // optional uint32 Num = 2;
+  inline bool has_num() const;
+  inline void clear_num();
+  static const int kNumFieldNumber = 2;
+  inline ::google::protobuf::uint32 num() const;
+  inline void set_num(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:DBBagGrid)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_num();
+  inline void clear_has_num();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 id_;
+  ::google::protobuf::uint32 num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBmsg_2eproto();
+  friend void protobuf_AssignDesc_DBmsg_2eproto();
+  friend void protobuf_ShutdownFile_DBmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static DBBagGrid* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DBBagGridList : public ::google::protobuf::Message {
+ public:
+  DBBagGridList();
+  virtual ~DBBagGridList();
+
+  DBBagGridList(const DBBagGridList& from);
+
+  inline DBBagGridList& operator=(const DBBagGridList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DBBagGridList& default_instance();
+
+  void Swap(DBBagGridList* other);
+
+  // implements Message ----------------------------------------------
+
+  DBBagGridList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DBBagGridList& from);
+  void MergeFrom(const DBBagGridList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .DBBagGrid Grids = 1;
+  inline int grids_size() const;
+  inline void clear_grids();
+  static const int kGridsFieldNumber = 1;
+  inline const ::DBBagGrid& grids(int index) const;
+  inline ::DBBagGrid* mutable_grids(int index);
+  inline ::DBBagGrid* add_grids();
+  inline const ::google::protobuf::RepeatedPtrField< ::DBBagGrid >&
+      grids() const;
+  inline ::google::protobuf::RepeatedPtrField< ::DBBagGrid >*
+      mutable_grids();
+
+  // @@protoc_insertion_point(class_scope:DBBagGridList)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::DBBagGrid > grids_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBmsg_2eproto();
+  friend void protobuf_AssignDesc_DBmsg_2eproto();
+  friend void protobuf_ShutdownFile_DBmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static DBBagGridList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DBBagInfo : public ::google::protobuf::Message {
+ public:
+  DBBagInfo();
+  virtual ~DBBagInfo();
+
+  DBBagInfo(const DBBagInfo& from);
+
+  inline DBBagInfo& operator=(const DBBagInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DBBagInfo& default_instance();
+
+  void Swap(DBBagInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  DBBagInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DBBagInfo& from);
+  void MergeFrom(const DBBagInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .DBBagGridList GridList = 1;
+  inline bool has_gridlist() const;
+  inline void clear_gridlist();
+  static const int kGridListFieldNumber = 1;
+  inline const ::DBBagGridList& gridlist() const;
+  inline ::DBBagGridList* mutable_gridlist();
+  inline ::DBBagGridList* release_gridlist();
+  inline void set_allocated_gridlist(::DBBagGridList* gridlist);
+
+  // @@protoc_insertion_point(class_scope:DBBagInfo)
+ private:
+  inline void set_has_gridlist();
+  inline void clear_has_gridlist();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::DBBagGridList* gridlist_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBmsg_2eproto();
+  friend void protobuf_AssignDesc_DBmsg_2eproto();
+  friend void protobuf_ShutdownFile_DBmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static DBBagInfo* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class DBRoleInfo : public ::google::protobuf::Message {
  public:
@@ -108,20 +372,72 @@ class DBRoleInfo : public ::google::protobuf::Message {
   inline ::std::string* release_name();
   inline void set_allocated_name(::std::string* name);
 
+  // optional uint32 Level = 3;
+  inline bool has_level() const;
+  inline void clear_level();
+  static const int kLevelFieldNumber = 3;
+  inline ::google::protobuf::uint32 level() const;
+  inline void set_level(::google::protobuf::uint32 value);
+
+  // optional uint32 Rank = 4;
+  inline bool has_rank() const;
+  inline void clear_rank();
+  static const int kRankFieldNumber = 4;
+  inline ::google::protobuf::uint32 rank() const;
+  inline void set_rank(::google::protobuf::uint32 value);
+
+  // optional uint32 LevelExper = 5;
+  inline bool has_levelexper() const;
+  inline void clear_levelexper();
+  static const int kLevelExperFieldNumber = 5;
+  inline ::google::protobuf::uint32 levelexper() const;
+  inline void set_levelexper(::google::protobuf::uint32 value);
+
+  // optional uint32 RankExper = 6;
+  inline bool has_rankexper() const;
+  inline void clear_rankexper();
+  static const int kRankExperFieldNumber = 6;
+  inline ::google::protobuf::uint32 rankexper() const;
+  inline void set_rankexper(::google::protobuf::uint32 value);
+
+  // optional .DBBagInfo BagInfo = 7;
+  inline bool has_baginfo() const;
+  inline void clear_baginfo();
+  static const int kBagInfoFieldNumber = 7;
+  inline const ::DBBagInfo& baginfo() const;
+  inline ::DBBagInfo* mutable_baginfo();
+  inline ::DBBagInfo* release_baginfo();
+  inline void set_allocated_baginfo(::DBBagInfo* baginfo);
+
   // @@protoc_insertion_point(class_scope:DBRoleInfo)
  private:
   inline void set_has_uid();
   inline void clear_has_uid();
   inline void set_has_name();
   inline void clear_has_name();
+  inline void set_has_level();
+  inline void clear_has_level();
+  inline void set_has_rank();
+  inline void clear_has_rank();
+  inline void set_has_levelexper();
+  inline void clear_has_levelexper();
+  inline void set_has_rankexper();
+  inline void clear_has_rankexper();
+  inline void set_has_baginfo();
+  inline void clear_has_baginfo();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 uid_;
   ::std::string* name_;
+  ::google::protobuf::uint32 level_;
+  ::google::protobuf::uint32 rank_;
+  ::google::protobuf::uint32 levelexper_;
+  ::google::protobuf::uint32 rankexper_;
+  ::DBBagInfo* baginfo_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBmsg_2eproto();
   friend void protobuf_AssignDesc_DBmsg_2eproto();
@@ -134,6 +450,125 @@ class DBRoleInfo : public ::google::protobuf::Message {
 
 
 // ===================================================================
+
+// DBBagGrid
+
+// optional uint32 ID = 1;
+inline bool DBBagGrid::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DBBagGrid::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DBBagGrid::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DBBagGrid::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+inline ::google::protobuf::uint32 DBBagGrid::id() const {
+  return id_;
+}
+inline void DBBagGrid::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional uint32 Num = 2;
+inline bool DBBagGrid::has_num() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DBBagGrid::set_has_num() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DBBagGrid::clear_has_num() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DBBagGrid::clear_num() {
+  num_ = 0u;
+  clear_has_num();
+}
+inline ::google::protobuf::uint32 DBBagGrid::num() const {
+  return num_;
+}
+inline void DBBagGrid::set_num(::google::protobuf::uint32 value) {
+  set_has_num();
+  num_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DBBagGridList
+
+// repeated .DBBagGrid Grids = 1;
+inline int DBBagGridList::grids_size() const {
+  return grids_.size();
+}
+inline void DBBagGridList::clear_grids() {
+  grids_.Clear();
+}
+inline const ::DBBagGrid& DBBagGridList::grids(int index) const {
+  return grids_.Get(index);
+}
+inline ::DBBagGrid* DBBagGridList::mutable_grids(int index) {
+  return grids_.Mutable(index);
+}
+inline ::DBBagGrid* DBBagGridList::add_grids() {
+  return grids_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::DBBagGrid >&
+DBBagGridList::grids() const {
+  return grids_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::DBBagGrid >*
+DBBagGridList::mutable_grids() {
+  return &grids_;
+}
+
+// -------------------------------------------------------------------
+
+// DBBagInfo
+
+// optional .DBBagGridList GridList = 1;
+inline bool DBBagInfo::has_gridlist() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DBBagInfo::set_has_gridlist() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DBBagInfo::clear_has_gridlist() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DBBagInfo::clear_gridlist() {
+  if (gridlist_ != NULL) gridlist_->::DBBagGridList::Clear();
+  clear_has_gridlist();
+}
+inline const ::DBBagGridList& DBBagInfo::gridlist() const {
+  return gridlist_ != NULL ? *gridlist_ : *default_instance_->gridlist_;
+}
+inline ::DBBagGridList* DBBagInfo::mutable_gridlist() {
+  set_has_gridlist();
+  if (gridlist_ == NULL) gridlist_ = new ::DBBagGridList;
+  return gridlist_;
+}
+inline ::DBBagGridList* DBBagInfo::release_gridlist() {
+  clear_has_gridlist();
+  ::DBBagGridList* temp = gridlist_;
+  gridlist_ = NULL;
+  return temp;
+}
+inline void DBBagInfo::set_allocated_gridlist(::DBBagGridList* gridlist) {
+  delete gridlist_;
+  gridlist_ = gridlist;
+  if (gridlist) {
+    set_has_gridlist();
+  } else {
+    clear_has_gridlist();
+  }
+}
+
+// -------------------------------------------------------------------
 
 // DBRoleInfo
 
@@ -226,6 +661,132 @@ inline void DBRoleInfo::set_allocated_name(::std::string* name) {
   } else {
     clear_has_name();
     name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 Level = 3;
+inline bool DBRoleInfo::has_level() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void DBRoleInfo::set_has_level() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void DBRoleInfo::clear_has_level() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void DBRoleInfo::clear_level() {
+  level_ = 0u;
+  clear_has_level();
+}
+inline ::google::protobuf::uint32 DBRoleInfo::level() const {
+  return level_;
+}
+inline void DBRoleInfo::set_level(::google::protobuf::uint32 value) {
+  set_has_level();
+  level_ = value;
+}
+
+// optional uint32 Rank = 4;
+inline bool DBRoleInfo::has_rank() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void DBRoleInfo::set_has_rank() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void DBRoleInfo::clear_has_rank() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void DBRoleInfo::clear_rank() {
+  rank_ = 0u;
+  clear_has_rank();
+}
+inline ::google::protobuf::uint32 DBRoleInfo::rank() const {
+  return rank_;
+}
+inline void DBRoleInfo::set_rank(::google::protobuf::uint32 value) {
+  set_has_rank();
+  rank_ = value;
+}
+
+// optional uint32 LevelExper = 5;
+inline bool DBRoleInfo::has_levelexper() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void DBRoleInfo::set_has_levelexper() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void DBRoleInfo::clear_has_levelexper() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void DBRoleInfo::clear_levelexper() {
+  levelexper_ = 0u;
+  clear_has_levelexper();
+}
+inline ::google::protobuf::uint32 DBRoleInfo::levelexper() const {
+  return levelexper_;
+}
+inline void DBRoleInfo::set_levelexper(::google::protobuf::uint32 value) {
+  set_has_levelexper();
+  levelexper_ = value;
+}
+
+// optional uint32 RankExper = 6;
+inline bool DBRoleInfo::has_rankexper() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void DBRoleInfo::set_has_rankexper() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void DBRoleInfo::clear_has_rankexper() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void DBRoleInfo::clear_rankexper() {
+  rankexper_ = 0u;
+  clear_has_rankexper();
+}
+inline ::google::protobuf::uint32 DBRoleInfo::rankexper() const {
+  return rankexper_;
+}
+inline void DBRoleInfo::set_rankexper(::google::protobuf::uint32 value) {
+  set_has_rankexper();
+  rankexper_ = value;
+}
+
+// optional .DBBagInfo BagInfo = 7;
+inline bool DBRoleInfo::has_baginfo() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void DBRoleInfo::set_has_baginfo() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void DBRoleInfo::clear_has_baginfo() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void DBRoleInfo::clear_baginfo() {
+  if (baginfo_ != NULL) baginfo_->::DBBagInfo::Clear();
+  clear_has_baginfo();
+}
+inline const ::DBBagInfo& DBRoleInfo::baginfo() const {
+  return baginfo_ != NULL ? *baginfo_ : *default_instance_->baginfo_;
+}
+inline ::DBBagInfo* DBRoleInfo::mutable_baginfo() {
+  set_has_baginfo();
+  if (baginfo_ == NULL) baginfo_ = new ::DBBagInfo;
+  return baginfo_;
+}
+inline ::DBBagInfo* DBRoleInfo::release_baginfo() {
+  clear_has_baginfo();
+  ::DBBagInfo* temp = baginfo_;
+  baginfo_ = NULL;
+  return temp;
+}
+inline void DBRoleInfo::set_allocated_baginfo(::DBBagInfo* baginfo) {
+  delete baginfo_;
+  baginfo_ = baginfo;
+  if (baginfo) {
+    set_has_baginfo();
+  } else {
+    clear_has_baginfo();
   }
 }
 

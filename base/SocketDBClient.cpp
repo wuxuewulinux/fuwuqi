@@ -48,3 +48,14 @@ int SocketDBClient::ConnectDB()
 	}
 	return 0;
 }
+
+
+int SocketDBClient::GetMapIo(int Key)
+{
+map<int, int>::const_iterator iter = rMap.find(Key);
+if (rMap.end() != iter)
+{
+	return iter->second;
+}	
+return -1;
+}

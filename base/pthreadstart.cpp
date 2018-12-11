@@ -4,6 +4,7 @@
 #include <errno.h>
 #include "HandlerList.hpp"
 #include "SocketDBClient.hpp"
+#include "epoll_ku.hpp"
 
 const int MAX_BUFF=255;                  //设置数据包的最大范围
 
@@ -30,17 +31,17 @@ void * readxiancheng(void *canshu)
 			ret=readline(sockio,&agemess.mess,MAX_BUFF);     //开始对该IO的数据进行读取
 			if(ret == -2)
 			{      
-				std::cout<<"接收到错误的消息包!"<<std::endl;
-				log.printflog("接收到错误的消息包!");
+				std::cout<<"read error message!"<<std::endl;
+				MYLOG.printflog("接收到错误的消息包!");
 
 				//如果数据发生错误，就需要对该IO进行处理
 
 			}
 			if(ret == -1)
 			{
-				std::cout<<"客户端退出"<<std::endl;
+				EPOLLKU->Epoll_ShanChu(sockio);
+				std::cout<<"Client Quit !"<<std::endl;
 				//如果收到客户端退出，就需要对该IO进行处理
-
 			}	
 			if(ret > 0 && messageduilie.empty() )                 //证明有一个完整包了 
 			{
@@ -60,7 +61,7 @@ void * readxiancheng(void *canshu)
 		}
 
 	}
-
+	return NULL;
 }
 
 
@@ -75,8 +76,8 @@ void ChuLiAgemessClient(struct message * message,int * io)
 
 	if (!mess_ti.ParseFromArray(message->buff, message->len))
 	{
-		std::cout << "反序列失败！" << std::endl;
-		log.printflog("反序列失败！");     
+		std::cout << " Deserialization ChuLiAgemessClient Fali ！" << std::endl;
+		MYLOG.printflog("反序列失败！");     
 		return;
 	}
 	//获取模块入口
@@ -98,8 +99,8 @@ void ChuLiAgemessServer(struct message * message,int * io)
 
 	if (!mess_ti.ParseFromArray(message->buff, message->len))
 	{
-		std::cout << "反序列失败！" << std::endl;
-		log.printflog("反序列失败！");     
+		std::cout << "Deserialization ChuLiAgemessServer Fali ！！" << std::endl;
+		MYLOG.printflog("反序列失败！");     
 		return;
 	}
 	if (SS_MSGID_MIN < mess_ti.head().msgid() && mess_ti.head().msgid() < SS_MSGID_MAX)
@@ -138,7 +139,7 @@ void * chulimessage(void *canshu)
 
 	}
 
-
+	return NULL;
 }
 
 
@@ -168,7 +169,7 @@ void * writexiancheng(void *canshu)
 		}	
 
 	}
-
+	return NULL;
 }
 
 
@@ -225,7 +226,7 @@ void * timexiancheng(void * canshu) //定时器执行线程
 				node = timelei.bianli();
 		}
 	}
-
+	return NULL;
 } 
 
 
@@ -241,7 +242,7 @@ int ret=pthread_create(&readpthread,NULL,readxiancheng,NULL);   //创建一个线程
 if(ret != 0)
 {
 std::cout<<"create read pthread fail!"<<std::endl;
-log.printflog("create read pthread fail!");
+MYLOG.printflog("create read pthread fail!");
 return -1;
 }
 
@@ -252,7 +253,7 @@ ret=pthread_create(&chulipthread,NULL,chulimessage,NULL);   //创建一个线程
 if(ret != 0)
 {
 std::cout<<"create work  pthread fail!"<<std::endl;
-log.printflog("create work  pthread fail!");
+MYLOG.printflog("create work  pthread fail!");
 return -1;
 }
 
@@ -263,7 +264,7 @@ ret=pthread_create(&writepthread,NULL,writexiancheng,NULL);   //创建一个线程
 if(ret != 0)
 {
 std::cout<<"create write  pthread fail!"<<std::endl;
-log.printflog("create write  pthread fail!");
+MYLOG.printflog("create write  pthread fail!");
 return -1;
 }
 
@@ -275,7 +276,7 @@ ret=pthread_create(&timepthread,NULL,timexiancheng,NULL);   //创建一个线程
 if(ret != 0)
 {
 std::cout<<"create time  pthread fail!"<<std::endl;
-log.printflog("create time  pthread fail!");
+MYLOG.printflog("create time  pthread fail!");
 return -1;
 }
 
