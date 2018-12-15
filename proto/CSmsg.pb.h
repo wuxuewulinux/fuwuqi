@@ -54,6 +54,14 @@ class CSBagReqParam;
 class CSBagRspParam;
 class CSBagReq;
 class CSBagRsp;
+class CSDecorateBagFetchReq;
+class CSDecorateBagGridInfo;
+class CSDecorateBagInfo;
+class CSDecorateBagFetchRsp;
+class CSDecorateBagReqParam;
+class CSDecorateBagRspParam;
+class CSDecorateBagReq;
+class CSDecorateBagRsp;
 class CSMsgBody;
 class CSMsgHead;
 class CSMsg;
@@ -97,11 +105,30 @@ inline bool CSBagCmd_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<CSBagCmd>(
     CSBagCmd_descriptor(), name, value);
 }
+enum CSDecorateBagCmd {
+  CSDecorateBagCmd_Fetch = 1
+};
+bool CSDecorateBagCmd_IsValid(int value);
+const CSDecorateBagCmd CSDecorateBagCmd_MIN = CSDecorateBagCmd_Fetch;
+const CSDecorateBagCmd CSDecorateBagCmd_MAX = CSDecorateBagCmd_Fetch;
+const int CSDecorateBagCmd_ARRAYSIZE = CSDecorateBagCmd_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* CSDecorateBagCmd_descriptor();
+inline const ::std::string& CSDecorateBagCmd_Name(CSDecorateBagCmd value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    CSDecorateBagCmd_descriptor(), value);
+}
+inline bool CSDecorateBagCmd_Parse(
+    const ::std::string& name, CSDecorateBagCmd* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<CSDecorateBagCmd>(
+    CSDecorateBagCmd_descriptor(), name, value);
+}
 enum CSMsgID {
   CS_MSGID_MIN = 0,
   CS_MSGID_RegisterLogin = 1,
   CS_MSGID_BAG = 2,
-  CS_MSGID_MAX = 3
+  CS_MSGID_DecorateBAG = 3,
+  CS_MSGID_MAX = 4
 };
 bool CSMsgID_IsValid(int value);
 const CSMsgID CSMsgID_MIN = CS_MSGID_MIN;
@@ -2095,6 +2122,735 @@ class CSBagRsp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class CSDecorateBagFetchReq : public ::google::protobuf::Message {
+ public:
+  CSDecorateBagFetchReq();
+  virtual ~CSDecorateBagFetchReq();
+
+  CSDecorateBagFetchReq(const CSDecorateBagFetchReq& from);
+
+  inline CSDecorateBagFetchReq& operator=(const CSDecorateBagFetchReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSDecorateBagFetchReq& default_instance();
+
+  void Swap(CSDecorateBagFetchReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSDecorateBagFetchReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSDecorateBagFetchReq& from);
+  void MergeFrom(const CSDecorateBagFetchReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::google::protobuf::uint32 type() const;
+  inline void set_type(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:CSDecorateBagFetchReq)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSDecorateBagFetchReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSDecorateBagGridInfo : public ::google::protobuf::Message {
+ public:
+  CSDecorateBagGridInfo();
+  virtual ~CSDecorateBagGridInfo();
+
+  CSDecorateBagGridInfo(const CSDecorateBagGridInfo& from);
+
+  inline CSDecorateBagGridInfo& operator=(const CSDecorateBagGridInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSDecorateBagGridInfo& default_instance();
+
+  void Swap(CSDecorateBagGridInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  CSDecorateBagGridInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSDecorateBagGridInfo& from);
+  void MergeFrom(const CSDecorateBagGridInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 ItemId = 1;
+  inline bool has_itemid() const;
+  inline void clear_itemid();
+  static const int kItemIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 itemid() const;
+  inline void set_itemid(::google::protobuf::uint32 value);
+
+  // optional uint32 type = 2;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 2;
+  inline ::google::protobuf::uint32 type() const;
+  inline void set_type(::google::protobuf::uint32 value);
+
+  // optional uint64 EndTime = 3;
+  inline bool has_endtime() const;
+  inline void clear_endtime();
+  static const int kEndTimeFieldNumber = 3;
+  inline ::google::protobuf::uint64 endtime() const;
+  inline void set_endtime(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:CSDecorateBagGridInfo)
+ private:
+  inline void set_has_itemid();
+  inline void clear_has_itemid();
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_endtime();
+  inline void clear_has_endtime();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 itemid_;
+  ::google::protobuf::uint32 type_;
+  ::google::protobuf::uint64 endtime_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSDecorateBagGridInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSDecorateBagInfo : public ::google::protobuf::Message {
+ public:
+  CSDecorateBagInfo();
+  virtual ~CSDecorateBagInfo();
+
+  CSDecorateBagInfo(const CSDecorateBagInfo& from);
+
+  inline CSDecorateBagInfo& operator=(const CSDecorateBagInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSDecorateBagInfo& default_instance();
+
+  void Swap(CSDecorateBagInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  CSDecorateBagInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSDecorateBagInfo& from);
+  void MergeFrom(const CSDecorateBagInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .CSDecorateBagGridInfo DecorateGridInfo = 1;
+  inline int decorategridinfo_size() const;
+  inline void clear_decorategridinfo();
+  static const int kDecorateGridInfoFieldNumber = 1;
+  inline const ::CSDecorateBagGridInfo& decorategridinfo(int index) const;
+  inline ::CSDecorateBagGridInfo* mutable_decorategridinfo(int index);
+  inline ::CSDecorateBagGridInfo* add_decorategridinfo();
+  inline const ::google::protobuf::RepeatedPtrField< ::CSDecorateBagGridInfo >&
+      decorategridinfo() const;
+  inline ::google::protobuf::RepeatedPtrField< ::CSDecorateBagGridInfo >*
+      mutable_decorategridinfo();
+
+  // @@protoc_insertion_point(class_scope:CSDecorateBagInfo)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::CSDecorateBagGridInfo > decorategridinfo_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSDecorateBagInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSDecorateBagFetchRsp : public ::google::protobuf::Message {
+ public:
+  CSDecorateBagFetchRsp();
+  virtual ~CSDecorateBagFetchRsp();
+
+  CSDecorateBagFetchRsp(const CSDecorateBagFetchRsp& from);
+
+  inline CSDecorateBagFetchRsp& operator=(const CSDecorateBagFetchRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSDecorateBagFetchRsp& default_instance();
+
+  void Swap(CSDecorateBagFetchRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSDecorateBagFetchRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSDecorateBagFetchRsp& from);
+  void MergeFrom(const CSDecorateBagFetchRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::google::protobuf::uint32 type() const;
+  inline void set_type(::google::protobuf::uint32 value);
+
+  // optional .CSDecorateBagInfo DecorateBagInfo = 2;
+  inline bool has_decoratebaginfo() const;
+  inline void clear_decoratebaginfo();
+  static const int kDecorateBagInfoFieldNumber = 2;
+  inline const ::CSDecorateBagInfo& decoratebaginfo() const;
+  inline ::CSDecorateBagInfo* mutable_decoratebaginfo();
+  inline ::CSDecorateBagInfo* release_decoratebaginfo();
+  inline void set_allocated_decoratebaginfo(::CSDecorateBagInfo* decoratebaginfo);
+
+  // @@protoc_insertion_point(class_scope:CSDecorateBagFetchRsp)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_decoratebaginfo();
+  inline void clear_has_decoratebaginfo();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::CSDecorateBagInfo* decoratebaginfo_;
+  ::google::protobuf::uint32 type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSDecorateBagFetchRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSDecorateBagReqParam : public ::google::protobuf::Message {
+ public:
+  CSDecorateBagReqParam();
+  virtual ~CSDecorateBagReqParam();
+
+  CSDecorateBagReqParam(const CSDecorateBagReqParam& from);
+
+  inline CSDecorateBagReqParam& operator=(const CSDecorateBagReqParam& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSDecorateBagReqParam& default_instance();
+
+  void Swap(CSDecorateBagReqParam* other);
+
+  // implements Message ----------------------------------------------
+
+  CSDecorateBagReqParam* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSDecorateBagReqParam& from);
+  void MergeFrom(const CSDecorateBagReqParam& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .CSDecorateBagFetchReq FetchReq = 1;
+  inline bool has_fetchreq() const;
+  inline void clear_fetchreq();
+  static const int kFetchReqFieldNumber = 1;
+  inline const ::CSDecorateBagFetchReq& fetchreq() const;
+  inline ::CSDecorateBagFetchReq* mutable_fetchreq();
+  inline ::CSDecorateBagFetchReq* release_fetchreq();
+  inline void set_allocated_fetchreq(::CSDecorateBagFetchReq* fetchreq);
+
+  // @@protoc_insertion_point(class_scope:CSDecorateBagReqParam)
+ private:
+  inline void set_has_fetchreq();
+  inline void clear_has_fetchreq();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::CSDecorateBagFetchReq* fetchreq_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSDecorateBagReqParam* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSDecorateBagRspParam : public ::google::protobuf::Message {
+ public:
+  CSDecorateBagRspParam();
+  virtual ~CSDecorateBagRspParam();
+
+  CSDecorateBagRspParam(const CSDecorateBagRspParam& from);
+
+  inline CSDecorateBagRspParam& operator=(const CSDecorateBagRspParam& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSDecorateBagRspParam& default_instance();
+
+  void Swap(CSDecorateBagRspParam* other);
+
+  // implements Message ----------------------------------------------
+
+  CSDecorateBagRspParam* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSDecorateBagRspParam& from);
+  void MergeFrom(const CSDecorateBagRspParam& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .CSDecorateBagFetchRsp FetchRsp = 1;
+  inline bool has_fetchrsp() const;
+  inline void clear_fetchrsp();
+  static const int kFetchRspFieldNumber = 1;
+  inline const ::CSDecorateBagFetchRsp& fetchrsp() const;
+  inline ::CSDecorateBagFetchRsp* mutable_fetchrsp();
+  inline ::CSDecorateBagFetchRsp* release_fetchrsp();
+  inline void set_allocated_fetchrsp(::CSDecorateBagFetchRsp* fetchrsp);
+
+  // @@protoc_insertion_point(class_scope:CSDecorateBagRspParam)
+ private:
+  inline void set_has_fetchrsp();
+  inline void clear_has_fetchrsp();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::CSDecorateBagFetchRsp* fetchrsp_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSDecorateBagRspParam* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSDecorateBagReq : public ::google::protobuf::Message {
+ public:
+  CSDecorateBagReq();
+  virtual ~CSDecorateBagReq();
+
+  CSDecorateBagReq(const CSDecorateBagReq& from);
+
+  inline CSDecorateBagReq& operator=(const CSDecorateBagReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSDecorateBagReq& default_instance();
+
+  void Swap(CSDecorateBagReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSDecorateBagReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSDecorateBagReq& from);
+  void MergeFrom(const CSDecorateBagReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .CSDecorateBagCmd cmd = 1;
+  inline bool has_cmd() const;
+  inline void clear_cmd();
+  static const int kCmdFieldNumber = 1;
+  inline ::CSDecorateBagCmd cmd() const;
+  inline void set_cmd(::CSDecorateBagCmd value);
+
+  // optional .CSDecorateBagReqParam reqParam = 2;
+  inline bool has_reqparam() const;
+  inline void clear_reqparam();
+  static const int kReqParamFieldNumber = 2;
+  inline const ::CSDecorateBagReqParam& reqparam() const;
+  inline ::CSDecorateBagReqParam* mutable_reqparam();
+  inline ::CSDecorateBagReqParam* release_reqparam();
+  inline void set_allocated_reqparam(::CSDecorateBagReqParam* reqparam);
+
+  // @@protoc_insertion_point(class_scope:CSDecorateBagReq)
+ private:
+  inline void set_has_cmd();
+  inline void clear_has_cmd();
+  inline void set_has_reqparam();
+  inline void clear_has_reqparam();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::CSDecorateBagReqParam* reqparam_;
+  int cmd_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSDecorateBagReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSDecorateBagRsp : public ::google::protobuf::Message {
+ public:
+  CSDecorateBagRsp();
+  virtual ~CSDecorateBagRsp();
+
+  CSDecorateBagRsp(const CSDecorateBagRsp& from);
+
+  inline CSDecorateBagRsp& operator=(const CSDecorateBagRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSDecorateBagRsp& default_instance();
+
+  void Swap(CSDecorateBagRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSDecorateBagRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSDecorateBagRsp& from);
+  void MergeFrom(const CSDecorateBagRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::google::protobuf::int32 result() const;
+  inline void set_result(::google::protobuf::int32 value);
+
+  // required .CSDecorateBagCmd cmd = 2;
+  inline bool has_cmd() const;
+  inline void clear_cmd();
+  static const int kCmdFieldNumber = 2;
+  inline ::CSDecorateBagCmd cmd() const;
+  inline void set_cmd(::CSDecorateBagCmd value);
+
+  // optional .CSDecorateBagRspParam rspParam = 3;
+  inline bool has_rspparam() const;
+  inline void clear_rspparam();
+  static const int kRspParamFieldNumber = 3;
+  inline const ::CSDecorateBagRspParam& rspparam() const;
+  inline ::CSDecorateBagRspParam* mutable_rspparam();
+  inline ::CSDecorateBagRspParam* release_rspparam();
+  inline void set_allocated_rspparam(::CSDecorateBagRspParam* rspparam);
+
+  // @@protoc_insertion_point(class_scope:CSDecorateBagRsp)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+  inline void set_has_cmd();
+  inline void clear_has_cmd();
+  inline void set_has_rspparam();
+  inline void clear_has_rspparam();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 result_;
+  int cmd_;
+  ::CSDecorateBagRspParam* rspparam_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSDecorateBagRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class CSMsgBody : public ::google::protobuf::Message {
  public:
   CSMsgBody();
@@ -2185,6 +2941,24 @@ class CSMsgBody : public ::google::protobuf::Message {
   inline ::CSBagRsp* release_bagrsp();
   inline void set_allocated_bagrsp(::CSBagRsp* bagrsp);
 
+  // optional .CSDecorateBagReq DecorateBagReq = 5;
+  inline bool has_decoratebagreq() const;
+  inline void clear_decoratebagreq();
+  static const int kDecorateBagReqFieldNumber = 5;
+  inline const ::CSDecorateBagReq& decoratebagreq() const;
+  inline ::CSDecorateBagReq* mutable_decoratebagreq();
+  inline ::CSDecorateBagReq* release_decoratebagreq();
+  inline void set_allocated_decoratebagreq(::CSDecorateBagReq* decoratebagreq);
+
+  // optional .CSDecorateBagRsp DecorateBagRsp = 6;
+  inline bool has_decoratebagrsp() const;
+  inline void clear_decoratebagrsp();
+  static const int kDecorateBagRspFieldNumber = 6;
+  inline const ::CSDecorateBagRsp& decoratebagrsp() const;
+  inline ::CSDecorateBagRsp* mutable_decoratebagrsp();
+  inline ::CSDecorateBagRsp* release_decoratebagrsp();
+  inline void set_allocated_decoratebagrsp(::CSDecorateBagRsp* decoratebagrsp);
+
   // @@protoc_insertion_point(class_scope:CSMsgBody)
  private:
   inline void set_has_registerloginreq();
@@ -2195,6 +2969,10 @@ class CSMsgBody : public ::google::protobuf::Message {
   inline void clear_has_bagreq();
   inline void set_has_bagrsp();
   inline void clear_has_bagrsp();
+  inline void set_has_decoratebagreq();
+  inline void clear_has_decoratebagreq();
+  inline void set_has_decoratebagrsp();
+  inline void clear_has_decoratebagrsp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -2202,9 +2980,11 @@ class CSMsgBody : public ::google::protobuf::Message {
   ::CSRegisterLoginRsp* registerloginrsp_;
   ::CSBagReq* bagreq_;
   ::CSBagRsp* bagrsp_;
+  ::CSDecorateBagReq* decoratebagreq_;
+  ::CSDecorateBagRsp* decoratebagrsp_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_CSmsg_2eproto();
   friend void protobuf_AssignDesc_CSmsg_2eproto();
@@ -3876,6 +4656,431 @@ inline void CSBagRsp::set_allocated_rspparam(::CSBagRspParam* rspparam) {
 
 // -------------------------------------------------------------------
 
+// CSDecorateBagFetchReq
+
+// optional uint32 type = 1;
+inline bool CSDecorateBagFetchReq::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSDecorateBagFetchReq::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSDecorateBagFetchReq::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSDecorateBagFetchReq::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+inline ::google::protobuf::uint32 CSDecorateBagFetchReq::type() const {
+  return type_;
+}
+inline void CSDecorateBagFetchReq::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSDecorateBagGridInfo
+
+// optional uint32 ItemId = 1;
+inline bool CSDecorateBagGridInfo::has_itemid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSDecorateBagGridInfo::set_has_itemid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSDecorateBagGridInfo::clear_has_itemid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSDecorateBagGridInfo::clear_itemid() {
+  itemid_ = 0u;
+  clear_has_itemid();
+}
+inline ::google::protobuf::uint32 CSDecorateBagGridInfo::itemid() const {
+  return itemid_;
+}
+inline void CSDecorateBagGridInfo::set_itemid(::google::protobuf::uint32 value) {
+  set_has_itemid();
+  itemid_ = value;
+}
+
+// optional uint32 type = 2;
+inline bool CSDecorateBagGridInfo::has_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSDecorateBagGridInfo::set_has_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSDecorateBagGridInfo::clear_has_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSDecorateBagGridInfo::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+inline ::google::protobuf::uint32 CSDecorateBagGridInfo::type() const {
+  return type_;
+}
+inline void CSDecorateBagGridInfo::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional uint64 EndTime = 3;
+inline bool CSDecorateBagGridInfo::has_endtime() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSDecorateBagGridInfo::set_has_endtime() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSDecorateBagGridInfo::clear_has_endtime() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSDecorateBagGridInfo::clear_endtime() {
+  endtime_ = GOOGLE_ULONGLONG(0);
+  clear_has_endtime();
+}
+inline ::google::protobuf::uint64 CSDecorateBagGridInfo::endtime() const {
+  return endtime_;
+}
+inline void CSDecorateBagGridInfo::set_endtime(::google::protobuf::uint64 value) {
+  set_has_endtime();
+  endtime_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSDecorateBagInfo
+
+// repeated .CSDecorateBagGridInfo DecorateGridInfo = 1;
+inline int CSDecorateBagInfo::decorategridinfo_size() const {
+  return decorategridinfo_.size();
+}
+inline void CSDecorateBagInfo::clear_decorategridinfo() {
+  decorategridinfo_.Clear();
+}
+inline const ::CSDecorateBagGridInfo& CSDecorateBagInfo::decorategridinfo(int index) const {
+  return decorategridinfo_.Get(index);
+}
+inline ::CSDecorateBagGridInfo* CSDecorateBagInfo::mutable_decorategridinfo(int index) {
+  return decorategridinfo_.Mutable(index);
+}
+inline ::CSDecorateBagGridInfo* CSDecorateBagInfo::add_decorategridinfo() {
+  return decorategridinfo_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::CSDecorateBagGridInfo >&
+CSDecorateBagInfo::decorategridinfo() const {
+  return decorategridinfo_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::CSDecorateBagGridInfo >*
+CSDecorateBagInfo::mutable_decorategridinfo() {
+  return &decorategridinfo_;
+}
+
+// -------------------------------------------------------------------
+
+// CSDecorateBagFetchRsp
+
+// optional uint32 type = 1;
+inline bool CSDecorateBagFetchRsp::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSDecorateBagFetchRsp::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSDecorateBagFetchRsp::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSDecorateBagFetchRsp::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+inline ::google::protobuf::uint32 CSDecorateBagFetchRsp::type() const {
+  return type_;
+}
+inline void CSDecorateBagFetchRsp::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional .CSDecorateBagInfo DecorateBagInfo = 2;
+inline bool CSDecorateBagFetchRsp::has_decoratebaginfo() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSDecorateBagFetchRsp::set_has_decoratebaginfo() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSDecorateBagFetchRsp::clear_has_decoratebaginfo() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSDecorateBagFetchRsp::clear_decoratebaginfo() {
+  if (decoratebaginfo_ != NULL) decoratebaginfo_->::CSDecorateBagInfo::Clear();
+  clear_has_decoratebaginfo();
+}
+inline const ::CSDecorateBagInfo& CSDecorateBagFetchRsp::decoratebaginfo() const {
+  return decoratebaginfo_ != NULL ? *decoratebaginfo_ : *default_instance_->decoratebaginfo_;
+}
+inline ::CSDecorateBagInfo* CSDecorateBagFetchRsp::mutable_decoratebaginfo() {
+  set_has_decoratebaginfo();
+  if (decoratebaginfo_ == NULL) decoratebaginfo_ = new ::CSDecorateBagInfo;
+  return decoratebaginfo_;
+}
+inline ::CSDecorateBagInfo* CSDecorateBagFetchRsp::release_decoratebaginfo() {
+  clear_has_decoratebaginfo();
+  ::CSDecorateBagInfo* temp = decoratebaginfo_;
+  decoratebaginfo_ = NULL;
+  return temp;
+}
+inline void CSDecorateBagFetchRsp::set_allocated_decoratebaginfo(::CSDecorateBagInfo* decoratebaginfo) {
+  delete decoratebaginfo_;
+  decoratebaginfo_ = decoratebaginfo;
+  if (decoratebaginfo) {
+    set_has_decoratebaginfo();
+  } else {
+    clear_has_decoratebaginfo();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSDecorateBagReqParam
+
+// optional .CSDecorateBagFetchReq FetchReq = 1;
+inline bool CSDecorateBagReqParam::has_fetchreq() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSDecorateBagReqParam::set_has_fetchreq() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSDecorateBagReqParam::clear_has_fetchreq() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSDecorateBagReqParam::clear_fetchreq() {
+  if (fetchreq_ != NULL) fetchreq_->::CSDecorateBagFetchReq::Clear();
+  clear_has_fetchreq();
+}
+inline const ::CSDecorateBagFetchReq& CSDecorateBagReqParam::fetchreq() const {
+  return fetchreq_ != NULL ? *fetchreq_ : *default_instance_->fetchreq_;
+}
+inline ::CSDecorateBagFetchReq* CSDecorateBagReqParam::mutable_fetchreq() {
+  set_has_fetchreq();
+  if (fetchreq_ == NULL) fetchreq_ = new ::CSDecorateBagFetchReq;
+  return fetchreq_;
+}
+inline ::CSDecorateBagFetchReq* CSDecorateBagReqParam::release_fetchreq() {
+  clear_has_fetchreq();
+  ::CSDecorateBagFetchReq* temp = fetchreq_;
+  fetchreq_ = NULL;
+  return temp;
+}
+inline void CSDecorateBagReqParam::set_allocated_fetchreq(::CSDecorateBagFetchReq* fetchreq) {
+  delete fetchreq_;
+  fetchreq_ = fetchreq;
+  if (fetchreq) {
+    set_has_fetchreq();
+  } else {
+    clear_has_fetchreq();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSDecorateBagRspParam
+
+// optional .CSDecorateBagFetchRsp FetchRsp = 1;
+inline bool CSDecorateBagRspParam::has_fetchrsp() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSDecorateBagRspParam::set_has_fetchrsp() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSDecorateBagRspParam::clear_has_fetchrsp() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSDecorateBagRspParam::clear_fetchrsp() {
+  if (fetchrsp_ != NULL) fetchrsp_->::CSDecorateBagFetchRsp::Clear();
+  clear_has_fetchrsp();
+}
+inline const ::CSDecorateBagFetchRsp& CSDecorateBagRspParam::fetchrsp() const {
+  return fetchrsp_ != NULL ? *fetchrsp_ : *default_instance_->fetchrsp_;
+}
+inline ::CSDecorateBagFetchRsp* CSDecorateBagRspParam::mutable_fetchrsp() {
+  set_has_fetchrsp();
+  if (fetchrsp_ == NULL) fetchrsp_ = new ::CSDecorateBagFetchRsp;
+  return fetchrsp_;
+}
+inline ::CSDecorateBagFetchRsp* CSDecorateBagRspParam::release_fetchrsp() {
+  clear_has_fetchrsp();
+  ::CSDecorateBagFetchRsp* temp = fetchrsp_;
+  fetchrsp_ = NULL;
+  return temp;
+}
+inline void CSDecorateBagRspParam::set_allocated_fetchrsp(::CSDecorateBagFetchRsp* fetchrsp) {
+  delete fetchrsp_;
+  fetchrsp_ = fetchrsp;
+  if (fetchrsp) {
+    set_has_fetchrsp();
+  } else {
+    clear_has_fetchrsp();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSDecorateBagReq
+
+// required .CSDecorateBagCmd cmd = 1;
+inline bool CSDecorateBagReq::has_cmd() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSDecorateBagReq::set_has_cmd() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSDecorateBagReq::clear_has_cmd() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSDecorateBagReq::clear_cmd() {
+  cmd_ = 1;
+  clear_has_cmd();
+}
+inline ::CSDecorateBagCmd CSDecorateBagReq::cmd() const {
+  return static_cast< ::CSDecorateBagCmd >(cmd_);
+}
+inline void CSDecorateBagReq::set_cmd(::CSDecorateBagCmd value) {
+  assert(::CSDecorateBagCmd_IsValid(value));
+  set_has_cmd();
+  cmd_ = value;
+}
+
+// optional .CSDecorateBagReqParam reqParam = 2;
+inline bool CSDecorateBagReq::has_reqparam() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSDecorateBagReq::set_has_reqparam() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSDecorateBagReq::clear_has_reqparam() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSDecorateBagReq::clear_reqparam() {
+  if (reqparam_ != NULL) reqparam_->::CSDecorateBagReqParam::Clear();
+  clear_has_reqparam();
+}
+inline const ::CSDecorateBagReqParam& CSDecorateBagReq::reqparam() const {
+  return reqparam_ != NULL ? *reqparam_ : *default_instance_->reqparam_;
+}
+inline ::CSDecorateBagReqParam* CSDecorateBagReq::mutable_reqparam() {
+  set_has_reqparam();
+  if (reqparam_ == NULL) reqparam_ = new ::CSDecorateBagReqParam;
+  return reqparam_;
+}
+inline ::CSDecorateBagReqParam* CSDecorateBagReq::release_reqparam() {
+  clear_has_reqparam();
+  ::CSDecorateBagReqParam* temp = reqparam_;
+  reqparam_ = NULL;
+  return temp;
+}
+inline void CSDecorateBagReq::set_allocated_reqparam(::CSDecorateBagReqParam* reqparam) {
+  delete reqparam_;
+  reqparam_ = reqparam;
+  if (reqparam) {
+    set_has_reqparam();
+  } else {
+    clear_has_reqparam();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSDecorateBagRsp
+
+// optional int32 result = 1;
+inline bool CSDecorateBagRsp::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSDecorateBagRsp::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSDecorateBagRsp::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSDecorateBagRsp::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::google::protobuf::int32 CSDecorateBagRsp::result() const {
+  return result_;
+}
+inline void CSDecorateBagRsp::set_result(::google::protobuf::int32 value) {
+  set_has_result();
+  result_ = value;
+}
+
+// required .CSDecorateBagCmd cmd = 2;
+inline bool CSDecorateBagRsp::has_cmd() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSDecorateBagRsp::set_has_cmd() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSDecorateBagRsp::clear_has_cmd() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSDecorateBagRsp::clear_cmd() {
+  cmd_ = 1;
+  clear_has_cmd();
+}
+inline ::CSDecorateBagCmd CSDecorateBagRsp::cmd() const {
+  return static_cast< ::CSDecorateBagCmd >(cmd_);
+}
+inline void CSDecorateBagRsp::set_cmd(::CSDecorateBagCmd value) {
+  assert(::CSDecorateBagCmd_IsValid(value));
+  set_has_cmd();
+  cmd_ = value;
+}
+
+// optional .CSDecorateBagRspParam rspParam = 3;
+inline bool CSDecorateBagRsp::has_rspparam() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSDecorateBagRsp::set_has_rspparam() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSDecorateBagRsp::clear_has_rspparam() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSDecorateBagRsp::clear_rspparam() {
+  if (rspparam_ != NULL) rspparam_->::CSDecorateBagRspParam::Clear();
+  clear_has_rspparam();
+}
+inline const ::CSDecorateBagRspParam& CSDecorateBagRsp::rspparam() const {
+  return rspparam_ != NULL ? *rspparam_ : *default_instance_->rspparam_;
+}
+inline ::CSDecorateBagRspParam* CSDecorateBagRsp::mutable_rspparam() {
+  set_has_rspparam();
+  if (rspparam_ == NULL) rspparam_ = new ::CSDecorateBagRspParam;
+  return rspparam_;
+}
+inline ::CSDecorateBagRspParam* CSDecorateBagRsp::release_rspparam() {
+  clear_has_rspparam();
+  ::CSDecorateBagRspParam* temp = rspparam_;
+  rspparam_ = NULL;
+  return temp;
+}
+inline void CSDecorateBagRsp::set_allocated_rspparam(::CSDecorateBagRspParam* rspparam) {
+  delete rspparam_;
+  rspparam_ = rspparam;
+  if (rspparam) {
+    set_has_rspparam();
+  } else {
+    clear_has_rspparam();
+  }
+}
+
+// -------------------------------------------------------------------
+
 // CSMsgBody
 
 // optional .CSRegisterLoginReq RegisterLoginReq = 1;
@@ -4030,6 +5235,82 @@ inline void CSMsgBody::set_allocated_bagrsp(::CSBagRsp* bagrsp) {
   }
 }
 
+// optional .CSDecorateBagReq DecorateBagReq = 5;
+inline bool CSMsgBody::has_decoratebagreq() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void CSMsgBody::set_has_decoratebagreq() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void CSMsgBody::clear_has_decoratebagreq() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void CSMsgBody::clear_decoratebagreq() {
+  if (decoratebagreq_ != NULL) decoratebagreq_->::CSDecorateBagReq::Clear();
+  clear_has_decoratebagreq();
+}
+inline const ::CSDecorateBagReq& CSMsgBody::decoratebagreq() const {
+  return decoratebagreq_ != NULL ? *decoratebagreq_ : *default_instance_->decoratebagreq_;
+}
+inline ::CSDecorateBagReq* CSMsgBody::mutable_decoratebagreq() {
+  set_has_decoratebagreq();
+  if (decoratebagreq_ == NULL) decoratebagreq_ = new ::CSDecorateBagReq;
+  return decoratebagreq_;
+}
+inline ::CSDecorateBagReq* CSMsgBody::release_decoratebagreq() {
+  clear_has_decoratebagreq();
+  ::CSDecorateBagReq* temp = decoratebagreq_;
+  decoratebagreq_ = NULL;
+  return temp;
+}
+inline void CSMsgBody::set_allocated_decoratebagreq(::CSDecorateBagReq* decoratebagreq) {
+  delete decoratebagreq_;
+  decoratebagreq_ = decoratebagreq;
+  if (decoratebagreq) {
+    set_has_decoratebagreq();
+  } else {
+    clear_has_decoratebagreq();
+  }
+}
+
+// optional .CSDecorateBagRsp DecorateBagRsp = 6;
+inline bool CSMsgBody::has_decoratebagrsp() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void CSMsgBody::set_has_decoratebagrsp() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void CSMsgBody::clear_has_decoratebagrsp() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void CSMsgBody::clear_decoratebagrsp() {
+  if (decoratebagrsp_ != NULL) decoratebagrsp_->::CSDecorateBagRsp::Clear();
+  clear_has_decoratebagrsp();
+}
+inline const ::CSDecorateBagRsp& CSMsgBody::decoratebagrsp() const {
+  return decoratebagrsp_ != NULL ? *decoratebagrsp_ : *default_instance_->decoratebagrsp_;
+}
+inline ::CSDecorateBagRsp* CSMsgBody::mutable_decoratebagrsp() {
+  set_has_decoratebagrsp();
+  if (decoratebagrsp_ == NULL) decoratebagrsp_ = new ::CSDecorateBagRsp;
+  return decoratebagrsp_;
+}
+inline ::CSDecorateBagRsp* CSMsgBody::release_decoratebagrsp() {
+  clear_has_decoratebagrsp();
+  ::CSDecorateBagRsp* temp = decoratebagrsp_;
+  decoratebagrsp_ = NULL;
+  return temp;
+}
+inline void CSMsgBody::set_allocated_decoratebagrsp(::CSDecorateBagRsp* decoratebagrsp) {
+  delete decoratebagrsp_;
+  decoratebagrsp_ = decoratebagrsp;
+  if (decoratebagrsp) {
+    set_has_decoratebagrsp();
+  } else {
+    clear_has_decoratebagrsp();
+  }
+}
+
 // -------------------------------------------------------------------
 
 // CSMsgHead
@@ -4173,6 +5454,10 @@ inline const EnumDescriptor* GetEnumDescriptor< ::CSRegisterLoginCmd>() {
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::CSBagCmd>() {
   return ::CSBagCmd_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::CSDecorateBagCmd>() {
+  return ::CSDecorateBagCmd_descriptor();
 }
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::CSMsgID>() {

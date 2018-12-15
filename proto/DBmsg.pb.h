@@ -34,6 +34,11 @@ void protobuf_ShutdownFile_DBmsg_2eproto();
 class DBBagGrid;
 class DBBagGridList;
 class DBBagInfo;
+class DBDecorateItem;
+class DBDecorateItemList;
+class DBDecorateBagInfo;
+class DBDecorateBagInfoList;
+class DBDecorateBagModuleInfo;
 class DBRoleInfo;
 
 // ===================================================================
@@ -299,6 +304,446 @@ class DBBagInfo : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class DBDecorateItem : public ::google::protobuf::Message {
+ public:
+  DBDecorateItem();
+  virtual ~DBDecorateItem();
+
+  DBDecorateItem(const DBDecorateItem& from);
+
+  inline DBDecorateItem& operator=(const DBDecorateItem& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DBDecorateItem& default_instance();
+
+  void Swap(DBDecorateItem* other);
+
+  // implements Message ----------------------------------------------
+
+  DBDecorateItem* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DBDecorateItem& from);
+  void MergeFrom(const DBDecorateItem& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 id() const;
+  inline void set_id(::google::protobuf::uint32 value);
+
+  // optional uint32 type = 2;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 2;
+  inline ::google::protobuf::uint32 type() const;
+  inline void set_type(::google::protobuf::uint32 value);
+
+  // optional uint64 EndTime = 3;
+  inline bool has_endtime() const;
+  inline void clear_endtime();
+  static const int kEndTimeFieldNumber = 3;
+  inline ::google::protobuf::uint64 endtime() const;
+  inline void set_endtime(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:DBDecorateItem)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_endtime();
+  inline void clear_has_endtime();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 id_;
+  ::google::protobuf::uint32 type_;
+  ::google::protobuf::uint64 endtime_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBmsg_2eproto();
+  friend void protobuf_AssignDesc_DBmsg_2eproto();
+  friend void protobuf_ShutdownFile_DBmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static DBDecorateItem* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DBDecorateItemList : public ::google::protobuf::Message {
+ public:
+  DBDecorateItemList();
+  virtual ~DBDecorateItemList();
+
+  DBDecorateItemList(const DBDecorateItemList& from);
+
+  inline DBDecorateItemList& operator=(const DBDecorateItemList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DBDecorateItemList& default_instance();
+
+  void Swap(DBDecorateItemList* other);
+
+  // implements Message ----------------------------------------------
+
+  DBDecorateItemList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DBDecorateItemList& from);
+  void MergeFrom(const DBDecorateItemList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .DBDecorateItem DecorateGrids = 1;
+  inline int decorategrids_size() const;
+  inline void clear_decorategrids();
+  static const int kDecorateGridsFieldNumber = 1;
+  inline const ::DBDecorateItem& decorategrids(int index) const;
+  inline ::DBDecorateItem* mutable_decorategrids(int index);
+  inline ::DBDecorateItem* add_decorategrids();
+  inline const ::google::protobuf::RepeatedPtrField< ::DBDecorateItem >&
+      decorategrids() const;
+  inline ::google::protobuf::RepeatedPtrField< ::DBDecorateItem >*
+      mutable_decorategrids();
+
+  // @@protoc_insertion_point(class_scope:DBDecorateItemList)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::DBDecorateItem > decorategrids_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBmsg_2eproto();
+  friend void protobuf_AssignDesc_DBmsg_2eproto();
+  friend void protobuf_ShutdownFile_DBmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static DBDecorateItemList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DBDecorateBagInfo : public ::google::protobuf::Message {
+ public:
+  DBDecorateBagInfo();
+  virtual ~DBDecorateBagInfo();
+
+  DBDecorateBagInfo(const DBDecorateBagInfo& from);
+
+  inline DBDecorateBagInfo& operator=(const DBDecorateBagInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DBDecorateBagInfo& default_instance();
+
+  void Swap(DBDecorateBagInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  DBDecorateBagInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DBDecorateBagInfo& from);
+  void MergeFrom(const DBDecorateBagInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .DBDecorateItemList BagGridList = 1;
+  inline bool has_baggridlist() const;
+  inline void clear_baggridlist();
+  static const int kBagGridListFieldNumber = 1;
+  inline const ::DBDecorateItemList& baggridlist() const;
+  inline ::DBDecorateItemList* mutable_baggridlist();
+  inline ::DBDecorateItemList* release_baggridlist();
+  inline void set_allocated_baggridlist(::DBDecorateItemList* baggridlist);
+
+  // @@protoc_insertion_point(class_scope:DBDecorateBagInfo)
+ private:
+  inline void set_has_baggridlist();
+  inline void clear_has_baggridlist();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::DBDecorateItemList* baggridlist_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBmsg_2eproto();
+  friend void protobuf_AssignDesc_DBmsg_2eproto();
+  friend void protobuf_ShutdownFile_DBmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static DBDecorateBagInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DBDecorateBagInfoList : public ::google::protobuf::Message {
+ public:
+  DBDecorateBagInfoList();
+  virtual ~DBDecorateBagInfoList();
+
+  DBDecorateBagInfoList(const DBDecorateBagInfoList& from);
+
+  inline DBDecorateBagInfoList& operator=(const DBDecorateBagInfoList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DBDecorateBagInfoList& default_instance();
+
+  void Swap(DBDecorateBagInfoList* other);
+
+  // implements Message ----------------------------------------------
+
+  DBDecorateBagInfoList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DBDecorateBagInfoList& from);
+  void MergeFrom(const DBDecorateBagInfoList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .DBDecorateBagInfo DecorateBagList = 1;
+  inline int decoratebaglist_size() const;
+  inline void clear_decoratebaglist();
+  static const int kDecorateBagListFieldNumber = 1;
+  inline const ::DBDecorateBagInfo& decoratebaglist(int index) const;
+  inline ::DBDecorateBagInfo* mutable_decoratebaglist(int index);
+  inline ::DBDecorateBagInfo* add_decoratebaglist();
+  inline const ::google::protobuf::RepeatedPtrField< ::DBDecorateBagInfo >&
+      decoratebaglist() const;
+  inline ::google::protobuf::RepeatedPtrField< ::DBDecorateBagInfo >*
+      mutable_decoratebaglist();
+
+  // @@protoc_insertion_point(class_scope:DBDecorateBagInfoList)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::DBDecorateBagInfo > decoratebaglist_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBmsg_2eproto();
+  friend void protobuf_AssignDesc_DBmsg_2eproto();
+  friend void protobuf_ShutdownFile_DBmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static DBDecorateBagInfoList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DBDecorateBagModuleInfo : public ::google::protobuf::Message {
+ public:
+  DBDecorateBagModuleInfo();
+  virtual ~DBDecorateBagModuleInfo();
+
+  DBDecorateBagModuleInfo(const DBDecorateBagModuleInfo& from);
+
+  inline DBDecorateBagModuleInfo& operator=(const DBDecorateBagModuleInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DBDecorateBagModuleInfo& default_instance();
+
+  void Swap(DBDecorateBagModuleInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  DBDecorateBagModuleInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DBDecorateBagModuleInfo& from);
+  void MergeFrom(const DBDecorateBagModuleInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .DBDecorateBagInfoList DecorateBagInfoList = 1;
+  inline bool has_decoratebaginfolist() const;
+  inline void clear_decoratebaginfolist();
+  static const int kDecorateBagInfoListFieldNumber = 1;
+  inline const ::DBDecorateBagInfoList& decoratebaginfolist() const;
+  inline ::DBDecorateBagInfoList* mutable_decoratebaginfolist();
+  inline ::DBDecorateBagInfoList* release_decoratebaginfolist();
+  inline void set_allocated_decoratebaginfolist(::DBDecorateBagInfoList* decoratebaginfolist);
+
+  // @@protoc_insertion_point(class_scope:DBDecorateBagModuleInfo)
+ private:
+  inline void set_has_decoratebaginfolist();
+  inline void clear_has_decoratebaginfolist();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::DBDecorateBagInfoList* decoratebaginfolist_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBmsg_2eproto();
+  friend void protobuf_AssignDesc_DBmsg_2eproto();
+  friend void protobuf_ShutdownFile_DBmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static DBDecorateBagModuleInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class DBRoleInfo : public ::google::protobuf::Message {
  public:
   DBRoleInfo();
@@ -409,6 +854,15 @@ class DBRoleInfo : public ::google::protobuf::Message {
   inline ::DBBagInfo* release_baginfo();
   inline void set_allocated_baginfo(::DBBagInfo* baginfo);
 
+  // optional .DBDecorateBagModuleInfo DecorateBagModuleInfo = 8;
+  inline bool has_decoratebagmoduleinfo() const;
+  inline void clear_decoratebagmoduleinfo();
+  static const int kDecorateBagModuleInfoFieldNumber = 8;
+  inline const ::DBDecorateBagModuleInfo& decoratebagmoduleinfo() const;
+  inline ::DBDecorateBagModuleInfo* mutable_decoratebagmoduleinfo();
+  inline ::DBDecorateBagModuleInfo* release_decoratebagmoduleinfo();
+  inline void set_allocated_decoratebagmoduleinfo(::DBDecorateBagModuleInfo* decoratebagmoduleinfo);
+
   // @@protoc_insertion_point(class_scope:DBRoleInfo)
  private:
   inline void set_has_uid();
@@ -425,6 +879,8 @@ class DBRoleInfo : public ::google::protobuf::Message {
   inline void clear_has_rankexper();
   inline void set_has_baginfo();
   inline void clear_has_baginfo();
+  inline void set_has_decoratebagmoduleinfo();
+  inline void clear_has_decoratebagmoduleinfo();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -435,9 +891,10 @@ class DBRoleInfo : public ::google::protobuf::Message {
   ::google::protobuf::uint32 levelexper_;
   ::google::protobuf::uint32 rankexper_;
   ::DBBagInfo* baginfo_;
+  ::DBDecorateBagModuleInfo* decoratebagmoduleinfo_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBmsg_2eproto();
   friend void protobuf_AssignDesc_DBmsg_2eproto();
@@ -565,6 +1022,218 @@ inline void DBBagInfo::set_allocated_gridlist(::DBBagGridList* gridlist) {
     set_has_gridlist();
   } else {
     clear_has_gridlist();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// DBDecorateItem
+
+// optional uint32 id = 1;
+inline bool DBDecorateItem::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DBDecorateItem::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DBDecorateItem::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DBDecorateItem::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+inline ::google::protobuf::uint32 DBDecorateItem::id() const {
+  return id_;
+}
+inline void DBDecorateItem::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional uint32 type = 2;
+inline bool DBDecorateItem::has_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DBDecorateItem::set_has_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DBDecorateItem::clear_has_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DBDecorateItem::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+inline ::google::protobuf::uint32 DBDecorateItem::type() const {
+  return type_;
+}
+inline void DBDecorateItem::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional uint64 EndTime = 3;
+inline bool DBDecorateItem::has_endtime() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void DBDecorateItem::set_has_endtime() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void DBDecorateItem::clear_has_endtime() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void DBDecorateItem::clear_endtime() {
+  endtime_ = GOOGLE_ULONGLONG(0);
+  clear_has_endtime();
+}
+inline ::google::protobuf::uint64 DBDecorateItem::endtime() const {
+  return endtime_;
+}
+inline void DBDecorateItem::set_endtime(::google::protobuf::uint64 value) {
+  set_has_endtime();
+  endtime_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DBDecorateItemList
+
+// repeated .DBDecorateItem DecorateGrids = 1;
+inline int DBDecorateItemList::decorategrids_size() const {
+  return decorategrids_.size();
+}
+inline void DBDecorateItemList::clear_decorategrids() {
+  decorategrids_.Clear();
+}
+inline const ::DBDecorateItem& DBDecorateItemList::decorategrids(int index) const {
+  return decorategrids_.Get(index);
+}
+inline ::DBDecorateItem* DBDecorateItemList::mutable_decorategrids(int index) {
+  return decorategrids_.Mutable(index);
+}
+inline ::DBDecorateItem* DBDecorateItemList::add_decorategrids() {
+  return decorategrids_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::DBDecorateItem >&
+DBDecorateItemList::decorategrids() const {
+  return decorategrids_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::DBDecorateItem >*
+DBDecorateItemList::mutable_decorategrids() {
+  return &decorategrids_;
+}
+
+// -------------------------------------------------------------------
+
+// DBDecorateBagInfo
+
+// optional .DBDecorateItemList BagGridList = 1;
+inline bool DBDecorateBagInfo::has_baggridlist() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DBDecorateBagInfo::set_has_baggridlist() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DBDecorateBagInfo::clear_has_baggridlist() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DBDecorateBagInfo::clear_baggridlist() {
+  if (baggridlist_ != NULL) baggridlist_->::DBDecorateItemList::Clear();
+  clear_has_baggridlist();
+}
+inline const ::DBDecorateItemList& DBDecorateBagInfo::baggridlist() const {
+  return baggridlist_ != NULL ? *baggridlist_ : *default_instance_->baggridlist_;
+}
+inline ::DBDecorateItemList* DBDecorateBagInfo::mutable_baggridlist() {
+  set_has_baggridlist();
+  if (baggridlist_ == NULL) baggridlist_ = new ::DBDecorateItemList;
+  return baggridlist_;
+}
+inline ::DBDecorateItemList* DBDecorateBagInfo::release_baggridlist() {
+  clear_has_baggridlist();
+  ::DBDecorateItemList* temp = baggridlist_;
+  baggridlist_ = NULL;
+  return temp;
+}
+inline void DBDecorateBagInfo::set_allocated_baggridlist(::DBDecorateItemList* baggridlist) {
+  delete baggridlist_;
+  baggridlist_ = baggridlist;
+  if (baggridlist) {
+    set_has_baggridlist();
+  } else {
+    clear_has_baggridlist();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// DBDecorateBagInfoList
+
+// repeated .DBDecorateBagInfo DecorateBagList = 1;
+inline int DBDecorateBagInfoList::decoratebaglist_size() const {
+  return decoratebaglist_.size();
+}
+inline void DBDecorateBagInfoList::clear_decoratebaglist() {
+  decoratebaglist_.Clear();
+}
+inline const ::DBDecorateBagInfo& DBDecorateBagInfoList::decoratebaglist(int index) const {
+  return decoratebaglist_.Get(index);
+}
+inline ::DBDecorateBagInfo* DBDecorateBagInfoList::mutable_decoratebaglist(int index) {
+  return decoratebaglist_.Mutable(index);
+}
+inline ::DBDecorateBagInfo* DBDecorateBagInfoList::add_decoratebaglist() {
+  return decoratebaglist_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::DBDecorateBagInfo >&
+DBDecorateBagInfoList::decoratebaglist() const {
+  return decoratebaglist_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::DBDecorateBagInfo >*
+DBDecorateBagInfoList::mutable_decoratebaglist() {
+  return &decoratebaglist_;
+}
+
+// -------------------------------------------------------------------
+
+// DBDecorateBagModuleInfo
+
+// optional .DBDecorateBagInfoList DecorateBagInfoList = 1;
+inline bool DBDecorateBagModuleInfo::has_decoratebaginfolist() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DBDecorateBagModuleInfo::set_has_decoratebaginfolist() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DBDecorateBagModuleInfo::clear_has_decoratebaginfolist() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DBDecorateBagModuleInfo::clear_decoratebaginfolist() {
+  if (decoratebaginfolist_ != NULL) decoratebaginfolist_->::DBDecorateBagInfoList::Clear();
+  clear_has_decoratebaginfolist();
+}
+inline const ::DBDecorateBagInfoList& DBDecorateBagModuleInfo::decoratebaginfolist() const {
+  return decoratebaginfolist_ != NULL ? *decoratebaginfolist_ : *default_instance_->decoratebaginfolist_;
+}
+inline ::DBDecorateBagInfoList* DBDecorateBagModuleInfo::mutable_decoratebaginfolist() {
+  set_has_decoratebaginfolist();
+  if (decoratebaginfolist_ == NULL) decoratebaginfolist_ = new ::DBDecorateBagInfoList;
+  return decoratebaginfolist_;
+}
+inline ::DBDecorateBagInfoList* DBDecorateBagModuleInfo::release_decoratebaginfolist() {
+  clear_has_decoratebaginfolist();
+  ::DBDecorateBagInfoList* temp = decoratebaginfolist_;
+  decoratebaginfolist_ = NULL;
+  return temp;
+}
+inline void DBDecorateBagModuleInfo::set_allocated_decoratebaginfolist(::DBDecorateBagInfoList* decoratebaginfolist) {
+  delete decoratebaginfolist_;
+  decoratebaginfolist_ = decoratebaginfolist;
+  if (decoratebaginfolist) {
+    set_has_decoratebaginfolist();
+  } else {
+    clear_has_decoratebaginfolist();
   }
 }
 
@@ -787,6 +1456,44 @@ inline void DBRoleInfo::set_allocated_baginfo(::DBBagInfo* baginfo) {
     set_has_baginfo();
   } else {
     clear_has_baginfo();
+  }
+}
+
+// optional .DBDecorateBagModuleInfo DecorateBagModuleInfo = 8;
+inline bool DBRoleInfo::has_decoratebagmoduleinfo() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void DBRoleInfo::set_has_decoratebagmoduleinfo() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void DBRoleInfo::clear_has_decoratebagmoduleinfo() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void DBRoleInfo::clear_decoratebagmoduleinfo() {
+  if (decoratebagmoduleinfo_ != NULL) decoratebagmoduleinfo_->::DBDecorateBagModuleInfo::Clear();
+  clear_has_decoratebagmoduleinfo();
+}
+inline const ::DBDecorateBagModuleInfo& DBRoleInfo::decoratebagmoduleinfo() const {
+  return decoratebagmoduleinfo_ != NULL ? *decoratebagmoduleinfo_ : *default_instance_->decoratebagmoduleinfo_;
+}
+inline ::DBDecorateBagModuleInfo* DBRoleInfo::mutable_decoratebagmoduleinfo() {
+  set_has_decoratebagmoduleinfo();
+  if (decoratebagmoduleinfo_ == NULL) decoratebagmoduleinfo_ = new ::DBDecorateBagModuleInfo;
+  return decoratebagmoduleinfo_;
+}
+inline ::DBDecorateBagModuleInfo* DBRoleInfo::release_decoratebagmoduleinfo() {
+  clear_has_decoratebagmoduleinfo();
+  ::DBDecorateBagModuleInfo* temp = decoratebagmoduleinfo_;
+  decoratebagmoduleinfo_ = NULL;
+  return temp;
+}
+inline void DBRoleInfo::set_allocated_decoratebagmoduleinfo(::DBDecorateBagModuleInfo* decoratebagmoduleinfo) {
+  delete decoratebagmoduleinfo_;
+  decoratebagmoduleinfo_ = decoratebagmoduleinfo;
+  if (decoratebagmoduleinfo) {
+    set_has_decoratebagmoduleinfo();
+  } else {
+    clear_has_decoratebagmoduleinfo();
   }
 }
 

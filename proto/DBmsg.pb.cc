@@ -27,6 +27,21 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* DBBagInfo_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   DBBagInfo_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DBDecorateItem_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DBDecorateItem_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DBDecorateItemList_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DBDecorateItemList_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DBDecorateBagInfo_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DBDecorateBagInfo_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DBDecorateBagInfoList_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DBDecorateBagInfoList_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DBDecorateBagModuleInfo_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DBDecorateBagModuleInfo_reflection_ = NULL;
 const ::google::protobuf::Descriptor* DBRoleInfo_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   DBRoleInfo_reflection_ = NULL;
@@ -86,8 +101,85 @@ void protobuf_AssignDesc_DBmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DBBagInfo));
-  DBRoleInfo_descriptor_ = file->message_type(3);
-  static const int DBRoleInfo_offsets_[7] = {
+  DBDecorateItem_descriptor_ = file->message_type(3);
+  static const int DBDecorateItem_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateItem, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateItem, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateItem, endtime_),
+  };
+  DBDecorateItem_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DBDecorateItem_descriptor_,
+      DBDecorateItem::default_instance_,
+      DBDecorateItem_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateItem, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateItem, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DBDecorateItem));
+  DBDecorateItemList_descriptor_ = file->message_type(4);
+  static const int DBDecorateItemList_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateItemList, decorategrids_),
+  };
+  DBDecorateItemList_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DBDecorateItemList_descriptor_,
+      DBDecorateItemList::default_instance_,
+      DBDecorateItemList_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateItemList, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateItemList, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DBDecorateItemList));
+  DBDecorateBagInfo_descriptor_ = file->message_type(5);
+  static const int DBDecorateBagInfo_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateBagInfo, baggridlist_),
+  };
+  DBDecorateBagInfo_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DBDecorateBagInfo_descriptor_,
+      DBDecorateBagInfo::default_instance_,
+      DBDecorateBagInfo_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateBagInfo, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateBagInfo, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DBDecorateBagInfo));
+  DBDecorateBagInfoList_descriptor_ = file->message_type(6);
+  static const int DBDecorateBagInfoList_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateBagInfoList, decoratebaglist_),
+  };
+  DBDecorateBagInfoList_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DBDecorateBagInfoList_descriptor_,
+      DBDecorateBagInfoList::default_instance_,
+      DBDecorateBagInfoList_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateBagInfoList, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateBagInfoList, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DBDecorateBagInfoList));
+  DBDecorateBagModuleInfo_descriptor_ = file->message_type(7);
+  static const int DBDecorateBagModuleInfo_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateBagModuleInfo, decoratebaginfolist_),
+  };
+  DBDecorateBagModuleInfo_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DBDecorateBagModuleInfo_descriptor_,
+      DBDecorateBagModuleInfo::default_instance_,
+      DBDecorateBagModuleInfo_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateBagModuleInfo, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBDecorateBagModuleInfo, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DBDecorateBagModuleInfo));
+  DBRoleInfo_descriptor_ = file->message_type(8);
+  static const int DBRoleInfo_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBRoleInfo, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBRoleInfo, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBRoleInfo, level_),
@@ -95,6 +187,7 @@ void protobuf_AssignDesc_DBmsg_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBRoleInfo, levelexper_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBRoleInfo, rankexper_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBRoleInfo, baginfo_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBRoleInfo, decoratebagmoduleinfo_),
   };
   DBRoleInfo_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -126,6 +219,16 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     DBBagInfo_descriptor_, &DBBagInfo::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DBDecorateItem_descriptor_, &DBDecorateItem::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DBDecorateItemList_descriptor_, &DBDecorateItemList::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DBDecorateBagInfo_descriptor_, &DBDecorateBagInfo::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DBDecorateBagInfoList_descriptor_, &DBDecorateBagInfoList::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DBDecorateBagModuleInfo_descriptor_, &DBDecorateBagModuleInfo::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     DBRoleInfo_descriptor_, &DBRoleInfo::default_instance());
 }
 
@@ -138,6 +241,16 @@ void protobuf_ShutdownFile_DBmsg_2eproto() {
   delete DBBagGridList_reflection_;
   delete DBBagInfo::default_instance_;
   delete DBBagInfo_reflection_;
+  delete DBDecorateItem::default_instance_;
+  delete DBDecorateItem_reflection_;
+  delete DBDecorateItemList::default_instance_;
+  delete DBDecorateItemList_reflection_;
+  delete DBDecorateBagInfo::default_instance_;
+  delete DBDecorateBagInfo_reflection_;
+  delete DBDecorateBagInfoList::default_instance_;
+  delete DBDecorateBagInfoList_reflection_;
+  delete DBDecorateBagModuleInfo::default_instance_;
+  delete DBDecorateBagModuleInfo_reflection_;
   delete DBRoleInfo::default_instance_;
   delete DBRoleInfo_reflection_;
 }
@@ -152,20 +265,39 @@ void protobuf_AddDesc_DBmsg_2eproto() {
     "\n\013DBmsg.proto\"$\n\tDBBagGrid\022\n\n\002ID\030\001 \001(\r\022\013"
     "\n\003Num\030\002 \001(\r\"*\n\rDBBagGridList\022\031\n\005Grids\030\001 "
     "\003(\0132\n.DBBagGrid\"-\n\tDBBagInfo\022 \n\010GridList"
-    "\030\001 \001(\0132\016.DBBagGridList\"\210\001\n\nDBRoleInfo\022\013\n"
-    "\003UID\030\001 \001(\004\022\014\n\004Name\030\002 \001(\t\022\r\n\005Level\030\003 \001(\r\022"
-    "\014\n\004Rank\030\004 \001(\r\022\022\n\nLevelExper\030\005 \001(\r\022\021\n\tRan"
-    "kExper\030\006 \001(\r\022\033\n\007BagInfo\030\007 \001(\0132\n.DBBagInf"
-    "o", 281);
+    "\030\001 \001(\0132\016.DBBagGridList\";\n\016DBDecorateItem"
+    "\022\n\n\002id\030\001 \001(\r\022\014\n\004type\030\002 \001(\r\022\017\n\007EndTime\030\003 "
+    "\001(\004\"<\n\022DBDecorateItemList\022&\n\rDecorateGri"
+    "ds\030\001 \003(\0132\017.DBDecorateItem\"=\n\021DBDecorateB"
+    "agInfo\022(\n\013BagGridList\030\001 \001(\0132\023.DBDecorate"
+    "ItemList\"D\n\025DBDecorateBagInfoList\022+\n\017Dec"
+    "orateBagList\030\001 \003(\0132\022.DBDecorateBagInfo\"N"
+    "\n\027DBDecorateBagModuleInfo\0223\n\023DecorateBag"
+    "InfoList\030\001 \001(\0132\026.DBDecorateBagInfoList\"\301"
+    "\001\n\nDBRoleInfo\022\013\n\003UID\030\001 \001(\004\022\014\n\004Name\030\002 \001(\t"
+    "\022\r\n\005Level\030\003 \001(\r\022\014\n\004Rank\030\004 \001(\r\022\022\n\nLevelEx"
+    "per\030\005 \001(\r\022\021\n\tRankExper\030\006 \001(\r\022\033\n\007BagInfo\030"
+    "\007 \001(\0132\n.DBBagInfo\0227\n\025DecorateBagModuleIn"
+    "fo\030\010 \001(\0132\030.DBDecorateBagModuleInfo", 674);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DBmsg.proto", &protobuf_RegisterTypes);
   DBBagGrid::default_instance_ = new DBBagGrid();
   DBBagGridList::default_instance_ = new DBBagGridList();
   DBBagInfo::default_instance_ = new DBBagInfo();
+  DBDecorateItem::default_instance_ = new DBDecorateItem();
+  DBDecorateItemList::default_instance_ = new DBDecorateItemList();
+  DBDecorateBagInfo::default_instance_ = new DBDecorateBagInfo();
+  DBDecorateBagInfoList::default_instance_ = new DBDecorateBagInfoList();
+  DBDecorateBagModuleInfo::default_instance_ = new DBDecorateBagModuleInfo();
   DBRoleInfo::default_instance_ = new DBRoleInfo();
   DBBagGrid::default_instance_->InitAsDefaultInstance();
   DBBagGridList::default_instance_->InitAsDefaultInstance();
   DBBagInfo::default_instance_->InitAsDefaultInstance();
+  DBDecorateItem::default_instance_->InitAsDefaultInstance();
+  DBDecorateItemList::default_instance_->InitAsDefaultInstance();
+  DBDecorateBagInfo::default_instance_->InitAsDefaultInstance();
+  DBDecorateBagInfoList::default_instance_->InitAsDefaultInstance();
+  DBDecorateBagModuleInfo::default_instance_->InitAsDefaultInstance();
   DBRoleInfo::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_DBmsg_2eproto);
 }
@@ -844,6 +976,1126 @@ void DBBagInfo::Swap(DBBagInfo* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int DBDecorateItem::kIdFieldNumber;
+const int DBDecorateItem::kTypeFieldNumber;
+const int DBDecorateItem::kEndTimeFieldNumber;
+#endif  // !_MSC_VER
+
+DBDecorateItem::DBDecorateItem()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DBDecorateItem::InitAsDefaultInstance() {
+}
+
+DBDecorateItem::DBDecorateItem(const DBDecorateItem& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DBDecorateItem::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = 0u;
+  type_ = 0u;
+  endtime_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DBDecorateItem::~DBDecorateItem() {
+  SharedDtor();
+}
+
+void DBDecorateItem::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void DBDecorateItem::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DBDecorateItem::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DBDecorateItem_descriptor_;
+}
+
+const DBDecorateItem& DBDecorateItem::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_DBmsg_2eproto();
+  return *default_instance_;
+}
+
+DBDecorateItem* DBDecorateItem::default_instance_ = NULL;
+
+DBDecorateItem* DBDecorateItem::New() const {
+  return new DBDecorateItem;
+}
+
+void DBDecorateItem::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    id_ = 0u;
+    type_ = 0u;
+    endtime_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DBDecorateItem::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_type;
+        break;
+      }
+
+      // optional uint32 type = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &type_)));
+          set_has_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_EndTime;
+        break;
+      }
+
+      // optional uint64 EndTime = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_EndTime:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &endtime_)));
+          set_has_endtime();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DBDecorateItem::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint32 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  // optional uint32 type = 2;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->type(), output);
+  }
+
+  // optional uint64 EndTime = 3;
+  if (has_endtime()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->endtime(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DBDecorateItem::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 id = 1;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  }
+
+  // optional uint32 type = 2;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->type(), target);
+  }
+
+  // optional uint64 EndTime = 3;
+  if (has_endtime()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->endtime(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DBDecorateItem::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 id = 1;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->id());
+    }
+
+    // optional uint32 type = 2;
+    if (has_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->type());
+    }
+
+    // optional uint64 EndTime = 3;
+    if (has_endtime()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->endtime());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DBDecorateItem::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DBDecorateItem* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DBDecorateItem*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DBDecorateItem::MergeFrom(const DBDecorateItem& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+    if (from.has_type()) {
+      set_type(from.type());
+    }
+    if (from.has_endtime()) {
+      set_endtime(from.endtime());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DBDecorateItem::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DBDecorateItem::CopyFrom(const DBDecorateItem& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DBDecorateItem::IsInitialized() const {
+
+  return true;
+}
+
+void DBDecorateItem::Swap(DBDecorateItem* other) {
+  if (other != this) {
+    std::swap(id_, other->id_);
+    std::swap(type_, other->type_);
+    std::swap(endtime_, other->endtime_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DBDecorateItem::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DBDecorateItem_descriptor_;
+  metadata.reflection = DBDecorateItem_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DBDecorateItemList::kDecorateGridsFieldNumber;
+#endif  // !_MSC_VER
+
+DBDecorateItemList::DBDecorateItemList()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DBDecorateItemList::InitAsDefaultInstance() {
+}
+
+DBDecorateItemList::DBDecorateItemList(const DBDecorateItemList& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DBDecorateItemList::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DBDecorateItemList::~DBDecorateItemList() {
+  SharedDtor();
+}
+
+void DBDecorateItemList::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void DBDecorateItemList::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DBDecorateItemList::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DBDecorateItemList_descriptor_;
+}
+
+const DBDecorateItemList& DBDecorateItemList::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_DBmsg_2eproto();
+  return *default_instance_;
+}
+
+DBDecorateItemList* DBDecorateItemList::default_instance_ = NULL;
+
+DBDecorateItemList* DBDecorateItemList::New() const {
+  return new DBDecorateItemList;
+}
+
+void DBDecorateItemList::Clear() {
+  decorategrids_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DBDecorateItemList::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .DBDecorateItem DecorateGrids = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_DecorateGrids:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_decorategrids()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_DecorateGrids;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DBDecorateItemList::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .DBDecorateItem DecorateGrids = 1;
+  for (int i = 0; i < this->decorategrids_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->decorategrids(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DBDecorateItemList::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .DBDecorateItem DecorateGrids = 1;
+  for (int i = 0; i < this->decorategrids_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->decorategrids(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DBDecorateItemList::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .DBDecorateItem DecorateGrids = 1;
+  total_size += 1 * this->decorategrids_size();
+  for (int i = 0; i < this->decorategrids_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->decorategrids(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DBDecorateItemList::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DBDecorateItemList* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DBDecorateItemList*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DBDecorateItemList::MergeFrom(const DBDecorateItemList& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  decorategrids_.MergeFrom(from.decorategrids_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DBDecorateItemList::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DBDecorateItemList::CopyFrom(const DBDecorateItemList& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DBDecorateItemList::IsInitialized() const {
+
+  return true;
+}
+
+void DBDecorateItemList::Swap(DBDecorateItemList* other) {
+  if (other != this) {
+    decorategrids_.Swap(&other->decorategrids_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DBDecorateItemList::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DBDecorateItemList_descriptor_;
+  metadata.reflection = DBDecorateItemList_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DBDecorateBagInfo::kBagGridListFieldNumber;
+#endif  // !_MSC_VER
+
+DBDecorateBagInfo::DBDecorateBagInfo()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DBDecorateBagInfo::InitAsDefaultInstance() {
+  baggridlist_ = const_cast< ::DBDecorateItemList*>(&::DBDecorateItemList::default_instance());
+}
+
+DBDecorateBagInfo::DBDecorateBagInfo(const DBDecorateBagInfo& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DBDecorateBagInfo::SharedCtor() {
+  _cached_size_ = 0;
+  baggridlist_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DBDecorateBagInfo::~DBDecorateBagInfo() {
+  SharedDtor();
+}
+
+void DBDecorateBagInfo::SharedDtor() {
+  if (this != default_instance_) {
+    delete baggridlist_;
+  }
+}
+
+void DBDecorateBagInfo::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DBDecorateBagInfo::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DBDecorateBagInfo_descriptor_;
+}
+
+const DBDecorateBagInfo& DBDecorateBagInfo::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_DBmsg_2eproto();
+  return *default_instance_;
+}
+
+DBDecorateBagInfo* DBDecorateBagInfo::default_instance_ = NULL;
+
+DBDecorateBagInfo* DBDecorateBagInfo::New() const {
+  return new DBDecorateBagInfo;
+}
+
+void DBDecorateBagInfo::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_baggridlist()) {
+      if (baggridlist_ != NULL) baggridlist_->::DBDecorateItemList::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DBDecorateBagInfo::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .DBDecorateItemList BagGridList = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_baggridlist()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DBDecorateBagInfo::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional .DBDecorateItemList BagGridList = 1;
+  if (has_baggridlist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->baggridlist(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DBDecorateBagInfo::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional .DBDecorateItemList BagGridList = 1;
+  if (has_baggridlist()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->baggridlist(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DBDecorateBagInfo::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional .DBDecorateItemList BagGridList = 1;
+    if (has_baggridlist()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->baggridlist());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DBDecorateBagInfo::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DBDecorateBagInfo* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DBDecorateBagInfo*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DBDecorateBagInfo::MergeFrom(const DBDecorateBagInfo& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_baggridlist()) {
+      mutable_baggridlist()->::DBDecorateItemList::MergeFrom(from.baggridlist());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DBDecorateBagInfo::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DBDecorateBagInfo::CopyFrom(const DBDecorateBagInfo& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DBDecorateBagInfo::IsInitialized() const {
+
+  return true;
+}
+
+void DBDecorateBagInfo::Swap(DBDecorateBagInfo* other) {
+  if (other != this) {
+    std::swap(baggridlist_, other->baggridlist_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DBDecorateBagInfo::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DBDecorateBagInfo_descriptor_;
+  metadata.reflection = DBDecorateBagInfo_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DBDecorateBagInfoList::kDecorateBagListFieldNumber;
+#endif  // !_MSC_VER
+
+DBDecorateBagInfoList::DBDecorateBagInfoList()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DBDecorateBagInfoList::InitAsDefaultInstance() {
+}
+
+DBDecorateBagInfoList::DBDecorateBagInfoList(const DBDecorateBagInfoList& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DBDecorateBagInfoList::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DBDecorateBagInfoList::~DBDecorateBagInfoList() {
+  SharedDtor();
+}
+
+void DBDecorateBagInfoList::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void DBDecorateBagInfoList::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DBDecorateBagInfoList::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DBDecorateBagInfoList_descriptor_;
+}
+
+const DBDecorateBagInfoList& DBDecorateBagInfoList::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_DBmsg_2eproto();
+  return *default_instance_;
+}
+
+DBDecorateBagInfoList* DBDecorateBagInfoList::default_instance_ = NULL;
+
+DBDecorateBagInfoList* DBDecorateBagInfoList::New() const {
+  return new DBDecorateBagInfoList;
+}
+
+void DBDecorateBagInfoList::Clear() {
+  decoratebaglist_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DBDecorateBagInfoList::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .DBDecorateBagInfo DecorateBagList = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_DecorateBagList:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_decoratebaglist()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_DecorateBagList;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DBDecorateBagInfoList::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .DBDecorateBagInfo DecorateBagList = 1;
+  for (int i = 0; i < this->decoratebaglist_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->decoratebaglist(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DBDecorateBagInfoList::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .DBDecorateBagInfo DecorateBagList = 1;
+  for (int i = 0; i < this->decoratebaglist_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->decoratebaglist(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DBDecorateBagInfoList::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .DBDecorateBagInfo DecorateBagList = 1;
+  total_size += 1 * this->decoratebaglist_size();
+  for (int i = 0; i < this->decoratebaglist_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->decoratebaglist(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DBDecorateBagInfoList::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DBDecorateBagInfoList* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DBDecorateBagInfoList*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DBDecorateBagInfoList::MergeFrom(const DBDecorateBagInfoList& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  decoratebaglist_.MergeFrom(from.decoratebaglist_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DBDecorateBagInfoList::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DBDecorateBagInfoList::CopyFrom(const DBDecorateBagInfoList& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DBDecorateBagInfoList::IsInitialized() const {
+
+  return true;
+}
+
+void DBDecorateBagInfoList::Swap(DBDecorateBagInfoList* other) {
+  if (other != this) {
+    decoratebaglist_.Swap(&other->decoratebaglist_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DBDecorateBagInfoList::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DBDecorateBagInfoList_descriptor_;
+  metadata.reflection = DBDecorateBagInfoList_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DBDecorateBagModuleInfo::kDecorateBagInfoListFieldNumber;
+#endif  // !_MSC_VER
+
+DBDecorateBagModuleInfo::DBDecorateBagModuleInfo()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DBDecorateBagModuleInfo::InitAsDefaultInstance() {
+  decoratebaginfolist_ = const_cast< ::DBDecorateBagInfoList*>(&::DBDecorateBagInfoList::default_instance());
+}
+
+DBDecorateBagModuleInfo::DBDecorateBagModuleInfo(const DBDecorateBagModuleInfo& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DBDecorateBagModuleInfo::SharedCtor() {
+  _cached_size_ = 0;
+  decoratebaginfolist_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DBDecorateBagModuleInfo::~DBDecorateBagModuleInfo() {
+  SharedDtor();
+}
+
+void DBDecorateBagModuleInfo::SharedDtor() {
+  if (this != default_instance_) {
+    delete decoratebaginfolist_;
+  }
+}
+
+void DBDecorateBagModuleInfo::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DBDecorateBagModuleInfo::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DBDecorateBagModuleInfo_descriptor_;
+}
+
+const DBDecorateBagModuleInfo& DBDecorateBagModuleInfo::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_DBmsg_2eproto();
+  return *default_instance_;
+}
+
+DBDecorateBagModuleInfo* DBDecorateBagModuleInfo::default_instance_ = NULL;
+
+DBDecorateBagModuleInfo* DBDecorateBagModuleInfo::New() const {
+  return new DBDecorateBagModuleInfo;
+}
+
+void DBDecorateBagModuleInfo::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_decoratebaginfolist()) {
+      if (decoratebaginfolist_ != NULL) decoratebaginfolist_->::DBDecorateBagInfoList::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DBDecorateBagModuleInfo::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .DBDecorateBagInfoList DecorateBagInfoList = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_decoratebaginfolist()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DBDecorateBagModuleInfo::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional .DBDecorateBagInfoList DecorateBagInfoList = 1;
+  if (has_decoratebaginfolist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->decoratebaginfolist(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DBDecorateBagModuleInfo::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional .DBDecorateBagInfoList DecorateBagInfoList = 1;
+  if (has_decoratebaginfolist()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->decoratebaginfolist(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DBDecorateBagModuleInfo::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional .DBDecorateBagInfoList DecorateBagInfoList = 1;
+    if (has_decoratebaginfolist()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->decoratebaginfolist());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DBDecorateBagModuleInfo::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DBDecorateBagModuleInfo* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DBDecorateBagModuleInfo*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DBDecorateBagModuleInfo::MergeFrom(const DBDecorateBagModuleInfo& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_decoratebaginfolist()) {
+      mutable_decoratebaginfolist()->::DBDecorateBagInfoList::MergeFrom(from.decoratebaginfolist());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DBDecorateBagModuleInfo::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DBDecorateBagModuleInfo::CopyFrom(const DBDecorateBagModuleInfo& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DBDecorateBagModuleInfo::IsInitialized() const {
+
+  return true;
+}
+
+void DBDecorateBagModuleInfo::Swap(DBDecorateBagModuleInfo* other) {
+  if (other != this) {
+    std::swap(decoratebaginfolist_, other->decoratebaginfolist_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DBDecorateBagModuleInfo::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DBDecorateBagModuleInfo_descriptor_;
+  metadata.reflection = DBDecorateBagModuleInfo_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int DBRoleInfo::kUIDFieldNumber;
 const int DBRoleInfo::kNameFieldNumber;
 const int DBRoleInfo::kLevelFieldNumber;
@@ -851,6 +2103,7 @@ const int DBRoleInfo::kRankFieldNumber;
 const int DBRoleInfo::kLevelExperFieldNumber;
 const int DBRoleInfo::kRankExperFieldNumber;
 const int DBRoleInfo::kBagInfoFieldNumber;
+const int DBRoleInfo::kDecorateBagModuleInfoFieldNumber;
 #endif  // !_MSC_VER
 
 DBRoleInfo::DBRoleInfo()
@@ -860,6 +2113,7 @@ DBRoleInfo::DBRoleInfo()
 
 void DBRoleInfo::InitAsDefaultInstance() {
   baginfo_ = const_cast< ::DBBagInfo*>(&::DBBagInfo::default_instance());
+  decoratebagmoduleinfo_ = const_cast< ::DBDecorateBagModuleInfo*>(&::DBDecorateBagModuleInfo::default_instance());
 }
 
 DBRoleInfo::DBRoleInfo(const DBRoleInfo& from)
@@ -877,6 +2131,7 @@ void DBRoleInfo::SharedCtor() {
   levelexper_ = 0u;
   rankexper_ = 0u;
   baginfo_ = NULL;
+  decoratebagmoduleinfo_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -890,6 +2145,7 @@ void DBRoleInfo::SharedDtor() {
   }
   if (this != default_instance_) {
     delete baginfo_;
+    delete decoratebagmoduleinfo_;
   }
 }
 
@@ -928,6 +2184,9 @@ void DBRoleInfo::Clear() {
     rankexper_ = 0u;
     if (has_baginfo()) {
       if (baginfo_ != NULL) baginfo_->::DBBagInfo::Clear();
+    }
+    if (has_decoratebagmoduleinfo()) {
+      if (decoratebagmoduleinfo_ != NULL) decoratebagmoduleinfo_->::DBDecorateBagModuleInfo::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1046,6 +2305,20 @@ bool DBRoleInfo::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(66)) goto parse_DecorateBagModuleInfo;
+        break;
+      }
+
+      // optional .DBDecorateBagModuleInfo DecorateBagModuleInfo = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_DecorateBagModuleInfo:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_decoratebagmoduleinfo()));
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1108,6 +2381,12 @@ void DBRoleInfo::SerializeWithCachedSizes(
       7, this->baginfo(), output);
   }
 
+  // optional .DBDecorateBagModuleInfo DecorateBagModuleInfo = 8;
+  if (has_decoratebagmoduleinfo()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      8, this->decoratebagmoduleinfo(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1156,6 +2435,13 @@ void DBRoleInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         7, this->baginfo(), target);
+  }
+
+  // optional .DBDecorateBagModuleInfo DecorateBagModuleInfo = 8;
+  if (has_decoratebagmoduleinfo()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        8, this->decoratebagmoduleinfo(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1218,6 +2504,13 @@ int DBRoleInfo::ByteSize() const {
           this->baginfo());
     }
 
+    // optional .DBDecorateBagModuleInfo DecorateBagModuleInfo = 8;
+    if (has_decoratebagmoduleinfo()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->decoratebagmoduleinfo());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -1266,6 +2559,9 @@ void DBRoleInfo::MergeFrom(const DBRoleInfo& from) {
     if (from.has_baginfo()) {
       mutable_baginfo()->::DBBagInfo::MergeFrom(from.baginfo());
     }
+    if (from.has_decoratebagmoduleinfo()) {
+      mutable_decoratebagmoduleinfo()->::DBDecorateBagModuleInfo::MergeFrom(from.decoratebagmoduleinfo());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -1296,6 +2592,7 @@ void DBRoleInfo::Swap(DBRoleInfo* other) {
     std::swap(levelexper_, other->levelexper_);
     std::swap(rankexper_, other->rankexper_);
     std::swap(baginfo_, other->baginfo_);
+    std::swap(decoratebagmoduleinfo_, other->decoratebagmoduleinfo_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
