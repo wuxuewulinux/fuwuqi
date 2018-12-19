@@ -39,6 +39,9 @@ class DBDecorateItemList;
 class DBDecorateBagInfo;
 class DBDecorateBagInfoList;
 class DBDecorateBagModuleInfo;
+class DBDecorateBagVIPItem;
+class DBDecorateBagVIPList;
+class DBDecorateBagVIPInfo;
 class DBRoleInfo;
 
 // ===================================================================
@@ -723,6 +726,18 @@ class DBDecorateBagModuleInfo : public ::google::protobuf::Message {
   inline ::DBDecorateBagInfoList* release_decoratebaginfolist();
   inline void set_allocated_decoratebaginfolist(::DBDecorateBagInfoList* decoratebaginfolist);
 
+  // repeated uint32 TypeList = 2;
+  inline int typelist_size() const;
+  inline void clear_typelist();
+  static const int kTypeListFieldNumber = 2;
+  inline ::google::protobuf::uint32 typelist(int index) const;
+  inline void set_typelist(int index, ::google::protobuf::uint32 value);
+  inline void add_typelist(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      typelist() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_typelist();
+
   // @@protoc_insertion_point(class_scope:DBDecorateBagModuleInfo)
  private:
   inline void set_has_decoratebaginfolist();
@@ -731,6 +746,184 @@ class DBDecorateBagModuleInfo : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::DBDecorateBagInfoList* decoratebaginfolist_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > typelist_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBmsg_2eproto();
+  friend void protobuf_AssignDesc_DBmsg_2eproto();
+  friend void protobuf_ShutdownFile_DBmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static DBDecorateBagModuleInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DBDecorateBagVIPItem : public ::google::protobuf::Message {
+ public:
+  DBDecorateBagVIPItem();
+  virtual ~DBDecorateBagVIPItem();
+
+  DBDecorateBagVIPItem(const DBDecorateBagVIPItem& from);
+
+  inline DBDecorateBagVIPItem& operator=(const DBDecorateBagVIPItem& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DBDecorateBagVIPItem& default_instance();
+
+  void Swap(DBDecorateBagVIPItem* other);
+
+  // implements Message ----------------------------------------------
+
+  DBDecorateBagVIPItem* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DBDecorateBagVIPItem& from);
+  void MergeFrom(const DBDecorateBagVIPItem& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 grade = 1;
+  inline bool has_grade() const;
+  inline void clear_grade();
+  static const int kGradeFieldNumber = 1;
+  inline ::google::protobuf::uint32 grade() const;
+  inline void set_grade(::google::protobuf::uint32 value);
+
+  // optional uint32 exper = 2;
+  inline bool has_exper() const;
+  inline void clear_exper();
+  static const int kExperFieldNumber = 2;
+  inline ::google::protobuf::uint32 exper() const;
+  inline void set_exper(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:DBDecorateBagVIPItem)
+ private:
+  inline void set_has_grade();
+  inline void clear_has_grade();
+  inline void set_has_exper();
+  inline void clear_has_exper();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 grade_;
+  ::google::protobuf::uint32 exper_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBmsg_2eproto();
+  friend void protobuf_AssignDesc_DBmsg_2eproto();
+  friend void protobuf_ShutdownFile_DBmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static DBDecorateBagVIPItem* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DBDecorateBagVIPList : public ::google::protobuf::Message {
+ public:
+  DBDecorateBagVIPList();
+  virtual ~DBDecorateBagVIPList();
+
+  DBDecorateBagVIPList(const DBDecorateBagVIPList& from);
+
+  inline DBDecorateBagVIPList& operator=(const DBDecorateBagVIPList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DBDecorateBagVIPList& default_instance();
+
+  void Swap(DBDecorateBagVIPList* other);
+
+  // implements Message ----------------------------------------------
+
+  DBDecorateBagVIPList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DBDecorateBagVIPList& from);
+  void MergeFrom(const DBDecorateBagVIPList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .DBDecorateBagVIPItem VIPItemList = 1;
+  inline int vipitemlist_size() const;
+  inline void clear_vipitemlist();
+  static const int kVIPItemListFieldNumber = 1;
+  inline const ::DBDecorateBagVIPItem& vipitemlist(int index) const;
+  inline ::DBDecorateBagVIPItem* mutable_vipitemlist(int index);
+  inline ::DBDecorateBagVIPItem* add_vipitemlist();
+  inline const ::google::protobuf::RepeatedPtrField< ::DBDecorateBagVIPItem >&
+      vipitemlist() const;
+  inline ::google::protobuf::RepeatedPtrField< ::DBDecorateBagVIPItem >*
+      mutable_vipitemlist();
+
+  // @@protoc_insertion_point(class_scope:DBDecorateBagVIPList)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::DBDecorateBagVIPItem > vipitemlist_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -740,7 +933,91 @@ class DBDecorateBagModuleInfo : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_DBmsg_2eproto();
 
   void InitAsDefaultInstance();
-  static DBDecorateBagModuleInfo* default_instance_;
+  static DBDecorateBagVIPList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DBDecorateBagVIPInfo : public ::google::protobuf::Message {
+ public:
+  DBDecorateBagVIPInfo();
+  virtual ~DBDecorateBagVIPInfo();
+
+  DBDecorateBagVIPInfo(const DBDecorateBagVIPInfo& from);
+
+  inline DBDecorateBagVIPInfo& operator=(const DBDecorateBagVIPInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DBDecorateBagVIPInfo& default_instance();
+
+  void Swap(DBDecorateBagVIPInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  DBDecorateBagVIPInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DBDecorateBagVIPInfo& from);
+  void MergeFrom(const DBDecorateBagVIPInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .DBDecorateBagVIPList VIPListInfo = 1;
+  inline bool has_viplistinfo() const;
+  inline void clear_viplistinfo();
+  static const int kVIPListInfoFieldNumber = 1;
+  inline const ::DBDecorateBagVIPList& viplistinfo() const;
+  inline ::DBDecorateBagVIPList* mutable_viplistinfo();
+  inline ::DBDecorateBagVIPList* release_viplistinfo();
+  inline void set_allocated_viplistinfo(::DBDecorateBagVIPList* viplistinfo);
+
+  // @@protoc_insertion_point(class_scope:DBDecorateBagVIPInfo)
+ private:
+  inline void set_has_viplistinfo();
+  inline void clear_has_viplistinfo();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::DBDecorateBagVIPList* viplistinfo_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBmsg_2eproto();
+  friend void protobuf_AssignDesc_DBmsg_2eproto();
+  friend void protobuf_ShutdownFile_DBmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static DBDecorateBagVIPInfo* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -863,6 +1140,15 @@ class DBRoleInfo : public ::google::protobuf::Message {
   inline ::DBDecorateBagModuleInfo* release_decoratebagmoduleinfo();
   inline void set_allocated_decoratebagmoduleinfo(::DBDecorateBagModuleInfo* decoratebagmoduleinfo);
 
+  // optional .DBDecorateBagVIPInfo VIPInfo = 9;
+  inline bool has_vipinfo() const;
+  inline void clear_vipinfo();
+  static const int kVIPInfoFieldNumber = 9;
+  inline const ::DBDecorateBagVIPInfo& vipinfo() const;
+  inline ::DBDecorateBagVIPInfo* mutable_vipinfo();
+  inline ::DBDecorateBagVIPInfo* release_vipinfo();
+  inline void set_allocated_vipinfo(::DBDecorateBagVIPInfo* vipinfo);
+
   // @@protoc_insertion_point(class_scope:DBRoleInfo)
  private:
   inline void set_has_uid();
@@ -881,6 +1167,8 @@ class DBRoleInfo : public ::google::protobuf::Message {
   inline void clear_has_baginfo();
   inline void set_has_decoratebagmoduleinfo();
   inline void clear_has_decoratebagmoduleinfo();
+  inline void set_has_vipinfo();
+  inline void clear_has_vipinfo();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -892,9 +1180,10 @@ class DBRoleInfo : public ::google::protobuf::Message {
   ::google::protobuf::uint32 rankexper_;
   ::DBBagInfo* baginfo_;
   ::DBDecorateBagModuleInfo* decoratebagmoduleinfo_;
+  ::DBDecorateBagVIPInfo* vipinfo_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBmsg_2eproto();
   friend void protobuf_AssignDesc_DBmsg_2eproto();
@@ -1237,6 +1526,150 @@ inline void DBDecorateBagModuleInfo::set_allocated_decoratebaginfolist(::DBDecor
   }
 }
 
+// repeated uint32 TypeList = 2;
+inline int DBDecorateBagModuleInfo::typelist_size() const {
+  return typelist_.size();
+}
+inline void DBDecorateBagModuleInfo::clear_typelist() {
+  typelist_.Clear();
+}
+inline ::google::protobuf::uint32 DBDecorateBagModuleInfo::typelist(int index) const {
+  return typelist_.Get(index);
+}
+inline void DBDecorateBagModuleInfo::set_typelist(int index, ::google::protobuf::uint32 value) {
+  typelist_.Set(index, value);
+}
+inline void DBDecorateBagModuleInfo::add_typelist(::google::protobuf::uint32 value) {
+  typelist_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+DBDecorateBagModuleInfo::typelist() const {
+  return typelist_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+DBDecorateBagModuleInfo::mutable_typelist() {
+  return &typelist_;
+}
+
+// -------------------------------------------------------------------
+
+// DBDecorateBagVIPItem
+
+// optional uint32 grade = 1;
+inline bool DBDecorateBagVIPItem::has_grade() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DBDecorateBagVIPItem::set_has_grade() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DBDecorateBagVIPItem::clear_has_grade() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DBDecorateBagVIPItem::clear_grade() {
+  grade_ = 0u;
+  clear_has_grade();
+}
+inline ::google::protobuf::uint32 DBDecorateBagVIPItem::grade() const {
+  return grade_;
+}
+inline void DBDecorateBagVIPItem::set_grade(::google::protobuf::uint32 value) {
+  set_has_grade();
+  grade_ = value;
+}
+
+// optional uint32 exper = 2;
+inline bool DBDecorateBagVIPItem::has_exper() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DBDecorateBagVIPItem::set_has_exper() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DBDecorateBagVIPItem::clear_has_exper() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DBDecorateBagVIPItem::clear_exper() {
+  exper_ = 0u;
+  clear_has_exper();
+}
+inline ::google::protobuf::uint32 DBDecorateBagVIPItem::exper() const {
+  return exper_;
+}
+inline void DBDecorateBagVIPItem::set_exper(::google::protobuf::uint32 value) {
+  set_has_exper();
+  exper_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DBDecorateBagVIPList
+
+// repeated .DBDecorateBagVIPItem VIPItemList = 1;
+inline int DBDecorateBagVIPList::vipitemlist_size() const {
+  return vipitemlist_.size();
+}
+inline void DBDecorateBagVIPList::clear_vipitemlist() {
+  vipitemlist_.Clear();
+}
+inline const ::DBDecorateBagVIPItem& DBDecorateBagVIPList::vipitemlist(int index) const {
+  return vipitemlist_.Get(index);
+}
+inline ::DBDecorateBagVIPItem* DBDecorateBagVIPList::mutable_vipitemlist(int index) {
+  return vipitemlist_.Mutable(index);
+}
+inline ::DBDecorateBagVIPItem* DBDecorateBagVIPList::add_vipitemlist() {
+  return vipitemlist_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::DBDecorateBagVIPItem >&
+DBDecorateBagVIPList::vipitemlist() const {
+  return vipitemlist_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::DBDecorateBagVIPItem >*
+DBDecorateBagVIPList::mutable_vipitemlist() {
+  return &vipitemlist_;
+}
+
+// -------------------------------------------------------------------
+
+// DBDecorateBagVIPInfo
+
+// optional .DBDecorateBagVIPList VIPListInfo = 1;
+inline bool DBDecorateBagVIPInfo::has_viplistinfo() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DBDecorateBagVIPInfo::set_has_viplistinfo() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DBDecorateBagVIPInfo::clear_has_viplistinfo() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DBDecorateBagVIPInfo::clear_viplistinfo() {
+  if (viplistinfo_ != NULL) viplistinfo_->::DBDecorateBagVIPList::Clear();
+  clear_has_viplistinfo();
+}
+inline const ::DBDecorateBagVIPList& DBDecorateBagVIPInfo::viplistinfo() const {
+  return viplistinfo_ != NULL ? *viplistinfo_ : *default_instance_->viplistinfo_;
+}
+inline ::DBDecorateBagVIPList* DBDecorateBagVIPInfo::mutable_viplistinfo() {
+  set_has_viplistinfo();
+  if (viplistinfo_ == NULL) viplistinfo_ = new ::DBDecorateBagVIPList;
+  return viplistinfo_;
+}
+inline ::DBDecorateBagVIPList* DBDecorateBagVIPInfo::release_viplistinfo() {
+  clear_has_viplistinfo();
+  ::DBDecorateBagVIPList* temp = viplistinfo_;
+  viplistinfo_ = NULL;
+  return temp;
+}
+inline void DBDecorateBagVIPInfo::set_allocated_viplistinfo(::DBDecorateBagVIPList* viplistinfo) {
+  delete viplistinfo_;
+  viplistinfo_ = viplistinfo;
+  if (viplistinfo) {
+    set_has_viplistinfo();
+  } else {
+    clear_has_viplistinfo();
+  }
+}
+
 // -------------------------------------------------------------------
 
 // DBRoleInfo
@@ -1494,6 +1927,44 @@ inline void DBRoleInfo::set_allocated_decoratebagmoduleinfo(::DBDecorateBagModul
     set_has_decoratebagmoduleinfo();
   } else {
     clear_has_decoratebagmoduleinfo();
+  }
+}
+
+// optional .DBDecorateBagVIPInfo VIPInfo = 9;
+inline bool DBRoleInfo::has_vipinfo() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void DBRoleInfo::set_has_vipinfo() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void DBRoleInfo::clear_has_vipinfo() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void DBRoleInfo::clear_vipinfo() {
+  if (vipinfo_ != NULL) vipinfo_->::DBDecorateBagVIPInfo::Clear();
+  clear_has_vipinfo();
+}
+inline const ::DBDecorateBagVIPInfo& DBRoleInfo::vipinfo() const {
+  return vipinfo_ != NULL ? *vipinfo_ : *default_instance_->vipinfo_;
+}
+inline ::DBDecorateBagVIPInfo* DBRoleInfo::mutable_vipinfo() {
+  set_has_vipinfo();
+  if (vipinfo_ == NULL) vipinfo_ = new ::DBDecorateBagVIPInfo;
+  return vipinfo_;
+}
+inline ::DBDecorateBagVIPInfo* DBRoleInfo::release_vipinfo() {
+  clear_has_vipinfo();
+  ::DBDecorateBagVIPInfo* temp = vipinfo_;
+  vipinfo_ = NULL;
+  return temp;
+}
+inline void DBRoleInfo::set_allocated_vipinfo(::DBDecorateBagVIPInfo* vipinfo) {
+  delete vipinfo_;
+  vipinfo_ = vipinfo;
+  if (vipinfo) {
+    set_has_vipinfo();
+  } else {
+    clear_has_vipinfo();
   }
 }
 

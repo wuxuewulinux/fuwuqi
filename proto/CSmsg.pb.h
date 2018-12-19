@@ -58,6 +58,11 @@ class CSDecorateBagFetchReq;
 class CSDecorateBagGridInfo;
 class CSDecorateBagInfo;
 class CSDecorateBagFetchRsp;
+class CSDecorateBagShowSetReq;
+class CSDecorateBagVIPFetchReq;
+class CSDecorateBagVIPItem;
+class CSDecorateBagVIPList;
+class CSDecorateBagVIPFetchRsp;
 class CSDecorateBagReqParam;
 class CSDecorateBagRspParam;
 class CSDecorateBagReq;
@@ -106,11 +111,13 @@ inline bool CSBagCmd_Parse(
     CSBagCmd_descriptor(), name, value);
 }
 enum CSDecorateBagCmd {
-  CSDecorateBagCmd_Fetch = 1
+  CSDecorateBagCmd_Fetch = 1,
+  CSDecorateBagCmd_ShowSet = 2,
+  CSDecorateBagCmd_VipFetch = 3
 };
 bool CSDecorateBagCmd_IsValid(int value);
 const CSDecorateBagCmd CSDecorateBagCmd_MIN = CSDecorateBagCmd_Fetch;
-const CSDecorateBagCmd CSDecorateBagCmd_MAX = CSDecorateBagCmd_Fetch;
+const CSDecorateBagCmd CSDecorateBagCmd_MAX = CSDecorateBagCmd_VipFetch;
 const int CSDecorateBagCmd_ARRAYSIZE = CSDecorateBagCmd_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* CSDecorateBagCmd_descriptor();
@@ -2452,10 +2459,17 @@ class CSDecorateBagFetchRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 type() const;
   inline void set_type(::google::protobuf::uint32 value);
 
-  // optional .CSDecorateBagInfo DecorateBagInfo = 2;
+  // optional uint32 id = 2;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 id() const;
+  inline void set_id(::google::protobuf::uint32 value);
+
+  // optional .CSDecorateBagInfo DecorateBagInfo = 3;
   inline bool has_decoratebaginfo() const;
   inline void clear_decoratebaginfo();
-  static const int kDecorateBagInfoFieldNumber = 2;
+  static const int kDecorateBagInfoFieldNumber = 3;
   inline const ::CSDecorateBagInfo& decoratebaginfo() const;
   inline ::CSDecorateBagInfo* mutable_decoratebaginfo();
   inline ::CSDecorateBagInfo* release_decoratebaginfo();
@@ -2465,13 +2479,108 @@ class CSDecorateBagFetchRsp : public ::google::protobuf::Message {
  private:
   inline void set_has_type();
   inline void clear_has_type();
+  inline void set_has_id();
+  inline void clear_has_id();
   inline void set_has_decoratebaginfo();
   inline void clear_has_decoratebaginfo();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::CSDecorateBagInfo* decoratebaginfo_;
   ::google::protobuf::uint32 type_;
+  ::google::protobuf::uint32 id_;
+  ::CSDecorateBagInfo* decoratebaginfo_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSDecorateBagFetchRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSDecorateBagShowSetReq : public ::google::protobuf::Message {
+ public:
+  CSDecorateBagShowSetReq();
+  virtual ~CSDecorateBagShowSetReq();
+
+  CSDecorateBagShowSetReq(const CSDecorateBagShowSetReq& from);
+
+  inline CSDecorateBagShowSetReq& operator=(const CSDecorateBagShowSetReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSDecorateBagShowSetReq& default_instance();
+
+  void Swap(CSDecorateBagShowSetReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSDecorateBagShowSetReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSDecorateBagShowSetReq& from);
+  void MergeFrom(const CSDecorateBagShowSetReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 Type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::google::protobuf::uint32 type() const;
+  inline void set_type(::google::protobuf::uint32 value);
+
+  // optional uint32 id = 2;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 id() const;
+  inline void set_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:CSDecorateBagShowSetReq)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 type_;
+  ::google::protobuf::uint32 id_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -2481,7 +2590,382 @@ class CSDecorateBagFetchRsp : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_CSmsg_2eproto();
 
   void InitAsDefaultInstance();
-  static CSDecorateBagFetchRsp* default_instance_;
+  static CSDecorateBagShowSetReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSDecorateBagVIPFetchReq : public ::google::protobuf::Message {
+ public:
+  CSDecorateBagVIPFetchReq();
+  virtual ~CSDecorateBagVIPFetchReq();
+
+  CSDecorateBagVIPFetchReq(const CSDecorateBagVIPFetchReq& from);
+
+  inline CSDecorateBagVIPFetchReq& operator=(const CSDecorateBagVIPFetchReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSDecorateBagVIPFetchReq& default_instance();
+
+  void Swap(CSDecorateBagVIPFetchReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSDecorateBagVIPFetchReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSDecorateBagVIPFetchReq& from);
+  void MergeFrom(const CSDecorateBagVIPFetchReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::google::protobuf::uint32 type() const;
+  inline void set_type(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:CSDecorateBagVIPFetchReq)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSDecorateBagVIPFetchReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSDecorateBagVIPItem : public ::google::protobuf::Message {
+ public:
+  CSDecorateBagVIPItem();
+  virtual ~CSDecorateBagVIPItem();
+
+  CSDecorateBagVIPItem(const CSDecorateBagVIPItem& from);
+
+  inline CSDecorateBagVIPItem& operator=(const CSDecorateBagVIPItem& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSDecorateBagVIPItem& default_instance();
+
+  void Swap(CSDecorateBagVIPItem* other);
+
+  // implements Message ----------------------------------------------
+
+  CSDecorateBagVIPItem* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSDecorateBagVIPItem& from);
+  void MergeFrom(const CSDecorateBagVIPItem& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 VipGrade = 1;
+  inline bool has_vipgrade() const;
+  inline void clear_vipgrade();
+  static const int kVipGradeFieldNumber = 1;
+  inline ::google::protobuf::uint32 vipgrade() const;
+  inline void set_vipgrade(::google::protobuf::uint32 value);
+
+  // optional uint32 VipExper = 2;
+  inline bool has_vipexper() const;
+  inline void clear_vipexper();
+  static const int kVipExperFieldNumber = 2;
+  inline ::google::protobuf::uint32 vipexper() const;
+  inline void set_vipexper(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:CSDecorateBagVIPItem)
+ private:
+  inline void set_has_vipgrade();
+  inline void clear_has_vipgrade();
+  inline void set_has_vipexper();
+  inline void clear_has_vipexper();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 vipgrade_;
+  ::google::protobuf::uint32 vipexper_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSDecorateBagVIPItem* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSDecorateBagVIPList : public ::google::protobuf::Message {
+ public:
+  CSDecorateBagVIPList();
+  virtual ~CSDecorateBagVIPList();
+
+  CSDecorateBagVIPList(const CSDecorateBagVIPList& from);
+
+  inline CSDecorateBagVIPList& operator=(const CSDecorateBagVIPList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSDecorateBagVIPList& default_instance();
+
+  void Swap(CSDecorateBagVIPList* other);
+
+  // implements Message ----------------------------------------------
+
+  CSDecorateBagVIPList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSDecorateBagVIPList& from);
+  void MergeFrom(const CSDecorateBagVIPList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .CSDecorateBagVIPItem VIPItemList = 1;
+  inline int vipitemlist_size() const;
+  inline void clear_vipitemlist();
+  static const int kVIPItemListFieldNumber = 1;
+  inline const ::CSDecorateBagVIPItem& vipitemlist(int index) const;
+  inline ::CSDecorateBagVIPItem* mutable_vipitemlist(int index);
+  inline ::CSDecorateBagVIPItem* add_vipitemlist();
+  inline const ::google::protobuf::RepeatedPtrField< ::CSDecorateBagVIPItem >&
+      vipitemlist() const;
+  inline ::google::protobuf::RepeatedPtrField< ::CSDecorateBagVIPItem >*
+      mutable_vipitemlist();
+
+  // @@protoc_insertion_point(class_scope:CSDecorateBagVIPList)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::CSDecorateBagVIPItem > vipitemlist_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSDecorateBagVIPList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSDecorateBagVIPFetchRsp : public ::google::protobuf::Message {
+ public:
+  CSDecorateBagVIPFetchRsp();
+  virtual ~CSDecorateBagVIPFetchRsp();
+
+  CSDecorateBagVIPFetchRsp(const CSDecorateBagVIPFetchRsp& from);
+
+  inline CSDecorateBagVIPFetchRsp& operator=(const CSDecorateBagVIPFetchRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSDecorateBagVIPFetchRsp& default_instance();
+
+  void Swap(CSDecorateBagVIPFetchRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSDecorateBagVIPFetchRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSDecorateBagVIPFetchRsp& from);
+  void MergeFrom(const CSDecorateBagVIPFetchRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::google::protobuf::uint32 type() const;
+  inline void set_type(::google::protobuf::uint32 value);
+
+  // optional uint32 id = 2;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 id() const;
+  inline void set_id(::google::protobuf::uint32 value);
+
+  // optional .CSDecorateBagInfo DecorateBagInfo = 3;
+  inline bool has_decoratebaginfo() const;
+  inline void clear_decoratebaginfo();
+  static const int kDecorateBagInfoFieldNumber = 3;
+  inline const ::CSDecorateBagInfo& decoratebaginfo() const;
+  inline ::CSDecorateBagInfo* mutable_decoratebaginfo();
+  inline ::CSDecorateBagInfo* release_decoratebaginfo();
+  inline void set_allocated_decoratebaginfo(::CSDecorateBagInfo* decoratebaginfo);
+
+  // optional .CSDecorateBagVIPList VipList = 4;
+  inline bool has_viplist() const;
+  inline void clear_viplist();
+  static const int kVipListFieldNumber = 4;
+  inline const ::CSDecorateBagVIPList& viplist() const;
+  inline ::CSDecorateBagVIPList* mutable_viplist();
+  inline ::CSDecorateBagVIPList* release_viplist();
+  inline void set_allocated_viplist(::CSDecorateBagVIPList* viplist);
+
+  // @@protoc_insertion_point(class_scope:CSDecorateBagVIPFetchRsp)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_decoratebaginfo();
+  inline void clear_has_decoratebaginfo();
+  inline void set_has_viplist();
+  inline void clear_has_viplist();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 type_;
+  ::google::protobuf::uint32 id_;
+  ::CSDecorateBagInfo* decoratebaginfo_;
+  ::CSDecorateBagVIPList* viplist_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSDecorateBagVIPFetchRsp* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -2548,17 +3032,41 @@ class CSDecorateBagReqParam : public ::google::protobuf::Message {
   inline ::CSDecorateBagFetchReq* release_fetchreq();
   inline void set_allocated_fetchreq(::CSDecorateBagFetchReq* fetchreq);
 
+  // optional .CSDecorateBagShowSetReq ShowSetReq = 2;
+  inline bool has_showsetreq() const;
+  inline void clear_showsetreq();
+  static const int kShowSetReqFieldNumber = 2;
+  inline const ::CSDecorateBagShowSetReq& showsetreq() const;
+  inline ::CSDecorateBagShowSetReq* mutable_showsetreq();
+  inline ::CSDecorateBagShowSetReq* release_showsetreq();
+  inline void set_allocated_showsetreq(::CSDecorateBagShowSetReq* showsetreq);
+
+  // optional .CSDecorateBagVIPFetchReq VIPFetchReq = 3;
+  inline bool has_vipfetchreq() const;
+  inline void clear_vipfetchreq();
+  static const int kVIPFetchReqFieldNumber = 3;
+  inline const ::CSDecorateBagVIPFetchReq& vipfetchreq() const;
+  inline ::CSDecorateBagVIPFetchReq* mutable_vipfetchreq();
+  inline ::CSDecorateBagVIPFetchReq* release_vipfetchreq();
+  inline void set_allocated_vipfetchreq(::CSDecorateBagVIPFetchReq* vipfetchreq);
+
   // @@protoc_insertion_point(class_scope:CSDecorateBagReqParam)
  private:
   inline void set_has_fetchreq();
   inline void clear_has_fetchreq();
+  inline void set_has_showsetreq();
+  inline void clear_has_showsetreq();
+  inline void set_has_vipfetchreq();
+  inline void clear_has_vipfetchreq();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::CSDecorateBagFetchReq* fetchreq_;
+  ::CSDecorateBagShowSetReq* showsetreq_;
+  ::CSDecorateBagVIPFetchReq* vipfetchreq_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_CSmsg_2eproto();
   friend void protobuf_AssignDesc_CSmsg_2eproto();
@@ -2632,17 +3140,29 @@ class CSDecorateBagRspParam : public ::google::protobuf::Message {
   inline ::CSDecorateBagFetchRsp* release_fetchrsp();
   inline void set_allocated_fetchrsp(::CSDecorateBagFetchRsp* fetchrsp);
 
+  // optional .CSDecorateBagVIPFetchRsp VIPFetchRsp = 2;
+  inline bool has_vipfetchrsp() const;
+  inline void clear_vipfetchrsp();
+  static const int kVIPFetchRspFieldNumber = 2;
+  inline const ::CSDecorateBagVIPFetchRsp& vipfetchrsp() const;
+  inline ::CSDecorateBagVIPFetchRsp* mutable_vipfetchrsp();
+  inline ::CSDecorateBagVIPFetchRsp* release_vipfetchrsp();
+  inline void set_allocated_vipfetchrsp(::CSDecorateBagVIPFetchRsp* vipfetchrsp);
+
   // @@protoc_insertion_point(class_scope:CSDecorateBagRspParam)
  private:
   inline void set_has_fetchrsp();
   inline void clear_has_fetchrsp();
+  inline void set_has_vipfetchrsp();
+  inline void clear_has_vipfetchrsp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::CSDecorateBagFetchRsp* fetchrsp_;
+  ::CSDecorateBagVIPFetchRsp* vipfetchrsp_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_CSmsg_2eproto();
   friend void protobuf_AssignDesc_CSmsg_2eproto();
@@ -4805,15 +5325,37 @@ inline void CSDecorateBagFetchRsp::set_type(::google::protobuf::uint32 value) {
   type_ = value;
 }
 
-// optional .CSDecorateBagInfo DecorateBagInfo = 2;
-inline bool CSDecorateBagFetchRsp::has_decoratebaginfo() const {
+// optional uint32 id = 2;
+inline bool CSDecorateBagFetchRsp::has_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void CSDecorateBagFetchRsp::set_has_decoratebaginfo() {
+inline void CSDecorateBagFetchRsp::set_has_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void CSDecorateBagFetchRsp::clear_has_decoratebaginfo() {
+inline void CSDecorateBagFetchRsp::clear_has_id() {
   _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSDecorateBagFetchRsp::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+inline ::google::protobuf::uint32 CSDecorateBagFetchRsp::id() const {
+  return id_;
+}
+inline void CSDecorateBagFetchRsp::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional .CSDecorateBagInfo DecorateBagInfo = 3;
+inline bool CSDecorateBagFetchRsp::has_decoratebaginfo() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSDecorateBagFetchRsp::set_has_decoratebaginfo() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSDecorateBagFetchRsp::clear_has_decoratebaginfo() {
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void CSDecorateBagFetchRsp::clear_decoratebaginfo() {
   if (decoratebaginfo_ != NULL) decoratebaginfo_->::CSDecorateBagInfo::Clear();
@@ -4840,6 +5382,281 @@ inline void CSDecorateBagFetchRsp::set_allocated_decoratebaginfo(::CSDecorateBag
     set_has_decoratebaginfo();
   } else {
     clear_has_decoratebaginfo();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSDecorateBagShowSetReq
+
+// optional uint32 Type = 1;
+inline bool CSDecorateBagShowSetReq::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSDecorateBagShowSetReq::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSDecorateBagShowSetReq::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSDecorateBagShowSetReq::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+inline ::google::protobuf::uint32 CSDecorateBagShowSetReq::type() const {
+  return type_;
+}
+inline void CSDecorateBagShowSetReq::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional uint32 id = 2;
+inline bool CSDecorateBagShowSetReq::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSDecorateBagShowSetReq::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSDecorateBagShowSetReq::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSDecorateBagShowSetReq::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+inline ::google::protobuf::uint32 CSDecorateBagShowSetReq::id() const {
+  return id_;
+}
+inline void CSDecorateBagShowSetReq::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSDecorateBagVIPFetchReq
+
+// optional uint32 type = 1;
+inline bool CSDecorateBagVIPFetchReq::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSDecorateBagVIPFetchReq::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSDecorateBagVIPFetchReq::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSDecorateBagVIPFetchReq::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+inline ::google::protobuf::uint32 CSDecorateBagVIPFetchReq::type() const {
+  return type_;
+}
+inline void CSDecorateBagVIPFetchReq::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSDecorateBagVIPItem
+
+// optional uint32 VipGrade = 1;
+inline bool CSDecorateBagVIPItem::has_vipgrade() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSDecorateBagVIPItem::set_has_vipgrade() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSDecorateBagVIPItem::clear_has_vipgrade() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSDecorateBagVIPItem::clear_vipgrade() {
+  vipgrade_ = 0u;
+  clear_has_vipgrade();
+}
+inline ::google::protobuf::uint32 CSDecorateBagVIPItem::vipgrade() const {
+  return vipgrade_;
+}
+inline void CSDecorateBagVIPItem::set_vipgrade(::google::protobuf::uint32 value) {
+  set_has_vipgrade();
+  vipgrade_ = value;
+}
+
+// optional uint32 VipExper = 2;
+inline bool CSDecorateBagVIPItem::has_vipexper() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSDecorateBagVIPItem::set_has_vipexper() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSDecorateBagVIPItem::clear_has_vipexper() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSDecorateBagVIPItem::clear_vipexper() {
+  vipexper_ = 0u;
+  clear_has_vipexper();
+}
+inline ::google::protobuf::uint32 CSDecorateBagVIPItem::vipexper() const {
+  return vipexper_;
+}
+inline void CSDecorateBagVIPItem::set_vipexper(::google::protobuf::uint32 value) {
+  set_has_vipexper();
+  vipexper_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSDecorateBagVIPList
+
+// repeated .CSDecorateBagVIPItem VIPItemList = 1;
+inline int CSDecorateBagVIPList::vipitemlist_size() const {
+  return vipitemlist_.size();
+}
+inline void CSDecorateBagVIPList::clear_vipitemlist() {
+  vipitemlist_.Clear();
+}
+inline const ::CSDecorateBagVIPItem& CSDecorateBagVIPList::vipitemlist(int index) const {
+  return vipitemlist_.Get(index);
+}
+inline ::CSDecorateBagVIPItem* CSDecorateBagVIPList::mutable_vipitemlist(int index) {
+  return vipitemlist_.Mutable(index);
+}
+inline ::CSDecorateBagVIPItem* CSDecorateBagVIPList::add_vipitemlist() {
+  return vipitemlist_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::CSDecorateBagVIPItem >&
+CSDecorateBagVIPList::vipitemlist() const {
+  return vipitemlist_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::CSDecorateBagVIPItem >*
+CSDecorateBagVIPList::mutable_vipitemlist() {
+  return &vipitemlist_;
+}
+
+// -------------------------------------------------------------------
+
+// CSDecorateBagVIPFetchRsp
+
+// optional uint32 type = 1;
+inline bool CSDecorateBagVIPFetchRsp::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSDecorateBagVIPFetchRsp::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSDecorateBagVIPFetchRsp::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSDecorateBagVIPFetchRsp::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+inline ::google::protobuf::uint32 CSDecorateBagVIPFetchRsp::type() const {
+  return type_;
+}
+inline void CSDecorateBagVIPFetchRsp::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional uint32 id = 2;
+inline bool CSDecorateBagVIPFetchRsp::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSDecorateBagVIPFetchRsp::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSDecorateBagVIPFetchRsp::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSDecorateBagVIPFetchRsp::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+inline ::google::protobuf::uint32 CSDecorateBagVIPFetchRsp::id() const {
+  return id_;
+}
+inline void CSDecorateBagVIPFetchRsp::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional .CSDecorateBagInfo DecorateBagInfo = 3;
+inline bool CSDecorateBagVIPFetchRsp::has_decoratebaginfo() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSDecorateBagVIPFetchRsp::set_has_decoratebaginfo() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSDecorateBagVIPFetchRsp::clear_has_decoratebaginfo() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSDecorateBagVIPFetchRsp::clear_decoratebaginfo() {
+  if (decoratebaginfo_ != NULL) decoratebaginfo_->::CSDecorateBagInfo::Clear();
+  clear_has_decoratebaginfo();
+}
+inline const ::CSDecorateBagInfo& CSDecorateBagVIPFetchRsp::decoratebaginfo() const {
+  return decoratebaginfo_ != NULL ? *decoratebaginfo_ : *default_instance_->decoratebaginfo_;
+}
+inline ::CSDecorateBagInfo* CSDecorateBagVIPFetchRsp::mutable_decoratebaginfo() {
+  set_has_decoratebaginfo();
+  if (decoratebaginfo_ == NULL) decoratebaginfo_ = new ::CSDecorateBagInfo;
+  return decoratebaginfo_;
+}
+inline ::CSDecorateBagInfo* CSDecorateBagVIPFetchRsp::release_decoratebaginfo() {
+  clear_has_decoratebaginfo();
+  ::CSDecorateBagInfo* temp = decoratebaginfo_;
+  decoratebaginfo_ = NULL;
+  return temp;
+}
+inline void CSDecorateBagVIPFetchRsp::set_allocated_decoratebaginfo(::CSDecorateBagInfo* decoratebaginfo) {
+  delete decoratebaginfo_;
+  decoratebaginfo_ = decoratebaginfo;
+  if (decoratebaginfo) {
+    set_has_decoratebaginfo();
+  } else {
+    clear_has_decoratebaginfo();
+  }
+}
+
+// optional .CSDecorateBagVIPList VipList = 4;
+inline bool CSDecorateBagVIPFetchRsp::has_viplist() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CSDecorateBagVIPFetchRsp::set_has_viplist() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CSDecorateBagVIPFetchRsp::clear_has_viplist() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CSDecorateBagVIPFetchRsp::clear_viplist() {
+  if (viplist_ != NULL) viplist_->::CSDecorateBagVIPList::Clear();
+  clear_has_viplist();
+}
+inline const ::CSDecorateBagVIPList& CSDecorateBagVIPFetchRsp::viplist() const {
+  return viplist_ != NULL ? *viplist_ : *default_instance_->viplist_;
+}
+inline ::CSDecorateBagVIPList* CSDecorateBagVIPFetchRsp::mutable_viplist() {
+  set_has_viplist();
+  if (viplist_ == NULL) viplist_ = new ::CSDecorateBagVIPList;
+  return viplist_;
+}
+inline ::CSDecorateBagVIPList* CSDecorateBagVIPFetchRsp::release_viplist() {
+  clear_has_viplist();
+  ::CSDecorateBagVIPList* temp = viplist_;
+  viplist_ = NULL;
+  return temp;
+}
+inline void CSDecorateBagVIPFetchRsp::set_allocated_viplist(::CSDecorateBagVIPList* viplist) {
+  delete viplist_;
+  viplist_ = viplist;
+  if (viplist) {
+    set_has_viplist();
+  } else {
+    clear_has_viplist();
   }
 }
 
@@ -4885,6 +5702,82 @@ inline void CSDecorateBagReqParam::set_allocated_fetchreq(::CSDecorateBagFetchRe
   }
 }
 
+// optional .CSDecorateBagShowSetReq ShowSetReq = 2;
+inline bool CSDecorateBagReqParam::has_showsetreq() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSDecorateBagReqParam::set_has_showsetreq() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSDecorateBagReqParam::clear_has_showsetreq() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSDecorateBagReqParam::clear_showsetreq() {
+  if (showsetreq_ != NULL) showsetreq_->::CSDecorateBagShowSetReq::Clear();
+  clear_has_showsetreq();
+}
+inline const ::CSDecorateBagShowSetReq& CSDecorateBagReqParam::showsetreq() const {
+  return showsetreq_ != NULL ? *showsetreq_ : *default_instance_->showsetreq_;
+}
+inline ::CSDecorateBagShowSetReq* CSDecorateBagReqParam::mutable_showsetreq() {
+  set_has_showsetreq();
+  if (showsetreq_ == NULL) showsetreq_ = new ::CSDecorateBagShowSetReq;
+  return showsetreq_;
+}
+inline ::CSDecorateBagShowSetReq* CSDecorateBagReqParam::release_showsetreq() {
+  clear_has_showsetreq();
+  ::CSDecorateBagShowSetReq* temp = showsetreq_;
+  showsetreq_ = NULL;
+  return temp;
+}
+inline void CSDecorateBagReqParam::set_allocated_showsetreq(::CSDecorateBagShowSetReq* showsetreq) {
+  delete showsetreq_;
+  showsetreq_ = showsetreq;
+  if (showsetreq) {
+    set_has_showsetreq();
+  } else {
+    clear_has_showsetreq();
+  }
+}
+
+// optional .CSDecorateBagVIPFetchReq VIPFetchReq = 3;
+inline bool CSDecorateBagReqParam::has_vipfetchreq() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSDecorateBagReqParam::set_has_vipfetchreq() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSDecorateBagReqParam::clear_has_vipfetchreq() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSDecorateBagReqParam::clear_vipfetchreq() {
+  if (vipfetchreq_ != NULL) vipfetchreq_->::CSDecorateBagVIPFetchReq::Clear();
+  clear_has_vipfetchreq();
+}
+inline const ::CSDecorateBagVIPFetchReq& CSDecorateBagReqParam::vipfetchreq() const {
+  return vipfetchreq_ != NULL ? *vipfetchreq_ : *default_instance_->vipfetchreq_;
+}
+inline ::CSDecorateBagVIPFetchReq* CSDecorateBagReqParam::mutable_vipfetchreq() {
+  set_has_vipfetchreq();
+  if (vipfetchreq_ == NULL) vipfetchreq_ = new ::CSDecorateBagVIPFetchReq;
+  return vipfetchreq_;
+}
+inline ::CSDecorateBagVIPFetchReq* CSDecorateBagReqParam::release_vipfetchreq() {
+  clear_has_vipfetchreq();
+  ::CSDecorateBagVIPFetchReq* temp = vipfetchreq_;
+  vipfetchreq_ = NULL;
+  return temp;
+}
+inline void CSDecorateBagReqParam::set_allocated_vipfetchreq(::CSDecorateBagVIPFetchReq* vipfetchreq) {
+  delete vipfetchreq_;
+  vipfetchreq_ = vipfetchreq;
+  if (vipfetchreq) {
+    set_has_vipfetchreq();
+  } else {
+    clear_has_vipfetchreq();
+  }
+}
+
 // -------------------------------------------------------------------
 
 // CSDecorateBagRspParam
@@ -4924,6 +5817,44 @@ inline void CSDecorateBagRspParam::set_allocated_fetchrsp(::CSDecorateBagFetchRs
     set_has_fetchrsp();
   } else {
     clear_has_fetchrsp();
+  }
+}
+
+// optional .CSDecorateBagVIPFetchRsp VIPFetchRsp = 2;
+inline bool CSDecorateBagRspParam::has_vipfetchrsp() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSDecorateBagRspParam::set_has_vipfetchrsp() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSDecorateBagRspParam::clear_has_vipfetchrsp() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSDecorateBagRspParam::clear_vipfetchrsp() {
+  if (vipfetchrsp_ != NULL) vipfetchrsp_->::CSDecorateBagVIPFetchRsp::Clear();
+  clear_has_vipfetchrsp();
+}
+inline const ::CSDecorateBagVIPFetchRsp& CSDecorateBagRspParam::vipfetchrsp() const {
+  return vipfetchrsp_ != NULL ? *vipfetchrsp_ : *default_instance_->vipfetchrsp_;
+}
+inline ::CSDecorateBagVIPFetchRsp* CSDecorateBagRspParam::mutable_vipfetchrsp() {
+  set_has_vipfetchrsp();
+  if (vipfetchrsp_ == NULL) vipfetchrsp_ = new ::CSDecorateBagVIPFetchRsp;
+  return vipfetchrsp_;
+}
+inline ::CSDecorateBagVIPFetchRsp* CSDecorateBagRspParam::release_vipfetchrsp() {
+  clear_has_vipfetchrsp();
+  ::CSDecorateBagVIPFetchRsp* temp = vipfetchrsp_;
+  vipfetchrsp_ = NULL;
+  return temp;
+}
+inline void CSDecorateBagRspParam::set_allocated_vipfetchrsp(::CSDecorateBagVIPFetchRsp* vipfetchrsp) {
+  delete vipfetchrsp_;
+  vipfetchrsp_ = vipfetchrsp;
+  if (vipfetchrsp) {
+    set_has_vipfetchrsp();
+  } else {
+    clear_has_vipfetchrsp();
   }
 }
 

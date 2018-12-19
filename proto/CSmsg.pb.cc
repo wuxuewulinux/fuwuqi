@@ -93,6 +93,21 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* CSDecorateBagFetchRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CSDecorateBagFetchRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CSDecorateBagShowSetReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CSDecorateBagShowSetReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CSDecorateBagVIPFetchReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CSDecorateBagVIPFetchReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CSDecorateBagVIPItem_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CSDecorateBagVIPItem_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CSDecorateBagVIPList_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CSDecorateBagVIPList_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CSDecorateBagVIPFetchRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CSDecorateBagVIPFetchRsp_reflection_ = NULL;
 const ::google::protobuf::Descriptor* CSDecorateBagReqParam_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CSDecorateBagReqParam_reflection_ = NULL;
@@ -510,8 +525,9 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSDecorateBagInfo));
   CSDecorateBagFetchRsp_descriptor_ = file->message_type(24);
-  static const int CSDecorateBagFetchRsp_offsets_[2] = {
+  static const int CSDecorateBagFetchRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagFetchRsp, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagFetchRsp, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagFetchRsp, decoratebaginfo_),
   };
   CSDecorateBagFetchRsp_reflection_ =
@@ -525,9 +541,91 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSDecorateBagFetchRsp));
-  CSDecorateBagReqParam_descriptor_ = file->message_type(25);
-  static const int CSDecorateBagReqParam_offsets_[1] = {
+  CSDecorateBagShowSetReq_descriptor_ = file->message_type(25);
+  static const int CSDecorateBagShowSetReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagShowSetReq, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagShowSetReq, id_),
+  };
+  CSDecorateBagShowSetReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      CSDecorateBagShowSetReq_descriptor_,
+      CSDecorateBagShowSetReq::default_instance_,
+      CSDecorateBagShowSetReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagShowSetReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagShowSetReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(CSDecorateBagShowSetReq));
+  CSDecorateBagVIPFetchReq_descriptor_ = file->message_type(26);
+  static const int CSDecorateBagVIPFetchReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPFetchReq, type_),
+  };
+  CSDecorateBagVIPFetchReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      CSDecorateBagVIPFetchReq_descriptor_,
+      CSDecorateBagVIPFetchReq::default_instance_,
+      CSDecorateBagVIPFetchReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPFetchReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPFetchReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(CSDecorateBagVIPFetchReq));
+  CSDecorateBagVIPItem_descriptor_ = file->message_type(27);
+  static const int CSDecorateBagVIPItem_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPItem, vipgrade_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPItem, vipexper_),
+  };
+  CSDecorateBagVIPItem_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      CSDecorateBagVIPItem_descriptor_,
+      CSDecorateBagVIPItem::default_instance_,
+      CSDecorateBagVIPItem_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPItem, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPItem, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(CSDecorateBagVIPItem));
+  CSDecorateBagVIPList_descriptor_ = file->message_type(28);
+  static const int CSDecorateBagVIPList_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPList, vipitemlist_),
+  };
+  CSDecorateBagVIPList_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      CSDecorateBagVIPList_descriptor_,
+      CSDecorateBagVIPList::default_instance_,
+      CSDecorateBagVIPList_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPList, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPList, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(CSDecorateBagVIPList));
+  CSDecorateBagVIPFetchRsp_descriptor_ = file->message_type(29);
+  static const int CSDecorateBagVIPFetchRsp_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPFetchRsp, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPFetchRsp, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPFetchRsp, decoratebaginfo_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPFetchRsp, viplist_),
+  };
+  CSDecorateBagVIPFetchRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      CSDecorateBagVIPFetchRsp_descriptor_,
+      CSDecorateBagVIPFetchRsp::default_instance_,
+      CSDecorateBagVIPFetchRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPFetchRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagVIPFetchRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(CSDecorateBagVIPFetchRsp));
+  CSDecorateBagReqParam_descriptor_ = file->message_type(30);
+  static const int CSDecorateBagReqParam_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagReqParam, fetchreq_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagReqParam, showsetreq_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagReqParam, vipfetchreq_),
   };
   CSDecorateBagReqParam_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -540,9 +638,10 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSDecorateBagReqParam));
-  CSDecorateBagRspParam_descriptor_ = file->message_type(26);
-  static const int CSDecorateBagRspParam_offsets_[1] = {
+  CSDecorateBagRspParam_descriptor_ = file->message_type(31);
+  static const int CSDecorateBagRspParam_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagRspParam, fetchrsp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagRspParam, vipfetchrsp_),
   };
   CSDecorateBagRspParam_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -555,7 +654,7 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSDecorateBagRspParam));
-  CSDecorateBagReq_descriptor_ = file->message_type(27);
+  CSDecorateBagReq_descriptor_ = file->message_type(32);
   static const int CSDecorateBagReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagReq, cmd_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagReq, reqparam_),
@@ -571,7 +670,7 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSDecorateBagReq));
-  CSDecorateBagRsp_descriptor_ = file->message_type(28);
+  CSDecorateBagRsp_descriptor_ = file->message_type(33);
   static const int CSDecorateBagRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSDecorateBagRsp, cmd_),
@@ -588,7 +687,7 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSDecorateBagRsp));
-  CSMsgBody_descriptor_ = file->message_type(29);
+  CSMsgBody_descriptor_ = file->message_type(34);
   static const int CSMsgBody_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMsgBody, registerloginreq_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMsgBody, registerloginrsp_),
@@ -608,7 +707,7 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSMsgBody));
-  CSMsgHead_descriptor_ = file->message_type(30);
+  CSMsgHead_descriptor_ = file->message_type(35);
   static const int CSMsgHead_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMsgHead, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMsgHead, msgid_),
@@ -624,7 +723,7 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSMsgHead));
-  CSMsg_descriptor_ = file->message_type(31);
+  CSMsg_descriptor_ = file->message_type(36);
   static const int CSMsg_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMsg, head_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMsg, body_),
@@ -707,6 +806,16 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     CSDecorateBagFetchRsp_descriptor_, &CSDecorateBagFetchRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    CSDecorateBagShowSetReq_descriptor_, &CSDecorateBagShowSetReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    CSDecorateBagVIPFetchReq_descriptor_, &CSDecorateBagVIPFetchReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    CSDecorateBagVIPItem_descriptor_, &CSDecorateBagVIPItem::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    CSDecorateBagVIPList_descriptor_, &CSDecorateBagVIPList::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    CSDecorateBagVIPFetchRsp_descriptor_, &CSDecorateBagVIPFetchRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     CSDecorateBagReqParam_descriptor_, &CSDecorateBagReqParam::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     CSDecorateBagRspParam_descriptor_, &CSDecorateBagRspParam::default_instance());
@@ -775,6 +884,16 @@ void protobuf_ShutdownFile_CSmsg_2eproto() {
   delete CSDecorateBagInfo_reflection_;
   delete CSDecorateBagFetchRsp::default_instance_;
   delete CSDecorateBagFetchRsp_reflection_;
+  delete CSDecorateBagShowSetReq::default_instance_;
+  delete CSDecorateBagShowSetReq_reflection_;
+  delete CSDecorateBagVIPFetchReq::default_instance_;
+  delete CSDecorateBagVIPFetchReq_reflection_;
+  delete CSDecorateBagVIPItem::default_instance_;
+  delete CSDecorateBagVIPItem_reflection_;
+  delete CSDecorateBagVIPList::default_instance_;
+  delete CSDecorateBagVIPList_reflection_;
+  delete CSDecorateBagVIPFetchRsp::default_instance_;
+  delete CSDecorateBagVIPFetchRsp_reflection_;
   delete CSDecorateBagReqParam::default_instance_;
   delete CSDecorateBagReqParam_reflection_;
   delete CSDecorateBagRspParam::default_instance_;
@@ -838,35 +957,49 @@ void protobuf_AddDesc_CSmsg_2eproto() {
     "teBagGridInfo\022\016\n\006ItemId\030\001 \001(\r\022\014\n\004type\030\002 "
     "\001(\r\022\017\n\007EndTime\030\003 \001(\004\"E\n\021CSDecorateBagInf"
     "o\0220\n\020DecorateGridInfo\030\001 \003(\0132\026.CSDecorate"
-    "BagGridInfo\"R\n\025CSDecorateBagFetchRsp\022\014\n\004"
-    "type\030\001 \001(\r\022+\n\017DecorateBagInfo\030\002 \001(\0132\022.CS"
-    "DecorateBagInfo\"A\n\025CSDecorateBagReqParam"
-    "\022(\n\010FetchReq\030\001 \001(\0132\026.CSDecorateBagFetchR"
-    "eq\"A\n\025CSDecorateBagRspParam\022(\n\010FetchRsp\030"
-    "\001 \001(\0132\026.CSDecorateBagFetchRsp\"\\\n\020CSDecor"
-    "ateBagReq\022\036\n\003cmd\030\001 \002(\0162\021.CSDecorateBagCm"
-    "d\022(\n\010reqParam\030\002 \001(\0132\026.CSDecorateBagReqPa"
-    "ram\"l\n\020CSDecorateBagRsp\022\016\n\006result\030\001 \001(\005\022"
-    "\036\n\003cmd\030\002 \002(\0162\021.CSDecorateBagCmd\022(\n\010rspPa"
-    "ram\030\003 \001(\0132\026.CSDecorateBagRspParam\"\365\001\n\tCS"
-    "MsgBody\022-\n\020RegisterLoginReq\030\001 \001(\0132\023.CSRe"
-    "gisterLoginReq\022-\n\020RegisterLoginRsp\030\002 \001(\013"
-    "2\023.CSRegisterLoginRsp\022\031\n\006BagReq\030\003 \001(\0132\t."
-    "CSBagReq\022\031\n\006BagRsp\030\004 \001(\0132\t.CSBagRsp\022)\n\016D"
-    "ecorateBagReq\030\005 \001(\0132\021.CSDecorateBagReq\022)"
-    "\n\016DecorateBagRsp\030\006 \001(\0132\021.CSDecorateBagRs"
-    "p\"1\n\tCSMsgHead\022\013\n\003uid\030\001 \002(\004\022\027\n\005msgID\030\002 \002"
-    "(\0162\010.CSMsgID\";\n\005CSMsg\022\030\n\004head\030\001 \002(\0132\n.CS"
-    "MsgHead\022\030\n\004body\030\002 \002(\0132\n.CSMsgBody*p\n\022CSR"
-    "egisterLoginCmd\022\037\n\033CSRegisterLoginCmd_Re"
-    "gister\020\001\022\034\n\030CSRegisterLoginCmd_Login\020\002\022\033"
-    "\n\027CSRegisterLoginCmd_Quit\020\003*0\n\010CSBagCmd\022"
-    "\022\n\016CSBagCmd_Fetch\020\001\022\020\n\014CSBagCmd_Use\020\002*.\n"
-    "\020CSDecorateBagCmd\022\032\n\026CSDecorateBagCmd_Fe"
-    "tch\020\001*u\n\007CSMsgID\022\020\n\014CS_MSGID_MIN\020\000\022\032\n\026CS"
-    "_MSGID_RegisterLogin\020\001\022\020\n\014CS_MSGID_BAG\020\002"
-    "\022\030\n\024CS_MSGID_DecorateBAG\020\003\022\020\n\014CS_MSGID_M"
-    "AX\020\004", 2684);
+    "BagGridInfo\"^\n\025CSDecorateBagFetchRsp\022\014\n\004"
+    "type\030\001 \001(\r\022\n\n\002id\030\002 \001(\r\022+\n\017DecorateBagInf"
+    "o\030\003 \001(\0132\022.CSDecorateBagInfo\"3\n\027CSDecorat"
+    "eBagShowSetReq\022\014\n\004Type\030\001 \001(\r\022\n\n\002id\030\002 \001(\r"
+    "\"(\n\030CSDecorateBagVIPFetchReq\022\014\n\004type\030\001 \001"
+    "(\r\":\n\024CSDecorateBagVIPItem\022\020\n\010VipGrade\030\001"
+    " \001(\r\022\020\n\010VipExper\030\002 \001(\r\"B\n\024CSDecorateBagV"
+    "IPList\022*\n\013VIPItemList\030\001 \003(\0132\025.CSDecorate"
+    "BagVIPItem\"\211\001\n\030CSDecorateBagVIPFetchRsp\022"
+    "\014\n\004type\030\001 \001(\r\022\n\n\002id\030\002 \001(\r\022+\n\017DecorateBag"
+    "Info\030\003 \001(\0132\022.CSDecorateBagInfo\022&\n\007VipLis"
+    "t\030\004 \001(\0132\025.CSDecorateBagVIPList\"\237\001\n\025CSDec"
+    "orateBagReqParam\022(\n\010FetchReq\030\001 \001(\0132\026.CSD"
+    "ecorateBagFetchReq\022,\n\nShowSetReq\030\002 \001(\0132\030"
+    ".CSDecorateBagShowSetReq\022.\n\013VIPFetchReq\030"
+    "\003 \001(\0132\031.CSDecorateBagVIPFetchReq\"q\n\025CSDe"
+    "corateBagRspParam\022(\n\010FetchRsp\030\001 \001(\0132\026.CS"
+    "DecorateBagFetchRsp\022.\n\013VIPFetchRsp\030\002 \001(\013"
+    "2\031.CSDecorateBagVIPFetchRsp\"\\\n\020CSDecorat"
+    "eBagReq\022\036\n\003cmd\030\001 \002(\0162\021.CSDecorateBagCmd\022"
+    "(\n\010reqParam\030\002 \001(\0132\026.CSDecorateBagReqPara"
+    "m\"l\n\020CSDecorateBagRsp\022\016\n\006result\030\001 \001(\005\022\036\n"
+    "\003cmd\030\002 \002(\0162\021.CSDecorateBagCmd\022(\n\010rspPara"
+    "m\030\003 \001(\0132\026.CSDecorateBagRspParam\"\365\001\n\tCSMs"
+    "gBody\022-\n\020RegisterLoginReq\030\001 \001(\0132\023.CSRegi"
+    "sterLoginReq\022-\n\020RegisterLoginRsp\030\002 \001(\0132\023"
+    ".CSRegisterLoginRsp\022\031\n\006BagReq\030\003 \001(\0132\t.CS"
+    "BagReq\022\031\n\006BagRsp\030\004 \001(\0132\t.CSBagRsp\022)\n\016Dec"
+    "orateBagReq\030\005 \001(\0132\021.CSDecorateBagReq\022)\n\016"
+    "DecorateBagRsp\030\006 \001(\0132\021.CSDecorateBagRsp\""
+    "1\n\tCSMsgHead\022\013\n\003uid\030\001 \002(\004\022\027\n\005msgID\030\002 \002(\016"
+    "2\010.CSMsgID\";\n\005CSMsg\022\030\n\004head\030\001 \002(\0132\n.CSMs"
+    "gHead\022\030\n\004body\030\002 \002(\0132\n.CSMsgBody*p\n\022CSReg"
+    "isterLoginCmd\022\037\n\033CSRegisterLoginCmd_Regi"
+    "ster\020\001\022\034\n\030CSRegisterLoginCmd_Login\020\002\022\033\n\027"
+    "CSRegisterLoginCmd_Quit\020\003*0\n\010CSBagCmd\022\022\n"
+    "\016CSBagCmd_Fetch\020\001\022\020\n\014CSBagCmd_Use\020\002*k\n\020C"
+    "SDecorateBagCmd\022\032\n\026CSDecorateBagCmd_Fetc"
+    "h\020\001\022\034\n\030CSDecorateBagCmd_ShowSet\020\002\022\035\n\031CSD"
+    "ecorateBagCmd_VipFetch\020\003*u\n\007CSMsgID\022\020\n\014C"
+    "S_MSGID_MIN\020\000\022\032\n\026CS_MSGID_RegisterLogin\020"
+    "\001\022\020\n\014CS_MSGID_BAG\020\002\022\030\n\024CS_MSGID_Decorate"
+    "BAG\020\003\022\020\n\014CS_MSGID_MAX\020\004", 3263);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CSmsg.proto", &protobuf_RegisterTypes);
   CSLoginReq::default_instance_ = new CSLoginReq();
@@ -894,6 +1027,11 @@ void protobuf_AddDesc_CSmsg_2eproto() {
   CSDecorateBagGridInfo::default_instance_ = new CSDecorateBagGridInfo();
   CSDecorateBagInfo::default_instance_ = new CSDecorateBagInfo();
   CSDecorateBagFetchRsp::default_instance_ = new CSDecorateBagFetchRsp();
+  CSDecorateBagShowSetReq::default_instance_ = new CSDecorateBagShowSetReq();
+  CSDecorateBagVIPFetchReq::default_instance_ = new CSDecorateBagVIPFetchReq();
+  CSDecorateBagVIPItem::default_instance_ = new CSDecorateBagVIPItem();
+  CSDecorateBagVIPList::default_instance_ = new CSDecorateBagVIPList();
+  CSDecorateBagVIPFetchRsp::default_instance_ = new CSDecorateBagVIPFetchRsp();
   CSDecorateBagReqParam::default_instance_ = new CSDecorateBagReqParam();
   CSDecorateBagRspParam::default_instance_ = new CSDecorateBagRspParam();
   CSDecorateBagReq::default_instance_ = new CSDecorateBagReq();
@@ -926,6 +1064,11 @@ void protobuf_AddDesc_CSmsg_2eproto() {
   CSDecorateBagGridInfo::default_instance_->InitAsDefaultInstance();
   CSDecorateBagInfo::default_instance_->InitAsDefaultInstance();
   CSDecorateBagFetchRsp::default_instance_->InitAsDefaultInstance();
+  CSDecorateBagShowSetReq::default_instance_->InitAsDefaultInstance();
+  CSDecorateBagVIPFetchReq::default_instance_->InitAsDefaultInstance();
+  CSDecorateBagVIPItem::default_instance_->InitAsDefaultInstance();
+  CSDecorateBagVIPList::default_instance_->InitAsDefaultInstance();
+  CSDecorateBagVIPFetchRsp::default_instance_->InitAsDefaultInstance();
   CSDecorateBagReqParam::default_instance_->InitAsDefaultInstance();
   CSDecorateBagRspParam::default_instance_->InitAsDefaultInstance();
   CSDecorateBagReq::default_instance_->InitAsDefaultInstance();
@@ -978,6 +1121,8 @@ const ::google::protobuf::EnumDescriptor* CSDecorateBagCmd_descriptor() {
 bool CSDecorateBagCmd_IsValid(int value) {
   switch(value) {
     case 1:
+    case 2:
+    case 3:
       return true;
     default:
       return false;
@@ -7016,6 +7161,7 @@ void CSDecorateBagInfo::Swap(CSDecorateBagInfo* other) {
 
 #ifndef _MSC_VER
 const int CSDecorateBagFetchRsp::kTypeFieldNumber;
+const int CSDecorateBagFetchRsp::kIdFieldNumber;
 const int CSDecorateBagFetchRsp::kDecorateBagInfoFieldNumber;
 #endif  // !_MSC_VER
 
@@ -7037,6 +7183,7 @@ CSDecorateBagFetchRsp::CSDecorateBagFetchRsp(const CSDecorateBagFetchRsp& from)
 void CSDecorateBagFetchRsp::SharedCtor() {
   _cached_size_ = 0;
   type_ = 0u;
+  id_ = 0u;
   decoratebaginfo_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -7075,6 +7222,7 @@ CSDecorateBagFetchRsp* CSDecorateBagFetchRsp::New() const {
 void CSDecorateBagFetchRsp::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     type_ = 0u;
+    id_ = 0u;
     if (has_decoratebaginfo()) {
       if (decoratebaginfo_ != NULL) decoratebaginfo_->::CSDecorateBagInfo::Clear();
     }
@@ -7100,12 +7248,28 @@ bool CSDecorateBagFetchRsp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_DecorateBagInfo;
+        if (input->ExpectTag(16)) goto parse_id;
         break;
       }
 
-      // optional .CSDecorateBagInfo DecorateBagInfo = 2;
+      // optional uint32 id = 2;
       case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_DecorateBagInfo;
+        break;
+      }
+
+      // optional .CSDecorateBagInfo DecorateBagInfo = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_DecorateBagInfo:
@@ -7141,10 +7305,15 @@ void CSDecorateBagFetchRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->type(), output);
   }
 
-  // optional .CSDecorateBagInfo DecorateBagInfo = 2;
+  // optional uint32 id = 2;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->id(), output);
+  }
+
+  // optional .CSDecorateBagInfo DecorateBagInfo = 3;
   if (has_decoratebaginfo()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->decoratebaginfo(), output);
+      3, this->decoratebaginfo(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -7160,11 +7329,16 @@ void CSDecorateBagFetchRsp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->type(), target);
   }
 
-  // optional .CSDecorateBagInfo DecorateBagInfo = 2;
+  // optional uint32 id = 2;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->id(), target);
+  }
+
+  // optional .CSDecorateBagInfo DecorateBagInfo = 3;
   if (has_decoratebaginfo()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->decoratebaginfo(), target);
+        3, this->decoratebaginfo(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -7185,7 +7359,14 @@ int CSDecorateBagFetchRsp::ByteSize() const {
           this->type());
     }
 
-    // optional .CSDecorateBagInfo DecorateBagInfo = 2;
+    // optional uint32 id = 2;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->id());
+    }
+
+    // optional .CSDecorateBagInfo DecorateBagInfo = 3;
     if (has_decoratebaginfo()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -7222,6 +7403,9 @@ void CSDecorateBagFetchRsp::MergeFrom(const CSDecorateBagFetchRsp& from) {
     if (from.has_type()) {
       set_type(from.type());
     }
+    if (from.has_id()) {
+      set_id(from.id());
+    }
     if (from.has_decoratebaginfo()) {
       mutable_decoratebaginfo()->::CSDecorateBagInfo::MergeFrom(from.decoratebaginfo());
     }
@@ -7249,6 +7433,7 @@ bool CSDecorateBagFetchRsp::IsInitialized() const {
 void CSDecorateBagFetchRsp::Swap(CSDecorateBagFetchRsp* other) {
   if (other != this) {
     std::swap(type_, other->type_);
+    std::swap(id_, other->id_);
     std::swap(decoratebaginfo_, other->decoratebaginfo_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -7268,7 +7453,1254 @@ void CSDecorateBagFetchRsp::Swap(CSDecorateBagFetchRsp* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int CSDecorateBagShowSetReq::kTypeFieldNumber;
+const int CSDecorateBagShowSetReq::kIdFieldNumber;
+#endif  // !_MSC_VER
+
+CSDecorateBagShowSetReq::CSDecorateBagShowSetReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void CSDecorateBagShowSetReq::InitAsDefaultInstance() {
+}
+
+CSDecorateBagShowSetReq::CSDecorateBagShowSetReq(const CSDecorateBagShowSetReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void CSDecorateBagShowSetReq::SharedCtor() {
+  _cached_size_ = 0;
+  type_ = 0u;
+  id_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+CSDecorateBagShowSetReq::~CSDecorateBagShowSetReq() {
+  SharedDtor();
+}
+
+void CSDecorateBagShowSetReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void CSDecorateBagShowSetReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CSDecorateBagShowSetReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CSDecorateBagShowSetReq_descriptor_;
+}
+
+const CSDecorateBagShowSetReq& CSDecorateBagShowSetReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_CSmsg_2eproto();
+  return *default_instance_;
+}
+
+CSDecorateBagShowSetReq* CSDecorateBagShowSetReq::default_instance_ = NULL;
+
+CSDecorateBagShowSetReq* CSDecorateBagShowSetReq::New() const {
+  return new CSDecorateBagShowSetReq;
+}
+
+void CSDecorateBagShowSetReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    type_ = 0u;
+    id_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool CSDecorateBagShowSetReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 Type = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &type_)));
+          set_has_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_id;
+        break;
+      }
+
+      // optional uint32 id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void CSDecorateBagShowSetReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint32 Type = 1;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->type(), output);
+  }
+
+  // optional uint32 id = 2;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* CSDecorateBagShowSetReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 Type = 1;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->type(), target);
+  }
+
+  // optional uint32 id = 2;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int CSDecorateBagShowSetReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 Type = 1;
+    if (has_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->type());
+    }
+
+    // optional uint32 id = 2;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CSDecorateBagShowSetReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const CSDecorateBagShowSetReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const CSDecorateBagShowSetReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void CSDecorateBagShowSetReq::MergeFrom(const CSDecorateBagShowSetReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_type()) {
+      set_type(from.type());
+    }
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void CSDecorateBagShowSetReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CSDecorateBagShowSetReq::CopyFrom(const CSDecorateBagShowSetReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CSDecorateBagShowSetReq::IsInitialized() const {
+
+  return true;
+}
+
+void CSDecorateBagShowSetReq::Swap(CSDecorateBagShowSetReq* other) {
+  if (other != this) {
+    std::swap(type_, other->type_);
+    std::swap(id_, other->id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata CSDecorateBagShowSetReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CSDecorateBagShowSetReq_descriptor_;
+  metadata.reflection = CSDecorateBagShowSetReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int CSDecorateBagVIPFetchReq::kTypeFieldNumber;
+#endif  // !_MSC_VER
+
+CSDecorateBagVIPFetchReq::CSDecorateBagVIPFetchReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void CSDecorateBagVIPFetchReq::InitAsDefaultInstance() {
+}
+
+CSDecorateBagVIPFetchReq::CSDecorateBagVIPFetchReq(const CSDecorateBagVIPFetchReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void CSDecorateBagVIPFetchReq::SharedCtor() {
+  _cached_size_ = 0;
+  type_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+CSDecorateBagVIPFetchReq::~CSDecorateBagVIPFetchReq() {
+  SharedDtor();
+}
+
+void CSDecorateBagVIPFetchReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void CSDecorateBagVIPFetchReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CSDecorateBagVIPFetchReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CSDecorateBagVIPFetchReq_descriptor_;
+}
+
+const CSDecorateBagVIPFetchReq& CSDecorateBagVIPFetchReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_CSmsg_2eproto();
+  return *default_instance_;
+}
+
+CSDecorateBagVIPFetchReq* CSDecorateBagVIPFetchReq::default_instance_ = NULL;
+
+CSDecorateBagVIPFetchReq* CSDecorateBagVIPFetchReq::New() const {
+  return new CSDecorateBagVIPFetchReq;
+}
+
+void CSDecorateBagVIPFetchReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    type_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool CSDecorateBagVIPFetchReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 type = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &type_)));
+          set_has_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void CSDecorateBagVIPFetchReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint32 type = 1;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->type(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* CSDecorateBagVIPFetchReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 type = 1;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->type(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int CSDecorateBagVIPFetchReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 type = 1;
+    if (has_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->type());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CSDecorateBagVIPFetchReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const CSDecorateBagVIPFetchReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const CSDecorateBagVIPFetchReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void CSDecorateBagVIPFetchReq::MergeFrom(const CSDecorateBagVIPFetchReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_type()) {
+      set_type(from.type());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void CSDecorateBagVIPFetchReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CSDecorateBagVIPFetchReq::CopyFrom(const CSDecorateBagVIPFetchReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CSDecorateBagVIPFetchReq::IsInitialized() const {
+
+  return true;
+}
+
+void CSDecorateBagVIPFetchReq::Swap(CSDecorateBagVIPFetchReq* other) {
+  if (other != this) {
+    std::swap(type_, other->type_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata CSDecorateBagVIPFetchReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CSDecorateBagVIPFetchReq_descriptor_;
+  metadata.reflection = CSDecorateBagVIPFetchReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int CSDecorateBagVIPItem::kVipGradeFieldNumber;
+const int CSDecorateBagVIPItem::kVipExperFieldNumber;
+#endif  // !_MSC_VER
+
+CSDecorateBagVIPItem::CSDecorateBagVIPItem()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void CSDecorateBagVIPItem::InitAsDefaultInstance() {
+}
+
+CSDecorateBagVIPItem::CSDecorateBagVIPItem(const CSDecorateBagVIPItem& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void CSDecorateBagVIPItem::SharedCtor() {
+  _cached_size_ = 0;
+  vipgrade_ = 0u;
+  vipexper_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+CSDecorateBagVIPItem::~CSDecorateBagVIPItem() {
+  SharedDtor();
+}
+
+void CSDecorateBagVIPItem::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void CSDecorateBagVIPItem::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CSDecorateBagVIPItem::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CSDecorateBagVIPItem_descriptor_;
+}
+
+const CSDecorateBagVIPItem& CSDecorateBagVIPItem::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_CSmsg_2eproto();
+  return *default_instance_;
+}
+
+CSDecorateBagVIPItem* CSDecorateBagVIPItem::default_instance_ = NULL;
+
+CSDecorateBagVIPItem* CSDecorateBagVIPItem::New() const {
+  return new CSDecorateBagVIPItem;
+}
+
+void CSDecorateBagVIPItem::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    vipgrade_ = 0u;
+    vipexper_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool CSDecorateBagVIPItem::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 VipGrade = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &vipgrade_)));
+          set_has_vipgrade();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_VipExper;
+        break;
+      }
+
+      // optional uint32 VipExper = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_VipExper:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &vipexper_)));
+          set_has_vipexper();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void CSDecorateBagVIPItem::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint32 VipGrade = 1;
+  if (has_vipgrade()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->vipgrade(), output);
+  }
+
+  // optional uint32 VipExper = 2;
+  if (has_vipexper()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->vipexper(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* CSDecorateBagVIPItem::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 VipGrade = 1;
+  if (has_vipgrade()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->vipgrade(), target);
+  }
+
+  // optional uint32 VipExper = 2;
+  if (has_vipexper()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->vipexper(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int CSDecorateBagVIPItem::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 VipGrade = 1;
+    if (has_vipgrade()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->vipgrade());
+    }
+
+    // optional uint32 VipExper = 2;
+    if (has_vipexper()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->vipexper());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CSDecorateBagVIPItem::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const CSDecorateBagVIPItem* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const CSDecorateBagVIPItem*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void CSDecorateBagVIPItem::MergeFrom(const CSDecorateBagVIPItem& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_vipgrade()) {
+      set_vipgrade(from.vipgrade());
+    }
+    if (from.has_vipexper()) {
+      set_vipexper(from.vipexper());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void CSDecorateBagVIPItem::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CSDecorateBagVIPItem::CopyFrom(const CSDecorateBagVIPItem& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CSDecorateBagVIPItem::IsInitialized() const {
+
+  return true;
+}
+
+void CSDecorateBagVIPItem::Swap(CSDecorateBagVIPItem* other) {
+  if (other != this) {
+    std::swap(vipgrade_, other->vipgrade_);
+    std::swap(vipexper_, other->vipexper_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata CSDecorateBagVIPItem::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CSDecorateBagVIPItem_descriptor_;
+  metadata.reflection = CSDecorateBagVIPItem_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int CSDecorateBagVIPList::kVIPItemListFieldNumber;
+#endif  // !_MSC_VER
+
+CSDecorateBagVIPList::CSDecorateBagVIPList()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void CSDecorateBagVIPList::InitAsDefaultInstance() {
+}
+
+CSDecorateBagVIPList::CSDecorateBagVIPList(const CSDecorateBagVIPList& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void CSDecorateBagVIPList::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+CSDecorateBagVIPList::~CSDecorateBagVIPList() {
+  SharedDtor();
+}
+
+void CSDecorateBagVIPList::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void CSDecorateBagVIPList::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CSDecorateBagVIPList::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CSDecorateBagVIPList_descriptor_;
+}
+
+const CSDecorateBagVIPList& CSDecorateBagVIPList::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_CSmsg_2eproto();
+  return *default_instance_;
+}
+
+CSDecorateBagVIPList* CSDecorateBagVIPList::default_instance_ = NULL;
+
+CSDecorateBagVIPList* CSDecorateBagVIPList::New() const {
+  return new CSDecorateBagVIPList;
+}
+
+void CSDecorateBagVIPList::Clear() {
+  vipitemlist_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool CSDecorateBagVIPList::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .CSDecorateBagVIPItem VIPItemList = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_VIPItemList:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_vipitemlist()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_VIPItemList;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void CSDecorateBagVIPList::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .CSDecorateBagVIPItem VIPItemList = 1;
+  for (int i = 0; i < this->vipitemlist_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->vipitemlist(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* CSDecorateBagVIPList::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .CSDecorateBagVIPItem VIPItemList = 1;
+  for (int i = 0; i < this->vipitemlist_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->vipitemlist(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int CSDecorateBagVIPList::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .CSDecorateBagVIPItem VIPItemList = 1;
+  total_size += 1 * this->vipitemlist_size();
+  for (int i = 0; i < this->vipitemlist_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->vipitemlist(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CSDecorateBagVIPList::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const CSDecorateBagVIPList* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const CSDecorateBagVIPList*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void CSDecorateBagVIPList::MergeFrom(const CSDecorateBagVIPList& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  vipitemlist_.MergeFrom(from.vipitemlist_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void CSDecorateBagVIPList::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CSDecorateBagVIPList::CopyFrom(const CSDecorateBagVIPList& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CSDecorateBagVIPList::IsInitialized() const {
+
+  return true;
+}
+
+void CSDecorateBagVIPList::Swap(CSDecorateBagVIPList* other) {
+  if (other != this) {
+    vipitemlist_.Swap(&other->vipitemlist_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata CSDecorateBagVIPList::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CSDecorateBagVIPList_descriptor_;
+  metadata.reflection = CSDecorateBagVIPList_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int CSDecorateBagVIPFetchRsp::kTypeFieldNumber;
+const int CSDecorateBagVIPFetchRsp::kIdFieldNumber;
+const int CSDecorateBagVIPFetchRsp::kDecorateBagInfoFieldNumber;
+const int CSDecorateBagVIPFetchRsp::kVipListFieldNumber;
+#endif  // !_MSC_VER
+
+CSDecorateBagVIPFetchRsp::CSDecorateBagVIPFetchRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void CSDecorateBagVIPFetchRsp::InitAsDefaultInstance() {
+  decoratebaginfo_ = const_cast< ::CSDecorateBagInfo*>(&::CSDecorateBagInfo::default_instance());
+  viplist_ = const_cast< ::CSDecorateBagVIPList*>(&::CSDecorateBagVIPList::default_instance());
+}
+
+CSDecorateBagVIPFetchRsp::CSDecorateBagVIPFetchRsp(const CSDecorateBagVIPFetchRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void CSDecorateBagVIPFetchRsp::SharedCtor() {
+  _cached_size_ = 0;
+  type_ = 0u;
+  id_ = 0u;
+  decoratebaginfo_ = NULL;
+  viplist_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+CSDecorateBagVIPFetchRsp::~CSDecorateBagVIPFetchRsp() {
+  SharedDtor();
+}
+
+void CSDecorateBagVIPFetchRsp::SharedDtor() {
+  if (this != default_instance_) {
+    delete decoratebaginfo_;
+    delete viplist_;
+  }
+}
+
+void CSDecorateBagVIPFetchRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CSDecorateBagVIPFetchRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CSDecorateBagVIPFetchRsp_descriptor_;
+}
+
+const CSDecorateBagVIPFetchRsp& CSDecorateBagVIPFetchRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_CSmsg_2eproto();
+  return *default_instance_;
+}
+
+CSDecorateBagVIPFetchRsp* CSDecorateBagVIPFetchRsp::default_instance_ = NULL;
+
+CSDecorateBagVIPFetchRsp* CSDecorateBagVIPFetchRsp::New() const {
+  return new CSDecorateBagVIPFetchRsp;
+}
+
+void CSDecorateBagVIPFetchRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    type_ = 0u;
+    id_ = 0u;
+    if (has_decoratebaginfo()) {
+      if (decoratebaginfo_ != NULL) decoratebaginfo_->::CSDecorateBagInfo::Clear();
+    }
+    if (has_viplist()) {
+      if (viplist_ != NULL) viplist_->::CSDecorateBagVIPList::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool CSDecorateBagVIPFetchRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 type = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &type_)));
+          set_has_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_id;
+        break;
+      }
+
+      // optional uint32 id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_DecorateBagInfo;
+        break;
+      }
+
+      // optional .CSDecorateBagInfo DecorateBagInfo = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_DecorateBagInfo:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_decoratebaginfo()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_VipList;
+        break;
+      }
+
+      // optional .CSDecorateBagVIPList VipList = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_VipList:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_viplist()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void CSDecorateBagVIPFetchRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint32 type = 1;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->type(), output);
+  }
+
+  // optional uint32 id = 2;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->id(), output);
+  }
+
+  // optional .CSDecorateBagInfo DecorateBagInfo = 3;
+  if (has_decoratebaginfo()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->decoratebaginfo(), output);
+  }
+
+  // optional .CSDecorateBagVIPList VipList = 4;
+  if (has_viplist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->viplist(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* CSDecorateBagVIPFetchRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 type = 1;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->type(), target);
+  }
+
+  // optional uint32 id = 2;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->id(), target);
+  }
+
+  // optional .CSDecorateBagInfo DecorateBagInfo = 3;
+  if (has_decoratebaginfo()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->decoratebaginfo(), target);
+  }
+
+  // optional .CSDecorateBagVIPList VipList = 4;
+  if (has_viplist()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->viplist(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int CSDecorateBagVIPFetchRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 type = 1;
+    if (has_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->type());
+    }
+
+    // optional uint32 id = 2;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->id());
+    }
+
+    // optional .CSDecorateBagInfo DecorateBagInfo = 3;
+    if (has_decoratebaginfo()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->decoratebaginfo());
+    }
+
+    // optional .CSDecorateBagVIPList VipList = 4;
+    if (has_viplist()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->viplist());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CSDecorateBagVIPFetchRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const CSDecorateBagVIPFetchRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const CSDecorateBagVIPFetchRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void CSDecorateBagVIPFetchRsp::MergeFrom(const CSDecorateBagVIPFetchRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_type()) {
+      set_type(from.type());
+    }
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+    if (from.has_decoratebaginfo()) {
+      mutable_decoratebaginfo()->::CSDecorateBagInfo::MergeFrom(from.decoratebaginfo());
+    }
+    if (from.has_viplist()) {
+      mutable_viplist()->::CSDecorateBagVIPList::MergeFrom(from.viplist());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void CSDecorateBagVIPFetchRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CSDecorateBagVIPFetchRsp::CopyFrom(const CSDecorateBagVIPFetchRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CSDecorateBagVIPFetchRsp::IsInitialized() const {
+
+  return true;
+}
+
+void CSDecorateBagVIPFetchRsp::Swap(CSDecorateBagVIPFetchRsp* other) {
+  if (other != this) {
+    std::swap(type_, other->type_);
+    std::swap(id_, other->id_);
+    std::swap(decoratebaginfo_, other->decoratebaginfo_);
+    std::swap(viplist_, other->viplist_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata CSDecorateBagVIPFetchRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CSDecorateBagVIPFetchRsp_descriptor_;
+  metadata.reflection = CSDecorateBagVIPFetchRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int CSDecorateBagReqParam::kFetchReqFieldNumber;
+const int CSDecorateBagReqParam::kShowSetReqFieldNumber;
+const int CSDecorateBagReqParam::kVIPFetchReqFieldNumber;
 #endif  // !_MSC_VER
 
 CSDecorateBagReqParam::CSDecorateBagReqParam()
@@ -7278,6 +8710,8 @@ CSDecorateBagReqParam::CSDecorateBagReqParam()
 
 void CSDecorateBagReqParam::InitAsDefaultInstance() {
   fetchreq_ = const_cast< ::CSDecorateBagFetchReq*>(&::CSDecorateBagFetchReq::default_instance());
+  showsetreq_ = const_cast< ::CSDecorateBagShowSetReq*>(&::CSDecorateBagShowSetReq::default_instance());
+  vipfetchreq_ = const_cast< ::CSDecorateBagVIPFetchReq*>(&::CSDecorateBagVIPFetchReq::default_instance());
 }
 
 CSDecorateBagReqParam::CSDecorateBagReqParam(const CSDecorateBagReqParam& from)
@@ -7289,6 +8723,8 @@ CSDecorateBagReqParam::CSDecorateBagReqParam(const CSDecorateBagReqParam& from)
 void CSDecorateBagReqParam::SharedCtor() {
   _cached_size_ = 0;
   fetchreq_ = NULL;
+  showsetreq_ = NULL;
+  vipfetchreq_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -7299,6 +8735,8 @@ CSDecorateBagReqParam::~CSDecorateBagReqParam() {
 void CSDecorateBagReqParam::SharedDtor() {
   if (this != default_instance_) {
     delete fetchreq_;
+    delete showsetreq_;
+    delete vipfetchreq_;
   }
 }
 
@@ -7328,6 +8766,12 @@ void CSDecorateBagReqParam::Clear() {
     if (has_fetchreq()) {
       if (fetchreq_ != NULL) fetchreq_->::CSDecorateBagFetchReq::Clear();
     }
+    if (has_showsetreq()) {
+      if (showsetreq_ != NULL) showsetreq_->::CSDecorateBagShowSetReq::Clear();
+    }
+    if (has_vipfetchreq()) {
+      if (vipfetchreq_ != NULL) vipfetchreq_->::CSDecorateBagVIPFetchReq::Clear();
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -7345,6 +8789,34 @@ bool CSDecorateBagReqParam::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_fetchreq()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_ShowSetReq;
+        break;
+      }
+
+      // optional .CSDecorateBagShowSetReq ShowSetReq = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_ShowSetReq:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_showsetreq()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_VIPFetchReq;
+        break;
+      }
+
+      // optional .CSDecorateBagVIPFetchReq VIPFetchReq = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_VIPFetchReq:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_vipfetchreq()));
         } else {
           goto handle_uninterpreted;
         }
@@ -7376,6 +8848,18 @@ void CSDecorateBagReqParam::SerializeWithCachedSizes(
       1, this->fetchreq(), output);
   }
 
+  // optional .CSDecorateBagShowSetReq ShowSetReq = 2;
+  if (has_showsetreq()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->showsetreq(), output);
+  }
+
+  // optional .CSDecorateBagVIPFetchReq VIPFetchReq = 3;
+  if (has_vipfetchreq()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->vipfetchreq(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -7389,6 +8873,20 @@ void CSDecorateBagReqParam::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, this->fetchreq(), target);
+  }
+
+  // optional .CSDecorateBagShowSetReq ShowSetReq = 2;
+  if (has_showsetreq()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->showsetreq(), target);
+  }
+
+  // optional .CSDecorateBagVIPFetchReq VIPFetchReq = 3;
+  if (has_vipfetchreq()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->vipfetchreq(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -7407,6 +8905,20 @@ int CSDecorateBagReqParam::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->fetchreq());
+    }
+
+    // optional .CSDecorateBagShowSetReq ShowSetReq = 2;
+    if (has_showsetreq()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->showsetreq());
+    }
+
+    // optional .CSDecorateBagVIPFetchReq VIPFetchReq = 3;
+    if (has_vipfetchreq()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->vipfetchreq());
     }
 
   }
@@ -7439,6 +8951,12 @@ void CSDecorateBagReqParam::MergeFrom(const CSDecorateBagReqParam& from) {
     if (from.has_fetchreq()) {
       mutable_fetchreq()->::CSDecorateBagFetchReq::MergeFrom(from.fetchreq());
     }
+    if (from.has_showsetreq()) {
+      mutable_showsetreq()->::CSDecorateBagShowSetReq::MergeFrom(from.showsetreq());
+    }
+    if (from.has_vipfetchreq()) {
+      mutable_vipfetchreq()->::CSDecorateBagVIPFetchReq::MergeFrom(from.vipfetchreq());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -7463,6 +8981,8 @@ bool CSDecorateBagReqParam::IsInitialized() const {
 void CSDecorateBagReqParam::Swap(CSDecorateBagReqParam* other) {
   if (other != this) {
     std::swap(fetchreq_, other->fetchreq_);
+    std::swap(showsetreq_, other->showsetreq_);
+    std::swap(vipfetchreq_, other->vipfetchreq_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -7482,6 +9002,7 @@ void CSDecorateBagReqParam::Swap(CSDecorateBagReqParam* other) {
 
 #ifndef _MSC_VER
 const int CSDecorateBagRspParam::kFetchRspFieldNumber;
+const int CSDecorateBagRspParam::kVIPFetchRspFieldNumber;
 #endif  // !_MSC_VER
 
 CSDecorateBagRspParam::CSDecorateBagRspParam()
@@ -7491,6 +9012,7 @@ CSDecorateBagRspParam::CSDecorateBagRspParam()
 
 void CSDecorateBagRspParam::InitAsDefaultInstance() {
   fetchrsp_ = const_cast< ::CSDecorateBagFetchRsp*>(&::CSDecorateBagFetchRsp::default_instance());
+  vipfetchrsp_ = const_cast< ::CSDecorateBagVIPFetchRsp*>(&::CSDecorateBagVIPFetchRsp::default_instance());
 }
 
 CSDecorateBagRspParam::CSDecorateBagRspParam(const CSDecorateBagRspParam& from)
@@ -7502,6 +9024,7 @@ CSDecorateBagRspParam::CSDecorateBagRspParam(const CSDecorateBagRspParam& from)
 void CSDecorateBagRspParam::SharedCtor() {
   _cached_size_ = 0;
   fetchrsp_ = NULL;
+  vipfetchrsp_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -7512,6 +9035,7 @@ CSDecorateBagRspParam::~CSDecorateBagRspParam() {
 void CSDecorateBagRspParam::SharedDtor() {
   if (this != default_instance_) {
     delete fetchrsp_;
+    delete vipfetchrsp_;
   }
 }
 
@@ -7541,6 +9065,9 @@ void CSDecorateBagRspParam::Clear() {
     if (has_fetchrsp()) {
       if (fetchrsp_ != NULL) fetchrsp_->::CSDecorateBagFetchRsp::Clear();
     }
+    if (has_vipfetchrsp()) {
+      if (vipfetchrsp_ != NULL) vipfetchrsp_->::CSDecorateBagVIPFetchRsp::Clear();
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -7558,6 +9085,20 @@ bool CSDecorateBagRspParam::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_fetchrsp()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_VIPFetchRsp;
+        break;
+      }
+
+      // optional .CSDecorateBagVIPFetchRsp VIPFetchRsp = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_VIPFetchRsp:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_vipfetchrsp()));
         } else {
           goto handle_uninterpreted;
         }
@@ -7589,6 +9130,12 @@ void CSDecorateBagRspParam::SerializeWithCachedSizes(
       1, this->fetchrsp(), output);
   }
 
+  // optional .CSDecorateBagVIPFetchRsp VIPFetchRsp = 2;
+  if (has_vipfetchrsp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->vipfetchrsp(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -7602,6 +9149,13 @@ void CSDecorateBagRspParam::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, this->fetchrsp(), target);
+  }
+
+  // optional .CSDecorateBagVIPFetchRsp VIPFetchRsp = 2;
+  if (has_vipfetchrsp()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->vipfetchrsp(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -7620,6 +9174,13 @@ int CSDecorateBagRspParam::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->fetchrsp());
+    }
+
+    // optional .CSDecorateBagVIPFetchRsp VIPFetchRsp = 2;
+    if (has_vipfetchrsp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->vipfetchrsp());
     }
 
   }
@@ -7652,6 +9213,9 @@ void CSDecorateBagRspParam::MergeFrom(const CSDecorateBagRspParam& from) {
     if (from.has_fetchrsp()) {
       mutable_fetchrsp()->::CSDecorateBagFetchRsp::MergeFrom(from.fetchrsp());
     }
+    if (from.has_vipfetchrsp()) {
+      mutable_vipfetchrsp()->::CSDecorateBagVIPFetchRsp::MergeFrom(from.vipfetchrsp());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -7676,6 +9240,7 @@ bool CSDecorateBagRspParam::IsInitialized() const {
 void CSDecorateBagRspParam::Swap(CSDecorateBagRspParam* other) {
   if (other != this) {
     std::swap(fetchrsp_, other->fetchrsp_);
+    std::swap(vipfetchrsp_, other->vipfetchrsp_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
