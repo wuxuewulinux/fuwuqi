@@ -67,6 +67,29 @@ class CSDecorateBagReqParam;
 class CSDecorateBagRspParam;
 class CSDecorateBagReq;
 class CSDecorateBagRsp;
+class FriendList;
+class CSMsgRegisterSuccessReq;
+class CSMsgLoginSuccessReq;
+class CSMsgQuitReq;
+class CSMsgRoleInfo;
+class CSMsgRoleInfoList;
+class CSMsgLoginSuccessRsp;
+class CSMsgAskAddFriendReq;
+class CSMsgAskAddFriendRsp;
+class CSMsgSuccessAddFriendReq;
+class CSMsgSuccessAddFriendRsp;
+class CSMsgDeleteFriendReq;
+class CSMsgDeleteFriendRsp;
+class CSMsgSendChatReq;
+class CSMsgSendChatRsp;
+class CSMsgFindNameReq;
+class CSMsgFindNameRsp;
+class CSMsgChangeStatusReq;
+class CSMsgChangeStatusRsp;
+class CSChatReqParam;
+class CSChatRspParam;
+class CSChatReq;
+class CSChatRsp;
 class CSMsgBody;
 class CSMsgHead;
 class CSMsg;
@@ -130,12 +153,40 @@ inline bool CSDecorateBagCmd_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<CSDecorateBagCmd>(
     CSDecorateBagCmd_descriptor(), name, value);
 }
+enum CSChatCmd {
+  CSMsgServer_RegisterSuccess = 1,
+  CSMsgServer_LoginSuccess = 2,
+  CSMsgServer_Quit = 3,
+  CSMsgServer_FriendLine = 4,
+  CSMsgServer_AskAddFriend = 5,
+  CSMsgServer_SuccessAddFriend = 6,
+  CSMsgServer_DeleteFriend = 7,
+  CSMsgServer_SendChat = 8,
+  CSMsgServer_FindName = 9,
+  CSMsgServer_ChangeStatus = 10
+};
+bool CSChatCmd_IsValid(int value);
+const CSChatCmd CSChatCmd_MIN = CSMsgServer_RegisterSuccess;
+const CSChatCmd CSChatCmd_MAX = CSMsgServer_ChangeStatus;
+const int CSChatCmd_ARRAYSIZE = CSChatCmd_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* CSChatCmd_descriptor();
+inline const ::std::string& CSChatCmd_Name(CSChatCmd value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    CSChatCmd_descriptor(), value);
+}
+inline bool CSChatCmd_Parse(
+    const ::std::string& name, CSChatCmd* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<CSChatCmd>(
+    CSChatCmd_descriptor(), name, value);
+}
 enum CSMsgID {
   CS_MSGID_MIN = 0,
   CS_MSGID_RegisterLogin = 1,
   CS_MSGID_BAG = 2,
   CS_MSGID_DecorateBAG = 3,
-  CS_MSGID_MAX = 4
+  CS_MSGID_Chat = 4,
+  CS_MSGID_MAX = 5
 };
 bool CSMsgID_IsValid(int value);
 const CSMsgID CSMsgID_MIN = CS_MSGID_MIN;
@@ -3371,6 +3422,2341 @@ class CSDecorateBagRsp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class FriendList : public ::google::protobuf::Message {
+ public:
+  FriendList();
+  virtual ~FriendList();
+
+  FriendList(const FriendList& from);
+
+  inline FriendList& operator=(const FriendList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FriendList& default_instance();
+
+  void Swap(FriendList* other);
+
+  // implements Message ----------------------------------------------
+
+  FriendList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FriendList& from);
+  void MergeFrom(const FriendList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated uint64 FriendUid = 1;
+  inline int frienduid_size() const;
+  inline void clear_frienduid();
+  static const int kFriendUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 frienduid(int index) const;
+  inline void set_frienduid(int index, ::google::protobuf::uint64 value);
+  inline void add_frienduid(::google::protobuf::uint64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+      frienduid() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+      mutable_frienduid();
+
+  // @@protoc_insertion_point(class_scope:FriendList)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > frienduid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static FriendList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgRegisterSuccessReq : public ::google::protobuf::Message {
+ public:
+  CSMsgRegisterSuccessReq();
+  virtual ~CSMsgRegisterSuccessReq();
+
+  CSMsgRegisterSuccessReq(const CSMsgRegisterSuccessReq& from);
+
+  inline CSMsgRegisterSuccessReq& operator=(const CSMsgRegisterSuccessReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgRegisterSuccessReq& default_instance();
+
+  void Swap(CSMsgRegisterSuccessReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgRegisterSuccessReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgRegisterSuccessReq& from);
+  void MergeFrom(const CSMsgRegisterSuccessReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // optional string name = 2;
+  inline bool has_name() const;
+  inline void clear_name();
+  static const int kNameFieldNumber = 2;
+  inline const ::std::string& name() const;
+  inline void set_name(const ::std::string& value);
+  inline void set_name(const char* value);
+  inline void set_name(const char* value, size_t size);
+  inline ::std::string* mutable_name();
+  inline ::std::string* release_name();
+  inline void set_allocated_name(::std::string* name);
+
+  // @@protoc_insertion_point(class_scope:CSMsgRegisterSuccessReq)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_name();
+  inline void clear_has_name();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+  ::std::string* name_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgRegisterSuccessReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgLoginSuccessReq : public ::google::protobuf::Message {
+ public:
+  CSMsgLoginSuccessReq();
+  virtual ~CSMsgLoginSuccessReq();
+
+  CSMsgLoginSuccessReq(const CSMsgLoginSuccessReq& from);
+
+  inline CSMsgLoginSuccessReq& operator=(const CSMsgLoginSuccessReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgLoginSuccessReq& default_instance();
+
+  void Swap(CSMsgLoginSuccessReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgLoginSuccessReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgLoginSuccessReq& from);
+  void MergeFrom(const CSMsgLoginSuccessReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:CSMsgLoginSuccessReq)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgLoginSuccessReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgQuitReq : public ::google::protobuf::Message {
+ public:
+  CSMsgQuitReq();
+  virtual ~CSMsgQuitReq();
+
+  CSMsgQuitReq(const CSMsgQuitReq& from);
+
+  inline CSMsgQuitReq& operator=(const CSMsgQuitReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgQuitReq& default_instance();
+
+  void Swap(CSMsgQuitReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgQuitReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgQuitReq& from);
+  void MergeFrom(const CSMsgQuitReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:CSMsgQuitReq)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgQuitReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgRoleInfo : public ::google::protobuf::Message {
+ public:
+  CSMsgRoleInfo();
+  virtual ~CSMsgRoleInfo();
+
+  CSMsgRoleInfo(const CSMsgRoleInfo& from);
+
+  inline CSMsgRoleInfo& operator=(const CSMsgRoleInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgRoleInfo& default_instance();
+
+  void Swap(CSMsgRoleInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgRoleInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgRoleInfo& from);
+  void MergeFrom(const CSMsgRoleInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 Uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // optional uint32 Grade = 2;
+  inline bool has_grade() const;
+  inline void clear_grade();
+  static const int kGradeFieldNumber = 2;
+  inline ::google::protobuf::uint32 grade() const;
+  inline void set_grade(::google::protobuf::uint32 value);
+
+  // optional uint32 Rank = 3;
+  inline bool has_rank() const;
+  inline void clear_rank();
+  static const int kRankFieldNumber = 3;
+  inline ::google::protobuf::uint32 rank() const;
+  inline void set_rank(::google::protobuf::uint32 value);
+
+  // optional uint32 Status = 4;
+  inline bool has_status() const;
+  inline void clear_status();
+  static const int kStatusFieldNumber = 4;
+  inline ::google::protobuf::uint32 status() const;
+  inline void set_status(::google::protobuf::uint32 value);
+
+  // optional uint32 Vip = 5;
+  inline bool has_vip() const;
+  inline void clear_vip();
+  static const int kVipFieldNumber = 5;
+  inline ::google::protobuf::uint32 vip() const;
+  inline void set_vip(::google::protobuf::uint32 value);
+
+  // optional uint32 Head = 6;
+  inline bool has_head() const;
+  inline void clear_head();
+  static const int kHeadFieldNumber = 6;
+  inline ::google::protobuf::uint32 head() const;
+  inline void set_head(::google::protobuf::uint32 value);
+
+  // optional uint32 ChatFrame = 7;
+  inline bool has_chatframe() const;
+  inline void clear_chatframe();
+  static const int kChatFrameFieldNumber = 7;
+  inline ::google::protobuf::uint32 chatframe() const;
+  inline void set_chatframe(::google::protobuf::uint32 value);
+
+  // optional string Name = 8;
+  inline bool has_name() const;
+  inline void clear_name();
+  static const int kNameFieldNumber = 8;
+  inline const ::std::string& name() const;
+  inline void set_name(const ::std::string& value);
+  inline void set_name(const char* value);
+  inline void set_name(const char* value, size_t size);
+  inline ::std::string* mutable_name();
+  inline ::std::string* release_name();
+  inline void set_allocated_name(::std::string* name);
+
+  // @@protoc_insertion_point(class_scope:CSMsgRoleInfo)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_grade();
+  inline void clear_has_grade();
+  inline void set_has_rank();
+  inline void clear_has_rank();
+  inline void set_has_status();
+  inline void clear_has_status();
+  inline void set_has_vip();
+  inline void clear_has_vip();
+  inline void set_has_head();
+  inline void clear_has_head();
+  inline void set_has_chatframe();
+  inline void clear_has_chatframe();
+  inline void set_has_name();
+  inline void clear_has_name();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+  ::google::protobuf::uint32 grade_;
+  ::google::protobuf::uint32 rank_;
+  ::google::protobuf::uint32 status_;
+  ::google::protobuf::uint32 vip_;
+  ::google::protobuf::uint32 head_;
+  ::google::protobuf::uint32 chatframe_;
+  ::std::string* name_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgRoleInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgRoleInfoList : public ::google::protobuf::Message {
+ public:
+  CSMsgRoleInfoList();
+  virtual ~CSMsgRoleInfoList();
+
+  CSMsgRoleInfoList(const CSMsgRoleInfoList& from);
+
+  inline CSMsgRoleInfoList& operator=(const CSMsgRoleInfoList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgRoleInfoList& default_instance();
+
+  void Swap(CSMsgRoleInfoList* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgRoleInfoList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgRoleInfoList& from);
+  void MergeFrom(const CSMsgRoleInfoList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .CSMsgRoleInfo RoleInfo = 1;
+  inline int roleinfo_size() const;
+  inline void clear_roleinfo();
+  static const int kRoleInfoFieldNumber = 1;
+  inline const ::CSMsgRoleInfo& roleinfo(int index) const;
+  inline ::CSMsgRoleInfo* mutable_roleinfo(int index);
+  inline ::CSMsgRoleInfo* add_roleinfo();
+  inline const ::google::protobuf::RepeatedPtrField< ::CSMsgRoleInfo >&
+      roleinfo() const;
+  inline ::google::protobuf::RepeatedPtrField< ::CSMsgRoleInfo >*
+      mutable_roleinfo();
+
+  // @@protoc_insertion_point(class_scope:CSMsgRoleInfoList)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::CSMsgRoleInfo > roleinfo_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgRoleInfoList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgLoginSuccessRsp : public ::google::protobuf::Message {
+ public:
+  CSMsgLoginSuccessRsp();
+  virtual ~CSMsgLoginSuccessRsp();
+
+  CSMsgLoginSuccessRsp(const CSMsgLoginSuccessRsp& from);
+
+  inline CSMsgLoginSuccessRsp& operator=(const CSMsgLoginSuccessRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgLoginSuccessRsp& default_instance();
+
+  void Swap(CSMsgLoginSuccessRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgLoginSuccessRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgLoginSuccessRsp& from);
+  void MergeFrom(const CSMsgLoginSuccessRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .CSMsgRoleInfoList FriendList = 1;
+  inline bool has_friendlist() const;
+  inline void clear_friendlist();
+  static const int kFriendListFieldNumber = 1;
+  inline const ::CSMsgRoleInfoList& friendlist() const;
+  inline ::CSMsgRoleInfoList* mutable_friendlist();
+  inline ::CSMsgRoleInfoList* release_friendlist();
+  inline void set_allocated_friendlist(::CSMsgRoleInfoList* friendlist);
+
+  // @@protoc_insertion_point(class_scope:CSMsgLoginSuccessRsp)
+ private:
+  inline void set_has_friendlist();
+  inline void clear_has_friendlist();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::CSMsgRoleInfoList* friendlist_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgLoginSuccessRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgAskAddFriendReq : public ::google::protobuf::Message {
+ public:
+  CSMsgAskAddFriendReq();
+  virtual ~CSMsgAskAddFriendReq();
+
+  CSMsgAskAddFriendReq(const CSMsgAskAddFriendReq& from);
+
+  inline CSMsgAskAddFriendReq& operator=(const CSMsgAskAddFriendReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgAskAddFriendReq& default_instance();
+
+  void Swap(CSMsgAskAddFriendReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgAskAddFriendReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgAskAddFriendReq& from);
+  void MergeFrom(const CSMsgAskAddFriendReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string Name = 1;
+  inline bool has_name() const;
+  inline void clear_name();
+  static const int kNameFieldNumber = 1;
+  inline const ::std::string& name() const;
+  inline void set_name(const ::std::string& value);
+  inline void set_name(const char* value);
+  inline void set_name(const char* value, size_t size);
+  inline ::std::string* mutable_name();
+  inline ::std::string* release_name();
+  inline void set_allocated_name(::std::string* name);
+
+  // optional uint64 Uid = 2;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 2;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:CSMsgAskAddFriendReq)
+ private:
+  inline void set_has_name();
+  inline void clear_has_name();
+  inline void set_has_uid();
+  inline void clear_has_uid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* name_;
+  ::google::protobuf::uint64 uid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgAskAddFriendReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgAskAddFriendRsp : public ::google::protobuf::Message {
+ public:
+  CSMsgAskAddFriendRsp();
+  virtual ~CSMsgAskAddFriendRsp();
+
+  CSMsgAskAddFriendRsp(const CSMsgAskAddFriendRsp& from);
+
+  inline CSMsgAskAddFriendRsp& operator=(const CSMsgAskAddFriendRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgAskAddFriendRsp& default_instance();
+
+  void Swap(CSMsgAskAddFriendRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgAskAddFriendRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgAskAddFriendRsp& from);
+  void MergeFrom(const CSMsgAskAddFriendRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 Uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // optional string FriendName = 2;
+  inline bool has_friendname() const;
+  inline void clear_friendname();
+  static const int kFriendNameFieldNumber = 2;
+  inline const ::std::string& friendname() const;
+  inline void set_friendname(const ::std::string& value);
+  inline void set_friendname(const char* value);
+  inline void set_friendname(const char* value, size_t size);
+  inline ::std::string* mutable_friendname();
+  inline ::std::string* release_friendname();
+  inline void set_allocated_friendname(::std::string* friendname);
+
+  // @@protoc_insertion_point(class_scope:CSMsgAskAddFriendRsp)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_friendname();
+  inline void clear_has_friendname();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+  ::std::string* friendname_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgAskAddFriendRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgSuccessAddFriendReq : public ::google::protobuf::Message {
+ public:
+  CSMsgSuccessAddFriendReq();
+  virtual ~CSMsgSuccessAddFriendReq();
+
+  CSMsgSuccessAddFriendReq(const CSMsgSuccessAddFriendReq& from);
+
+  inline CSMsgSuccessAddFriendReq& operator=(const CSMsgSuccessAddFriendReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgSuccessAddFriendReq& default_instance();
+
+  void Swap(CSMsgSuccessAddFriendReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgSuccessAddFriendReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgSuccessAddFriendReq& from);
+  void MergeFrom(const CSMsgSuccessAddFriendReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 Uid1 = 1;
+  inline bool has_uid1() const;
+  inline void clear_uid1();
+  static const int kUid1FieldNumber = 1;
+  inline ::google::protobuf::uint64 uid1() const;
+  inline void set_uid1(::google::protobuf::uint64 value);
+
+  // optional uint64 Uid2 = 2;
+  inline bool has_uid2() const;
+  inline void clear_uid2();
+  static const int kUid2FieldNumber = 2;
+  inline ::google::protobuf::uint64 uid2() const;
+  inline void set_uid2(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:CSMsgSuccessAddFriendReq)
+ private:
+  inline void set_has_uid1();
+  inline void clear_has_uid1();
+  inline void set_has_uid2();
+  inline void clear_has_uid2();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid1_;
+  ::google::protobuf::uint64 uid2_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgSuccessAddFriendReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgSuccessAddFriendRsp : public ::google::protobuf::Message {
+ public:
+  CSMsgSuccessAddFriendRsp();
+  virtual ~CSMsgSuccessAddFriendRsp();
+
+  CSMsgSuccessAddFriendRsp(const CSMsgSuccessAddFriendRsp& from);
+
+  inline CSMsgSuccessAddFriendRsp& operator=(const CSMsgSuccessAddFriendRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgSuccessAddFriendRsp& default_instance();
+
+  void Swap(CSMsgSuccessAddFriendRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgSuccessAddFriendRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgSuccessAddFriendRsp& from);
+  void MergeFrom(const CSMsgSuccessAddFriendRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .CSMsgRoleInfo FriendRoleInfo = 1;
+  inline bool has_friendroleinfo() const;
+  inline void clear_friendroleinfo();
+  static const int kFriendRoleInfoFieldNumber = 1;
+  inline const ::CSMsgRoleInfo& friendroleinfo() const;
+  inline ::CSMsgRoleInfo* mutable_friendroleinfo();
+  inline ::CSMsgRoleInfo* release_friendroleinfo();
+  inline void set_allocated_friendroleinfo(::CSMsgRoleInfo* friendroleinfo);
+
+  // @@protoc_insertion_point(class_scope:CSMsgSuccessAddFriendRsp)
+ private:
+  inline void set_has_friendroleinfo();
+  inline void clear_has_friendroleinfo();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::CSMsgRoleInfo* friendroleinfo_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgSuccessAddFriendRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgDeleteFriendReq : public ::google::protobuf::Message {
+ public:
+  CSMsgDeleteFriendReq();
+  virtual ~CSMsgDeleteFriendReq();
+
+  CSMsgDeleteFriendReq(const CSMsgDeleteFriendReq& from);
+
+  inline CSMsgDeleteFriendReq& operator=(const CSMsgDeleteFriendReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgDeleteFriendReq& default_instance();
+
+  void Swap(CSMsgDeleteFriendReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgDeleteFriendReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgDeleteFriendReq& from);
+  void MergeFrom(const CSMsgDeleteFriendReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 Uid1 = 1;
+  inline bool has_uid1() const;
+  inline void clear_uid1();
+  static const int kUid1FieldNumber = 1;
+  inline ::google::protobuf::uint64 uid1() const;
+  inline void set_uid1(::google::protobuf::uint64 value);
+
+  // optional uint64 Uid2 = 2;
+  inline bool has_uid2() const;
+  inline void clear_uid2();
+  static const int kUid2FieldNumber = 2;
+  inline ::google::protobuf::uint64 uid2() const;
+  inline void set_uid2(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:CSMsgDeleteFriendReq)
+ private:
+  inline void set_has_uid1();
+  inline void clear_has_uid1();
+  inline void set_has_uid2();
+  inline void clear_has_uid2();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid1_;
+  ::google::protobuf::uint64 uid2_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgDeleteFriendReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgDeleteFriendRsp : public ::google::protobuf::Message {
+ public:
+  CSMsgDeleteFriendRsp();
+  virtual ~CSMsgDeleteFriendRsp();
+
+  CSMsgDeleteFriendRsp(const CSMsgDeleteFriendRsp& from);
+
+  inline CSMsgDeleteFriendRsp& operator=(const CSMsgDeleteFriendRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgDeleteFriendRsp& default_instance();
+
+  void Swap(CSMsgDeleteFriendRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgDeleteFriendRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgDeleteFriendRsp& from);
+  void MergeFrom(const CSMsgDeleteFriendRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 Uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:CSMsgDeleteFriendRsp)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgDeleteFriendRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgSendChatReq : public ::google::protobuf::Message {
+ public:
+  CSMsgSendChatReq();
+  virtual ~CSMsgSendChatReq();
+
+  CSMsgSendChatReq(const CSMsgSendChatReq& from);
+
+  inline CSMsgSendChatReq& operator=(const CSMsgSendChatReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgSendChatReq& default_instance();
+
+  void Swap(CSMsgSendChatReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgSendChatReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgSendChatReq& from);
+  void MergeFrom(const CSMsgSendChatReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 Uid1 = 1;
+  inline bool has_uid1() const;
+  inline void clear_uid1();
+  static const int kUid1FieldNumber = 1;
+  inline ::google::protobuf::uint64 uid1() const;
+  inline void set_uid1(::google::protobuf::uint64 value);
+
+  // optional uint64 Uid2 = 2;
+  inline bool has_uid2() const;
+  inline void clear_uid2();
+  static const int kUid2FieldNumber = 2;
+  inline ::google::protobuf::uint64 uid2() const;
+  inline void set_uid2(::google::protobuf::uint64 value);
+
+  // optional string information = 3;
+  inline bool has_information() const;
+  inline void clear_information();
+  static const int kInformationFieldNumber = 3;
+  inline const ::std::string& information() const;
+  inline void set_information(const ::std::string& value);
+  inline void set_information(const char* value);
+  inline void set_information(const char* value, size_t size);
+  inline ::std::string* mutable_information();
+  inline ::std::string* release_information();
+  inline void set_allocated_information(::std::string* information);
+
+  // @@protoc_insertion_point(class_scope:CSMsgSendChatReq)
+ private:
+  inline void set_has_uid1();
+  inline void clear_has_uid1();
+  inline void set_has_uid2();
+  inline void clear_has_uid2();
+  inline void set_has_information();
+  inline void clear_has_information();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid1_;
+  ::google::protobuf::uint64 uid2_;
+  ::std::string* information_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgSendChatReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgSendChatRsp : public ::google::protobuf::Message {
+ public:
+  CSMsgSendChatRsp();
+  virtual ~CSMsgSendChatRsp();
+
+  CSMsgSendChatRsp(const CSMsgSendChatRsp& from);
+
+  inline CSMsgSendChatRsp& operator=(const CSMsgSendChatRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgSendChatRsp& default_instance();
+
+  void Swap(CSMsgSendChatRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgSendChatRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgSendChatRsp& from);
+  void MergeFrom(const CSMsgSendChatRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 Uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // optional string information = 2;
+  inline bool has_information() const;
+  inline void clear_information();
+  static const int kInformationFieldNumber = 2;
+  inline const ::std::string& information() const;
+  inline void set_information(const ::std::string& value);
+  inline void set_information(const char* value);
+  inline void set_information(const char* value, size_t size);
+  inline ::std::string* mutable_information();
+  inline ::std::string* release_information();
+  inline void set_allocated_information(::std::string* information);
+
+  // @@protoc_insertion_point(class_scope:CSMsgSendChatRsp)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_information();
+  inline void clear_has_information();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+  ::std::string* information_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgSendChatRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgFindNameReq : public ::google::protobuf::Message {
+ public:
+  CSMsgFindNameReq();
+  virtual ~CSMsgFindNameReq();
+
+  CSMsgFindNameReq(const CSMsgFindNameReq& from);
+
+  inline CSMsgFindNameReq& operator=(const CSMsgFindNameReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgFindNameReq& default_instance();
+
+  void Swap(CSMsgFindNameReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgFindNameReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgFindNameReq& from);
+  void MergeFrom(const CSMsgFindNameReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string name = 1;
+  inline bool has_name() const;
+  inline void clear_name();
+  static const int kNameFieldNumber = 1;
+  inline const ::std::string& name() const;
+  inline void set_name(const ::std::string& value);
+  inline void set_name(const char* value);
+  inline void set_name(const char* value, size_t size);
+  inline ::std::string* mutable_name();
+  inline ::std::string* release_name();
+  inline void set_allocated_name(::std::string* name);
+
+  // @@protoc_insertion_point(class_scope:CSMsgFindNameReq)
+ private:
+  inline void set_has_name();
+  inline void clear_has_name();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* name_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgFindNameReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgFindNameRsp : public ::google::protobuf::Message {
+ public:
+  CSMsgFindNameRsp();
+  virtual ~CSMsgFindNameRsp();
+
+  CSMsgFindNameRsp(const CSMsgFindNameRsp& from);
+
+  inline CSMsgFindNameRsp& operator=(const CSMsgFindNameRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgFindNameRsp& default_instance();
+
+  void Swap(CSMsgFindNameRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgFindNameRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgFindNameRsp& from);
+  void MergeFrom(const CSMsgFindNameRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .CSMsgRoleInfo RoleInfo = 1;
+  inline bool has_roleinfo() const;
+  inline void clear_roleinfo();
+  static const int kRoleInfoFieldNumber = 1;
+  inline const ::CSMsgRoleInfo& roleinfo() const;
+  inline ::CSMsgRoleInfo* mutable_roleinfo();
+  inline ::CSMsgRoleInfo* release_roleinfo();
+  inline void set_allocated_roleinfo(::CSMsgRoleInfo* roleinfo);
+
+  // @@protoc_insertion_point(class_scope:CSMsgFindNameRsp)
+ private:
+  inline void set_has_roleinfo();
+  inline void clear_has_roleinfo();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::CSMsgRoleInfo* roleinfo_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgFindNameRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgChangeStatusReq : public ::google::protobuf::Message {
+ public:
+  CSMsgChangeStatusReq();
+  virtual ~CSMsgChangeStatusReq();
+
+  CSMsgChangeStatusReq(const CSMsgChangeStatusReq& from);
+
+  inline CSMsgChangeStatusReq& operator=(const CSMsgChangeStatusReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgChangeStatusReq& default_instance();
+
+  void Swap(CSMsgChangeStatusReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgChangeStatusReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgChangeStatusReq& from);
+  void MergeFrom(const CSMsgChangeStatusReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::google::protobuf::uint32 type() const;
+  inline void set_type(::google::protobuf::uint32 value);
+
+  // optional uint32 value = 2;
+  inline bool has_value() const;
+  inline void clear_value();
+  static const int kValueFieldNumber = 2;
+  inline ::google::protobuf::uint32 value() const;
+  inline void set_value(::google::protobuf::uint32 value);
+
+  // optional uint64 Uid = 3;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 3;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:CSMsgChangeStatusReq)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_value();
+  inline void clear_has_value();
+  inline void set_has_uid();
+  inline void clear_has_uid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 type_;
+  ::google::protobuf::uint32 value_;
+  ::google::protobuf::uint64 uid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgChangeStatusReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMsgChangeStatusRsp : public ::google::protobuf::Message {
+ public:
+  CSMsgChangeStatusRsp();
+  virtual ~CSMsgChangeStatusRsp();
+
+  CSMsgChangeStatusRsp(const CSMsgChangeStatusRsp& from);
+
+  inline CSMsgChangeStatusRsp& operator=(const CSMsgChangeStatusRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgChangeStatusRsp& default_instance();
+
+  void Swap(CSMsgChangeStatusRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgChangeStatusRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgChangeStatusRsp& from);
+  void MergeFrom(const CSMsgChangeStatusRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .CSMsgRoleInfo RoleInfo = 1;
+  inline bool has_roleinfo() const;
+  inline void clear_roleinfo();
+  static const int kRoleInfoFieldNumber = 1;
+  inline const ::CSMsgRoleInfo& roleinfo() const;
+  inline ::CSMsgRoleInfo* mutable_roleinfo();
+  inline ::CSMsgRoleInfo* release_roleinfo();
+  inline void set_allocated_roleinfo(::CSMsgRoleInfo* roleinfo);
+
+  // @@protoc_insertion_point(class_scope:CSMsgChangeStatusRsp)
+ private:
+  inline void set_has_roleinfo();
+  inline void clear_has_roleinfo();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::CSMsgRoleInfo* roleinfo_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgChangeStatusRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSChatReqParam : public ::google::protobuf::Message {
+ public:
+  CSChatReqParam();
+  virtual ~CSChatReqParam();
+
+  CSChatReqParam(const CSChatReqParam& from);
+
+  inline CSChatReqParam& operator=(const CSChatReqParam& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSChatReqParam& default_instance();
+
+  void Swap(CSChatReqParam* other);
+
+  // implements Message ----------------------------------------------
+
+  CSChatReqParam* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSChatReqParam& from);
+  void MergeFrom(const CSChatReqParam& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .CSMsgRegisterSuccessReq RegisterSuccessReq = 1;
+  inline bool has_registersuccessreq() const;
+  inline void clear_registersuccessreq();
+  static const int kRegisterSuccessReqFieldNumber = 1;
+  inline const ::CSMsgRegisterSuccessReq& registersuccessreq() const;
+  inline ::CSMsgRegisterSuccessReq* mutable_registersuccessreq();
+  inline ::CSMsgRegisterSuccessReq* release_registersuccessreq();
+  inline void set_allocated_registersuccessreq(::CSMsgRegisterSuccessReq* registersuccessreq);
+
+  // optional .CSMsgLoginSuccessReq LoginSuccessReq = 2;
+  inline bool has_loginsuccessreq() const;
+  inline void clear_loginsuccessreq();
+  static const int kLoginSuccessReqFieldNumber = 2;
+  inline const ::CSMsgLoginSuccessReq& loginsuccessreq() const;
+  inline ::CSMsgLoginSuccessReq* mutable_loginsuccessreq();
+  inline ::CSMsgLoginSuccessReq* release_loginsuccessreq();
+  inline void set_allocated_loginsuccessreq(::CSMsgLoginSuccessReq* loginsuccessreq);
+
+  // optional .CSMsgQuitReq MsgQuitReq = 3;
+  inline bool has_msgquitreq() const;
+  inline void clear_msgquitreq();
+  static const int kMsgQuitReqFieldNumber = 3;
+  inline const ::CSMsgQuitReq& msgquitreq() const;
+  inline ::CSMsgQuitReq* mutable_msgquitreq();
+  inline ::CSMsgQuitReq* release_msgquitreq();
+  inline void set_allocated_msgquitreq(::CSMsgQuitReq* msgquitreq);
+
+  // optional .CSMsgAskAddFriendReq AskAddFriendReq = 4;
+  inline bool has_askaddfriendreq() const;
+  inline void clear_askaddfriendreq();
+  static const int kAskAddFriendReqFieldNumber = 4;
+  inline const ::CSMsgAskAddFriendReq& askaddfriendreq() const;
+  inline ::CSMsgAskAddFriendReq* mutable_askaddfriendreq();
+  inline ::CSMsgAskAddFriendReq* release_askaddfriendreq();
+  inline void set_allocated_askaddfriendreq(::CSMsgAskAddFriendReq* askaddfriendreq);
+
+  // optional .CSMsgSuccessAddFriendReq SuccessAddFriendReq = 5;
+  inline bool has_successaddfriendreq() const;
+  inline void clear_successaddfriendreq();
+  static const int kSuccessAddFriendReqFieldNumber = 5;
+  inline const ::CSMsgSuccessAddFriendReq& successaddfriendreq() const;
+  inline ::CSMsgSuccessAddFriendReq* mutable_successaddfriendreq();
+  inline ::CSMsgSuccessAddFriendReq* release_successaddfriendreq();
+  inline void set_allocated_successaddfriendreq(::CSMsgSuccessAddFriendReq* successaddfriendreq);
+
+  // optional .CSMsgDeleteFriendReq DeleteFriendReq = 6;
+  inline bool has_deletefriendreq() const;
+  inline void clear_deletefriendreq();
+  static const int kDeleteFriendReqFieldNumber = 6;
+  inline const ::CSMsgDeleteFriendReq& deletefriendreq() const;
+  inline ::CSMsgDeleteFriendReq* mutable_deletefriendreq();
+  inline ::CSMsgDeleteFriendReq* release_deletefriendreq();
+  inline void set_allocated_deletefriendreq(::CSMsgDeleteFriendReq* deletefriendreq);
+
+  // optional .CSMsgSendChatReq SendChatReq = 7;
+  inline bool has_sendchatreq() const;
+  inline void clear_sendchatreq();
+  static const int kSendChatReqFieldNumber = 7;
+  inline const ::CSMsgSendChatReq& sendchatreq() const;
+  inline ::CSMsgSendChatReq* mutable_sendchatreq();
+  inline ::CSMsgSendChatReq* release_sendchatreq();
+  inline void set_allocated_sendchatreq(::CSMsgSendChatReq* sendchatreq);
+
+  // optional .CSMsgFindNameReq FindNameReq = 8;
+  inline bool has_findnamereq() const;
+  inline void clear_findnamereq();
+  static const int kFindNameReqFieldNumber = 8;
+  inline const ::CSMsgFindNameReq& findnamereq() const;
+  inline ::CSMsgFindNameReq* mutable_findnamereq();
+  inline ::CSMsgFindNameReq* release_findnamereq();
+  inline void set_allocated_findnamereq(::CSMsgFindNameReq* findnamereq);
+
+  // optional .CSMsgChangeStatusReq ChangeStatusReq = 9;
+  inline bool has_changestatusreq() const;
+  inline void clear_changestatusreq();
+  static const int kChangeStatusReqFieldNumber = 9;
+  inline const ::CSMsgChangeStatusReq& changestatusreq() const;
+  inline ::CSMsgChangeStatusReq* mutable_changestatusreq();
+  inline ::CSMsgChangeStatusReq* release_changestatusreq();
+  inline void set_allocated_changestatusreq(::CSMsgChangeStatusReq* changestatusreq);
+
+  // @@protoc_insertion_point(class_scope:CSChatReqParam)
+ private:
+  inline void set_has_registersuccessreq();
+  inline void clear_has_registersuccessreq();
+  inline void set_has_loginsuccessreq();
+  inline void clear_has_loginsuccessreq();
+  inline void set_has_msgquitreq();
+  inline void clear_has_msgquitreq();
+  inline void set_has_askaddfriendreq();
+  inline void clear_has_askaddfriendreq();
+  inline void set_has_successaddfriendreq();
+  inline void clear_has_successaddfriendreq();
+  inline void set_has_deletefriendreq();
+  inline void clear_has_deletefriendreq();
+  inline void set_has_sendchatreq();
+  inline void clear_has_sendchatreq();
+  inline void set_has_findnamereq();
+  inline void clear_has_findnamereq();
+  inline void set_has_changestatusreq();
+  inline void clear_has_changestatusreq();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::CSMsgRegisterSuccessReq* registersuccessreq_;
+  ::CSMsgLoginSuccessReq* loginsuccessreq_;
+  ::CSMsgQuitReq* msgquitreq_;
+  ::CSMsgAskAddFriendReq* askaddfriendreq_;
+  ::CSMsgSuccessAddFriendReq* successaddfriendreq_;
+  ::CSMsgDeleteFriendReq* deletefriendreq_;
+  ::CSMsgSendChatReq* sendchatreq_;
+  ::CSMsgFindNameReq* findnamereq_;
+  ::CSMsgChangeStatusReq* changestatusreq_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSChatReqParam* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSChatRspParam : public ::google::protobuf::Message {
+ public:
+  CSChatRspParam();
+  virtual ~CSChatRspParam();
+
+  CSChatRspParam(const CSChatRspParam& from);
+
+  inline CSChatRspParam& operator=(const CSChatRspParam& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSChatRspParam& default_instance();
+
+  void Swap(CSChatRspParam* other);
+
+  // implements Message ----------------------------------------------
+
+  CSChatRspParam* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSChatRspParam& from);
+  void MergeFrom(const CSChatRspParam& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .CSMsgLoginSuccessRsp MsgLoginSuccess = 1;
+  inline bool has_msgloginsuccess() const;
+  inline void clear_msgloginsuccess();
+  static const int kMsgLoginSuccessFieldNumber = 1;
+  inline const ::CSMsgLoginSuccessRsp& msgloginsuccess() const;
+  inline ::CSMsgLoginSuccessRsp* mutable_msgloginsuccess();
+  inline ::CSMsgLoginSuccessRsp* release_msgloginsuccess();
+  inline void set_allocated_msgloginsuccess(::CSMsgLoginSuccessRsp* msgloginsuccess);
+
+  // optional .CSMsgRoleInfo RoleInfo = 2;
+  inline bool has_roleinfo() const;
+  inline void clear_roleinfo();
+  static const int kRoleInfoFieldNumber = 2;
+  inline const ::CSMsgRoleInfo& roleinfo() const;
+  inline ::CSMsgRoleInfo* mutable_roleinfo();
+  inline ::CSMsgRoleInfo* release_roleinfo();
+  inline void set_allocated_roleinfo(::CSMsgRoleInfo* roleinfo);
+
+  // optional .CSMsgRoleInfo RoleQuit = 3;
+  inline bool has_rolequit() const;
+  inline void clear_rolequit();
+  static const int kRoleQuitFieldNumber = 3;
+  inline const ::CSMsgRoleInfo& rolequit() const;
+  inline ::CSMsgRoleInfo* mutable_rolequit();
+  inline ::CSMsgRoleInfo* release_rolequit();
+  inline void set_allocated_rolequit(::CSMsgRoleInfo* rolequit);
+
+  // optional .CSMsgAskAddFriendRsp AskAddFriendRsp = 4;
+  inline bool has_askaddfriendrsp() const;
+  inline void clear_askaddfriendrsp();
+  static const int kAskAddFriendRspFieldNumber = 4;
+  inline const ::CSMsgAskAddFriendRsp& askaddfriendrsp() const;
+  inline ::CSMsgAskAddFriendRsp* mutable_askaddfriendrsp();
+  inline ::CSMsgAskAddFriendRsp* release_askaddfriendrsp();
+  inline void set_allocated_askaddfriendrsp(::CSMsgAskAddFriendRsp* askaddfriendrsp);
+
+  // optional .CSMsgSuccessAddFriendRsp SuccessAddFriendRsp = 5;
+  inline bool has_successaddfriendrsp() const;
+  inline void clear_successaddfriendrsp();
+  static const int kSuccessAddFriendRspFieldNumber = 5;
+  inline const ::CSMsgSuccessAddFriendRsp& successaddfriendrsp() const;
+  inline ::CSMsgSuccessAddFriendRsp* mutable_successaddfriendrsp();
+  inline ::CSMsgSuccessAddFriendRsp* release_successaddfriendrsp();
+  inline void set_allocated_successaddfriendrsp(::CSMsgSuccessAddFriendRsp* successaddfriendrsp);
+
+  // optional .CSMsgDeleteFriendRsp DeleteFriendRsp = 6;
+  inline bool has_deletefriendrsp() const;
+  inline void clear_deletefriendrsp();
+  static const int kDeleteFriendRspFieldNumber = 6;
+  inline const ::CSMsgDeleteFriendRsp& deletefriendrsp() const;
+  inline ::CSMsgDeleteFriendRsp* mutable_deletefriendrsp();
+  inline ::CSMsgDeleteFriendRsp* release_deletefriendrsp();
+  inline void set_allocated_deletefriendrsp(::CSMsgDeleteFriendRsp* deletefriendrsp);
+
+  // optional .CSMsgSendChatRsp SendChatRsp = 7;
+  inline bool has_sendchatrsp() const;
+  inline void clear_sendchatrsp();
+  static const int kSendChatRspFieldNumber = 7;
+  inline const ::CSMsgSendChatRsp& sendchatrsp() const;
+  inline ::CSMsgSendChatRsp* mutable_sendchatrsp();
+  inline ::CSMsgSendChatRsp* release_sendchatrsp();
+  inline void set_allocated_sendchatrsp(::CSMsgSendChatRsp* sendchatrsp);
+
+  // optional .CSMsgFindNameRsp FindNameRsp = 8;
+  inline bool has_findnamersp() const;
+  inline void clear_findnamersp();
+  static const int kFindNameRspFieldNumber = 8;
+  inline const ::CSMsgFindNameRsp& findnamersp() const;
+  inline ::CSMsgFindNameRsp* mutable_findnamersp();
+  inline ::CSMsgFindNameRsp* release_findnamersp();
+  inline void set_allocated_findnamersp(::CSMsgFindNameRsp* findnamersp);
+
+  // optional .CSMsgChangeStatusRsp ChangeStatusRsp = 9;
+  inline bool has_changestatusrsp() const;
+  inline void clear_changestatusrsp();
+  static const int kChangeStatusRspFieldNumber = 9;
+  inline const ::CSMsgChangeStatusRsp& changestatusrsp() const;
+  inline ::CSMsgChangeStatusRsp* mutable_changestatusrsp();
+  inline ::CSMsgChangeStatusRsp* release_changestatusrsp();
+  inline void set_allocated_changestatusrsp(::CSMsgChangeStatusRsp* changestatusrsp);
+
+  // @@protoc_insertion_point(class_scope:CSChatRspParam)
+ private:
+  inline void set_has_msgloginsuccess();
+  inline void clear_has_msgloginsuccess();
+  inline void set_has_roleinfo();
+  inline void clear_has_roleinfo();
+  inline void set_has_rolequit();
+  inline void clear_has_rolequit();
+  inline void set_has_askaddfriendrsp();
+  inline void clear_has_askaddfriendrsp();
+  inline void set_has_successaddfriendrsp();
+  inline void clear_has_successaddfriendrsp();
+  inline void set_has_deletefriendrsp();
+  inline void clear_has_deletefriendrsp();
+  inline void set_has_sendchatrsp();
+  inline void clear_has_sendchatrsp();
+  inline void set_has_findnamersp();
+  inline void clear_has_findnamersp();
+  inline void set_has_changestatusrsp();
+  inline void clear_has_changestatusrsp();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::CSMsgLoginSuccessRsp* msgloginsuccess_;
+  ::CSMsgRoleInfo* roleinfo_;
+  ::CSMsgRoleInfo* rolequit_;
+  ::CSMsgAskAddFriendRsp* askaddfriendrsp_;
+  ::CSMsgSuccessAddFriendRsp* successaddfriendrsp_;
+  ::CSMsgDeleteFriendRsp* deletefriendrsp_;
+  ::CSMsgSendChatRsp* sendchatrsp_;
+  ::CSMsgFindNameRsp* findnamersp_;
+  ::CSMsgChangeStatusRsp* changestatusrsp_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSChatRspParam* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSChatReq : public ::google::protobuf::Message {
+ public:
+  CSChatReq();
+  virtual ~CSChatReq();
+
+  CSChatReq(const CSChatReq& from);
+
+  inline CSChatReq& operator=(const CSChatReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSChatReq& default_instance();
+
+  void Swap(CSChatReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSChatReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSChatReq& from);
+  void MergeFrom(const CSChatReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .CSChatCmd cmd = 1;
+  inline bool has_cmd() const;
+  inline void clear_cmd();
+  static const int kCmdFieldNumber = 1;
+  inline ::CSChatCmd cmd() const;
+  inline void set_cmd(::CSChatCmd value);
+
+  // optional .CSChatReqParam reqParam = 2;
+  inline bool has_reqparam() const;
+  inline void clear_reqparam();
+  static const int kReqParamFieldNumber = 2;
+  inline const ::CSChatReqParam& reqparam() const;
+  inline ::CSChatReqParam* mutable_reqparam();
+  inline ::CSChatReqParam* release_reqparam();
+  inline void set_allocated_reqparam(::CSChatReqParam* reqparam);
+
+  // @@protoc_insertion_point(class_scope:CSChatReq)
+ private:
+  inline void set_has_cmd();
+  inline void clear_has_cmd();
+  inline void set_has_reqparam();
+  inline void clear_has_reqparam();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::CSChatReqParam* reqparam_;
+  int cmd_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSChatReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSChatRsp : public ::google::protobuf::Message {
+ public:
+  CSChatRsp();
+  virtual ~CSChatRsp();
+
+  CSChatRsp(const CSChatRsp& from);
+
+  inline CSChatRsp& operator=(const CSChatRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSChatRsp& default_instance();
+
+  void Swap(CSChatRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSChatRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSChatRsp& from);
+  void MergeFrom(const CSChatRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::google::protobuf::int32 result() const;
+  inline void set_result(::google::protobuf::int32 value);
+
+  // required .CSChatCmd cmd = 2;
+  inline bool has_cmd() const;
+  inline void clear_cmd();
+  static const int kCmdFieldNumber = 2;
+  inline ::CSChatCmd cmd() const;
+  inline void set_cmd(::CSChatCmd value);
+
+  // optional .CSChatRspParam rspParam = 3;
+  inline bool has_rspparam() const;
+  inline void clear_rspparam();
+  static const int kRspParamFieldNumber = 3;
+  inline const ::CSChatRspParam& rspparam() const;
+  inline ::CSChatRspParam* mutable_rspparam();
+  inline ::CSChatRspParam* release_rspparam();
+  inline void set_allocated_rspparam(::CSChatRspParam* rspparam);
+
+  // @@protoc_insertion_point(class_scope:CSChatRsp)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+  inline void set_has_cmd();
+  inline void clear_has_cmd();
+  inline void set_has_rspparam();
+  inline void clear_has_rspparam();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 result_;
+  int cmd_;
+  ::CSChatRspParam* rspparam_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSChatRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class CSMsgBody : public ::google::protobuf::Message {
  public:
   CSMsgBody();
@@ -3479,6 +5865,24 @@ class CSMsgBody : public ::google::protobuf::Message {
   inline ::CSDecorateBagRsp* release_decoratebagrsp();
   inline void set_allocated_decoratebagrsp(::CSDecorateBagRsp* decoratebagrsp);
 
+  // optional .CSChatReq ChatReq = 7;
+  inline bool has_chatreq() const;
+  inline void clear_chatreq();
+  static const int kChatReqFieldNumber = 7;
+  inline const ::CSChatReq& chatreq() const;
+  inline ::CSChatReq* mutable_chatreq();
+  inline ::CSChatReq* release_chatreq();
+  inline void set_allocated_chatreq(::CSChatReq* chatreq);
+
+  // optional .CSChatRsp ChatRsp = 8;
+  inline bool has_chatrsp() const;
+  inline void clear_chatrsp();
+  static const int kChatRspFieldNumber = 8;
+  inline const ::CSChatRsp& chatrsp() const;
+  inline ::CSChatRsp* mutable_chatrsp();
+  inline ::CSChatRsp* release_chatrsp();
+  inline void set_allocated_chatrsp(::CSChatRsp* chatrsp);
+
   // @@protoc_insertion_point(class_scope:CSMsgBody)
  private:
   inline void set_has_registerloginreq();
@@ -3493,6 +5897,10 @@ class CSMsgBody : public ::google::protobuf::Message {
   inline void clear_has_decoratebagreq();
   inline void set_has_decoratebagrsp();
   inline void clear_has_decoratebagrsp();
+  inline void set_has_chatreq();
+  inline void clear_has_chatreq();
+  inline void set_has_chatrsp();
+  inline void clear_has_chatrsp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -3502,9 +5910,11 @@ class CSMsgBody : public ::google::protobuf::Message {
   ::CSBagRsp* bagrsp_;
   ::CSDecorateBagReq* decoratebagreq_;
   ::CSDecorateBagRsp* decoratebagrsp_;
+  ::CSChatReq* chatreq_;
+  ::CSChatRsp* chatrsp_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
 
   friend void  protobuf_AddDesc_CSmsg_2eproto();
   friend void protobuf_AssignDesc_CSmsg_2eproto();
@@ -6012,6 +8422,2124 @@ inline void CSDecorateBagRsp::set_allocated_rspparam(::CSDecorateBagRspParam* rs
 
 // -------------------------------------------------------------------
 
+// FriendList
+
+// repeated uint64 FriendUid = 1;
+inline int FriendList::frienduid_size() const {
+  return frienduid_.size();
+}
+inline void FriendList::clear_frienduid() {
+  frienduid_.Clear();
+}
+inline ::google::protobuf::uint64 FriendList::frienduid(int index) const {
+  return frienduid_.Get(index);
+}
+inline void FriendList::set_frienduid(int index, ::google::protobuf::uint64 value) {
+  frienduid_.Set(index, value);
+}
+inline void FriendList::add_frienduid(::google::protobuf::uint64 value) {
+  frienduid_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+FriendList::frienduid() const {
+  return frienduid_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+FriendList::mutable_frienduid() {
+  return &frienduid_;
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgRegisterSuccessReq
+
+// optional uint64 uid = 1;
+inline bool CSMsgRegisterSuccessReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgRegisterSuccessReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgRegisterSuccessReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgRegisterSuccessReq::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSMsgRegisterSuccessReq::uid() const {
+  return uid_;
+}
+inline void CSMsgRegisterSuccessReq::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional string name = 2;
+inline bool CSMsgRegisterSuccessReq::has_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSMsgRegisterSuccessReq::set_has_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSMsgRegisterSuccessReq::clear_has_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSMsgRegisterSuccessReq::clear_name() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    name_->clear();
+  }
+  clear_has_name();
+}
+inline const ::std::string& CSMsgRegisterSuccessReq::name() const {
+  return *name_;
+}
+inline void CSMsgRegisterSuccessReq::set_name(const ::std::string& value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void CSMsgRegisterSuccessReq::set_name(const char* value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void CSMsgRegisterSuccessReq::set_name(const char* value, size_t size) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CSMsgRegisterSuccessReq::mutable_name() {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  return name_;
+}
+inline ::std::string* CSMsgRegisterSuccessReq::release_name() {
+  clear_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = name_;
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CSMsgRegisterSuccessReq::set_allocated_name(::std::string* name) {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (name) {
+    set_has_name();
+    name_ = name;
+  } else {
+    clear_has_name();
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgLoginSuccessReq
+
+// optional uint64 uid = 1;
+inline bool CSMsgLoginSuccessReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgLoginSuccessReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgLoginSuccessReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgLoginSuccessReq::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSMsgLoginSuccessReq::uid() const {
+  return uid_;
+}
+inline void CSMsgLoginSuccessReq::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgQuitReq
+
+// optional uint64 uid = 1;
+inline bool CSMsgQuitReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgQuitReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgQuitReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgQuitReq::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSMsgQuitReq::uid() const {
+  return uid_;
+}
+inline void CSMsgQuitReq::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgRoleInfo
+
+// optional uint64 Uid = 1;
+inline bool CSMsgRoleInfo::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgRoleInfo::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgRoleInfo::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgRoleInfo::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSMsgRoleInfo::uid() const {
+  return uid_;
+}
+inline void CSMsgRoleInfo::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional uint32 Grade = 2;
+inline bool CSMsgRoleInfo::has_grade() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSMsgRoleInfo::set_has_grade() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSMsgRoleInfo::clear_has_grade() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSMsgRoleInfo::clear_grade() {
+  grade_ = 0u;
+  clear_has_grade();
+}
+inline ::google::protobuf::uint32 CSMsgRoleInfo::grade() const {
+  return grade_;
+}
+inline void CSMsgRoleInfo::set_grade(::google::protobuf::uint32 value) {
+  set_has_grade();
+  grade_ = value;
+}
+
+// optional uint32 Rank = 3;
+inline bool CSMsgRoleInfo::has_rank() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSMsgRoleInfo::set_has_rank() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSMsgRoleInfo::clear_has_rank() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSMsgRoleInfo::clear_rank() {
+  rank_ = 0u;
+  clear_has_rank();
+}
+inline ::google::protobuf::uint32 CSMsgRoleInfo::rank() const {
+  return rank_;
+}
+inline void CSMsgRoleInfo::set_rank(::google::protobuf::uint32 value) {
+  set_has_rank();
+  rank_ = value;
+}
+
+// optional uint32 Status = 4;
+inline bool CSMsgRoleInfo::has_status() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CSMsgRoleInfo::set_has_status() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CSMsgRoleInfo::clear_has_status() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CSMsgRoleInfo::clear_status() {
+  status_ = 0u;
+  clear_has_status();
+}
+inline ::google::protobuf::uint32 CSMsgRoleInfo::status() const {
+  return status_;
+}
+inline void CSMsgRoleInfo::set_status(::google::protobuf::uint32 value) {
+  set_has_status();
+  status_ = value;
+}
+
+// optional uint32 Vip = 5;
+inline bool CSMsgRoleInfo::has_vip() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void CSMsgRoleInfo::set_has_vip() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void CSMsgRoleInfo::clear_has_vip() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void CSMsgRoleInfo::clear_vip() {
+  vip_ = 0u;
+  clear_has_vip();
+}
+inline ::google::protobuf::uint32 CSMsgRoleInfo::vip() const {
+  return vip_;
+}
+inline void CSMsgRoleInfo::set_vip(::google::protobuf::uint32 value) {
+  set_has_vip();
+  vip_ = value;
+}
+
+// optional uint32 Head = 6;
+inline bool CSMsgRoleInfo::has_head() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void CSMsgRoleInfo::set_has_head() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void CSMsgRoleInfo::clear_has_head() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void CSMsgRoleInfo::clear_head() {
+  head_ = 0u;
+  clear_has_head();
+}
+inline ::google::protobuf::uint32 CSMsgRoleInfo::head() const {
+  return head_;
+}
+inline void CSMsgRoleInfo::set_head(::google::protobuf::uint32 value) {
+  set_has_head();
+  head_ = value;
+}
+
+// optional uint32 ChatFrame = 7;
+inline bool CSMsgRoleInfo::has_chatframe() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void CSMsgRoleInfo::set_has_chatframe() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void CSMsgRoleInfo::clear_has_chatframe() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void CSMsgRoleInfo::clear_chatframe() {
+  chatframe_ = 0u;
+  clear_has_chatframe();
+}
+inline ::google::protobuf::uint32 CSMsgRoleInfo::chatframe() const {
+  return chatframe_;
+}
+inline void CSMsgRoleInfo::set_chatframe(::google::protobuf::uint32 value) {
+  set_has_chatframe();
+  chatframe_ = value;
+}
+
+// optional string Name = 8;
+inline bool CSMsgRoleInfo::has_name() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void CSMsgRoleInfo::set_has_name() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void CSMsgRoleInfo::clear_has_name() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void CSMsgRoleInfo::clear_name() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    name_->clear();
+  }
+  clear_has_name();
+}
+inline const ::std::string& CSMsgRoleInfo::name() const {
+  return *name_;
+}
+inline void CSMsgRoleInfo::set_name(const ::std::string& value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void CSMsgRoleInfo::set_name(const char* value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void CSMsgRoleInfo::set_name(const char* value, size_t size) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CSMsgRoleInfo::mutable_name() {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  return name_;
+}
+inline ::std::string* CSMsgRoleInfo::release_name() {
+  clear_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = name_;
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CSMsgRoleInfo::set_allocated_name(::std::string* name) {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (name) {
+    set_has_name();
+    name_ = name;
+  } else {
+    clear_has_name();
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgRoleInfoList
+
+// repeated .CSMsgRoleInfo RoleInfo = 1;
+inline int CSMsgRoleInfoList::roleinfo_size() const {
+  return roleinfo_.size();
+}
+inline void CSMsgRoleInfoList::clear_roleinfo() {
+  roleinfo_.Clear();
+}
+inline const ::CSMsgRoleInfo& CSMsgRoleInfoList::roleinfo(int index) const {
+  return roleinfo_.Get(index);
+}
+inline ::CSMsgRoleInfo* CSMsgRoleInfoList::mutable_roleinfo(int index) {
+  return roleinfo_.Mutable(index);
+}
+inline ::CSMsgRoleInfo* CSMsgRoleInfoList::add_roleinfo() {
+  return roleinfo_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::CSMsgRoleInfo >&
+CSMsgRoleInfoList::roleinfo() const {
+  return roleinfo_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::CSMsgRoleInfo >*
+CSMsgRoleInfoList::mutable_roleinfo() {
+  return &roleinfo_;
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgLoginSuccessRsp
+
+// optional .CSMsgRoleInfoList FriendList = 1;
+inline bool CSMsgLoginSuccessRsp::has_friendlist() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgLoginSuccessRsp::set_has_friendlist() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgLoginSuccessRsp::clear_has_friendlist() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgLoginSuccessRsp::clear_friendlist() {
+  if (friendlist_ != NULL) friendlist_->::CSMsgRoleInfoList::Clear();
+  clear_has_friendlist();
+}
+inline const ::CSMsgRoleInfoList& CSMsgLoginSuccessRsp::friendlist() const {
+  return friendlist_ != NULL ? *friendlist_ : *default_instance_->friendlist_;
+}
+inline ::CSMsgRoleInfoList* CSMsgLoginSuccessRsp::mutable_friendlist() {
+  set_has_friendlist();
+  if (friendlist_ == NULL) friendlist_ = new ::CSMsgRoleInfoList;
+  return friendlist_;
+}
+inline ::CSMsgRoleInfoList* CSMsgLoginSuccessRsp::release_friendlist() {
+  clear_has_friendlist();
+  ::CSMsgRoleInfoList* temp = friendlist_;
+  friendlist_ = NULL;
+  return temp;
+}
+inline void CSMsgLoginSuccessRsp::set_allocated_friendlist(::CSMsgRoleInfoList* friendlist) {
+  delete friendlist_;
+  friendlist_ = friendlist;
+  if (friendlist) {
+    set_has_friendlist();
+  } else {
+    clear_has_friendlist();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgAskAddFriendReq
+
+// optional string Name = 1;
+inline bool CSMsgAskAddFriendReq::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgAskAddFriendReq::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgAskAddFriendReq::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgAskAddFriendReq::clear_name() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    name_->clear();
+  }
+  clear_has_name();
+}
+inline const ::std::string& CSMsgAskAddFriendReq::name() const {
+  return *name_;
+}
+inline void CSMsgAskAddFriendReq::set_name(const ::std::string& value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void CSMsgAskAddFriendReq::set_name(const char* value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void CSMsgAskAddFriendReq::set_name(const char* value, size_t size) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CSMsgAskAddFriendReq::mutable_name() {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  return name_;
+}
+inline ::std::string* CSMsgAskAddFriendReq::release_name() {
+  clear_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = name_;
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CSMsgAskAddFriendReq::set_allocated_name(::std::string* name) {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (name) {
+    set_has_name();
+    name_ = name;
+  } else {
+    clear_has_name();
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint64 Uid = 2;
+inline bool CSMsgAskAddFriendReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSMsgAskAddFriendReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSMsgAskAddFriendReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSMsgAskAddFriendReq::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSMsgAskAddFriendReq::uid() const {
+  return uid_;
+}
+inline void CSMsgAskAddFriendReq::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgAskAddFriendRsp
+
+// optional uint64 Uid = 1;
+inline bool CSMsgAskAddFriendRsp::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgAskAddFriendRsp::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgAskAddFriendRsp::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgAskAddFriendRsp::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSMsgAskAddFriendRsp::uid() const {
+  return uid_;
+}
+inline void CSMsgAskAddFriendRsp::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional string FriendName = 2;
+inline bool CSMsgAskAddFriendRsp::has_friendname() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSMsgAskAddFriendRsp::set_has_friendname() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSMsgAskAddFriendRsp::clear_has_friendname() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSMsgAskAddFriendRsp::clear_friendname() {
+  if (friendname_ != &::google::protobuf::internal::kEmptyString) {
+    friendname_->clear();
+  }
+  clear_has_friendname();
+}
+inline const ::std::string& CSMsgAskAddFriendRsp::friendname() const {
+  return *friendname_;
+}
+inline void CSMsgAskAddFriendRsp::set_friendname(const ::std::string& value) {
+  set_has_friendname();
+  if (friendname_ == &::google::protobuf::internal::kEmptyString) {
+    friendname_ = new ::std::string;
+  }
+  friendname_->assign(value);
+}
+inline void CSMsgAskAddFriendRsp::set_friendname(const char* value) {
+  set_has_friendname();
+  if (friendname_ == &::google::protobuf::internal::kEmptyString) {
+    friendname_ = new ::std::string;
+  }
+  friendname_->assign(value);
+}
+inline void CSMsgAskAddFriendRsp::set_friendname(const char* value, size_t size) {
+  set_has_friendname();
+  if (friendname_ == &::google::protobuf::internal::kEmptyString) {
+    friendname_ = new ::std::string;
+  }
+  friendname_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CSMsgAskAddFriendRsp::mutable_friendname() {
+  set_has_friendname();
+  if (friendname_ == &::google::protobuf::internal::kEmptyString) {
+    friendname_ = new ::std::string;
+  }
+  return friendname_;
+}
+inline ::std::string* CSMsgAskAddFriendRsp::release_friendname() {
+  clear_has_friendname();
+  if (friendname_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = friendname_;
+    friendname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CSMsgAskAddFriendRsp::set_allocated_friendname(::std::string* friendname) {
+  if (friendname_ != &::google::protobuf::internal::kEmptyString) {
+    delete friendname_;
+  }
+  if (friendname) {
+    set_has_friendname();
+    friendname_ = friendname;
+  } else {
+    clear_has_friendname();
+    friendname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgSuccessAddFriendReq
+
+// optional uint64 Uid1 = 1;
+inline bool CSMsgSuccessAddFriendReq::has_uid1() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgSuccessAddFriendReq::set_has_uid1() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgSuccessAddFriendReq::clear_has_uid1() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgSuccessAddFriendReq::clear_uid1() {
+  uid1_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid1();
+}
+inline ::google::protobuf::uint64 CSMsgSuccessAddFriendReq::uid1() const {
+  return uid1_;
+}
+inline void CSMsgSuccessAddFriendReq::set_uid1(::google::protobuf::uint64 value) {
+  set_has_uid1();
+  uid1_ = value;
+}
+
+// optional uint64 Uid2 = 2;
+inline bool CSMsgSuccessAddFriendReq::has_uid2() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSMsgSuccessAddFriendReq::set_has_uid2() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSMsgSuccessAddFriendReq::clear_has_uid2() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSMsgSuccessAddFriendReq::clear_uid2() {
+  uid2_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid2();
+}
+inline ::google::protobuf::uint64 CSMsgSuccessAddFriendReq::uid2() const {
+  return uid2_;
+}
+inline void CSMsgSuccessAddFriendReq::set_uid2(::google::protobuf::uint64 value) {
+  set_has_uid2();
+  uid2_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgSuccessAddFriendRsp
+
+// optional .CSMsgRoleInfo FriendRoleInfo = 1;
+inline bool CSMsgSuccessAddFriendRsp::has_friendroleinfo() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgSuccessAddFriendRsp::set_has_friendroleinfo() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgSuccessAddFriendRsp::clear_has_friendroleinfo() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgSuccessAddFriendRsp::clear_friendroleinfo() {
+  if (friendroleinfo_ != NULL) friendroleinfo_->::CSMsgRoleInfo::Clear();
+  clear_has_friendroleinfo();
+}
+inline const ::CSMsgRoleInfo& CSMsgSuccessAddFriendRsp::friendroleinfo() const {
+  return friendroleinfo_ != NULL ? *friendroleinfo_ : *default_instance_->friendroleinfo_;
+}
+inline ::CSMsgRoleInfo* CSMsgSuccessAddFriendRsp::mutable_friendroleinfo() {
+  set_has_friendroleinfo();
+  if (friendroleinfo_ == NULL) friendroleinfo_ = new ::CSMsgRoleInfo;
+  return friendroleinfo_;
+}
+inline ::CSMsgRoleInfo* CSMsgSuccessAddFriendRsp::release_friendroleinfo() {
+  clear_has_friendroleinfo();
+  ::CSMsgRoleInfo* temp = friendroleinfo_;
+  friendroleinfo_ = NULL;
+  return temp;
+}
+inline void CSMsgSuccessAddFriendRsp::set_allocated_friendroleinfo(::CSMsgRoleInfo* friendroleinfo) {
+  delete friendroleinfo_;
+  friendroleinfo_ = friendroleinfo;
+  if (friendroleinfo) {
+    set_has_friendroleinfo();
+  } else {
+    clear_has_friendroleinfo();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgDeleteFriendReq
+
+// optional uint64 Uid1 = 1;
+inline bool CSMsgDeleteFriendReq::has_uid1() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgDeleteFriendReq::set_has_uid1() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgDeleteFriendReq::clear_has_uid1() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgDeleteFriendReq::clear_uid1() {
+  uid1_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid1();
+}
+inline ::google::protobuf::uint64 CSMsgDeleteFriendReq::uid1() const {
+  return uid1_;
+}
+inline void CSMsgDeleteFriendReq::set_uid1(::google::protobuf::uint64 value) {
+  set_has_uid1();
+  uid1_ = value;
+}
+
+// optional uint64 Uid2 = 2;
+inline bool CSMsgDeleteFriendReq::has_uid2() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSMsgDeleteFriendReq::set_has_uid2() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSMsgDeleteFriendReq::clear_has_uid2() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSMsgDeleteFriendReq::clear_uid2() {
+  uid2_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid2();
+}
+inline ::google::protobuf::uint64 CSMsgDeleteFriendReq::uid2() const {
+  return uid2_;
+}
+inline void CSMsgDeleteFriendReq::set_uid2(::google::protobuf::uint64 value) {
+  set_has_uid2();
+  uid2_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgDeleteFriendRsp
+
+// optional uint64 Uid = 1;
+inline bool CSMsgDeleteFriendRsp::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgDeleteFriendRsp::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgDeleteFriendRsp::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgDeleteFriendRsp::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSMsgDeleteFriendRsp::uid() const {
+  return uid_;
+}
+inline void CSMsgDeleteFriendRsp::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgSendChatReq
+
+// optional uint64 Uid1 = 1;
+inline bool CSMsgSendChatReq::has_uid1() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgSendChatReq::set_has_uid1() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgSendChatReq::clear_has_uid1() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgSendChatReq::clear_uid1() {
+  uid1_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid1();
+}
+inline ::google::protobuf::uint64 CSMsgSendChatReq::uid1() const {
+  return uid1_;
+}
+inline void CSMsgSendChatReq::set_uid1(::google::protobuf::uint64 value) {
+  set_has_uid1();
+  uid1_ = value;
+}
+
+// optional uint64 Uid2 = 2;
+inline bool CSMsgSendChatReq::has_uid2() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSMsgSendChatReq::set_has_uid2() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSMsgSendChatReq::clear_has_uid2() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSMsgSendChatReq::clear_uid2() {
+  uid2_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid2();
+}
+inline ::google::protobuf::uint64 CSMsgSendChatReq::uid2() const {
+  return uid2_;
+}
+inline void CSMsgSendChatReq::set_uid2(::google::protobuf::uint64 value) {
+  set_has_uid2();
+  uid2_ = value;
+}
+
+// optional string information = 3;
+inline bool CSMsgSendChatReq::has_information() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSMsgSendChatReq::set_has_information() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSMsgSendChatReq::clear_has_information() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSMsgSendChatReq::clear_information() {
+  if (information_ != &::google::protobuf::internal::kEmptyString) {
+    information_->clear();
+  }
+  clear_has_information();
+}
+inline const ::std::string& CSMsgSendChatReq::information() const {
+  return *information_;
+}
+inline void CSMsgSendChatReq::set_information(const ::std::string& value) {
+  set_has_information();
+  if (information_ == &::google::protobuf::internal::kEmptyString) {
+    information_ = new ::std::string;
+  }
+  information_->assign(value);
+}
+inline void CSMsgSendChatReq::set_information(const char* value) {
+  set_has_information();
+  if (information_ == &::google::protobuf::internal::kEmptyString) {
+    information_ = new ::std::string;
+  }
+  information_->assign(value);
+}
+inline void CSMsgSendChatReq::set_information(const char* value, size_t size) {
+  set_has_information();
+  if (information_ == &::google::protobuf::internal::kEmptyString) {
+    information_ = new ::std::string;
+  }
+  information_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CSMsgSendChatReq::mutable_information() {
+  set_has_information();
+  if (information_ == &::google::protobuf::internal::kEmptyString) {
+    information_ = new ::std::string;
+  }
+  return information_;
+}
+inline ::std::string* CSMsgSendChatReq::release_information() {
+  clear_has_information();
+  if (information_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = information_;
+    information_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CSMsgSendChatReq::set_allocated_information(::std::string* information) {
+  if (information_ != &::google::protobuf::internal::kEmptyString) {
+    delete information_;
+  }
+  if (information) {
+    set_has_information();
+    information_ = information;
+  } else {
+    clear_has_information();
+    information_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgSendChatRsp
+
+// optional uint64 Uid = 1;
+inline bool CSMsgSendChatRsp::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgSendChatRsp::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgSendChatRsp::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgSendChatRsp::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSMsgSendChatRsp::uid() const {
+  return uid_;
+}
+inline void CSMsgSendChatRsp::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional string information = 2;
+inline bool CSMsgSendChatRsp::has_information() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSMsgSendChatRsp::set_has_information() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSMsgSendChatRsp::clear_has_information() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSMsgSendChatRsp::clear_information() {
+  if (information_ != &::google::protobuf::internal::kEmptyString) {
+    information_->clear();
+  }
+  clear_has_information();
+}
+inline const ::std::string& CSMsgSendChatRsp::information() const {
+  return *information_;
+}
+inline void CSMsgSendChatRsp::set_information(const ::std::string& value) {
+  set_has_information();
+  if (information_ == &::google::protobuf::internal::kEmptyString) {
+    information_ = new ::std::string;
+  }
+  information_->assign(value);
+}
+inline void CSMsgSendChatRsp::set_information(const char* value) {
+  set_has_information();
+  if (information_ == &::google::protobuf::internal::kEmptyString) {
+    information_ = new ::std::string;
+  }
+  information_->assign(value);
+}
+inline void CSMsgSendChatRsp::set_information(const char* value, size_t size) {
+  set_has_information();
+  if (information_ == &::google::protobuf::internal::kEmptyString) {
+    information_ = new ::std::string;
+  }
+  information_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CSMsgSendChatRsp::mutable_information() {
+  set_has_information();
+  if (information_ == &::google::protobuf::internal::kEmptyString) {
+    information_ = new ::std::string;
+  }
+  return information_;
+}
+inline ::std::string* CSMsgSendChatRsp::release_information() {
+  clear_has_information();
+  if (information_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = information_;
+    information_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CSMsgSendChatRsp::set_allocated_information(::std::string* information) {
+  if (information_ != &::google::protobuf::internal::kEmptyString) {
+    delete information_;
+  }
+  if (information) {
+    set_has_information();
+    information_ = information;
+  } else {
+    clear_has_information();
+    information_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgFindNameReq
+
+// optional string name = 1;
+inline bool CSMsgFindNameReq::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgFindNameReq::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgFindNameReq::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgFindNameReq::clear_name() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    name_->clear();
+  }
+  clear_has_name();
+}
+inline const ::std::string& CSMsgFindNameReq::name() const {
+  return *name_;
+}
+inline void CSMsgFindNameReq::set_name(const ::std::string& value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void CSMsgFindNameReq::set_name(const char* value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void CSMsgFindNameReq::set_name(const char* value, size_t size) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CSMsgFindNameReq::mutable_name() {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  return name_;
+}
+inline ::std::string* CSMsgFindNameReq::release_name() {
+  clear_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = name_;
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CSMsgFindNameReq::set_allocated_name(::std::string* name) {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (name) {
+    set_has_name();
+    name_ = name;
+  } else {
+    clear_has_name();
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgFindNameRsp
+
+// optional .CSMsgRoleInfo RoleInfo = 1;
+inline bool CSMsgFindNameRsp::has_roleinfo() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgFindNameRsp::set_has_roleinfo() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgFindNameRsp::clear_has_roleinfo() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgFindNameRsp::clear_roleinfo() {
+  if (roleinfo_ != NULL) roleinfo_->::CSMsgRoleInfo::Clear();
+  clear_has_roleinfo();
+}
+inline const ::CSMsgRoleInfo& CSMsgFindNameRsp::roleinfo() const {
+  return roleinfo_ != NULL ? *roleinfo_ : *default_instance_->roleinfo_;
+}
+inline ::CSMsgRoleInfo* CSMsgFindNameRsp::mutable_roleinfo() {
+  set_has_roleinfo();
+  if (roleinfo_ == NULL) roleinfo_ = new ::CSMsgRoleInfo;
+  return roleinfo_;
+}
+inline ::CSMsgRoleInfo* CSMsgFindNameRsp::release_roleinfo() {
+  clear_has_roleinfo();
+  ::CSMsgRoleInfo* temp = roleinfo_;
+  roleinfo_ = NULL;
+  return temp;
+}
+inline void CSMsgFindNameRsp::set_allocated_roleinfo(::CSMsgRoleInfo* roleinfo) {
+  delete roleinfo_;
+  roleinfo_ = roleinfo;
+  if (roleinfo) {
+    set_has_roleinfo();
+  } else {
+    clear_has_roleinfo();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgChangeStatusReq
+
+// optional uint32 type = 1;
+inline bool CSMsgChangeStatusReq::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgChangeStatusReq::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgChangeStatusReq::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgChangeStatusReq::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+inline ::google::protobuf::uint32 CSMsgChangeStatusReq::type() const {
+  return type_;
+}
+inline void CSMsgChangeStatusReq::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional uint32 value = 2;
+inline bool CSMsgChangeStatusReq::has_value() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSMsgChangeStatusReq::set_has_value() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSMsgChangeStatusReq::clear_has_value() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSMsgChangeStatusReq::clear_value() {
+  value_ = 0u;
+  clear_has_value();
+}
+inline ::google::protobuf::uint32 CSMsgChangeStatusReq::value() const {
+  return value_;
+}
+inline void CSMsgChangeStatusReq::set_value(::google::protobuf::uint32 value) {
+  set_has_value();
+  value_ = value;
+}
+
+// optional uint64 Uid = 3;
+inline bool CSMsgChangeStatusReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSMsgChangeStatusReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSMsgChangeStatusReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSMsgChangeStatusReq::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSMsgChangeStatusReq::uid() const {
+  return uid_;
+}
+inline void CSMsgChangeStatusReq::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSMsgChangeStatusRsp
+
+// optional .CSMsgRoleInfo RoleInfo = 1;
+inline bool CSMsgChangeStatusRsp::has_roleinfo() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgChangeStatusRsp::set_has_roleinfo() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgChangeStatusRsp::clear_has_roleinfo() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgChangeStatusRsp::clear_roleinfo() {
+  if (roleinfo_ != NULL) roleinfo_->::CSMsgRoleInfo::Clear();
+  clear_has_roleinfo();
+}
+inline const ::CSMsgRoleInfo& CSMsgChangeStatusRsp::roleinfo() const {
+  return roleinfo_ != NULL ? *roleinfo_ : *default_instance_->roleinfo_;
+}
+inline ::CSMsgRoleInfo* CSMsgChangeStatusRsp::mutable_roleinfo() {
+  set_has_roleinfo();
+  if (roleinfo_ == NULL) roleinfo_ = new ::CSMsgRoleInfo;
+  return roleinfo_;
+}
+inline ::CSMsgRoleInfo* CSMsgChangeStatusRsp::release_roleinfo() {
+  clear_has_roleinfo();
+  ::CSMsgRoleInfo* temp = roleinfo_;
+  roleinfo_ = NULL;
+  return temp;
+}
+inline void CSMsgChangeStatusRsp::set_allocated_roleinfo(::CSMsgRoleInfo* roleinfo) {
+  delete roleinfo_;
+  roleinfo_ = roleinfo;
+  if (roleinfo) {
+    set_has_roleinfo();
+  } else {
+    clear_has_roleinfo();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSChatReqParam
+
+// optional .CSMsgRegisterSuccessReq RegisterSuccessReq = 1;
+inline bool CSChatReqParam::has_registersuccessreq() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSChatReqParam::set_has_registersuccessreq() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSChatReqParam::clear_has_registersuccessreq() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSChatReqParam::clear_registersuccessreq() {
+  if (registersuccessreq_ != NULL) registersuccessreq_->::CSMsgRegisterSuccessReq::Clear();
+  clear_has_registersuccessreq();
+}
+inline const ::CSMsgRegisterSuccessReq& CSChatReqParam::registersuccessreq() const {
+  return registersuccessreq_ != NULL ? *registersuccessreq_ : *default_instance_->registersuccessreq_;
+}
+inline ::CSMsgRegisterSuccessReq* CSChatReqParam::mutable_registersuccessreq() {
+  set_has_registersuccessreq();
+  if (registersuccessreq_ == NULL) registersuccessreq_ = new ::CSMsgRegisterSuccessReq;
+  return registersuccessreq_;
+}
+inline ::CSMsgRegisterSuccessReq* CSChatReqParam::release_registersuccessreq() {
+  clear_has_registersuccessreq();
+  ::CSMsgRegisterSuccessReq* temp = registersuccessreq_;
+  registersuccessreq_ = NULL;
+  return temp;
+}
+inline void CSChatReqParam::set_allocated_registersuccessreq(::CSMsgRegisterSuccessReq* registersuccessreq) {
+  delete registersuccessreq_;
+  registersuccessreq_ = registersuccessreq;
+  if (registersuccessreq) {
+    set_has_registersuccessreq();
+  } else {
+    clear_has_registersuccessreq();
+  }
+}
+
+// optional .CSMsgLoginSuccessReq LoginSuccessReq = 2;
+inline bool CSChatReqParam::has_loginsuccessreq() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSChatReqParam::set_has_loginsuccessreq() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSChatReqParam::clear_has_loginsuccessreq() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSChatReqParam::clear_loginsuccessreq() {
+  if (loginsuccessreq_ != NULL) loginsuccessreq_->::CSMsgLoginSuccessReq::Clear();
+  clear_has_loginsuccessreq();
+}
+inline const ::CSMsgLoginSuccessReq& CSChatReqParam::loginsuccessreq() const {
+  return loginsuccessreq_ != NULL ? *loginsuccessreq_ : *default_instance_->loginsuccessreq_;
+}
+inline ::CSMsgLoginSuccessReq* CSChatReqParam::mutable_loginsuccessreq() {
+  set_has_loginsuccessreq();
+  if (loginsuccessreq_ == NULL) loginsuccessreq_ = new ::CSMsgLoginSuccessReq;
+  return loginsuccessreq_;
+}
+inline ::CSMsgLoginSuccessReq* CSChatReqParam::release_loginsuccessreq() {
+  clear_has_loginsuccessreq();
+  ::CSMsgLoginSuccessReq* temp = loginsuccessreq_;
+  loginsuccessreq_ = NULL;
+  return temp;
+}
+inline void CSChatReqParam::set_allocated_loginsuccessreq(::CSMsgLoginSuccessReq* loginsuccessreq) {
+  delete loginsuccessreq_;
+  loginsuccessreq_ = loginsuccessreq;
+  if (loginsuccessreq) {
+    set_has_loginsuccessreq();
+  } else {
+    clear_has_loginsuccessreq();
+  }
+}
+
+// optional .CSMsgQuitReq MsgQuitReq = 3;
+inline bool CSChatReqParam::has_msgquitreq() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSChatReqParam::set_has_msgquitreq() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSChatReqParam::clear_has_msgquitreq() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSChatReqParam::clear_msgquitreq() {
+  if (msgquitreq_ != NULL) msgquitreq_->::CSMsgQuitReq::Clear();
+  clear_has_msgquitreq();
+}
+inline const ::CSMsgQuitReq& CSChatReqParam::msgquitreq() const {
+  return msgquitreq_ != NULL ? *msgquitreq_ : *default_instance_->msgquitreq_;
+}
+inline ::CSMsgQuitReq* CSChatReqParam::mutable_msgquitreq() {
+  set_has_msgquitreq();
+  if (msgquitreq_ == NULL) msgquitreq_ = new ::CSMsgQuitReq;
+  return msgquitreq_;
+}
+inline ::CSMsgQuitReq* CSChatReqParam::release_msgquitreq() {
+  clear_has_msgquitreq();
+  ::CSMsgQuitReq* temp = msgquitreq_;
+  msgquitreq_ = NULL;
+  return temp;
+}
+inline void CSChatReqParam::set_allocated_msgquitreq(::CSMsgQuitReq* msgquitreq) {
+  delete msgquitreq_;
+  msgquitreq_ = msgquitreq;
+  if (msgquitreq) {
+    set_has_msgquitreq();
+  } else {
+    clear_has_msgquitreq();
+  }
+}
+
+// optional .CSMsgAskAddFriendReq AskAddFriendReq = 4;
+inline bool CSChatReqParam::has_askaddfriendreq() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CSChatReqParam::set_has_askaddfriendreq() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CSChatReqParam::clear_has_askaddfriendreq() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CSChatReqParam::clear_askaddfriendreq() {
+  if (askaddfriendreq_ != NULL) askaddfriendreq_->::CSMsgAskAddFriendReq::Clear();
+  clear_has_askaddfriendreq();
+}
+inline const ::CSMsgAskAddFriendReq& CSChatReqParam::askaddfriendreq() const {
+  return askaddfriendreq_ != NULL ? *askaddfriendreq_ : *default_instance_->askaddfriendreq_;
+}
+inline ::CSMsgAskAddFriendReq* CSChatReqParam::mutable_askaddfriendreq() {
+  set_has_askaddfriendreq();
+  if (askaddfriendreq_ == NULL) askaddfriendreq_ = new ::CSMsgAskAddFriendReq;
+  return askaddfriendreq_;
+}
+inline ::CSMsgAskAddFriendReq* CSChatReqParam::release_askaddfriendreq() {
+  clear_has_askaddfriendreq();
+  ::CSMsgAskAddFriendReq* temp = askaddfriendreq_;
+  askaddfriendreq_ = NULL;
+  return temp;
+}
+inline void CSChatReqParam::set_allocated_askaddfriendreq(::CSMsgAskAddFriendReq* askaddfriendreq) {
+  delete askaddfriendreq_;
+  askaddfriendreq_ = askaddfriendreq;
+  if (askaddfriendreq) {
+    set_has_askaddfriendreq();
+  } else {
+    clear_has_askaddfriendreq();
+  }
+}
+
+// optional .CSMsgSuccessAddFriendReq SuccessAddFriendReq = 5;
+inline bool CSChatReqParam::has_successaddfriendreq() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void CSChatReqParam::set_has_successaddfriendreq() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void CSChatReqParam::clear_has_successaddfriendreq() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void CSChatReqParam::clear_successaddfriendreq() {
+  if (successaddfriendreq_ != NULL) successaddfriendreq_->::CSMsgSuccessAddFriendReq::Clear();
+  clear_has_successaddfriendreq();
+}
+inline const ::CSMsgSuccessAddFriendReq& CSChatReqParam::successaddfriendreq() const {
+  return successaddfriendreq_ != NULL ? *successaddfriendreq_ : *default_instance_->successaddfriendreq_;
+}
+inline ::CSMsgSuccessAddFriendReq* CSChatReqParam::mutable_successaddfriendreq() {
+  set_has_successaddfriendreq();
+  if (successaddfriendreq_ == NULL) successaddfriendreq_ = new ::CSMsgSuccessAddFriendReq;
+  return successaddfriendreq_;
+}
+inline ::CSMsgSuccessAddFriendReq* CSChatReqParam::release_successaddfriendreq() {
+  clear_has_successaddfriendreq();
+  ::CSMsgSuccessAddFriendReq* temp = successaddfriendreq_;
+  successaddfriendreq_ = NULL;
+  return temp;
+}
+inline void CSChatReqParam::set_allocated_successaddfriendreq(::CSMsgSuccessAddFriendReq* successaddfriendreq) {
+  delete successaddfriendreq_;
+  successaddfriendreq_ = successaddfriendreq;
+  if (successaddfriendreq) {
+    set_has_successaddfriendreq();
+  } else {
+    clear_has_successaddfriendreq();
+  }
+}
+
+// optional .CSMsgDeleteFriendReq DeleteFriendReq = 6;
+inline bool CSChatReqParam::has_deletefriendreq() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void CSChatReqParam::set_has_deletefriendreq() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void CSChatReqParam::clear_has_deletefriendreq() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void CSChatReqParam::clear_deletefriendreq() {
+  if (deletefriendreq_ != NULL) deletefriendreq_->::CSMsgDeleteFriendReq::Clear();
+  clear_has_deletefriendreq();
+}
+inline const ::CSMsgDeleteFriendReq& CSChatReqParam::deletefriendreq() const {
+  return deletefriendreq_ != NULL ? *deletefriendreq_ : *default_instance_->deletefriendreq_;
+}
+inline ::CSMsgDeleteFriendReq* CSChatReqParam::mutable_deletefriendreq() {
+  set_has_deletefriendreq();
+  if (deletefriendreq_ == NULL) deletefriendreq_ = new ::CSMsgDeleteFriendReq;
+  return deletefriendreq_;
+}
+inline ::CSMsgDeleteFriendReq* CSChatReqParam::release_deletefriendreq() {
+  clear_has_deletefriendreq();
+  ::CSMsgDeleteFriendReq* temp = deletefriendreq_;
+  deletefriendreq_ = NULL;
+  return temp;
+}
+inline void CSChatReqParam::set_allocated_deletefriendreq(::CSMsgDeleteFriendReq* deletefriendreq) {
+  delete deletefriendreq_;
+  deletefriendreq_ = deletefriendreq;
+  if (deletefriendreq) {
+    set_has_deletefriendreq();
+  } else {
+    clear_has_deletefriendreq();
+  }
+}
+
+// optional .CSMsgSendChatReq SendChatReq = 7;
+inline bool CSChatReqParam::has_sendchatreq() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void CSChatReqParam::set_has_sendchatreq() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void CSChatReqParam::clear_has_sendchatreq() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void CSChatReqParam::clear_sendchatreq() {
+  if (sendchatreq_ != NULL) sendchatreq_->::CSMsgSendChatReq::Clear();
+  clear_has_sendchatreq();
+}
+inline const ::CSMsgSendChatReq& CSChatReqParam::sendchatreq() const {
+  return sendchatreq_ != NULL ? *sendchatreq_ : *default_instance_->sendchatreq_;
+}
+inline ::CSMsgSendChatReq* CSChatReqParam::mutable_sendchatreq() {
+  set_has_sendchatreq();
+  if (sendchatreq_ == NULL) sendchatreq_ = new ::CSMsgSendChatReq;
+  return sendchatreq_;
+}
+inline ::CSMsgSendChatReq* CSChatReqParam::release_sendchatreq() {
+  clear_has_sendchatreq();
+  ::CSMsgSendChatReq* temp = sendchatreq_;
+  sendchatreq_ = NULL;
+  return temp;
+}
+inline void CSChatReqParam::set_allocated_sendchatreq(::CSMsgSendChatReq* sendchatreq) {
+  delete sendchatreq_;
+  sendchatreq_ = sendchatreq;
+  if (sendchatreq) {
+    set_has_sendchatreq();
+  } else {
+    clear_has_sendchatreq();
+  }
+}
+
+// optional .CSMsgFindNameReq FindNameReq = 8;
+inline bool CSChatReqParam::has_findnamereq() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void CSChatReqParam::set_has_findnamereq() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void CSChatReqParam::clear_has_findnamereq() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void CSChatReqParam::clear_findnamereq() {
+  if (findnamereq_ != NULL) findnamereq_->::CSMsgFindNameReq::Clear();
+  clear_has_findnamereq();
+}
+inline const ::CSMsgFindNameReq& CSChatReqParam::findnamereq() const {
+  return findnamereq_ != NULL ? *findnamereq_ : *default_instance_->findnamereq_;
+}
+inline ::CSMsgFindNameReq* CSChatReqParam::mutable_findnamereq() {
+  set_has_findnamereq();
+  if (findnamereq_ == NULL) findnamereq_ = new ::CSMsgFindNameReq;
+  return findnamereq_;
+}
+inline ::CSMsgFindNameReq* CSChatReqParam::release_findnamereq() {
+  clear_has_findnamereq();
+  ::CSMsgFindNameReq* temp = findnamereq_;
+  findnamereq_ = NULL;
+  return temp;
+}
+inline void CSChatReqParam::set_allocated_findnamereq(::CSMsgFindNameReq* findnamereq) {
+  delete findnamereq_;
+  findnamereq_ = findnamereq;
+  if (findnamereq) {
+    set_has_findnamereq();
+  } else {
+    clear_has_findnamereq();
+  }
+}
+
+// optional .CSMsgChangeStatusReq ChangeStatusReq = 9;
+inline bool CSChatReqParam::has_changestatusreq() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void CSChatReqParam::set_has_changestatusreq() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void CSChatReqParam::clear_has_changestatusreq() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void CSChatReqParam::clear_changestatusreq() {
+  if (changestatusreq_ != NULL) changestatusreq_->::CSMsgChangeStatusReq::Clear();
+  clear_has_changestatusreq();
+}
+inline const ::CSMsgChangeStatusReq& CSChatReqParam::changestatusreq() const {
+  return changestatusreq_ != NULL ? *changestatusreq_ : *default_instance_->changestatusreq_;
+}
+inline ::CSMsgChangeStatusReq* CSChatReqParam::mutable_changestatusreq() {
+  set_has_changestatusreq();
+  if (changestatusreq_ == NULL) changestatusreq_ = new ::CSMsgChangeStatusReq;
+  return changestatusreq_;
+}
+inline ::CSMsgChangeStatusReq* CSChatReqParam::release_changestatusreq() {
+  clear_has_changestatusreq();
+  ::CSMsgChangeStatusReq* temp = changestatusreq_;
+  changestatusreq_ = NULL;
+  return temp;
+}
+inline void CSChatReqParam::set_allocated_changestatusreq(::CSMsgChangeStatusReq* changestatusreq) {
+  delete changestatusreq_;
+  changestatusreq_ = changestatusreq;
+  if (changestatusreq) {
+    set_has_changestatusreq();
+  } else {
+    clear_has_changestatusreq();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSChatRspParam
+
+// optional .CSMsgLoginSuccessRsp MsgLoginSuccess = 1;
+inline bool CSChatRspParam::has_msgloginsuccess() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSChatRspParam::set_has_msgloginsuccess() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSChatRspParam::clear_has_msgloginsuccess() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSChatRspParam::clear_msgloginsuccess() {
+  if (msgloginsuccess_ != NULL) msgloginsuccess_->::CSMsgLoginSuccessRsp::Clear();
+  clear_has_msgloginsuccess();
+}
+inline const ::CSMsgLoginSuccessRsp& CSChatRspParam::msgloginsuccess() const {
+  return msgloginsuccess_ != NULL ? *msgloginsuccess_ : *default_instance_->msgloginsuccess_;
+}
+inline ::CSMsgLoginSuccessRsp* CSChatRspParam::mutable_msgloginsuccess() {
+  set_has_msgloginsuccess();
+  if (msgloginsuccess_ == NULL) msgloginsuccess_ = new ::CSMsgLoginSuccessRsp;
+  return msgloginsuccess_;
+}
+inline ::CSMsgLoginSuccessRsp* CSChatRspParam::release_msgloginsuccess() {
+  clear_has_msgloginsuccess();
+  ::CSMsgLoginSuccessRsp* temp = msgloginsuccess_;
+  msgloginsuccess_ = NULL;
+  return temp;
+}
+inline void CSChatRspParam::set_allocated_msgloginsuccess(::CSMsgLoginSuccessRsp* msgloginsuccess) {
+  delete msgloginsuccess_;
+  msgloginsuccess_ = msgloginsuccess;
+  if (msgloginsuccess) {
+    set_has_msgloginsuccess();
+  } else {
+    clear_has_msgloginsuccess();
+  }
+}
+
+// optional .CSMsgRoleInfo RoleInfo = 2;
+inline bool CSChatRspParam::has_roleinfo() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSChatRspParam::set_has_roleinfo() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSChatRspParam::clear_has_roleinfo() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSChatRspParam::clear_roleinfo() {
+  if (roleinfo_ != NULL) roleinfo_->::CSMsgRoleInfo::Clear();
+  clear_has_roleinfo();
+}
+inline const ::CSMsgRoleInfo& CSChatRspParam::roleinfo() const {
+  return roleinfo_ != NULL ? *roleinfo_ : *default_instance_->roleinfo_;
+}
+inline ::CSMsgRoleInfo* CSChatRspParam::mutable_roleinfo() {
+  set_has_roleinfo();
+  if (roleinfo_ == NULL) roleinfo_ = new ::CSMsgRoleInfo;
+  return roleinfo_;
+}
+inline ::CSMsgRoleInfo* CSChatRspParam::release_roleinfo() {
+  clear_has_roleinfo();
+  ::CSMsgRoleInfo* temp = roleinfo_;
+  roleinfo_ = NULL;
+  return temp;
+}
+inline void CSChatRspParam::set_allocated_roleinfo(::CSMsgRoleInfo* roleinfo) {
+  delete roleinfo_;
+  roleinfo_ = roleinfo;
+  if (roleinfo) {
+    set_has_roleinfo();
+  } else {
+    clear_has_roleinfo();
+  }
+}
+
+// optional .CSMsgRoleInfo RoleQuit = 3;
+inline bool CSChatRspParam::has_rolequit() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSChatRspParam::set_has_rolequit() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSChatRspParam::clear_has_rolequit() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSChatRspParam::clear_rolequit() {
+  if (rolequit_ != NULL) rolequit_->::CSMsgRoleInfo::Clear();
+  clear_has_rolequit();
+}
+inline const ::CSMsgRoleInfo& CSChatRspParam::rolequit() const {
+  return rolequit_ != NULL ? *rolequit_ : *default_instance_->rolequit_;
+}
+inline ::CSMsgRoleInfo* CSChatRspParam::mutable_rolequit() {
+  set_has_rolequit();
+  if (rolequit_ == NULL) rolequit_ = new ::CSMsgRoleInfo;
+  return rolequit_;
+}
+inline ::CSMsgRoleInfo* CSChatRspParam::release_rolequit() {
+  clear_has_rolequit();
+  ::CSMsgRoleInfo* temp = rolequit_;
+  rolequit_ = NULL;
+  return temp;
+}
+inline void CSChatRspParam::set_allocated_rolequit(::CSMsgRoleInfo* rolequit) {
+  delete rolequit_;
+  rolequit_ = rolequit;
+  if (rolequit) {
+    set_has_rolequit();
+  } else {
+    clear_has_rolequit();
+  }
+}
+
+// optional .CSMsgAskAddFriendRsp AskAddFriendRsp = 4;
+inline bool CSChatRspParam::has_askaddfriendrsp() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CSChatRspParam::set_has_askaddfriendrsp() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CSChatRspParam::clear_has_askaddfriendrsp() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CSChatRspParam::clear_askaddfriendrsp() {
+  if (askaddfriendrsp_ != NULL) askaddfriendrsp_->::CSMsgAskAddFriendRsp::Clear();
+  clear_has_askaddfriendrsp();
+}
+inline const ::CSMsgAskAddFriendRsp& CSChatRspParam::askaddfriendrsp() const {
+  return askaddfriendrsp_ != NULL ? *askaddfriendrsp_ : *default_instance_->askaddfriendrsp_;
+}
+inline ::CSMsgAskAddFriendRsp* CSChatRspParam::mutable_askaddfriendrsp() {
+  set_has_askaddfriendrsp();
+  if (askaddfriendrsp_ == NULL) askaddfriendrsp_ = new ::CSMsgAskAddFriendRsp;
+  return askaddfriendrsp_;
+}
+inline ::CSMsgAskAddFriendRsp* CSChatRspParam::release_askaddfriendrsp() {
+  clear_has_askaddfriendrsp();
+  ::CSMsgAskAddFriendRsp* temp = askaddfriendrsp_;
+  askaddfriendrsp_ = NULL;
+  return temp;
+}
+inline void CSChatRspParam::set_allocated_askaddfriendrsp(::CSMsgAskAddFriendRsp* askaddfriendrsp) {
+  delete askaddfriendrsp_;
+  askaddfriendrsp_ = askaddfriendrsp;
+  if (askaddfriendrsp) {
+    set_has_askaddfriendrsp();
+  } else {
+    clear_has_askaddfriendrsp();
+  }
+}
+
+// optional .CSMsgSuccessAddFriendRsp SuccessAddFriendRsp = 5;
+inline bool CSChatRspParam::has_successaddfriendrsp() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void CSChatRspParam::set_has_successaddfriendrsp() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void CSChatRspParam::clear_has_successaddfriendrsp() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void CSChatRspParam::clear_successaddfriendrsp() {
+  if (successaddfriendrsp_ != NULL) successaddfriendrsp_->::CSMsgSuccessAddFriendRsp::Clear();
+  clear_has_successaddfriendrsp();
+}
+inline const ::CSMsgSuccessAddFriendRsp& CSChatRspParam::successaddfriendrsp() const {
+  return successaddfriendrsp_ != NULL ? *successaddfriendrsp_ : *default_instance_->successaddfriendrsp_;
+}
+inline ::CSMsgSuccessAddFriendRsp* CSChatRspParam::mutable_successaddfriendrsp() {
+  set_has_successaddfriendrsp();
+  if (successaddfriendrsp_ == NULL) successaddfriendrsp_ = new ::CSMsgSuccessAddFriendRsp;
+  return successaddfriendrsp_;
+}
+inline ::CSMsgSuccessAddFriendRsp* CSChatRspParam::release_successaddfriendrsp() {
+  clear_has_successaddfriendrsp();
+  ::CSMsgSuccessAddFriendRsp* temp = successaddfriendrsp_;
+  successaddfriendrsp_ = NULL;
+  return temp;
+}
+inline void CSChatRspParam::set_allocated_successaddfriendrsp(::CSMsgSuccessAddFriendRsp* successaddfriendrsp) {
+  delete successaddfriendrsp_;
+  successaddfriendrsp_ = successaddfriendrsp;
+  if (successaddfriendrsp) {
+    set_has_successaddfriendrsp();
+  } else {
+    clear_has_successaddfriendrsp();
+  }
+}
+
+// optional .CSMsgDeleteFriendRsp DeleteFriendRsp = 6;
+inline bool CSChatRspParam::has_deletefriendrsp() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void CSChatRspParam::set_has_deletefriendrsp() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void CSChatRspParam::clear_has_deletefriendrsp() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void CSChatRspParam::clear_deletefriendrsp() {
+  if (deletefriendrsp_ != NULL) deletefriendrsp_->::CSMsgDeleteFriendRsp::Clear();
+  clear_has_deletefriendrsp();
+}
+inline const ::CSMsgDeleteFriendRsp& CSChatRspParam::deletefriendrsp() const {
+  return deletefriendrsp_ != NULL ? *deletefriendrsp_ : *default_instance_->deletefriendrsp_;
+}
+inline ::CSMsgDeleteFriendRsp* CSChatRspParam::mutable_deletefriendrsp() {
+  set_has_deletefriendrsp();
+  if (deletefriendrsp_ == NULL) deletefriendrsp_ = new ::CSMsgDeleteFriendRsp;
+  return deletefriendrsp_;
+}
+inline ::CSMsgDeleteFriendRsp* CSChatRspParam::release_deletefriendrsp() {
+  clear_has_deletefriendrsp();
+  ::CSMsgDeleteFriendRsp* temp = deletefriendrsp_;
+  deletefriendrsp_ = NULL;
+  return temp;
+}
+inline void CSChatRspParam::set_allocated_deletefriendrsp(::CSMsgDeleteFriendRsp* deletefriendrsp) {
+  delete deletefriendrsp_;
+  deletefriendrsp_ = deletefriendrsp;
+  if (deletefriendrsp) {
+    set_has_deletefriendrsp();
+  } else {
+    clear_has_deletefriendrsp();
+  }
+}
+
+// optional .CSMsgSendChatRsp SendChatRsp = 7;
+inline bool CSChatRspParam::has_sendchatrsp() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void CSChatRspParam::set_has_sendchatrsp() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void CSChatRspParam::clear_has_sendchatrsp() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void CSChatRspParam::clear_sendchatrsp() {
+  if (sendchatrsp_ != NULL) sendchatrsp_->::CSMsgSendChatRsp::Clear();
+  clear_has_sendchatrsp();
+}
+inline const ::CSMsgSendChatRsp& CSChatRspParam::sendchatrsp() const {
+  return sendchatrsp_ != NULL ? *sendchatrsp_ : *default_instance_->sendchatrsp_;
+}
+inline ::CSMsgSendChatRsp* CSChatRspParam::mutable_sendchatrsp() {
+  set_has_sendchatrsp();
+  if (sendchatrsp_ == NULL) sendchatrsp_ = new ::CSMsgSendChatRsp;
+  return sendchatrsp_;
+}
+inline ::CSMsgSendChatRsp* CSChatRspParam::release_sendchatrsp() {
+  clear_has_sendchatrsp();
+  ::CSMsgSendChatRsp* temp = sendchatrsp_;
+  sendchatrsp_ = NULL;
+  return temp;
+}
+inline void CSChatRspParam::set_allocated_sendchatrsp(::CSMsgSendChatRsp* sendchatrsp) {
+  delete sendchatrsp_;
+  sendchatrsp_ = sendchatrsp;
+  if (sendchatrsp) {
+    set_has_sendchatrsp();
+  } else {
+    clear_has_sendchatrsp();
+  }
+}
+
+// optional .CSMsgFindNameRsp FindNameRsp = 8;
+inline bool CSChatRspParam::has_findnamersp() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void CSChatRspParam::set_has_findnamersp() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void CSChatRspParam::clear_has_findnamersp() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void CSChatRspParam::clear_findnamersp() {
+  if (findnamersp_ != NULL) findnamersp_->::CSMsgFindNameRsp::Clear();
+  clear_has_findnamersp();
+}
+inline const ::CSMsgFindNameRsp& CSChatRspParam::findnamersp() const {
+  return findnamersp_ != NULL ? *findnamersp_ : *default_instance_->findnamersp_;
+}
+inline ::CSMsgFindNameRsp* CSChatRspParam::mutable_findnamersp() {
+  set_has_findnamersp();
+  if (findnamersp_ == NULL) findnamersp_ = new ::CSMsgFindNameRsp;
+  return findnamersp_;
+}
+inline ::CSMsgFindNameRsp* CSChatRspParam::release_findnamersp() {
+  clear_has_findnamersp();
+  ::CSMsgFindNameRsp* temp = findnamersp_;
+  findnamersp_ = NULL;
+  return temp;
+}
+inline void CSChatRspParam::set_allocated_findnamersp(::CSMsgFindNameRsp* findnamersp) {
+  delete findnamersp_;
+  findnamersp_ = findnamersp;
+  if (findnamersp) {
+    set_has_findnamersp();
+  } else {
+    clear_has_findnamersp();
+  }
+}
+
+// optional .CSMsgChangeStatusRsp ChangeStatusRsp = 9;
+inline bool CSChatRspParam::has_changestatusrsp() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void CSChatRspParam::set_has_changestatusrsp() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void CSChatRspParam::clear_has_changestatusrsp() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void CSChatRspParam::clear_changestatusrsp() {
+  if (changestatusrsp_ != NULL) changestatusrsp_->::CSMsgChangeStatusRsp::Clear();
+  clear_has_changestatusrsp();
+}
+inline const ::CSMsgChangeStatusRsp& CSChatRspParam::changestatusrsp() const {
+  return changestatusrsp_ != NULL ? *changestatusrsp_ : *default_instance_->changestatusrsp_;
+}
+inline ::CSMsgChangeStatusRsp* CSChatRspParam::mutable_changestatusrsp() {
+  set_has_changestatusrsp();
+  if (changestatusrsp_ == NULL) changestatusrsp_ = new ::CSMsgChangeStatusRsp;
+  return changestatusrsp_;
+}
+inline ::CSMsgChangeStatusRsp* CSChatRspParam::release_changestatusrsp() {
+  clear_has_changestatusrsp();
+  ::CSMsgChangeStatusRsp* temp = changestatusrsp_;
+  changestatusrsp_ = NULL;
+  return temp;
+}
+inline void CSChatRspParam::set_allocated_changestatusrsp(::CSMsgChangeStatusRsp* changestatusrsp) {
+  delete changestatusrsp_;
+  changestatusrsp_ = changestatusrsp;
+  if (changestatusrsp) {
+    set_has_changestatusrsp();
+  } else {
+    clear_has_changestatusrsp();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSChatReq
+
+// required .CSChatCmd cmd = 1;
+inline bool CSChatReq::has_cmd() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSChatReq::set_has_cmd() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSChatReq::clear_has_cmd() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSChatReq::clear_cmd() {
+  cmd_ = 1;
+  clear_has_cmd();
+}
+inline ::CSChatCmd CSChatReq::cmd() const {
+  return static_cast< ::CSChatCmd >(cmd_);
+}
+inline void CSChatReq::set_cmd(::CSChatCmd value) {
+  assert(::CSChatCmd_IsValid(value));
+  set_has_cmd();
+  cmd_ = value;
+}
+
+// optional .CSChatReqParam reqParam = 2;
+inline bool CSChatReq::has_reqparam() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSChatReq::set_has_reqparam() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSChatReq::clear_has_reqparam() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSChatReq::clear_reqparam() {
+  if (reqparam_ != NULL) reqparam_->::CSChatReqParam::Clear();
+  clear_has_reqparam();
+}
+inline const ::CSChatReqParam& CSChatReq::reqparam() const {
+  return reqparam_ != NULL ? *reqparam_ : *default_instance_->reqparam_;
+}
+inline ::CSChatReqParam* CSChatReq::mutable_reqparam() {
+  set_has_reqparam();
+  if (reqparam_ == NULL) reqparam_ = new ::CSChatReqParam;
+  return reqparam_;
+}
+inline ::CSChatReqParam* CSChatReq::release_reqparam() {
+  clear_has_reqparam();
+  ::CSChatReqParam* temp = reqparam_;
+  reqparam_ = NULL;
+  return temp;
+}
+inline void CSChatReq::set_allocated_reqparam(::CSChatReqParam* reqparam) {
+  delete reqparam_;
+  reqparam_ = reqparam;
+  if (reqparam) {
+    set_has_reqparam();
+  } else {
+    clear_has_reqparam();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSChatRsp
+
+// optional int32 result = 1;
+inline bool CSChatRsp::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSChatRsp::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSChatRsp::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSChatRsp::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::google::protobuf::int32 CSChatRsp::result() const {
+  return result_;
+}
+inline void CSChatRsp::set_result(::google::protobuf::int32 value) {
+  set_has_result();
+  result_ = value;
+}
+
+// required .CSChatCmd cmd = 2;
+inline bool CSChatRsp::has_cmd() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSChatRsp::set_has_cmd() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSChatRsp::clear_has_cmd() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSChatRsp::clear_cmd() {
+  cmd_ = 1;
+  clear_has_cmd();
+}
+inline ::CSChatCmd CSChatRsp::cmd() const {
+  return static_cast< ::CSChatCmd >(cmd_);
+}
+inline void CSChatRsp::set_cmd(::CSChatCmd value) {
+  assert(::CSChatCmd_IsValid(value));
+  set_has_cmd();
+  cmd_ = value;
+}
+
+// optional .CSChatRspParam rspParam = 3;
+inline bool CSChatRsp::has_rspparam() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSChatRsp::set_has_rspparam() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSChatRsp::clear_has_rspparam() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSChatRsp::clear_rspparam() {
+  if (rspparam_ != NULL) rspparam_->::CSChatRspParam::Clear();
+  clear_has_rspparam();
+}
+inline const ::CSChatRspParam& CSChatRsp::rspparam() const {
+  return rspparam_ != NULL ? *rspparam_ : *default_instance_->rspparam_;
+}
+inline ::CSChatRspParam* CSChatRsp::mutable_rspparam() {
+  set_has_rspparam();
+  if (rspparam_ == NULL) rspparam_ = new ::CSChatRspParam;
+  return rspparam_;
+}
+inline ::CSChatRspParam* CSChatRsp::release_rspparam() {
+  clear_has_rspparam();
+  ::CSChatRspParam* temp = rspparam_;
+  rspparam_ = NULL;
+  return temp;
+}
+inline void CSChatRsp::set_allocated_rspparam(::CSChatRspParam* rspparam) {
+  delete rspparam_;
+  rspparam_ = rspparam;
+  if (rspparam) {
+    set_has_rspparam();
+  } else {
+    clear_has_rspparam();
+  }
+}
+
+// -------------------------------------------------------------------
+
 // CSMsgBody
 
 // optional .CSRegisterLoginReq RegisterLoginReq = 1;
@@ -6242,6 +10770,82 @@ inline void CSMsgBody::set_allocated_decoratebagrsp(::CSDecorateBagRsp* decorate
   }
 }
 
+// optional .CSChatReq ChatReq = 7;
+inline bool CSMsgBody::has_chatreq() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void CSMsgBody::set_has_chatreq() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void CSMsgBody::clear_has_chatreq() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void CSMsgBody::clear_chatreq() {
+  if (chatreq_ != NULL) chatreq_->::CSChatReq::Clear();
+  clear_has_chatreq();
+}
+inline const ::CSChatReq& CSMsgBody::chatreq() const {
+  return chatreq_ != NULL ? *chatreq_ : *default_instance_->chatreq_;
+}
+inline ::CSChatReq* CSMsgBody::mutable_chatreq() {
+  set_has_chatreq();
+  if (chatreq_ == NULL) chatreq_ = new ::CSChatReq;
+  return chatreq_;
+}
+inline ::CSChatReq* CSMsgBody::release_chatreq() {
+  clear_has_chatreq();
+  ::CSChatReq* temp = chatreq_;
+  chatreq_ = NULL;
+  return temp;
+}
+inline void CSMsgBody::set_allocated_chatreq(::CSChatReq* chatreq) {
+  delete chatreq_;
+  chatreq_ = chatreq;
+  if (chatreq) {
+    set_has_chatreq();
+  } else {
+    clear_has_chatreq();
+  }
+}
+
+// optional .CSChatRsp ChatRsp = 8;
+inline bool CSMsgBody::has_chatrsp() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void CSMsgBody::set_has_chatrsp() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void CSMsgBody::clear_has_chatrsp() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void CSMsgBody::clear_chatrsp() {
+  if (chatrsp_ != NULL) chatrsp_->::CSChatRsp::Clear();
+  clear_has_chatrsp();
+}
+inline const ::CSChatRsp& CSMsgBody::chatrsp() const {
+  return chatrsp_ != NULL ? *chatrsp_ : *default_instance_->chatrsp_;
+}
+inline ::CSChatRsp* CSMsgBody::mutable_chatrsp() {
+  set_has_chatrsp();
+  if (chatrsp_ == NULL) chatrsp_ = new ::CSChatRsp;
+  return chatrsp_;
+}
+inline ::CSChatRsp* CSMsgBody::release_chatrsp() {
+  clear_has_chatrsp();
+  ::CSChatRsp* temp = chatrsp_;
+  chatrsp_ = NULL;
+  return temp;
+}
+inline void CSMsgBody::set_allocated_chatrsp(::CSChatRsp* chatrsp) {
+  delete chatrsp_;
+  chatrsp_ = chatrsp;
+  if (chatrsp) {
+    set_has_chatrsp();
+  } else {
+    clear_has_chatrsp();
+  }
+}
+
 // -------------------------------------------------------------------
 
 // CSMsgHead
@@ -6389,6 +10993,10 @@ inline const EnumDescriptor* GetEnumDescriptor< ::CSBagCmd>() {
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::CSDecorateBagCmd>() {
   return ::CSDecorateBagCmd_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::CSChatCmd>() {
+  return ::CSChatCmd_descriptor();
 }
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::CSMsgID>() {

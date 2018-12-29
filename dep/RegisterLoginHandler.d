@@ -3,4 +3,4 @@
 /home/wuxuewu/fuwuqi/link_obj/ SocketDBClient.hpp quanju.hpp readn.hpp txt.o /home/wuxuewu/fuwuqi/dep/RegisterLoginHandler.d:g.hpp timeku.hpp \
 /home/wuxuewu/fuwuqi/link_obj/ RoleObj.hpp ../proto/DBmsg.pb.h BagManager.hpp DataS.o /home/wuxuewu/fuwuqi/dep/RegisterLoginHandler.d:re.hpp \
 /home/wuxuewu/fuwuqi/link_obj/ DecorateBagManager.hpp RegisterLoginWork.hpp enterfunct.o /home/wuxuewu/fuwuqi/dep/RegisterLoginHandler.d:n.hpp \
- sendclient.hpp
+/home/wuxuewu/fuwuqi/link_obj/ sendclient.hpp ChatHandler.hpp .o /home/wuxuewu/fuwuqi/dep/RegisterLoginHandler.d:cketMsgClient.hpp

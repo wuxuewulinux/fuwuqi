@@ -3,6 +3,8 @@
 #include "quanju.hpp"
 #include "SocketDBClient.hpp"
 #include "sendclient.hpp"
+#include "ChatHandler.hpp"
+#include "SocketMsgClient.hpp"
 
 UpdateData::UpdateData()
 {
@@ -68,7 +70,7 @@ void* UpdateData::OnSSMsg(SSMsg& rMsg, uint64_t Uid, SSMsgID eMsgId, int CmdType
 
 
 
-int UpdateData::UpdateDatabase(CRoleObj* pRoleObj)
+int UpdateData::UpdateDatabase(CRoleObj* pRoleObj,int Status)
 {
 	SSMsg oSSMsg;
 	SSQuitReq* pQuitReq = static_cast<SSQuitReq*>(OnSSMsg(oSSMsg, pRoleObj->GetUid(), SS_MSGID_GameMysql, SSRegisterLoginCmd_UpdateDatabase)); 
@@ -81,5 +83,20 @@ int UpdateData::UpdateDatabase(CRoleObj* pRoleObj)
 	
 	SendServer(DBCLIENT->GetSocketIo(),&oSSMsg);
 
+	return 0;
+}
+
+
+
+int UpdateData::UpMsgStatus(uint64_t Uid,uint32_t Value,uint32_t Type)
+{
+	CSMsg oCSMsg;
+	CSMsgChangeStatusReq* pChangeStatusReq = static_cast<CSMsgChangeStatusReq*>(ChatHandler::OnCSMsg(oCSMsg, Uid, CS_MSGID_Chat, CSMsgServer_ChangeStatus)); 
+	HANDCHECH_P(pChangeStatusReq,-1);
+
+	pChangeStatusReq->set_uid(Uid);
+	pChangeStatusReq->set_value(Value);
+	pChangeStatusReq->set_type(Type);
+	SendClient(MSGCLIENT->GetSocketIo(),&oCSMsg);
 	return 0;
 }

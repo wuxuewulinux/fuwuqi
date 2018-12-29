@@ -3,4 +3,4 @@
 /home/wuxuewu/fuwuqi/link_obj/ ../proto/DBmsg.pb.h BagManager.hpp DataStore.hpp De.o /home/wuxuewu/fuwuqi/dep/pthreadstart.d:rateBagManager.hpp \
 /home/wuxuewu/fuwuqi/link_obj/ pthreadstart.hpp HandlerList.hpp Handler.hpp ../pro.o /home/wuxuewu/fuwuqi/dep/pthreadstart.d:/SSmsg.pb.h \
 /home/wuxuewu/fuwuqi/link_obj/ RegisterLoginHandler.hpp .o /home/wuxuewu/fuwuqi/dep/pthreadstart.d:cketDBClient.hpp BagHandler.hpp \
-/home/wuxuewu/fuwuqi/link_obj/ DecorateBagHandler.hpp epoll_ku.hpp .o /home/wuxuewu/fuwuqi/dep/pthreadstart.d:cketku.hpp
+/home/wuxuewu/fuwuqi/link_obj/ DecorateBagHandler.hpp ChatHandler.hpp epoll_ku.hpp .o /home/wuxuewu/fuwuqi/dep/pthreadstart.d:cketku.hpp
