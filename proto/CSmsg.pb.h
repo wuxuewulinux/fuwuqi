@@ -86,10 +86,32 @@ class CSMsgFindNameReq;
 class CSMsgFindNameRsp;
 class CSMsgChangeStatusReq;
 class CSMsgChangeStatusRsp;
+class CSMsgConnectSuccessReq;
 class CSChatReqParam;
 class CSChatRspParam;
 class CSChatReq;
 class CSChatRsp;
+class CSMateFetchReq;
+class CSQuitMateFetchReq;
+class CSNotButtonMateFetchReq;
+class CSSuccessButtonMateFetchReq;
+class CSShowHeroVipInfo;
+class CSShowHeroInfo;
+class CSShowHeroInfoList;
+class CSFeiJiBagList;
+class CSZhaDanBagList;
+class CSFeiJiDiPanBagList;
+class CSFeiJiSkillOneBagList;
+class CSFeiJiSkillTwoBagList;
+class CSEnterHeroShowRsp;
+class CSEnterHeroShowBagReq;
+class CSSendUserHeroShowRsp;
+class CSShowZhaDanBagReq;
+class CSShowZhaDanBagRsp;
+class CSMateReqParam;
+class CSMateRspParam;
+class CSMateReq;
+class CSMateRsp;
 class CSMsgBody;
 class CSMsgHead;
 class CSMsg;
@@ -163,11 +185,12 @@ enum CSChatCmd {
   CSMsgServer_DeleteFriend = 7,
   CSMsgServer_SendChat = 8,
   CSMsgServer_FindName = 9,
-  CSMsgServer_ChangeStatus = 10
+  CSMsgServer_ChangeStatus = 10,
+  CSMsgServer_ConnectSuccess = 11
 };
 bool CSChatCmd_IsValid(int value);
 const CSChatCmd CSChatCmd_MIN = CSMsgServer_RegisterSuccess;
-const CSChatCmd CSChatCmd_MAX = CSMsgServer_ChangeStatus;
+const CSChatCmd CSChatCmd_MAX = CSMsgServer_ConnectSuccess;
 const int CSChatCmd_ARRAYSIZE = CSChatCmd_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* CSChatCmd_descriptor();
@@ -180,13 +203,41 @@ inline bool CSChatCmd_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<CSChatCmd>(
     CSChatCmd_descriptor(), name, value);
 }
+enum CSMateCmd {
+  CSMateCmd_MateFetch = 1,
+  CSMateCmd_MateNotSuccess = 2,
+  CSMateCmd_MateNotUser = 3,
+  CSMateCmd_QuitMateFetch = 4,
+  CSMateCmd_NotButtonMateFetch = 5,
+  CSMateCmd_SuccessButtonMateFetch = 6,
+  CSMateCmd_EnterHeroShow = 7,
+  CSMateCmd_EnterHeroShowBag = 8,
+  CSMateCmd_SendUserHeroShow = 9,
+  CSMateCmd_ShowZhaDanBag = 10
+};
+bool CSMateCmd_IsValid(int value);
+const CSMateCmd CSMateCmd_MIN = CSMateCmd_MateFetch;
+const CSMateCmd CSMateCmd_MAX = CSMateCmd_ShowZhaDanBag;
+const int CSMateCmd_ARRAYSIZE = CSMateCmd_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* CSMateCmd_descriptor();
+inline const ::std::string& CSMateCmd_Name(CSMateCmd value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    CSMateCmd_descriptor(), value);
+}
+inline bool CSMateCmd_Parse(
+    const ::std::string& name, CSMateCmd* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<CSMateCmd>(
+    CSMateCmd_descriptor(), name, value);
+}
 enum CSMsgID {
   CS_MSGID_MIN = 0,
   CS_MSGID_RegisterLogin = 1,
   CS_MSGID_BAG = 2,
   CS_MSGID_DecorateBAG = 3,
   CS_MSGID_Chat = 4,
-  CS_MSGID_MAX = 5
+  CS_MSGID_Mate = 5,
+  CS_MSGID_MAX = 6
 };
 bool CSMsgID_IsValid(int value);
 const CSMsgID CSMsgID_MIN = CS_MSGID_MIN;
@@ -5199,6 +5250,88 @@ class CSMsgChangeStatusRsp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class CSMsgConnectSuccessReq : public ::google::protobuf::Message {
+ public:
+  CSMsgConnectSuccessReq();
+  virtual ~CSMsgConnectSuccessReq();
+
+  CSMsgConnectSuccessReq(const CSMsgConnectSuccessReq& from);
+
+  inline CSMsgConnectSuccessReq& operator=(const CSMsgConnectSuccessReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMsgConnectSuccessReq& default_instance();
+
+  void Swap(CSMsgConnectSuccessReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMsgConnectSuccessReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMsgConnectSuccessReq& from);
+  void MergeFrom(const CSMsgConnectSuccessReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:CSMsgConnectSuccessReq)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMsgConnectSuccessReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class CSChatReqParam : public ::google::protobuf::Message {
  public:
   CSChatReqParam();
@@ -5334,6 +5467,15 @@ class CSChatReqParam : public ::google::protobuf::Message {
   inline ::CSMsgChangeStatusReq* release_changestatusreq();
   inline void set_allocated_changestatusreq(::CSMsgChangeStatusReq* changestatusreq);
 
+  // optional .CSMsgConnectSuccessReq ConnectSuccessReq = 10;
+  inline bool has_connectsuccessreq() const;
+  inline void clear_connectsuccessreq();
+  static const int kConnectSuccessReqFieldNumber = 10;
+  inline const ::CSMsgConnectSuccessReq& connectsuccessreq() const;
+  inline ::CSMsgConnectSuccessReq* mutable_connectsuccessreq();
+  inline ::CSMsgConnectSuccessReq* release_connectsuccessreq();
+  inline void set_allocated_connectsuccessreq(::CSMsgConnectSuccessReq* connectsuccessreq);
+
   // @@protoc_insertion_point(class_scope:CSChatReqParam)
  private:
   inline void set_has_registersuccessreq();
@@ -5354,6 +5496,8 @@ class CSChatReqParam : public ::google::protobuf::Message {
   inline void clear_has_findnamereq();
   inline void set_has_changestatusreq();
   inline void clear_has_changestatusreq();
+  inline void set_has_connectsuccessreq();
+  inline void clear_has_connectsuccessreq();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -5366,9 +5510,10 @@ class CSChatReqParam : public ::google::protobuf::Message {
   ::CSMsgSendChatReq* sendchatreq_;
   ::CSMsgFindNameReq* findnamereq_;
   ::CSMsgChangeStatusReq* changestatusreq_;
+  ::CSMsgConnectSuccessReq* connectsuccessreq_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
 
   friend void  protobuf_AddDesc_CSmsg_2eproto();
   friend void protobuf_AssignDesc_CSmsg_2eproto();
@@ -5757,6 +5902,2057 @@ class CSChatRsp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class CSMateFetchReq : public ::google::protobuf::Message {
+ public:
+  CSMateFetchReq();
+  virtual ~CSMateFetchReq();
+
+  CSMateFetchReq(const CSMateFetchReq& from);
+
+  inline CSMateFetchReq& operator=(const CSMateFetchReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMateFetchReq& default_instance();
+
+  void Swap(CSMateFetchReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMateFetchReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMateFetchReq& from);
+  void MergeFrom(const CSMateFetchReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:CSMateFetchReq)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMateFetchReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSQuitMateFetchReq : public ::google::protobuf::Message {
+ public:
+  CSQuitMateFetchReq();
+  virtual ~CSQuitMateFetchReq();
+
+  CSQuitMateFetchReq(const CSQuitMateFetchReq& from);
+
+  inline CSQuitMateFetchReq& operator=(const CSQuitMateFetchReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSQuitMateFetchReq& default_instance();
+
+  void Swap(CSQuitMateFetchReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSQuitMateFetchReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSQuitMateFetchReq& from);
+  void MergeFrom(const CSQuitMateFetchReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:CSQuitMateFetchReq)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSQuitMateFetchReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSNotButtonMateFetchReq : public ::google::protobuf::Message {
+ public:
+  CSNotButtonMateFetchReq();
+  virtual ~CSNotButtonMateFetchReq();
+
+  CSNotButtonMateFetchReq(const CSNotButtonMateFetchReq& from);
+
+  inline CSNotButtonMateFetchReq& operator=(const CSNotButtonMateFetchReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSNotButtonMateFetchReq& default_instance();
+
+  void Swap(CSNotButtonMateFetchReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSNotButtonMateFetchReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSNotButtonMateFetchReq& from);
+  void MergeFrom(const CSNotButtonMateFetchReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:CSNotButtonMateFetchReq)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSNotButtonMateFetchReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSSuccessButtonMateFetchReq : public ::google::protobuf::Message {
+ public:
+  CSSuccessButtonMateFetchReq();
+  virtual ~CSSuccessButtonMateFetchReq();
+
+  CSSuccessButtonMateFetchReq(const CSSuccessButtonMateFetchReq& from);
+
+  inline CSSuccessButtonMateFetchReq& operator=(const CSSuccessButtonMateFetchReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSSuccessButtonMateFetchReq& default_instance();
+
+  void Swap(CSSuccessButtonMateFetchReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSSuccessButtonMateFetchReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSSuccessButtonMateFetchReq& from);
+  void MergeFrom(const CSSuccessButtonMateFetchReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:CSSuccessButtonMateFetchReq)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSSuccessButtonMateFetchReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSShowHeroVipInfo : public ::google::protobuf::Message {
+ public:
+  CSShowHeroVipInfo();
+  virtual ~CSShowHeroVipInfo();
+
+  CSShowHeroVipInfo(const CSShowHeroVipInfo& from);
+
+  inline CSShowHeroVipInfo& operator=(const CSShowHeroVipInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSShowHeroVipInfo& default_instance();
+
+  void Swap(CSShowHeroVipInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  CSShowHeroVipInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSShowHeroVipInfo& from);
+  void MergeFrom(const CSShowHeroVipInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 VipId = 1;
+  inline bool has_vipid() const;
+  inline void clear_vipid();
+  static const int kVipIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 vipid() const;
+  inline void set_vipid(::google::protobuf::uint32 value);
+
+  // optional uint32 VipGrade = 2;
+  inline bool has_vipgrade() const;
+  inline void clear_vipgrade();
+  static const int kVipGradeFieldNumber = 2;
+  inline ::google::protobuf::uint32 vipgrade() const;
+  inline void set_vipgrade(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:CSShowHeroVipInfo)
+ private:
+  inline void set_has_vipid();
+  inline void clear_has_vipid();
+  inline void set_has_vipgrade();
+  inline void clear_has_vipgrade();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 vipid_;
+  ::google::protobuf::uint32 vipgrade_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSShowHeroVipInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSShowHeroInfo : public ::google::protobuf::Message {
+ public:
+  CSShowHeroInfo();
+  virtual ~CSShowHeroInfo();
+
+  CSShowHeroInfo(const CSShowHeroInfo& from);
+
+  inline CSShowHeroInfo& operator=(const CSShowHeroInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSShowHeroInfo& default_instance();
+
+  void Swap(CSShowHeroInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  CSShowHeroInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSShowHeroInfo& from);
+  void MergeFrom(const CSShowHeroInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // optional uint32 VipID = 2;
+  inline bool has_vipid() const;
+  inline void clear_vipid();
+  static const int kVipIDFieldNumber = 2;
+  inline ::google::protobuf::uint32 vipid() const;
+  inline void set_vipid(::google::protobuf::uint32 value);
+
+  // optional uint32 VipGrade = 3;
+  inline bool has_vipgrade() const;
+  inline void clear_vipgrade();
+  static const int kVipGradeFieldNumber = 3;
+  inline ::google::protobuf::uint32 vipgrade() const;
+  inline void set_vipgrade(::google::protobuf::uint32 value);
+
+  // optional uint32 RoleGrade = 4;
+  inline bool has_rolegrade() const;
+  inline void clear_rolegrade();
+  static const int kRoleGradeFieldNumber = 4;
+  inline ::google::protobuf::uint32 rolegrade() const;
+  inline void set_rolegrade(::google::protobuf::uint32 value);
+
+  // optional uint32 RoleRank = 5;
+  inline bool has_rolerank() const;
+  inline void clear_rolerank();
+  static const int kRoleRankFieldNumber = 5;
+  inline ::google::protobuf::uint32 rolerank() const;
+  inline void set_rolerank(::google::protobuf::uint32 value);
+
+  // optional uint32 RoleHeadType = 6;
+  inline bool has_roleheadtype() const;
+  inline void clear_roleheadtype();
+  static const int kRoleHeadTypeFieldNumber = 6;
+  inline ::google::protobuf::uint32 roleheadtype() const;
+  inline void set_roleheadtype(::google::protobuf::uint32 value);
+
+  // optional string Name = 7;
+  inline bool has_name() const;
+  inline void clear_name();
+  static const int kNameFieldNumber = 7;
+  inline const ::std::string& name() const;
+  inline void set_name(const ::std::string& value);
+  inline void set_name(const char* value);
+  inline void set_name(const char* value, size_t size);
+  inline ::std::string* mutable_name();
+  inline ::std::string* release_name();
+  inline void set_allocated_name(::std::string* name);
+
+  // @@protoc_insertion_point(class_scope:CSShowHeroInfo)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_vipid();
+  inline void clear_has_vipid();
+  inline void set_has_vipgrade();
+  inline void clear_has_vipgrade();
+  inline void set_has_rolegrade();
+  inline void clear_has_rolegrade();
+  inline void set_has_rolerank();
+  inline void clear_has_rolerank();
+  inline void set_has_roleheadtype();
+  inline void clear_has_roleheadtype();
+  inline void set_has_name();
+  inline void clear_has_name();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+  ::google::protobuf::uint32 vipid_;
+  ::google::protobuf::uint32 vipgrade_;
+  ::google::protobuf::uint32 rolegrade_;
+  ::google::protobuf::uint32 rolerank_;
+  ::std::string* name_;
+  ::google::protobuf::uint32 roleheadtype_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSShowHeroInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSShowHeroInfoList : public ::google::protobuf::Message {
+ public:
+  CSShowHeroInfoList();
+  virtual ~CSShowHeroInfoList();
+
+  CSShowHeroInfoList(const CSShowHeroInfoList& from);
+
+  inline CSShowHeroInfoList& operator=(const CSShowHeroInfoList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSShowHeroInfoList& default_instance();
+
+  void Swap(CSShowHeroInfoList* other);
+
+  // implements Message ----------------------------------------------
+
+  CSShowHeroInfoList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSShowHeroInfoList& from);
+  void MergeFrom(const CSShowHeroInfoList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .CSShowHeroInfo HeroInfoList = 1;
+  inline int heroinfolist_size() const;
+  inline void clear_heroinfolist();
+  static const int kHeroInfoListFieldNumber = 1;
+  inline const ::CSShowHeroInfo& heroinfolist(int index) const;
+  inline ::CSShowHeroInfo* mutable_heroinfolist(int index);
+  inline ::CSShowHeroInfo* add_heroinfolist();
+  inline const ::google::protobuf::RepeatedPtrField< ::CSShowHeroInfo >&
+      heroinfolist() const;
+  inline ::google::protobuf::RepeatedPtrField< ::CSShowHeroInfo >*
+      mutable_heroinfolist();
+
+  // @@protoc_insertion_point(class_scope:CSShowHeroInfoList)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::CSShowHeroInfo > heroinfolist_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSShowHeroInfoList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSFeiJiBagList : public ::google::protobuf::Message {
+ public:
+  CSFeiJiBagList();
+  virtual ~CSFeiJiBagList();
+
+  CSFeiJiBagList(const CSFeiJiBagList& from);
+
+  inline CSFeiJiBagList& operator=(const CSFeiJiBagList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSFeiJiBagList& default_instance();
+
+  void Swap(CSFeiJiBagList* other);
+
+  // implements Message ----------------------------------------------
+
+  CSFeiJiBagList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSFeiJiBagList& from);
+  void MergeFrom(const CSFeiJiBagList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated uint32 FeiJi = 1;
+  inline int feiji_size() const;
+  inline void clear_feiji();
+  static const int kFeiJiFieldNumber = 1;
+  inline ::google::protobuf::uint32 feiji(int index) const;
+  inline void set_feiji(int index, ::google::protobuf::uint32 value);
+  inline void add_feiji(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      feiji() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_feiji();
+
+  // @@protoc_insertion_point(class_scope:CSFeiJiBagList)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > feiji_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSFeiJiBagList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSZhaDanBagList : public ::google::protobuf::Message {
+ public:
+  CSZhaDanBagList();
+  virtual ~CSZhaDanBagList();
+
+  CSZhaDanBagList(const CSZhaDanBagList& from);
+
+  inline CSZhaDanBagList& operator=(const CSZhaDanBagList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSZhaDanBagList& default_instance();
+
+  void Swap(CSZhaDanBagList* other);
+
+  // implements Message ----------------------------------------------
+
+  CSZhaDanBagList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSZhaDanBagList& from);
+  void MergeFrom(const CSZhaDanBagList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated uint32 ZhaDan = 1;
+  inline int zhadan_size() const;
+  inline void clear_zhadan();
+  static const int kZhaDanFieldNumber = 1;
+  inline ::google::protobuf::uint32 zhadan(int index) const;
+  inline void set_zhadan(int index, ::google::protobuf::uint32 value);
+  inline void add_zhadan(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      zhadan() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_zhadan();
+
+  // @@protoc_insertion_point(class_scope:CSZhaDanBagList)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > zhadan_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSZhaDanBagList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSFeiJiDiPanBagList : public ::google::protobuf::Message {
+ public:
+  CSFeiJiDiPanBagList();
+  virtual ~CSFeiJiDiPanBagList();
+
+  CSFeiJiDiPanBagList(const CSFeiJiDiPanBagList& from);
+
+  inline CSFeiJiDiPanBagList& operator=(const CSFeiJiDiPanBagList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSFeiJiDiPanBagList& default_instance();
+
+  void Swap(CSFeiJiDiPanBagList* other);
+
+  // implements Message ----------------------------------------------
+
+  CSFeiJiDiPanBagList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSFeiJiDiPanBagList& from);
+  void MergeFrom(const CSFeiJiDiPanBagList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated uint32 FeiJiDiPan = 1;
+  inline int feijidipan_size() const;
+  inline void clear_feijidipan();
+  static const int kFeiJiDiPanFieldNumber = 1;
+  inline ::google::protobuf::uint32 feijidipan(int index) const;
+  inline void set_feijidipan(int index, ::google::protobuf::uint32 value);
+  inline void add_feijidipan(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      feijidipan() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_feijidipan();
+
+  // @@protoc_insertion_point(class_scope:CSFeiJiDiPanBagList)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > feijidipan_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSFeiJiDiPanBagList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSFeiJiSkillOneBagList : public ::google::protobuf::Message {
+ public:
+  CSFeiJiSkillOneBagList();
+  virtual ~CSFeiJiSkillOneBagList();
+
+  CSFeiJiSkillOneBagList(const CSFeiJiSkillOneBagList& from);
+
+  inline CSFeiJiSkillOneBagList& operator=(const CSFeiJiSkillOneBagList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSFeiJiSkillOneBagList& default_instance();
+
+  void Swap(CSFeiJiSkillOneBagList* other);
+
+  // implements Message ----------------------------------------------
+
+  CSFeiJiSkillOneBagList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSFeiJiSkillOneBagList& from);
+  void MergeFrom(const CSFeiJiSkillOneBagList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated uint32 FeiJiSkillOne = 1;
+  inline int feijiskillone_size() const;
+  inline void clear_feijiskillone();
+  static const int kFeiJiSkillOneFieldNumber = 1;
+  inline ::google::protobuf::uint32 feijiskillone(int index) const;
+  inline void set_feijiskillone(int index, ::google::protobuf::uint32 value);
+  inline void add_feijiskillone(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      feijiskillone() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_feijiskillone();
+
+  // @@protoc_insertion_point(class_scope:CSFeiJiSkillOneBagList)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > feijiskillone_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSFeiJiSkillOneBagList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSFeiJiSkillTwoBagList : public ::google::protobuf::Message {
+ public:
+  CSFeiJiSkillTwoBagList();
+  virtual ~CSFeiJiSkillTwoBagList();
+
+  CSFeiJiSkillTwoBagList(const CSFeiJiSkillTwoBagList& from);
+
+  inline CSFeiJiSkillTwoBagList& operator=(const CSFeiJiSkillTwoBagList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSFeiJiSkillTwoBagList& default_instance();
+
+  void Swap(CSFeiJiSkillTwoBagList* other);
+
+  // implements Message ----------------------------------------------
+
+  CSFeiJiSkillTwoBagList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSFeiJiSkillTwoBagList& from);
+  void MergeFrom(const CSFeiJiSkillTwoBagList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated uint32 FeiJiSkillTwo = 1;
+  inline int feijiskilltwo_size() const;
+  inline void clear_feijiskilltwo();
+  static const int kFeiJiSkillTwoFieldNumber = 1;
+  inline ::google::protobuf::uint32 feijiskilltwo(int index) const;
+  inline void set_feijiskilltwo(int index, ::google::protobuf::uint32 value);
+  inline void add_feijiskilltwo(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      feijiskilltwo() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_feijiskilltwo();
+
+  // @@protoc_insertion_point(class_scope:CSFeiJiSkillTwoBagList)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > feijiskilltwo_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSFeiJiSkillTwoBagList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSEnterHeroShowRsp : public ::google::protobuf::Message {
+ public:
+  CSEnterHeroShowRsp();
+  virtual ~CSEnterHeroShowRsp();
+
+  CSEnterHeroShowRsp(const CSEnterHeroShowRsp& from);
+
+  inline CSEnterHeroShowRsp& operator=(const CSEnterHeroShowRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSEnterHeroShowRsp& default_instance();
+
+  void Swap(CSEnterHeroShowRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSEnterHeroShowRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSEnterHeroShowRsp& from);
+  void MergeFrom(const CSEnterHeroShowRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .CSShowHeroVipInfo ShowHeroVipInfo = 1;
+  inline bool has_showherovipinfo() const;
+  inline void clear_showherovipinfo();
+  static const int kShowHeroVipInfoFieldNumber = 1;
+  inline const ::CSShowHeroVipInfo& showherovipinfo() const;
+  inline ::CSShowHeroVipInfo* mutable_showherovipinfo();
+  inline ::CSShowHeroVipInfo* release_showherovipinfo();
+  inline void set_allocated_showherovipinfo(::CSShowHeroVipInfo* showherovipinfo);
+
+  // optional .CSShowHeroInfoList HeroShow = 2;
+  inline bool has_heroshow() const;
+  inline void clear_heroshow();
+  static const int kHeroShowFieldNumber = 2;
+  inline const ::CSShowHeroInfoList& heroshow() const;
+  inline ::CSShowHeroInfoList* mutable_heroshow();
+  inline ::CSShowHeroInfoList* release_heroshow();
+  inline void set_allocated_heroshow(::CSShowHeroInfoList* heroshow);
+
+  // optional .CSFeiJiBagList FeiJiBagList = 3;
+  inline bool has_feijibaglist() const;
+  inline void clear_feijibaglist();
+  static const int kFeiJiBagListFieldNumber = 3;
+  inline const ::CSFeiJiBagList& feijibaglist() const;
+  inline ::CSFeiJiBagList* mutable_feijibaglist();
+  inline ::CSFeiJiBagList* release_feijibaglist();
+  inline void set_allocated_feijibaglist(::CSFeiJiBagList* feijibaglist);
+
+  // optional .CSZhaDanBagList ZhaDanBagList = 4;
+  inline bool has_zhadanbaglist() const;
+  inline void clear_zhadanbaglist();
+  static const int kZhaDanBagListFieldNumber = 4;
+  inline const ::CSZhaDanBagList& zhadanbaglist() const;
+  inline ::CSZhaDanBagList* mutable_zhadanbaglist();
+  inline ::CSZhaDanBagList* release_zhadanbaglist();
+  inline void set_allocated_zhadanbaglist(::CSZhaDanBagList* zhadanbaglist);
+
+  // optional .CSFeiJiDiPanBagList FeiJiDiPanBagList = 5;
+  inline bool has_feijidipanbaglist() const;
+  inline void clear_feijidipanbaglist();
+  static const int kFeiJiDiPanBagListFieldNumber = 5;
+  inline const ::CSFeiJiDiPanBagList& feijidipanbaglist() const;
+  inline ::CSFeiJiDiPanBagList* mutable_feijidipanbaglist();
+  inline ::CSFeiJiDiPanBagList* release_feijidipanbaglist();
+  inline void set_allocated_feijidipanbaglist(::CSFeiJiDiPanBagList* feijidipanbaglist);
+
+  // optional .CSFeiJiSkillOneBagList FeiJiSkillOneBagList = 6;
+  inline bool has_feijiskillonebaglist() const;
+  inline void clear_feijiskillonebaglist();
+  static const int kFeiJiSkillOneBagListFieldNumber = 6;
+  inline const ::CSFeiJiSkillOneBagList& feijiskillonebaglist() const;
+  inline ::CSFeiJiSkillOneBagList* mutable_feijiskillonebaglist();
+  inline ::CSFeiJiSkillOneBagList* release_feijiskillonebaglist();
+  inline void set_allocated_feijiskillonebaglist(::CSFeiJiSkillOneBagList* feijiskillonebaglist);
+
+  // optional .CSFeiJiSkillTwoBagList FeiJiSkillTwoBagList = 7;
+  inline bool has_feijiskilltwobaglist() const;
+  inline void clear_feijiskilltwobaglist();
+  static const int kFeiJiSkillTwoBagListFieldNumber = 7;
+  inline const ::CSFeiJiSkillTwoBagList& feijiskilltwobaglist() const;
+  inline ::CSFeiJiSkillTwoBagList* mutable_feijiskilltwobaglist();
+  inline ::CSFeiJiSkillTwoBagList* release_feijiskilltwobaglist();
+  inline void set_allocated_feijiskilltwobaglist(::CSFeiJiSkillTwoBagList* feijiskilltwobaglist);
+
+  // @@protoc_insertion_point(class_scope:CSEnterHeroShowRsp)
+ private:
+  inline void set_has_showherovipinfo();
+  inline void clear_has_showherovipinfo();
+  inline void set_has_heroshow();
+  inline void clear_has_heroshow();
+  inline void set_has_feijibaglist();
+  inline void clear_has_feijibaglist();
+  inline void set_has_zhadanbaglist();
+  inline void clear_has_zhadanbaglist();
+  inline void set_has_feijidipanbaglist();
+  inline void clear_has_feijidipanbaglist();
+  inline void set_has_feijiskillonebaglist();
+  inline void clear_has_feijiskillonebaglist();
+  inline void set_has_feijiskilltwobaglist();
+  inline void clear_has_feijiskilltwobaglist();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::CSShowHeroVipInfo* showherovipinfo_;
+  ::CSShowHeroInfoList* heroshow_;
+  ::CSFeiJiBagList* feijibaglist_;
+  ::CSZhaDanBagList* zhadanbaglist_;
+  ::CSFeiJiDiPanBagList* feijidipanbaglist_;
+  ::CSFeiJiSkillOneBagList* feijiskillonebaglist_;
+  ::CSFeiJiSkillTwoBagList* feijiskilltwobaglist_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSEnterHeroShowRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSEnterHeroShowBagReq : public ::google::protobuf::Message {
+ public:
+  CSEnterHeroShowBagReq();
+  virtual ~CSEnterHeroShowBagReq();
+
+  CSEnterHeroShowBagReq(const CSEnterHeroShowBagReq& from);
+
+  inline CSEnterHeroShowBagReq& operator=(const CSEnterHeroShowBagReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSEnterHeroShowBagReq& default_instance();
+
+  void Swap(CSEnterHeroShowBagReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSEnterHeroShowBagReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSEnterHeroShowBagReq& from);
+  void MergeFrom(const CSEnterHeroShowBagReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 Uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // optional uint32 DecorateBagType = 2;
+  inline bool has_decoratebagtype() const;
+  inline void clear_decoratebagtype();
+  static const int kDecorateBagTypeFieldNumber = 2;
+  inline ::google::protobuf::uint32 decoratebagtype() const;
+  inline void set_decoratebagtype(::google::protobuf::uint32 value);
+
+  // optional uint32 Id = 3;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 id() const;
+  inline void set_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:CSEnterHeroShowBagReq)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_decoratebagtype();
+  inline void clear_has_decoratebagtype();
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+  ::google::protobuf::uint32 decoratebagtype_;
+  ::google::protobuf::uint32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSEnterHeroShowBagReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSSendUserHeroShowRsp : public ::google::protobuf::Message {
+ public:
+  CSSendUserHeroShowRsp();
+  virtual ~CSSendUserHeroShowRsp();
+
+  CSSendUserHeroShowRsp(const CSSendUserHeroShowRsp& from);
+
+  inline CSSendUserHeroShowRsp& operator=(const CSSendUserHeroShowRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSSendUserHeroShowRsp& default_instance();
+
+  void Swap(CSSendUserHeroShowRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSSendUserHeroShowRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSSendUserHeroShowRsp& from);
+  void MergeFrom(const CSSendUserHeroShowRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 Uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // optional uint32 ZhadanId = 2;
+  inline bool has_zhadanid() const;
+  inline void clear_zhadanid();
+  static const int kZhadanIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 zhadanid() const;
+  inline void set_zhadanid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:CSSendUserHeroShowRsp)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_zhadanid();
+  inline void clear_has_zhadanid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+  ::google::protobuf::uint32 zhadanid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSSendUserHeroShowRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSShowZhaDanBagReq : public ::google::protobuf::Message {
+ public:
+  CSShowZhaDanBagReq();
+  virtual ~CSShowZhaDanBagReq();
+
+  CSShowZhaDanBagReq(const CSShowZhaDanBagReq& from);
+
+  inline CSShowZhaDanBagReq& operator=(const CSShowZhaDanBagReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSShowZhaDanBagReq& default_instance();
+
+  void Swap(CSShowZhaDanBagReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSShowZhaDanBagReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSShowZhaDanBagReq& from);
+  void MergeFrom(const CSShowZhaDanBagReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 Uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // optional uint32 ZhadanId = 2;
+  inline bool has_zhadanid() const;
+  inline void clear_zhadanid();
+  static const int kZhadanIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 zhadanid() const;
+  inline void set_zhadanid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:CSShowZhaDanBagReq)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_zhadanid();
+  inline void clear_has_zhadanid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+  ::google::protobuf::uint32 zhadanid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSShowZhaDanBagReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSShowZhaDanBagRsp : public ::google::protobuf::Message {
+ public:
+  CSShowZhaDanBagRsp();
+  virtual ~CSShowZhaDanBagRsp();
+
+  CSShowZhaDanBagRsp(const CSShowZhaDanBagRsp& from);
+
+  inline CSShowZhaDanBagRsp& operator=(const CSShowZhaDanBagRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSShowZhaDanBagRsp& default_instance();
+
+  void Swap(CSShowZhaDanBagRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSShowZhaDanBagRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSShowZhaDanBagRsp& from);
+  void MergeFrom(const CSShowZhaDanBagRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 ZhadanId = 1;
+  inline bool has_zhadanid() const;
+  inline void clear_zhadanid();
+  static const int kZhadanIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 zhadanid() const;
+  inline void set_zhadanid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:CSShowZhaDanBagRsp)
+ private:
+  inline void set_has_zhadanid();
+  inline void clear_has_zhadanid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 zhadanid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSShowZhaDanBagRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMateReqParam : public ::google::protobuf::Message {
+ public:
+  CSMateReqParam();
+  virtual ~CSMateReqParam();
+
+  CSMateReqParam(const CSMateReqParam& from);
+
+  inline CSMateReqParam& operator=(const CSMateReqParam& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMateReqParam& default_instance();
+
+  void Swap(CSMateReqParam* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMateReqParam* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMateReqParam& from);
+  void MergeFrom(const CSMateReqParam& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .CSMateFetchReq MateFetchReq = 1;
+  inline bool has_matefetchreq() const;
+  inline void clear_matefetchreq();
+  static const int kMateFetchReqFieldNumber = 1;
+  inline const ::CSMateFetchReq& matefetchreq() const;
+  inline ::CSMateFetchReq* mutable_matefetchreq();
+  inline ::CSMateFetchReq* release_matefetchreq();
+  inline void set_allocated_matefetchreq(::CSMateFetchReq* matefetchreq);
+
+  // optional .CSQuitMateFetchReq QuitMateFetchReq = 2;
+  inline bool has_quitmatefetchreq() const;
+  inline void clear_quitmatefetchreq();
+  static const int kQuitMateFetchReqFieldNumber = 2;
+  inline const ::CSQuitMateFetchReq& quitmatefetchreq() const;
+  inline ::CSQuitMateFetchReq* mutable_quitmatefetchreq();
+  inline ::CSQuitMateFetchReq* release_quitmatefetchreq();
+  inline void set_allocated_quitmatefetchreq(::CSQuitMateFetchReq* quitmatefetchreq);
+
+  // optional .CSNotButtonMateFetchReq NotButtonMateFetchReq = 3;
+  inline bool has_notbuttonmatefetchreq() const;
+  inline void clear_notbuttonmatefetchreq();
+  static const int kNotButtonMateFetchReqFieldNumber = 3;
+  inline const ::CSNotButtonMateFetchReq& notbuttonmatefetchreq() const;
+  inline ::CSNotButtonMateFetchReq* mutable_notbuttonmatefetchreq();
+  inline ::CSNotButtonMateFetchReq* release_notbuttonmatefetchreq();
+  inline void set_allocated_notbuttonmatefetchreq(::CSNotButtonMateFetchReq* notbuttonmatefetchreq);
+
+  // optional .CSSuccessButtonMateFetchReq SuccessButtonMateFetchReq = 4;
+  inline bool has_successbuttonmatefetchreq() const;
+  inline void clear_successbuttonmatefetchreq();
+  static const int kSuccessButtonMateFetchReqFieldNumber = 4;
+  inline const ::CSSuccessButtonMateFetchReq& successbuttonmatefetchreq() const;
+  inline ::CSSuccessButtonMateFetchReq* mutable_successbuttonmatefetchreq();
+  inline ::CSSuccessButtonMateFetchReq* release_successbuttonmatefetchreq();
+  inline void set_allocated_successbuttonmatefetchreq(::CSSuccessButtonMateFetchReq* successbuttonmatefetchreq);
+
+  // optional .CSEnterHeroShowBagReq EnterHeroShowBagReq = 5;
+  inline bool has_enterheroshowbagreq() const;
+  inline void clear_enterheroshowbagreq();
+  static const int kEnterHeroShowBagReqFieldNumber = 5;
+  inline const ::CSEnterHeroShowBagReq& enterheroshowbagreq() const;
+  inline ::CSEnterHeroShowBagReq* mutable_enterheroshowbagreq();
+  inline ::CSEnterHeroShowBagReq* release_enterheroshowbagreq();
+  inline void set_allocated_enterheroshowbagreq(::CSEnterHeroShowBagReq* enterheroshowbagreq);
+
+  // optional .CSShowZhaDanBagReq ShowZhaDanBagReq = 6;
+  inline bool has_showzhadanbagreq() const;
+  inline void clear_showzhadanbagreq();
+  static const int kShowZhaDanBagReqFieldNumber = 6;
+  inline const ::CSShowZhaDanBagReq& showzhadanbagreq() const;
+  inline ::CSShowZhaDanBagReq* mutable_showzhadanbagreq();
+  inline ::CSShowZhaDanBagReq* release_showzhadanbagreq();
+  inline void set_allocated_showzhadanbagreq(::CSShowZhaDanBagReq* showzhadanbagreq);
+
+  // @@protoc_insertion_point(class_scope:CSMateReqParam)
+ private:
+  inline void set_has_matefetchreq();
+  inline void clear_has_matefetchreq();
+  inline void set_has_quitmatefetchreq();
+  inline void clear_has_quitmatefetchreq();
+  inline void set_has_notbuttonmatefetchreq();
+  inline void clear_has_notbuttonmatefetchreq();
+  inline void set_has_successbuttonmatefetchreq();
+  inline void clear_has_successbuttonmatefetchreq();
+  inline void set_has_enterheroshowbagreq();
+  inline void clear_has_enterheroshowbagreq();
+  inline void set_has_showzhadanbagreq();
+  inline void clear_has_showzhadanbagreq();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::CSMateFetchReq* matefetchreq_;
+  ::CSQuitMateFetchReq* quitmatefetchreq_;
+  ::CSNotButtonMateFetchReq* notbuttonmatefetchreq_;
+  ::CSSuccessButtonMateFetchReq* successbuttonmatefetchreq_;
+  ::CSEnterHeroShowBagReq* enterheroshowbagreq_;
+  ::CSShowZhaDanBagReq* showzhadanbagreq_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMateReqParam* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMateRspParam : public ::google::protobuf::Message {
+ public:
+  CSMateRspParam();
+  virtual ~CSMateRspParam();
+
+  CSMateRspParam(const CSMateRspParam& from);
+
+  inline CSMateRspParam& operator=(const CSMateRspParam& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMateRspParam& default_instance();
+
+  void Swap(CSMateRspParam* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMateRspParam* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMateRspParam& from);
+  void MergeFrom(const CSMateRspParam& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .CSEnterHeroShowRsp EnterHeroShowRsp = 1;
+  inline bool has_enterheroshowrsp() const;
+  inline void clear_enterheroshowrsp();
+  static const int kEnterHeroShowRspFieldNumber = 1;
+  inline const ::CSEnterHeroShowRsp& enterheroshowrsp() const;
+  inline ::CSEnterHeroShowRsp* mutable_enterheroshowrsp();
+  inline ::CSEnterHeroShowRsp* release_enterheroshowrsp();
+  inline void set_allocated_enterheroshowrsp(::CSEnterHeroShowRsp* enterheroshowrsp);
+
+  // optional .CSSendUserHeroShowRsp SendUserHeroShowRsp = 2;
+  inline bool has_senduserheroshowrsp() const;
+  inline void clear_senduserheroshowrsp();
+  static const int kSendUserHeroShowRspFieldNumber = 2;
+  inline const ::CSSendUserHeroShowRsp& senduserheroshowrsp() const;
+  inline ::CSSendUserHeroShowRsp* mutable_senduserheroshowrsp();
+  inline ::CSSendUserHeroShowRsp* release_senduserheroshowrsp();
+  inline void set_allocated_senduserheroshowrsp(::CSSendUserHeroShowRsp* senduserheroshowrsp);
+
+  // optional .CSShowZhaDanBagRsp ShowZhaDanBagRsp = 3;
+  inline bool has_showzhadanbagrsp() const;
+  inline void clear_showzhadanbagrsp();
+  static const int kShowZhaDanBagRspFieldNumber = 3;
+  inline const ::CSShowZhaDanBagRsp& showzhadanbagrsp() const;
+  inline ::CSShowZhaDanBagRsp* mutable_showzhadanbagrsp();
+  inline ::CSShowZhaDanBagRsp* release_showzhadanbagrsp();
+  inline void set_allocated_showzhadanbagrsp(::CSShowZhaDanBagRsp* showzhadanbagrsp);
+
+  // @@protoc_insertion_point(class_scope:CSMateRspParam)
+ private:
+  inline void set_has_enterheroshowrsp();
+  inline void clear_has_enterheroshowrsp();
+  inline void set_has_senduserheroshowrsp();
+  inline void clear_has_senduserheroshowrsp();
+  inline void set_has_showzhadanbagrsp();
+  inline void clear_has_showzhadanbagrsp();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::CSEnterHeroShowRsp* enterheroshowrsp_;
+  ::CSSendUserHeroShowRsp* senduserheroshowrsp_;
+  ::CSShowZhaDanBagRsp* showzhadanbagrsp_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMateRspParam* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMateReq : public ::google::protobuf::Message {
+ public:
+  CSMateReq();
+  virtual ~CSMateReq();
+
+  CSMateReq(const CSMateReq& from);
+
+  inline CSMateReq& operator=(const CSMateReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMateReq& default_instance();
+
+  void Swap(CSMateReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMateReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMateReq& from);
+  void MergeFrom(const CSMateReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .CSMateCmd cmd = 1;
+  inline bool has_cmd() const;
+  inline void clear_cmd();
+  static const int kCmdFieldNumber = 1;
+  inline ::CSMateCmd cmd() const;
+  inline void set_cmd(::CSMateCmd value);
+
+  // optional .CSMateReqParam reqParam = 2;
+  inline bool has_reqparam() const;
+  inline void clear_reqparam();
+  static const int kReqParamFieldNumber = 2;
+  inline const ::CSMateReqParam& reqparam() const;
+  inline ::CSMateReqParam* mutable_reqparam();
+  inline ::CSMateReqParam* release_reqparam();
+  inline void set_allocated_reqparam(::CSMateReqParam* reqparam);
+
+  // @@protoc_insertion_point(class_scope:CSMateReq)
+ private:
+  inline void set_has_cmd();
+  inline void clear_has_cmd();
+  inline void set_has_reqparam();
+  inline void clear_has_reqparam();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::CSMateReqParam* reqparam_;
+  int cmd_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMateReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSMateRsp : public ::google::protobuf::Message {
+ public:
+  CSMateRsp();
+  virtual ~CSMateRsp();
+
+  CSMateRsp(const CSMateRsp& from);
+
+  inline CSMateRsp& operator=(const CSMateRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSMateRsp& default_instance();
+
+  void Swap(CSMateRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSMateRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSMateRsp& from);
+  void MergeFrom(const CSMateRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::google::protobuf::int32 result() const;
+  inline void set_result(::google::protobuf::int32 value);
+
+  // required .CSMateCmd cmd = 2;
+  inline bool has_cmd() const;
+  inline void clear_cmd();
+  static const int kCmdFieldNumber = 2;
+  inline ::CSMateCmd cmd() const;
+  inline void set_cmd(::CSMateCmd value);
+
+  // optional .CSMateRspParam rspParam = 3;
+  inline bool has_rspparam() const;
+  inline void clear_rspparam();
+  static const int kRspParamFieldNumber = 3;
+  inline const ::CSMateRspParam& rspparam() const;
+  inline ::CSMateRspParam* mutable_rspparam();
+  inline ::CSMateRspParam* release_rspparam();
+  inline void set_allocated_rspparam(::CSMateRspParam* rspparam);
+
+  // @@protoc_insertion_point(class_scope:CSMateRsp)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+  inline void set_has_cmd();
+  inline void clear_has_cmd();
+  inline void set_has_rspparam();
+  inline void clear_has_rspparam();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 result_;
+  int cmd_;
+  ::CSMateRspParam* rspparam_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSMateRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class CSMsgBody : public ::google::protobuf::Message {
  public:
   CSMsgBody();
@@ -5883,6 +8079,24 @@ class CSMsgBody : public ::google::protobuf::Message {
   inline ::CSChatRsp* release_chatrsp();
   inline void set_allocated_chatrsp(::CSChatRsp* chatrsp);
 
+  // optional .CSMateReq MateReq = 9;
+  inline bool has_matereq() const;
+  inline void clear_matereq();
+  static const int kMateReqFieldNumber = 9;
+  inline const ::CSMateReq& matereq() const;
+  inline ::CSMateReq* mutable_matereq();
+  inline ::CSMateReq* release_matereq();
+  inline void set_allocated_matereq(::CSMateReq* matereq);
+
+  // optional .CSMateRsp Matersp = 10;
+  inline bool has_matersp() const;
+  inline void clear_matersp();
+  static const int kMaterspFieldNumber = 10;
+  inline const ::CSMateRsp& matersp() const;
+  inline ::CSMateRsp* mutable_matersp();
+  inline ::CSMateRsp* release_matersp();
+  inline void set_allocated_matersp(::CSMateRsp* matersp);
+
   // @@protoc_insertion_point(class_scope:CSMsgBody)
  private:
   inline void set_has_registerloginreq();
@@ -5901,6 +8115,10 @@ class CSMsgBody : public ::google::protobuf::Message {
   inline void clear_has_chatreq();
   inline void set_has_chatrsp();
   inline void clear_has_chatrsp();
+  inline void set_has_matereq();
+  inline void clear_has_matereq();
+  inline void set_has_matersp();
+  inline void clear_has_matersp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -5912,9 +8130,11 @@ class CSMsgBody : public ::google::protobuf::Message {
   ::CSDecorateBagRsp* decoratebagrsp_;
   ::CSChatReq* chatreq_;
   ::CSChatRsp* chatrsp_;
+  ::CSMateReq* matereq_;
+  ::CSMateRsp* matersp_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
 
   friend void  protobuf_AddDesc_CSmsg_2eproto();
   friend void protobuf_AssignDesc_CSmsg_2eproto();
@@ -9696,6 +11916,32 @@ inline void CSMsgChangeStatusRsp::set_allocated_roleinfo(::CSMsgRoleInfo* rolein
 
 // -------------------------------------------------------------------
 
+// CSMsgConnectSuccessReq
+
+// optional uint64 uid = 1;
+inline bool CSMsgConnectSuccessReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMsgConnectSuccessReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMsgConnectSuccessReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMsgConnectSuccessReq::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSMsgConnectSuccessReq::uid() const {
+  return uid_;
+}
+inline void CSMsgConnectSuccessReq::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // CSChatReqParam
 
 // optional .CSMsgRegisterSuccessReq RegisterSuccessReq = 1;
@@ -10037,6 +12283,44 @@ inline void CSChatReqParam::set_allocated_changestatusreq(::CSMsgChangeStatusReq
     set_has_changestatusreq();
   } else {
     clear_has_changestatusreq();
+  }
+}
+
+// optional .CSMsgConnectSuccessReq ConnectSuccessReq = 10;
+inline bool CSChatReqParam::has_connectsuccessreq() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void CSChatReqParam::set_has_connectsuccessreq() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void CSChatReqParam::clear_has_connectsuccessreq() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void CSChatReqParam::clear_connectsuccessreq() {
+  if (connectsuccessreq_ != NULL) connectsuccessreq_->::CSMsgConnectSuccessReq::Clear();
+  clear_has_connectsuccessreq();
+}
+inline const ::CSMsgConnectSuccessReq& CSChatReqParam::connectsuccessreq() const {
+  return connectsuccessreq_ != NULL ? *connectsuccessreq_ : *default_instance_->connectsuccessreq_;
+}
+inline ::CSMsgConnectSuccessReq* CSChatReqParam::mutable_connectsuccessreq() {
+  set_has_connectsuccessreq();
+  if (connectsuccessreq_ == NULL) connectsuccessreq_ = new ::CSMsgConnectSuccessReq;
+  return connectsuccessreq_;
+}
+inline ::CSMsgConnectSuccessReq* CSChatReqParam::release_connectsuccessreq() {
+  clear_has_connectsuccessreq();
+  ::CSMsgConnectSuccessReq* temp = connectsuccessreq_;
+  connectsuccessreq_ = NULL;
+  return temp;
+}
+inline void CSChatReqParam::set_allocated_connectsuccessreq(::CSMsgConnectSuccessReq* connectsuccessreq) {
+  delete connectsuccessreq_;
+  connectsuccessreq_ = connectsuccessreq;
+  if (connectsuccessreq) {
+    set_has_connectsuccessreq();
+  } else {
+    clear_has_connectsuccessreq();
   }
 }
 
@@ -10540,6 +12824,1502 @@ inline void CSChatRsp::set_allocated_rspparam(::CSChatRspParam* rspparam) {
 
 // -------------------------------------------------------------------
 
+// CSMateFetchReq
+
+// optional uint64 uid = 1;
+inline bool CSMateFetchReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMateFetchReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMateFetchReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMateFetchReq::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSMateFetchReq::uid() const {
+  return uid_;
+}
+inline void CSMateFetchReq::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSQuitMateFetchReq
+
+// optional uint64 uid = 1;
+inline bool CSQuitMateFetchReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSQuitMateFetchReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSQuitMateFetchReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSQuitMateFetchReq::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSQuitMateFetchReq::uid() const {
+  return uid_;
+}
+inline void CSQuitMateFetchReq::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSNotButtonMateFetchReq
+
+// optional uint64 uid = 1;
+inline bool CSNotButtonMateFetchReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSNotButtonMateFetchReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSNotButtonMateFetchReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSNotButtonMateFetchReq::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSNotButtonMateFetchReq::uid() const {
+  return uid_;
+}
+inline void CSNotButtonMateFetchReq::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSSuccessButtonMateFetchReq
+
+// optional uint64 uid = 1;
+inline bool CSSuccessButtonMateFetchReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSSuccessButtonMateFetchReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSSuccessButtonMateFetchReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSSuccessButtonMateFetchReq::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSSuccessButtonMateFetchReq::uid() const {
+  return uid_;
+}
+inline void CSSuccessButtonMateFetchReq::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSShowHeroVipInfo
+
+// optional uint32 VipId = 1;
+inline bool CSShowHeroVipInfo::has_vipid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSShowHeroVipInfo::set_has_vipid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSShowHeroVipInfo::clear_has_vipid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSShowHeroVipInfo::clear_vipid() {
+  vipid_ = 0u;
+  clear_has_vipid();
+}
+inline ::google::protobuf::uint32 CSShowHeroVipInfo::vipid() const {
+  return vipid_;
+}
+inline void CSShowHeroVipInfo::set_vipid(::google::protobuf::uint32 value) {
+  set_has_vipid();
+  vipid_ = value;
+}
+
+// optional uint32 VipGrade = 2;
+inline bool CSShowHeroVipInfo::has_vipgrade() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSShowHeroVipInfo::set_has_vipgrade() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSShowHeroVipInfo::clear_has_vipgrade() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSShowHeroVipInfo::clear_vipgrade() {
+  vipgrade_ = 0u;
+  clear_has_vipgrade();
+}
+inline ::google::protobuf::uint32 CSShowHeroVipInfo::vipgrade() const {
+  return vipgrade_;
+}
+inline void CSShowHeroVipInfo::set_vipgrade(::google::protobuf::uint32 value) {
+  set_has_vipgrade();
+  vipgrade_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSShowHeroInfo
+
+// optional uint64 uid = 1;
+inline bool CSShowHeroInfo::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSShowHeroInfo::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSShowHeroInfo::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSShowHeroInfo::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSShowHeroInfo::uid() const {
+  return uid_;
+}
+inline void CSShowHeroInfo::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional uint32 VipID = 2;
+inline bool CSShowHeroInfo::has_vipid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSShowHeroInfo::set_has_vipid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSShowHeroInfo::clear_has_vipid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSShowHeroInfo::clear_vipid() {
+  vipid_ = 0u;
+  clear_has_vipid();
+}
+inline ::google::protobuf::uint32 CSShowHeroInfo::vipid() const {
+  return vipid_;
+}
+inline void CSShowHeroInfo::set_vipid(::google::protobuf::uint32 value) {
+  set_has_vipid();
+  vipid_ = value;
+}
+
+// optional uint32 VipGrade = 3;
+inline bool CSShowHeroInfo::has_vipgrade() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSShowHeroInfo::set_has_vipgrade() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSShowHeroInfo::clear_has_vipgrade() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSShowHeroInfo::clear_vipgrade() {
+  vipgrade_ = 0u;
+  clear_has_vipgrade();
+}
+inline ::google::protobuf::uint32 CSShowHeroInfo::vipgrade() const {
+  return vipgrade_;
+}
+inline void CSShowHeroInfo::set_vipgrade(::google::protobuf::uint32 value) {
+  set_has_vipgrade();
+  vipgrade_ = value;
+}
+
+// optional uint32 RoleGrade = 4;
+inline bool CSShowHeroInfo::has_rolegrade() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CSShowHeroInfo::set_has_rolegrade() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CSShowHeroInfo::clear_has_rolegrade() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CSShowHeroInfo::clear_rolegrade() {
+  rolegrade_ = 0u;
+  clear_has_rolegrade();
+}
+inline ::google::protobuf::uint32 CSShowHeroInfo::rolegrade() const {
+  return rolegrade_;
+}
+inline void CSShowHeroInfo::set_rolegrade(::google::protobuf::uint32 value) {
+  set_has_rolegrade();
+  rolegrade_ = value;
+}
+
+// optional uint32 RoleRank = 5;
+inline bool CSShowHeroInfo::has_rolerank() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void CSShowHeroInfo::set_has_rolerank() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void CSShowHeroInfo::clear_has_rolerank() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void CSShowHeroInfo::clear_rolerank() {
+  rolerank_ = 0u;
+  clear_has_rolerank();
+}
+inline ::google::protobuf::uint32 CSShowHeroInfo::rolerank() const {
+  return rolerank_;
+}
+inline void CSShowHeroInfo::set_rolerank(::google::protobuf::uint32 value) {
+  set_has_rolerank();
+  rolerank_ = value;
+}
+
+// optional uint32 RoleHeadType = 6;
+inline bool CSShowHeroInfo::has_roleheadtype() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void CSShowHeroInfo::set_has_roleheadtype() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void CSShowHeroInfo::clear_has_roleheadtype() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void CSShowHeroInfo::clear_roleheadtype() {
+  roleheadtype_ = 0u;
+  clear_has_roleheadtype();
+}
+inline ::google::protobuf::uint32 CSShowHeroInfo::roleheadtype() const {
+  return roleheadtype_;
+}
+inline void CSShowHeroInfo::set_roleheadtype(::google::protobuf::uint32 value) {
+  set_has_roleheadtype();
+  roleheadtype_ = value;
+}
+
+// optional string Name = 7;
+inline bool CSShowHeroInfo::has_name() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void CSShowHeroInfo::set_has_name() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void CSShowHeroInfo::clear_has_name() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void CSShowHeroInfo::clear_name() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    name_->clear();
+  }
+  clear_has_name();
+}
+inline const ::std::string& CSShowHeroInfo::name() const {
+  return *name_;
+}
+inline void CSShowHeroInfo::set_name(const ::std::string& value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void CSShowHeroInfo::set_name(const char* value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void CSShowHeroInfo::set_name(const char* value, size_t size) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CSShowHeroInfo::mutable_name() {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  return name_;
+}
+inline ::std::string* CSShowHeroInfo::release_name() {
+  clear_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = name_;
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CSShowHeroInfo::set_allocated_name(::std::string* name) {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (name) {
+    set_has_name();
+    name_ = name;
+  } else {
+    clear_has_name();
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSShowHeroInfoList
+
+// repeated .CSShowHeroInfo HeroInfoList = 1;
+inline int CSShowHeroInfoList::heroinfolist_size() const {
+  return heroinfolist_.size();
+}
+inline void CSShowHeroInfoList::clear_heroinfolist() {
+  heroinfolist_.Clear();
+}
+inline const ::CSShowHeroInfo& CSShowHeroInfoList::heroinfolist(int index) const {
+  return heroinfolist_.Get(index);
+}
+inline ::CSShowHeroInfo* CSShowHeroInfoList::mutable_heroinfolist(int index) {
+  return heroinfolist_.Mutable(index);
+}
+inline ::CSShowHeroInfo* CSShowHeroInfoList::add_heroinfolist() {
+  return heroinfolist_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::CSShowHeroInfo >&
+CSShowHeroInfoList::heroinfolist() const {
+  return heroinfolist_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::CSShowHeroInfo >*
+CSShowHeroInfoList::mutable_heroinfolist() {
+  return &heroinfolist_;
+}
+
+// -------------------------------------------------------------------
+
+// CSFeiJiBagList
+
+// repeated uint32 FeiJi = 1;
+inline int CSFeiJiBagList::feiji_size() const {
+  return feiji_.size();
+}
+inline void CSFeiJiBagList::clear_feiji() {
+  feiji_.Clear();
+}
+inline ::google::protobuf::uint32 CSFeiJiBagList::feiji(int index) const {
+  return feiji_.Get(index);
+}
+inline void CSFeiJiBagList::set_feiji(int index, ::google::protobuf::uint32 value) {
+  feiji_.Set(index, value);
+}
+inline void CSFeiJiBagList::add_feiji(::google::protobuf::uint32 value) {
+  feiji_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+CSFeiJiBagList::feiji() const {
+  return feiji_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+CSFeiJiBagList::mutable_feiji() {
+  return &feiji_;
+}
+
+// -------------------------------------------------------------------
+
+// CSZhaDanBagList
+
+// repeated uint32 ZhaDan = 1;
+inline int CSZhaDanBagList::zhadan_size() const {
+  return zhadan_.size();
+}
+inline void CSZhaDanBagList::clear_zhadan() {
+  zhadan_.Clear();
+}
+inline ::google::protobuf::uint32 CSZhaDanBagList::zhadan(int index) const {
+  return zhadan_.Get(index);
+}
+inline void CSZhaDanBagList::set_zhadan(int index, ::google::protobuf::uint32 value) {
+  zhadan_.Set(index, value);
+}
+inline void CSZhaDanBagList::add_zhadan(::google::protobuf::uint32 value) {
+  zhadan_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+CSZhaDanBagList::zhadan() const {
+  return zhadan_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+CSZhaDanBagList::mutable_zhadan() {
+  return &zhadan_;
+}
+
+// -------------------------------------------------------------------
+
+// CSFeiJiDiPanBagList
+
+// repeated uint32 FeiJiDiPan = 1;
+inline int CSFeiJiDiPanBagList::feijidipan_size() const {
+  return feijidipan_.size();
+}
+inline void CSFeiJiDiPanBagList::clear_feijidipan() {
+  feijidipan_.Clear();
+}
+inline ::google::protobuf::uint32 CSFeiJiDiPanBagList::feijidipan(int index) const {
+  return feijidipan_.Get(index);
+}
+inline void CSFeiJiDiPanBagList::set_feijidipan(int index, ::google::protobuf::uint32 value) {
+  feijidipan_.Set(index, value);
+}
+inline void CSFeiJiDiPanBagList::add_feijidipan(::google::protobuf::uint32 value) {
+  feijidipan_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+CSFeiJiDiPanBagList::feijidipan() const {
+  return feijidipan_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+CSFeiJiDiPanBagList::mutable_feijidipan() {
+  return &feijidipan_;
+}
+
+// -------------------------------------------------------------------
+
+// CSFeiJiSkillOneBagList
+
+// repeated uint32 FeiJiSkillOne = 1;
+inline int CSFeiJiSkillOneBagList::feijiskillone_size() const {
+  return feijiskillone_.size();
+}
+inline void CSFeiJiSkillOneBagList::clear_feijiskillone() {
+  feijiskillone_.Clear();
+}
+inline ::google::protobuf::uint32 CSFeiJiSkillOneBagList::feijiskillone(int index) const {
+  return feijiskillone_.Get(index);
+}
+inline void CSFeiJiSkillOneBagList::set_feijiskillone(int index, ::google::protobuf::uint32 value) {
+  feijiskillone_.Set(index, value);
+}
+inline void CSFeiJiSkillOneBagList::add_feijiskillone(::google::protobuf::uint32 value) {
+  feijiskillone_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+CSFeiJiSkillOneBagList::feijiskillone() const {
+  return feijiskillone_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+CSFeiJiSkillOneBagList::mutable_feijiskillone() {
+  return &feijiskillone_;
+}
+
+// -------------------------------------------------------------------
+
+// CSFeiJiSkillTwoBagList
+
+// repeated uint32 FeiJiSkillTwo = 1;
+inline int CSFeiJiSkillTwoBagList::feijiskilltwo_size() const {
+  return feijiskilltwo_.size();
+}
+inline void CSFeiJiSkillTwoBagList::clear_feijiskilltwo() {
+  feijiskilltwo_.Clear();
+}
+inline ::google::protobuf::uint32 CSFeiJiSkillTwoBagList::feijiskilltwo(int index) const {
+  return feijiskilltwo_.Get(index);
+}
+inline void CSFeiJiSkillTwoBagList::set_feijiskilltwo(int index, ::google::protobuf::uint32 value) {
+  feijiskilltwo_.Set(index, value);
+}
+inline void CSFeiJiSkillTwoBagList::add_feijiskilltwo(::google::protobuf::uint32 value) {
+  feijiskilltwo_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+CSFeiJiSkillTwoBagList::feijiskilltwo() const {
+  return feijiskilltwo_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+CSFeiJiSkillTwoBagList::mutable_feijiskilltwo() {
+  return &feijiskilltwo_;
+}
+
+// -------------------------------------------------------------------
+
+// CSEnterHeroShowRsp
+
+// optional .CSShowHeroVipInfo ShowHeroVipInfo = 1;
+inline bool CSEnterHeroShowRsp::has_showherovipinfo() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSEnterHeroShowRsp::set_has_showherovipinfo() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSEnterHeroShowRsp::clear_has_showherovipinfo() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSEnterHeroShowRsp::clear_showherovipinfo() {
+  if (showherovipinfo_ != NULL) showherovipinfo_->::CSShowHeroVipInfo::Clear();
+  clear_has_showherovipinfo();
+}
+inline const ::CSShowHeroVipInfo& CSEnterHeroShowRsp::showherovipinfo() const {
+  return showherovipinfo_ != NULL ? *showherovipinfo_ : *default_instance_->showherovipinfo_;
+}
+inline ::CSShowHeroVipInfo* CSEnterHeroShowRsp::mutable_showherovipinfo() {
+  set_has_showherovipinfo();
+  if (showherovipinfo_ == NULL) showherovipinfo_ = new ::CSShowHeroVipInfo;
+  return showherovipinfo_;
+}
+inline ::CSShowHeroVipInfo* CSEnterHeroShowRsp::release_showherovipinfo() {
+  clear_has_showherovipinfo();
+  ::CSShowHeroVipInfo* temp = showherovipinfo_;
+  showherovipinfo_ = NULL;
+  return temp;
+}
+inline void CSEnterHeroShowRsp::set_allocated_showherovipinfo(::CSShowHeroVipInfo* showherovipinfo) {
+  delete showherovipinfo_;
+  showherovipinfo_ = showherovipinfo;
+  if (showherovipinfo) {
+    set_has_showherovipinfo();
+  } else {
+    clear_has_showherovipinfo();
+  }
+}
+
+// optional .CSShowHeroInfoList HeroShow = 2;
+inline bool CSEnterHeroShowRsp::has_heroshow() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSEnterHeroShowRsp::set_has_heroshow() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSEnterHeroShowRsp::clear_has_heroshow() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSEnterHeroShowRsp::clear_heroshow() {
+  if (heroshow_ != NULL) heroshow_->::CSShowHeroInfoList::Clear();
+  clear_has_heroshow();
+}
+inline const ::CSShowHeroInfoList& CSEnterHeroShowRsp::heroshow() const {
+  return heroshow_ != NULL ? *heroshow_ : *default_instance_->heroshow_;
+}
+inline ::CSShowHeroInfoList* CSEnterHeroShowRsp::mutable_heroshow() {
+  set_has_heroshow();
+  if (heroshow_ == NULL) heroshow_ = new ::CSShowHeroInfoList;
+  return heroshow_;
+}
+inline ::CSShowHeroInfoList* CSEnterHeroShowRsp::release_heroshow() {
+  clear_has_heroshow();
+  ::CSShowHeroInfoList* temp = heroshow_;
+  heroshow_ = NULL;
+  return temp;
+}
+inline void CSEnterHeroShowRsp::set_allocated_heroshow(::CSShowHeroInfoList* heroshow) {
+  delete heroshow_;
+  heroshow_ = heroshow;
+  if (heroshow) {
+    set_has_heroshow();
+  } else {
+    clear_has_heroshow();
+  }
+}
+
+// optional .CSFeiJiBagList FeiJiBagList = 3;
+inline bool CSEnterHeroShowRsp::has_feijibaglist() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSEnterHeroShowRsp::set_has_feijibaglist() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSEnterHeroShowRsp::clear_has_feijibaglist() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSEnterHeroShowRsp::clear_feijibaglist() {
+  if (feijibaglist_ != NULL) feijibaglist_->::CSFeiJiBagList::Clear();
+  clear_has_feijibaglist();
+}
+inline const ::CSFeiJiBagList& CSEnterHeroShowRsp::feijibaglist() const {
+  return feijibaglist_ != NULL ? *feijibaglist_ : *default_instance_->feijibaglist_;
+}
+inline ::CSFeiJiBagList* CSEnterHeroShowRsp::mutable_feijibaglist() {
+  set_has_feijibaglist();
+  if (feijibaglist_ == NULL) feijibaglist_ = new ::CSFeiJiBagList;
+  return feijibaglist_;
+}
+inline ::CSFeiJiBagList* CSEnterHeroShowRsp::release_feijibaglist() {
+  clear_has_feijibaglist();
+  ::CSFeiJiBagList* temp = feijibaglist_;
+  feijibaglist_ = NULL;
+  return temp;
+}
+inline void CSEnterHeroShowRsp::set_allocated_feijibaglist(::CSFeiJiBagList* feijibaglist) {
+  delete feijibaglist_;
+  feijibaglist_ = feijibaglist;
+  if (feijibaglist) {
+    set_has_feijibaglist();
+  } else {
+    clear_has_feijibaglist();
+  }
+}
+
+// optional .CSZhaDanBagList ZhaDanBagList = 4;
+inline bool CSEnterHeroShowRsp::has_zhadanbaglist() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CSEnterHeroShowRsp::set_has_zhadanbaglist() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CSEnterHeroShowRsp::clear_has_zhadanbaglist() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CSEnterHeroShowRsp::clear_zhadanbaglist() {
+  if (zhadanbaglist_ != NULL) zhadanbaglist_->::CSZhaDanBagList::Clear();
+  clear_has_zhadanbaglist();
+}
+inline const ::CSZhaDanBagList& CSEnterHeroShowRsp::zhadanbaglist() const {
+  return zhadanbaglist_ != NULL ? *zhadanbaglist_ : *default_instance_->zhadanbaglist_;
+}
+inline ::CSZhaDanBagList* CSEnterHeroShowRsp::mutable_zhadanbaglist() {
+  set_has_zhadanbaglist();
+  if (zhadanbaglist_ == NULL) zhadanbaglist_ = new ::CSZhaDanBagList;
+  return zhadanbaglist_;
+}
+inline ::CSZhaDanBagList* CSEnterHeroShowRsp::release_zhadanbaglist() {
+  clear_has_zhadanbaglist();
+  ::CSZhaDanBagList* temp = zhadanbaglist_;
+  zhadanbaglist_ = NULL;
+  return temp;
+}
+inline void CSEnterHeroShowRsp::set_allocated_zhadanbaglist(::CSZhaDanBagList* zhadanbaglist) {
+  delete zhadanbaglist_;
+  zhadanbaglist_ = zhadanbaglist;
+  if (zhadanbaglist) {
+    set_has_zhadanbaglist();
+  } else {
+    clear_has_zhadanbaglist();
+  }
+}
+
+// optional .CSFeiJiDiPanBagList FeiJiDiPanBagList = 5;
+inline bool CSEnterHeroShowRsp::has_feijidipanbaglist() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void CSEnterHeroShowRsp::set_has_feijidipanbaglist() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void CSEnterHeroShowRsp::clear_has_feijidipanbaglist() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void CSEnterHeroShowRsp::clear_feijidipanbaglist() {
+  if (feijidipanbaglist_ != NULL) feijidipanbaglist_->::CSFeiJiDiPanBagList::Clear();
+  clear_has_feijidipanbaglist();
+}
+inline const ::CSFeiJiDiPanBagList& CSEnterHeroShowRsp::feijidipanbaglist() const {
+  return feijidipanbaglist_ != NULL ? *feijidipanbaglist_ : *default_instance_->feijidipanbaglist_;
+}
+inline ::CSFeiJiDiPanBagList* CSEnterHeroShowRsp::mutable_feijidipanbaglist() {
+  set_has_feijidipanbaglist();
+  if (feijidipanbaglist_ == NULL) feijidipanbaglist_ = new ::CSFeiJiDiPanBagList;
+  return feijidipanbaglist_;
+}
+inline ::CSFeiJiDiPanBagList* CSEnterHeroShowRsp::release_feijidipanbaglist() {
+  clear_has_feijidipanbaglist();
+  ::CSFeiJiDiPanBagList* temp = feijidipanbaglist_;
+  feijidipanbaglist_ = NULL;
+  return temp;
+}
+inline void CSEnterHeroShowRsp::set_allocated_feijidipanbaglist(::CSFeiJiDiPanBagList* feijidipanbaglist) {
+  delete feijidipanbaglist_;
+  feijidipanbaglist_ = feijidipanbaglist;
+  if (feijidipanbaglist) {
+    set_has_feijidipanbaglist();
+  } else {
+    clear_has_feijidipanbaglist();
+  }
+}
+
+// optional .CSFeiJiSkillOneBagList FeiJiSkillOneBagList = 6;
+inline bool CSEnterHeroShowRsp::has_feijiskillonebaglist() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void CSEnterHeroShowRsp::set_has_feijiskillonebaglist() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void CSEnterHeroShowRsp::clear_has_feijiskillonebaglist() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void CSEnterHeroShowRsp::clear_feijiskillonebaglist() {
+  if (feijiskillonebaglist_ != NULL) feijiskillonebaglist_->::CSFeiJiSkillOneBagList::Clear();
+  clear_has_feijiskillonebaglist();
+}
+inline const ::CSFeiJiSkillOneBagList& CSEnterHeroShowRsp::feijiskillonebaglist() const {
+  return feijiskillonebaglist_ != NULL ? *feijiskillonebaglist_ : *default_instance_->feijiskillonebaglist_;
+}
+inline ::CSFeiJiSkillOneBagList* CSEnterHeroShowRsp::mutable_feijiskillonebaglist() {
+  set_has_feijiskillonebaglist();
+  if (feijiskillonebaglist_ == NULL) feijiskillonebaglist_ = new ::CSFeiJiSkillOneBagList;
+  return feijiskillonebaglist_;
+}
+inline ::CSFeiJiSkillOneBagList* CSEnterHeroShowRsp::release_feijiskillonebaglist() {
+  clear_has_feijiskillonebaglist();
+  ::CSFeiJiSkillOneBagList* temp = feijiskillonebaglist_;
+  feijiskillonebaglist_ = NULL;
+  return temp;
+}
+inline void CSEnterHeroShowRsp::set_allocated_feijiskillonebaglist(::CSFeiJiSkillOneBagList* feijiskillonebaglist) {
+  delete feijiskillonebaglist_;
+  feijiskillonebaglist_ = feijiskillonebaglist;
+  if (feijiskillonebaglist) {
+    set_has_feijiskillonebaglist();
+  } else {
+    clear_has_feijiskillonebaglist();
+  }
+}
+
+// optional .CSFeiJiSkillTwoBagList FeiJiSkillTwoBagList = 7;
+inline bool CSEnterHeroShowRsp::has_feijiskilltwobaglist() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void CSEnterHeroShowRsp::set_has_feijiskilltwobaglist() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void CSEnterHeroShowRsp::clear_has_feijiskilltwobaglist() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void CSEnterHeroShowRsp::clear_feijiskilltwobaglist() {
+  if (feijiskilltwobaglist_ != NULL) feijiskilltwobaglist_->::CSFeiJiSkillTwoBagList::Clear();
+  clear_has_feijiskilltwobaglist();
+}
+inline const ::CSFeiJiSkillTwoBagList& CSEnterHeroShowRsp::feijiskilltwobaglist() const {
+  return feijiskilltwobaglist_ != NULL ? *feijiskilltwobaglist_ : *default_instance_->feijiskilltwobaglist_;
+}
+inline ::CSFeiJiSkillTwoBagList* CSEnterHeroShowRsp::mutable_feijiskilltwobaglist() {
+  set_has_feijiskilltwobaglist();
+  if (feijiskilltwobaglist_ == NULL) feijiskilltwobaglist_ = new ::CSFeiJiSkillTwoBagList;
+  return feijiskilltwobaglist_;
+}
+inline ::CSFeiJiSkillTwoBagList* CSEnterHeroShowRsp::release_feijiskilltwobaglist() {
+  clear_has_feijiskilltwobaglist();
+  ::CSFeiJiSkillTwoBagList* temp = feijiskilltwobaglist_;
+  feijiskilltwobaglist_ = NULL;
+  return temp;
+}
+inline void CSEnterHeroShowRsp::set_allocated_feijiskilltwobaglist(::CSFeiJiSkillTwoBagList* feijiskilltwobaglist) {
+  delete feijiskilltwobaglist_;
+  feijiskilltwobaglist_ = feijiskilltwobaglist;
+  if (feijiskilltwobaglist) {
+    set_has_feijiskilltwobaglist();
+  } else {
+    clear_has_feijiskilltwobaglist();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSEnterHeroShowBagReq
+
+// optional uint64 Uid = 1;
+inline bool CSEnterHeroShowBagReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSEnterHeroShowBagReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSEnterHeroShowBagReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSEnterHeroShowBagReq::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSEnterHeroShowBagReq::uid() const {
+  return uid_;
+}
+inline void CSEnterHeroShowBagReq::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional uint32 DecorateBagType = 2;
+inline bool CSEnterHeroShowBagReq::has_decoratebagtype() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSEnterHeroShowBagReq::set_has_decoratebagtype() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSEnterHeroShowBagReq::clear_has_decoratebagtype() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSEnterHeroShowBagReq::clear_decoratebagtype() {
+  decoratebagtype_ = 0u;
+  clear_has_decoratebagtype();
+}
+inline ::google::protobuf::uint32 CSEnterHeroShowBagReq::decoratebagtype() const {
+  return decoratebagtype_;
+}
+inline void CSEnterHeroShowBagReq::set_decoratebagtype(::google::protobuf::uint32 value) {
+  set_has_decoratebagtype();
+  decoratebagtype_ = value;
+}
+
+// optional uint32 Id = 3;
+inline bool CSEnterHeroShowBagReq::has_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSEnterHeroShowBagReq::set_has_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSEnterHeroShowBagReq::clear_has_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSEnterHeroShowBagReq::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+inline ::google::protobuf::uint32 CSEnterHeroShowBagReq::id() const {
+  return id_;
+}
+inline void CSEnterHeroShowBagReq::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSSendUserHeroShowRsp
+
+// optional uint64 Uid = 1;
+inline bool CSSendUserHeroShowRsp::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSSendUserHeroShowRsp::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSSendUserHeroShowRsp::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSSendUserHeroShowRsp::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSSendUserHeroShowRsp::uid() const {
+  return uid_;
+}
+inline void CSSendUserHeroShowRsp::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional uint32 ZhadanId = 2;
+inline bool CSSendUserHeroShowRsp::has_zhadanid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSSendUserHeroShowRsp::set_has_zhadanid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSSendUserHeroShowRsp::clear_has_zhadanid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSSendUserHeroShowRsp::clear_zhadanid() {
+  zhadanid_ = 0u;
+  clear_has_zhadanid();
+}
+inline ::google::protobuf::uint32 CSSendUserHeroShowRsp::zhadanid() const {
+  return zhadanid_;
+}
+inline void CSSendUserHeroShowRsp::set_zhadanid(::google::protobuf::uint32 value) {
+  set_has_zhadanid();
+  zhadanid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSShowZhaDanBagReq
+
+// optional uint64 Uid = 1;
+inline bool CSShowZhaDanBagReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSShowZhaDanBagReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSShowZhaDanBagReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSShowZhaDanBagReq::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSShowZhaDanBagReq::uid() const {
+  return uid_;
+}
+inline void CSShowZhaDanBagReq::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional uint32 ZhadanId = 2;
+inline bool CSShowZhaDanBagReq::has_zhadanid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSShowZhaDanBagReq::set_has_zhadanid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSShowZhaDanBagReq::clear_has_zhadanid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSShowZhaDanBagReq::clear_zhadanid() {
+  zhadanid_ = 0u;
+  clear_has_zhadanid();
+}
+inline ::google::protobuf::uint32 CSShowZhaDanBagReq::zhadanid() const {
+  return zhadanid_;
+}
+inline void CSShowZhaDanBagReq::set_zhadanid(::google::protobuf::uint32 value) {
+  set_has_zhadanid();
+  zhadanid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSShowZhaDanBagRsp
+
+// optional uint32 ZhadanId = 1;
+inline bool CSShowZhaDanBagRsp::has_zhadanid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSShowZhaDanBagRsp::set_has_zhadanid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSShowZhaDanBagRsp::clear_has_zhadanid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSShowZhaDanBagRsp::clear_zhadanid() {
+  zhadanid_ = 0u;
+  clear_has_zhadanid();
+}
+inline ::google::protobuf::uint32 CSShowZhaDanBagRsp::zhadanid() const {
+  return zhadanid_;
+}
+inline void CSShowZhaDanBagRsp::set_zhadanid(::google::protobuf::uint32 value) {
+  set_has_zhadanid();
+  zhadanid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSMateReqParam
+
+// optional .CSMateFetchReq MateFetchReq = 1;
+inline bool CSMateReqParam::has_matefetchreq() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMateReqParam::set_has_matefetchreq() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMateReqParam::clear_has_matefetchreq() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMateReqParam::clear_matefetchreq() {
+  if (matefetchreq_ != NULL) matefetchreq_->::CSMateFetchReq::Clear();
+  clear_has_matefetchreq();
+}
+inline const ::CSMateFetchReq& CSMateReqParam::matefetchreq() const {
+  return matefetchreq_ != NULL ? *matefetchreq_ : *default_instance_->matefetchreq_;
+}
+inline ::CSMateFetchReq* CSMateReqParam::mutable_matefetchreq() {
+  set_has_matefetchreq();
+  if (matefetchreq_ == NULL) matefetchreq_ = new ::CSMateFetchReq;
+  return matefetchreq_;
+}
+inline ::CSMateFetchReq* CSMateReqParam::release_matefetchreq() {
+  clear_has_matefetchreq();
+  ::CSMateFetchReq* temp = matefetchreq_;
+  matefetchreq_ = NULL;
+  return temp;
+}
+inline void CSMateReqParam::set_allocated_matefetchreq(::CSMateFetchReq* matefetchreq) {
+  delete matefetchreq_;
+  matefetchreq_ = matefetchreq;
+  if (matefetchreq) {
+    set_has_matefetchreq();
+  } else {
+    clear_has_matefetchreq();
+  }
+}
+
+// optional .CSQuitMateFetchReq QuitMateFetchReq = 2;
+inline bool CSMateReqParam::has_quitmatefetchreq() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSMateReqParam::set_has_quitmatefetchreq() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSMateReqParam::clear_has_quitmatefetchreq() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSMateReqParam::clear_quitmatefetchreq() {
+  if (quitmatefetchreq_ != NULL) quitmatefetchreq_->::CSQuitMateFetchReq::Clear();
+  clear_has_quitmatefetchreq();
+}
+inline const ::CSQuitMateFetchReq& CSMateReqParam::quitmatefetchreq() const {
+  return quitmatefetchreq_ != NULL ? *quitmatefetchreq_ : *default_instance_->quitmatefetchreq_;
+}
+inline ::CSQuitMateFetchReq* CSMateReqParam::mutable_quitmatefetchreq() {
+  set_has_quitmatefetchreq();
+  if (quitmatefetchreq_ == NULL) quitmatefetchreq_ = new ::CSQuitMateFetchReq;
+  return quitmatefetchreq_;
+}
+inline ::CSQuitMateFetchReq* CSMateReqParam::release_quitmatefetchreq() {
+  clear_has_quitmatefetchreq();
+  ::CSQuitMateFetchReq* temp = quitmatefetchreq_;
+  quitmatefetchreq_ = NULL;
+  return temp;
+}
+inline void CSMateReqParam::set_allocated_quitmatefetchreq(::CSQuitMateFetchReq* quitmatefetchreq) {
+  delete quitmatefetchreq_;
+  quitmatefetchreq_ = quitmatefetchreq;
+  if (quitmatefetchreq) {
+    set_has_quitmatefetchreq();
+  } else {
+    clear_has_quitmatefetchreq();
+  }
+}
+
+// optional .CSNotButtonMateFetchReq NotButtonMateFetchReq = 3;
+inline bool CSMateReqParam::has_notbuttonmatefetchreq() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSMateReqParam::set_has_notbuttonmatefetchreq() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSMateReqParam::clear_has_notbuttonmatefetchreq() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSMateReqParam::clear_notbuttonmatefetchreq() {
+  if (notbuttonmatefetchreq_ != NULL) notbuttonmatefetchreq_->::CSNotButtonMateFetchReq::Clear();
+  clear_has_notbuttonmatefetchreq();
+}
+inline const ::CSNotButtonMateFetchReq& CSMateReqParam::notbuttonmatefetchreq() const {
+  return notbuttonmatefetchreq_ != NULL ? *notbuttonmatefetchreq_ : *default_instance_->notbuttonmatefetchreq_;
+}
+inline ::CSNotButtonMateFetchReq* CSMateReqParam::mutable_notbuttonmatefetchreq() {
+  set_has_notbuttonmatefetchreq();
+  if (notbuttonmatefetchreq_ == NULL) notbuttonmatefetchreq_ = new ::CSNotButtonMateFetchReq;
+  return notbuttonmatefetchreq_;
+}
+inline ::CSNotButtonMateFetchReq* CSMateReqParam::release_notbuttonmatefetchreq() {
+  clear_has_notbuttonmatefetchreq();
+  ::CSNotButtonMateFetchReq* temp = notbuttonmatefetchreq_;
+  notbuttonmatefetchreq_ = NULL;
+  return temp;
+}
+inline void CSMateReqParam::set_allocated_notbuttonmatefetchreq(::CSNotButtonMateFetchReq* notbuttonmatefetchreq) {
+  delete notbuttonmatefetchreq_;
+  notbuttonmatefetchreq_ = notbuttonmatefetchreq;
+  if (notbuttonmatefetchreq) {
+    set_has_notbuttonmatefetchreq();
+  } else {
+    clear_has_notbuttonmatefetchreq();
+  }
+}
+
+// optional .CSSuccessButtonMateFetchReq SuccessButtonMateFetchReq = 4;
+inline bool CSMateReqParam::has_successbuttonmatefetchreq() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CSMateReqParam::set_has_successbuttonmatefetchreq() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CSMateReqParam::clear_has_successbuttonmatefetchreq() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CSMateReqParam::clear_successbuttonmatefetchreq() {
+  if (successbuttonmatefetchreq_ != NULL) successbuttonmatefetchreq_->::CSSuccessButtonMateFetchReq::Clear();
+  clear_has_successbuttonmatefetchreq();
+}
+inline const ::CSSuccessButtonMateFetchReq& CSMateReqParam::successbuttonmatefetchreq() const {
+  return successbuttonmatefetchreq_ != NULL ? *successbuttonmatefetchreq_ : *default_instance_->successbuttonmatefetchreq_;
+}
+inline ::CSSuccessButtonMateFetchReq* CSMateReqParam::mutable_successbuttonmatefetchreq() {
+  set_has_successbuttonmatefetchreq();
+  if (successbuttonmatefetchreq_ == NULL) successbuttonmatefetchreq_ = new ::CSSuccessButtonMateFetchReq;
+  return successbuttonmatefetchreq_;
+}
+inline ::CSSuccessButtonMateFetchReq* CSMateReqParam::release_successbuttonmatefetchreq() {
+  clear_has_successbuttonmatefetchreq();
+  ::CSSuccessButtonMateFetchReq* temp = successbuttonmatefetchreq_;
+  successbuttonmatefetchreq_ = NULL;
+  return temp;
+}
+inline void CSMateReqParam::set_allocated_successbuttonmatefetchreq(::CSSuccessButtonMateFetchReq* successbuttonmatefetchreq) {
+  delete successbuttonmatefetchreq_;
+  successbuttonmatefetchreq_ = successbuttonmatefetchreq;
+  if (successbuttonmatefetchreq) {
+    set_has_successbuttonmatefetchreq();
+  } else {
+    clear_has_successbuttonmatefetchreq();
+  }
+}
+
+// optional .CSEnterHeroShowBagReq EnterHeroShowBagReq = 5;
+inline bool CSMateReqParam::has_enterheroshowbagreq() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void CSMateReqParam::set_has_enterheroshowbagreq() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void CSMateReqParam::clear_has_enterheroshowbagreq() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void CSMateReqParam::clear_enterheroshowbagreq() {
+  if (enterheroshowbagreq_ != NULL) enterheroshowbagreq_->::CSEnterHeroShowBagReq::Clear();
+  clear_has_enterheroshowbagreq();
+}
+inline const ::CSEnterHeroShowBagReq& CSMateReqParam::enterheroshowbagreq() const {
+  return enterheroshowbagreq_ != NULL ? *enterheroshowbagreq_ : *default_instance_->enterheroshowbagreq_;
+}
+inline ::CSEnterHeroShowBagReq* CSMateReqParam::mutable_enterheroshowbagreq() {
+  set_has_enterheroshowbagreq();
+  if (enterheroshowbagreq_ == NULL) enterheroshowbagreq_ = new ::CSEnterHeroShowBagReq;
+  return enterheroshowbagreq_;
+}
+inline ::CSEnterHeroShowBagReq* CSMateReqParam::release_enterheroshowbagreq() {
+  clear_has_enterheroshowbagreq();
+  ::CSEnterHeroShowBagReq* temp = enterheroshowbagreq_;
+  enterheroshowbagreq_ = NULL;
+  return temp;
+}
+inline void CSMateReqParam::set_allocated_enterheroshowbagreq(::CSEnterHeroShowBagReq* enterheroshowbagreq) {
+  delete enterheroshowbagreq_;
+  enterheroshowbagreq_ = enterheroshowbagreq;
+  if (enterheroshowbagreq) {
+    set_has_enterheroshowbagreq();
+  } else {
+    clear_has_enterheroshowbagreq();
+  }
+}
+
+// optional .CSShowZhaDanBagReq ShowZhaDanBagReq = 6;
+inline bool CSMateReqParam::has_showzhadanbagreq() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void CSMateReqParam::set_has_showzhadanbagreq() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void CSMateReqParam::clear_has_showzhadanbagreq() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void CSMateReqParam::clear_showzhadanbagreq() {
+  if (showzhadanbagreq_ != NULL) showzhadanbagreq_->::CSShowZhaDanBagReq::Clear();
+  clear_has_showzhadanbagreq();
+}
+inline const ::CSShowZhaDanBagReq& CSMateReqParam::showzhadanbagreq() const {
+  return showzhadanbagreq_ != NULL ? *showzhadanbagreq_ : *default_instance_->showzhadanbagreq_;
+}
+inline ::CSShowZhaDanBagReq* CSMateReqParam::mutable_showzhadanbagreq() {
+  set_has_showzhadanbagreq();
+  if (showzhadanbagreq_ == NULL) showzhadanbagreq_ = new ::CSShowZhaDanBagReq;
+  return showzhadanbagreq_;
+}
+inline ::CSShowZhaDanBagReq* CSMateReqParam::release_showzhadanbagreq() {
+  clear_has_showzhadanbagreq();
+  ::CSShowZhaDanBagReq* temp = showzhadanbagreq_;
+  showzhadanbagreq_ = NULL;
+  return temp;
+}
+inline void CSMateReqParam::set_allocated_showzhadanbagreq(::CSShowZhaDanBagReq* showzhadanbagreq) {
+  delete showzhadanbagreq_;
+  showzhadanbagreq_ = showzhadanbagreq;
+  if (showzhadanbagreq) {
+    set_has_showzhadanbagreq();
+  } else {
+    clear_has_showzhadanbagreq();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSMateRspParam
+
+// optional .CSEnterHeroShowRsp EnterHeroShowRsp = 1;
+inline bool CSMateRspParam::has_enterheroshowrsp() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMateRspParam::set_has_enterheroshowrsp() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMateRspParam::clear_has_enterheroshowrsp() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMateRspParam::clear_enterheroshowrsp() {
+  if (enterheroshowrsp_ != NULL) enterheroshowrsp_->::CSEnterHeroShowRsp::Clear();
+  clear_has_enterheroshowrsp();
+}
+inline const ::CSEnterHeroShowRsp& CSMateRspParam::enterheroshowrsp() const {
+  return enterheroshowrsp_ != NULL ? *enterheroshowrsp_ : *default_instance_->enterheroshowrsp_;
+}
+inline ::CSEnterHeroShowRsp* CSMateRspParam::mutable_enterheroshowrsp() {
+  set_has_enterheroshowrsp();
+  if (enterheroshowrsp_ == NULL) enterheroshowrsp_ = new ::CSEnterHeroShowRsp;
+  return enterheroshowrsp_;
+}
+inline ::CSEnterHeroShowRsp* CSMateRspParam::release_enterheroshowrsp() {
+  clear_has_enterheroshowrsp();
+  ::CSEnterHeroShowRsp* temp = enterheroshowrsp_;
+  enterheroshowrsp_ = NULL;
+  return temp;
+}
+inline void CSMateRspParam::set_allocated_enterheroshowrsp(::CSEnterHeroShowRsp* enterheroshowrsp) {
+  delete enterheroshowrsp_;
+  enterheroshowrsp_ = enterheroshowrsp;
+  if (enterheroshowrsp) {
+    set_has_enterheroshowrsp();
+  } else {
+    clear_has_enterheroshowrsp();
+  }
+}
+
+// optional .CSSendUserHeroShowRsp SendUserHeroShowRsp = 2;
+inline bool CSMateRspParam::has_senduserheroshowrsp() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSMateRspParam::set_has_senduserheroshowrsp() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSMateRspParam::clear_has_senduserheroshowrsp() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSMateRspParam::clear_senduserheroshowrsp() {
+  if (senduserheroshowrsp_ != NULL) senduserheroshowrsp_->::CSSendUserHeroShowRsp::Clear();
+  clear_has_senduserheroshowrsp();
+}
+inline const ::CSSendUserHeroShowRsp& CSMateRspParam::senduserheroshowrsp() const {
+  return senduserheroshowrsp_ != NULL ? *senduserheroshowrsp_ : *default_instance_->senduserheroshowrsp_;
+}
+inline ::CSSendUserHeroShowRsp* CSMateRspParam::mutable_senduserheroshowrsp() {
+  set_has_senduserheroshowrsp();
+  if (senduserheroshowrsp_ == NULL) senduserheroshowrsp_ = new ::CSSendUserHeroShowRsp;
+  return senduserheroshowrsp_;
+}
+inline ::CSSendUserHeroShowRsp* CSMateRspParam::release_senduserheroshowrsp() {
+  clear_has_senduserheroshowrsp();
+  ::CSSendUserHeroShowRsp* temp = senduserheroshowrsp_;
+  senduserheroshowrsp_ = NULL;
+  return temp;
+}
+inline void CSMateRspParam::set_allocated_senduserheroshowrsp(::CSSendUserHeroShowRsp* senduserheroshowrsp) {
+  delete senduserheroshowrsp_;
+  senduserheroshowrsp_ = senduserheroshowrsp;
+  if (senduserheroshowrsp) {
+    set_has_senduserheroshowrsp();
+  } else {
+    clear_has_senduserheroshowrsp();
+  }
+}
+
+// optional .CSShowZhaDanBagRsp ShowZhaDanBagRsp = 3;
+inline bool CSMateRspParam::has_showzhadanbagrsp() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSMateRspParam::set_has_showzhadanbagrsp() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSMateRspParam::clear_has_showzhadanbagrsp() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSMateRspParam::clear_showzhadanbagrsp() {
+  if (showzhadanbagrsp_ != NULL) showzhadanbagrsp_->::CSShowZhaDanBagRsp::Clear();
+  clear_has_showzhadanbagrsp();
+}
+inline const ::CSShowZhaDanBagRsp& CSMateRspParam::showzhadanbagrsp() const {
+  return showzhadanbagrsp_ != NULL ? *showzhadanbagrsp_ : *default_instance_->showzhadanbagrsp_;
+}
+inline ::CSShowZhaDanBagRsp* CSMateRspParam::mutable_showzhadanbagrsp() {
+  set_has_showzhadanbagrsp();
+  if (showzhadanbagrsp_ == NULL) showzhadanbagrsp_ = new ::CSShowZhaDanBagRsp;
+  return showzhadanbagrsp_;
+}
+inline ::CSShowZhaDanBagRsp* CSMateRspParam::release_showzhadanbagrsp() {
+  clear_has_showzhadanbagrsp();
+  ::CSShowZhaDanBagRsp* temp = showzhadanbagrsp_;
+  showzhadanbagrsp_ = NULL;
+  return temp;
+}
+inline void CSMateRspParam::set_allocated_showzhadanbagrsp(::CSShowZhaDanBagRsp* showzhadanbagrsp) {
+  delete showzhadanbagrsp_;
+  showzhadanbagrsp_ = showzhadanbagrsp;
+  if (showzhadanbagrsp) {
+    set_has_showzhadanbagrsp();
+  } else {
+    clear_has_showzhadanbagrsp();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSMateReq
+
+// required .CSMateCmd cmd = 1;
+inline bool CSMateReq::has_cmd() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMateReq::set_has_cmd() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMateReq::clear_has_cmd() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMateReq::clear_cmd() {
+  cmd_ = 1;
+  clear_has_cmd();
+}
+inline ::CSMateCmd CSMateReq::cmd() const {
+  return static_cast< ::CSMateCmd >(cmd_);
+}
+inline void CSMateReq::set_cmd(::CSMateCmd value) {
+  assert(::CSMateCmd_IsValid(value));
+  set_has_cmd();
+  cmd_ = value;
+}
+
+// optional .CSMateReqParam reqParam = 2;
+inline bool CSMateReq::has_reqparam() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSMateReq::set_has_reqparam() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSMateReq::clear_has_reqparam() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSMateReq::clear_reqparam() {
+  if (reqparam_ != NULL) reqparam_->::CSMateReqParam::Clear();
+  clear_has_reqparam();
+}
+inline const ::CSMateReqParam& CSMateReq::reqparam() const {
+  return reqparam_ != NULL ? *reqparam_ : *default_instance_->reqparam_;
+}
+inline ::CSMateReqParam* CSMateReq::mutable_reqparam() {
+  set_has_reqparam();
+  if (reqparam_ == NULL) reqparam_ = new ::CSMateReqParam;
+  return reqparam_;
+}
+inline ::CSMateReqParam* CSMateReq::release_reqparam() {
+  clear_has_reqparam();
+  ::CSMateReqParam* temp = reqparam_;
+  reqparam_ = NULL;
+  return temp;
+}
+inline void CSMateReq::set_allocated_reqparam(::CSMateReqParam* reqparam) {
+  delete reqparam_;
+  reqparam_ = reqparam;
+  if (reqparam) {
+    set_has_reqparam();
+  } else {
+    clear_has_reqparam();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CSMateRsp
+
+// optional int32 result = 1;
+inline bool CSMateRsp::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSMateRsp::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSMateRsp::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSMateRsp::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::google::protobuf::int32 CSMateRsp::result() const {
+  return result_;
+}
+inline void CSMateRsp::set_result(::google::protobuf::int32 value) {
+  set_has_result();
+  result_ = value;
+}
+
+// required .CSMateCmd cmd = 2;
+inline bool CSMateRsp::has_cmd() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSMateRsp::set_has_cmd() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSMateRsp::clear_has_cmd() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSMateRsp::clear_cmd() {
+  cmd_ = 1;
+  clear_has_cmd();
+}
+inline ::CSMateCmd CSMateRsp::cmd() const {
+  return static_cast< ::CSMateCmd >(cmd_);
+}
+inline void CSMateRsp::set_cmd(::CSMateCmd value) {
+  assert(::CSMateCmd_IsValid(value));
+  set_has_cmd();
+  cmd_ = value;
+}
+
+// optional .CSMateRspParam rspParam = 3;
+inline bool CSMateRsp::has_rspparam() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSMateRsp::set_has_rspparam() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSMateRsp::clear_has_rspparam() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSMateRsp::clear_rspparam() {
+  if (rspparam_ != NULL) rspparam_->::CSMateRspParam::Clear();
+  clear_has_rspparam();
+}
+inline const ::CSMateRspParam& CSMateRsp::rspparam() const {
+  return rspparam_ != NULL ? *rspparam_ : *default_instance_->rspparam_;
+}
+inline ::CSMateRspParam* CSMateRsp::mutable_rspparam() {
+  set_has_rspparam();
+  if (rspparam_ == NULL) rspparam_ = new ::CSMateRspParam;
+  return rspparam_;
+}
+inline ::CSMateRspParam* CSMateRsp::release_rspparam() {
+  clear_has_rspparam();
+  ::CSMateRspParam* temp = rspparam_;
+  rspparam_ = NULL;
+  return temp;
+}
+inline void CSMateRsp::set_allocated_rspparam(::CSMateRspParam* rspparam) {
+  delete rspparam_;
+  rspparam_ = rspparam;
+  if (rspparam) {
+    set_has_rspparam();
+  } else {
+    clear_has_rspparam();
+  }
+}
+
+// -------------------------------------------------------------------
+
 // CSMsgBody
 
 // optional .CSRegisterLoginReq RegisterLoginReq = 1;
@@ -10846,6 +14626,82 @@ inline void CSMsgBody::set_allocated_chatrsp(::CSChatRsp* chatrsp) {
   }
 }
 
+// optional .CSMateReq MateReq = 9;
+inline bool CSMsgBody::has_matereq() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void CSMsgBody::set_has_matereq() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void CSMsgBody::clear_has_matereq() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void CSMsgBody::clear_matereq() {
+  if (matereq_ != NULL) matereq_->::CSMateReq::Clear();
+  clear_has_matereq();
+}
+inline const ::CSMateReq& CSMsgBody::matereq() const {
+  return matereq_ != NULL ? *matereq_ : *default_instance_->matereq_;
+}
+inline ::CSMateReq* CSMsgBody::mutable_matereq() {
+  set_has_matereq();
+  if (matereq_ == NULL) matereq_ = new ::CSMateReq;
+  return matereq_;
+}
+inline ::CSMateReq* CSMsgBody::release_matereq() {
+  clear_has_matereq();
+  ::CSMateReq* temp = matereq_;
+  matereq_ = NULL;
+  return temp;
+}
+inline void CSMsgBody::set_allocated_matereq(::CSMateReq* matereq) {
+  delete matereq_;
+  matereq_ = matereq;
+  if (matereq) {
+    set_has_matereq();
+  } else {
+    clear_has_matereq();
+  }
+}
+
+// optional .CSMateRsp Matersp = 10;
+inline bool CSMsgBody::has_matersp() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void CSMsgBody::set_has_matersp() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void CSMsgBody::clear_has_matersp() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void CSMsgBody::clear_matersp() {
+  if (matersp_ != NULL) matersp_->::CSMateRsp::Clear();
+  clear_has_matersp();
+}
+inline const ::CSMateRsp& CSMsgBody::matersp() const {
+  return matersp_ != NULL ? *matersp_ : *default_instance_->matersp_;
+}
+inline ::CSMateRsp* CSMsgBody::mutable_matersp() {
+  set_has_matersp();
+  if (matersp_ == NULL) matersp_ = new ::CSMateRsp;
+  return matersp_;
+}
+inline ::CSMateRsp* CSMsgBody::release_matersp() {
+  clear_has_matersp();
+  ::CSMateRsp* temp = matersp_;
+  matersp_ = NULL;
+  return temp;
+}
+inline void CSMsgBody::set_allocated_matersp(::CSMateRsp* matersp) {
+  delete matersp_;
+  matersp_ = matersp;
+  if (matersp) {
+    set_has_matersp();
+  } else {
+    clear_has_matersp();
+  }
+}
+
 // -------------------------------------------------------------------
 
 // CSMsgHead
@@ -10997,6 +14853,10 @@ inline const EnumDescriptor* GetEnumDescriptor< ::CSDecorateBagCmd>() {
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::CSChatCmd>() {
   return ::CSChatCmd_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::CSMateCmd>() {
+  return ::CSMateCmd_descriptor();
 }
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::CSMsgID>() {
