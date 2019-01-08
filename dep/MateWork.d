@@ -5,4 +5,4 @@
 /home/wuxuewu/fuwuqi/link_obj/ ../pro.o /home/wuxuewu/fuwuqi/dep/MateWork.d:/SSmsg.pb.h MateHandler.hpp Handler.hpp TimeEvent.hpp \
 /home/wuxuewu/fuwuqi/link_obj/ DecorateBagHandler.hpp logicconfigmanager.hpp mingcheng.o /home/wuxuewu/fuwuqi/dep/MateWork.d:nfig.hpp \
 /home/wuxuewu/fuwuqi/link_obj/ xmlnodeconfig.hpp tinystr.hpp tinyxml.hpp server.o /home/wuxuewu/fuwuqi/dep/MateWork.d:nfig.hpp \
-/home/wuxuewu/fuwuqi/link_obj/ Time.o /home/wuxuewu/fuwuqi/dep/MateWork.d:nfig.hpp
+/home/wuxuewu/fuwuqi/link_obj/ TimeConfig.hpp MapConfig.hpp fightServer.o /home/wuxuewu/fuwuqi/dep/MateWork.d:nfig.hpp
