@@ -243,6 +243,15 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* CSShowZhaDanBagRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CSShowZhaDanBagRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CSFightHeroInfo_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CSFightHeroInfo_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CSFightHeroInfoListRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CSFightHeroInfoListRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CSEnterFightMapRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CSEnterFightMapRsp_reflection_ = NULL;
 const ::google::protobuf::Descriptor* CSMateReqParam_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CSMateReqParam_reflection_ = NULL;
@@ -1493,7 +1502,60 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSShowZhaDanBagRsp));
-  CSMateReqParam_descriptor_ = file->message_type(75);
+  CSFightHeroInfo_descriptor_ = file->message_type(75);
+  static const int CSFightHeroInfo_offsets_[7] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSFightHeroInfo, uid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSFightHeroInfo, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSFightHeroInfo, planeid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSFightHeroInfo, zhadanid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSFightHeroInfo, dipanid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSFightHeroInfo, skilloneid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSFightHeroInfo, skilltwoid_),
+  };
+  CSFightHeroInfo_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      CSFightHeroInfo_descriptor_,
+      CSFightHeroInfo::default_instance_,
+      CSFightHeroInfo_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSFightHeroInfo, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSFightHeroInfo, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(CSFightHeroInfo));
+  CSFightHeroInfoListRsp_descriptor_ = file->message_type(76);
+  static const int CSFightHeroInfoListRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSFightHeroInfoListRsp, heroinfolist_),
+  };
+  CSFightHeroInfoListRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      CSFightHeroInfoListRsp_descriptor_,
+      CSFightHeroInfoListRsp::default_instance_,
+      CSFightHeroInfoListRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSFightHeroInfoListRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSFightHeroInfoListRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(CSFightHeroInfoListRsp));
+  CSEnterFightMapRsp_descriptor_ = file->message_type(77);
+  static const int CSEnterFightMapRsp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSEnterFightMapRsp, mapid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSEnterFightMapRsp, fightserverid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSEnterFightMapRsp, heroinfolistrsp_),
+  };
+  CSEnterFightMapRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      CSEnterFightMapRsp_descriptor_,
+      CSEnterFightMapRsp::default_instance_,
+      CSEnterFightMapRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSEnterFightMapRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSEnterFightMapRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(CSEnterFightMapRsp));
+  CSMateReqParam_descriptor_ = file->message_type(78);
   static const int CSMateReqParam_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMateReqParam, matefetchreq_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMateReqParam, quitmatefetchreq_),
@@ -1513,11 +1575,12 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSMateReqParam));
-  CSMateRspParam_descriptor_ = file->message_type(76);
-  static const int CSMateRspParam_offsets_[3] = {
+  CSMateRspParam_descriptor_ = file->message_type(79);
+  static const int CSMateRspParam_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMateRspParam, enterheroshowrsp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMateRspParam, senduserheroshowrsp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMateRspParam, showzhadanbagrsp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMateRspParam, enterfightmaprsp_),
   };
   CSMateRspParam_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1530,7 +1593,7 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSMateRspParam));
-  CSMateReq_descriptor_ = file->message_type(77);
+  CSMateReq_descriptor_ = file->message_type(80);
   static const int CSMateReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMateReq, cmd_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMateReq, reqparam_),
@@ -1546,7 +1609,7 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSMateReq));
-  CSMateRsp_descriptor_ = file->message_type(78);
+  CSMateRsp_descriptor_ = file->message_type(81);
   static const int CSMateRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMateRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMateRsp, cmd_),
@@ -1563,7 +1626,7 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSMateRsp));
-  CSMsgBody_descriptor_ = file->message_type(79);
+  CSMsgBody_descriptor_ = file->message_type(82);
   static const int CSMsgBody_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMsgBody, registerloginreq_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMsgBody, registerloginrsp_),
@@ -1587,7 +1650,7 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSMsgBody));
-  CSMsgHead_descriptor_ = file->message_type(80);
+  CSMsgHead_descriptor_ = file->message_type(83);
   static const int CSMsgHead_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMsgHead, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMsgHead, msgid_),
@@ -1603,7 +1666,7 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSMsgHead));
-  CSMsg_descriptor_ = file->message_type(81);
+  CSMsg_descriptor_ = file->message_type(84);
   static const int CSMsg_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMsg, head_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSMsg, body_),
@@ -1788,6 +1851,12 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     CSShowZhaDanBagRsp_descriptor_, &CSShowZhaDanBagRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    CSFightHeroInfo_descriptor_, &CSFightHeroInfo::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    CSFightHeroInfoListRsp_descriptor_, &CSFightHeroInfoListRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    CSEnterFightMapRsp_descriptor_, &CSEnterFightMapRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     CSMateReqParam_descriptor_, &CSMateReqParam::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     CSMateRspParam_descriptor_, &CSMateRspParam::default_instance());
@@ -1956,6 +2025,12 @@ void protobuf_ShutdownFile_CSmsg_2eproto() {
   delete CSShowZhaDanBagReq_reflection_;
   delete CSShowZhaDanBagRsp::default_instance_;
   delete CSShowZhaDanBagRsp_reflection_;
+  delete CSFightHeroInfo::default_instance_;
+  delete CSFightHeroInfo_reflection_;
+  delete CSFightHeroInfoListRsp::default_instance_;
+  delete CSFightHeroInfoListRsp_reflection_;
+  delete CSEnterFightMapRsp::default_instance_;
+  delete CSEnterFightMapRsp_reflection_;
   delete CSMateReqParam::default_instance_;
   delete CSMateReqParam_reflection_;
   delete CSMateRspParam::default_instance_;
@@ -2126,62 +2201,72 @@ void protobuf_AddDesc_CSmsg_2eproto() {
     "ndUserHeroShowRsp\022\013\n\003Uid\030\001 \001(\004\022\020\n\010Zhadan"
     "Id\030\002 \001(\r\"3\n\022CSShowZhaDanBagReq\022\013\n\003Uid\030\001 "
     "\001(\004\022\020\n\010ZhadanId\030\002 \001(\r\"&\n\022CSShowZhaDanBag"
-    "Rsp\022\020\n\010ZhadanId\030\001 \001(\r\"\304\002\n\016CSMateReqParam"
-    "\022%\n\014MateFetchReq\030\001 \001(\0132\017.CSMateFetchReq\022"
-    "-\n\020QuitMateFetchReq\030\002 \001(\0132\023.CSQuitMateFe"
-    "tchReq\0227\n\025NotButtonMateFetchReq\030\003 \001(\0132\030."
-    "CSNotButtonMateFetchReq\022\?\n\031SuccessButton"
-    "MateFetchReq\030\004 \001(\0132\034.CSSuccessButtonMate"
-    "FetchReq\0223\n\023EnterHeroShowBagReq\030\005 \001(\0132\026."
-    "CSEnterHeroShowBagReq\022-\n\020ShowZhaDanBagRe"
-    "q\030\006 \001(\0132\023.CSShowZhaDanBagReq\"\243\001\n\016CSMateR"
-    "spParam\022-\n\020EnterHeroShowRsp\030\001 \001(\0132\023.CSEn"
-    "terHeroShowRsp\0223\n\023SendUserHeroShowRsp\030\002 "
-    "\001(\0132\026.CSSendUserHeroShowRsp\022-\n\020ShowZhaDa"
-    "nBagRsp\030\003 \001(\0132\023.CSShowZhaDanBagRsp\"G\n\tCS"
-    "MateReq\022\027\n\003cmd\030\001 \002(\0162\n.CSMateCmd\022!\n\010reqP"
-    "aram\030\002 \001(\0132\017.CSMateReqParam\"W\n\tCSMateRsp"
-    "\022\016\n\006result\030\001 \001(\005\022\027\n\003cmd\030\002 \002(\0162\n.CSMateCm"
-    "d\022!\n\010rspParam\030\003 \001(\0132\017.CSMateRspParam\"\351\002\n"
-    "\tCSMsgBody\022-\n\020RegisterLoginReq\030\001 \001(\0132\023.C"
-    "SRegisterLoginReq\022-\n\020RegisterLoginRsp\030\002 "
-    "\001(\0132\023.CSRegisterLoginRsp\022\031\n\006BagReq\030\003 \001(\013"
-    "2\t.CSBagReq\022\031\n\006BagRsp\030\004 \001(\0132\t.CSBagRsp\022)"
-    "\n\016DecorateBagReq\030\005 \001(\0132\021.CSDecorateBagRe"
-    "q\022)\n\016DecorateBagRsp\030\006 \001(\0132\021.CSDecorateBa"
-    "gRsp\022\033\n\007ChatReq\030\007 \001(\0132\n.CSChatReq\022\033\n\007Cha"
-    "tRsp\030\010 \001(\0132\n.CSChatRsp\022\033\n\007MateReq\030\t \001(\0132"
-    "\n.CSMateReq\022\033\n\007Matersp\030\n \001(\0132\n.CSMateRsp"
-    "\"1\n\tCSMsgHead\022\013\n\003uid\030\001 \002(\004\022\027\n\005msgID\030\002 \002("
-    "\0162\010.CSMsgID\";\n\005CSMsg\022\030\n\004head\030\001 \002(\0132\n.CSM"
-    "sgHead\022\030\n\004body\030\002 \002(\0132\n.CSMsgBody*p\n\022CSRe"
-    "gisterLoginCmd\022\037\n\033CSRegisterLoginCmd_Reg"
-    "ister\020\001\022\034\n\030CSRegisterLoginCmd_Login\020\002\022\033\n"
-    "\027CSRegisterLoginCmd_Quit\020\003*0\n\010CSBagCmd\022\022"
-    "\n\016CSBagCmd_Fetch\020\001\022\020\n\014CSBagCmd_Use\020\002*k\n\020"
-    "CSDecorateBagCmd\022\032\n\026CSDecorateBagCmd_Fet"
-    "ch\020\001\022\034\n\030CSDecorateBagCmd_ShowSet\020\002\022\035\n\031CS"
-    "DecorateBagCmd_VipFetch\020\003*\314\002\n\tCSChatCmd\022"
-    "\037\n\033CSMsgServer_RegisterSuccess\020\001\022\034\n\030CSMs"
-    "gServer_LoginSuccess\020\002\022\024\n\020CSMsgServer_Qu"
-    "it\020\003\022\032\n\026CSMsgServer_FriendLine\020\004\022\034\n\030CSMs"
-    "gServer_AskAddFriend\020\005\022 \n\034CSMsgServer_Su"
-    "ccessAddFriend\020\006\022\034\n\030CSMsgServer_DeleteFr"
-    "iend\020\007\022\030\n\024CSMsgServer_SendChat\020\010\022\030\n\024CSMs"
-    "gServer_FindName\020\t\022\034\n\030CSMsgServer_Change"
-    "Status\020\n\022\036\n\032CSMsgServer_ConnectSuccess\020\013"
-    "*\274\002\n\tCSMateCmd\022\027\n\023CSMateCmd_MateFetch\020\001\022"
-    "\034\n\030CSMateCmd_MateNotSuccess\020\002\022\031\n\025CSMateC"
-    "md_MateNotUser\020\003\022\033\n\027CSMateCmd_QuitMateFe"
-    "tch\020\004\022 \n\034CSMateCmd_NotButtonMateFetch\020\005\022"
-    "$\n CSMateCmd_SuccessButtonMateFetch\020\006\022\033\n"
-    "\027CSMateCmd_EnterHeroShow\020\007\022\036\n\032CSMateCmd_"
-    "EnterHeroShowBag\020\010\022\036\n\032CSMateCmd_SendUser"
-    "HeroShow\020\t\022\033\n\027CSMateCmd_ShowZhaDanBag\020\n*"
-    "\233\001\n\007CSMsgID\022\020\n\014CS_MSGID_MIN\020\000\022\032\n\026CS_MSGI"
-    "D_RegisterLogin\020\001\022\020\n\014CS_MSGID_BAG\020\002\022\030\n\024C"
-    "S_MSGID_DecorateBAG\020\003\022\021\n\rCS_MSGID_Chat\020\004"
-    "\022\021\n\rCS_MSGID_Mate\020\005\022\020\n\014CS_MSGID_MAX\020\006", 8077);
+    "Rsp\022\020\n\010ZhadanId\030\001 \001(\r\"\210\001\n\017CSFightHeroInf"
+    "o\022\013\n\003Uid\030\001 \001(\004\022\014\n\004Name\030\002 \001(\t\022\017\n\007PlaneId\030"
+    "\003 \001(\r\022\020\n\010ZhaDanId\030\004 \001(\r\022\017\n\007DiPanId\030\005 \001(\r"
+    "\022\022\n\nSkillOneID\030\006 \001(\r\022\022\n\nSkillTwoID\030\007 \001(\r"
+    "\"@\n\026CSFightHeroInfoListRsp\022&\n\014HeroInfoLi"
+    "st\030\001 \003(\0132\020.CSFightHeroInfo\"l\n\022CSEnterFig"
+    "htMapRsp\022\r\n\005MapId\030\001 \001(\005\022\025\n\rFightServerId"
+    "\030\002 \001(\005\0220\n\017HeroInfoListRsp\030\003 \001(\0132\027.CSFigh"
+    "tHeroInfoListRsp\"\304\002\n\016CSMateReqParam\022%\n\014M"
+    "ateFetchReq\030\001 \001(\0132\017.CSMateFetchReq\022-\n\020Qu"
+    "itMateFetchReq\030\002 \001(\0132\023.CSQuitMateFetchRe"
+    "q\0227\n\025NotButtonMateFetchReq\030\003 \001(\0132\030.CSNot"
+    "ButtonMateFetchReq\022\?\n\031SuccessButtonMateF"
+    "etchReq\030\004 \001(\0132\034.CSSuccessButtonMateFetch"
+    "Req\0223\n\023EnterHeroShowBagReq\030\005 \001(\0132\026.CSEnt"
+    "erHeroShowBagReq\022-\n\020ShowZhaDanBagReq\030\006 \001"
+    "(\0132\023.CSShowZhaDanBagReq\"\322\001\n\016CSMateRspPar"
+    "am\022-\n\020EnterHeroShowRsp\030\001 \001(\0132\023.CSEnterHe"
+    "roShowRsp\0223\n\023SendUserHeroShowRsp\030\002 \001(\0132\026"
+    ".CSSendUserHeroShowRsp\022-\n\020ShowZhaDanBagR"
+    "sp\030\003 \001(\0132\023.CSShowZhaDanBagRsp\022-\n\020EnterFi"
+    "ghtMapRsp\030\004 \001(\0132\023.CSEnterFightMapRsp\"G\n\t"
+    "CSMateReq\022\027\n\003cmd\030\001 \002(\0162\n.CSMateCmd\022!\n\010re"
+    "qParam\030\002 \001(\0132\017.CSMateReqParam\"W\n\tCSMateR"
+    "sp\022\016\n\006result\030\001 \001(\005\022\027\n\003cmd\030\002 \002(\0162\n.CSMate"
+    "Cmd\022!\n\010rspParam\030\003 \001(\0132\017.CSMateRspParam\"\351"
+    "\002\n\tCSMsgBody\022-\n\020RegisterLoginReq\030\001 \001(\0132\023"
+    ".CSRegisterLoginReq\022-\n\020RegisterLoginRsp\030"
+    "\002 \001(\0132\023.CSRegisterLoginRsp\022\031\n\006BagReq\030\003 \001"
+    "(\0132\t.CSBagReq\022\031\n\006BagRsp\030\004 \001(\0132\t.CSBagRsp"
+    "\022)\n\016DecorateBagReq\030\005 \001(\0132\021.CSDecorateBag"
+    "Req\022)\n\016DecorateBagRsp\030\006 \001(\0132\021.CSDecorate"
+    "BagRsp\022\033\n\007ChatReq\030\007 \001(\0132\n.CSChatReq\022\033\n\007C"
+    "hatRsp\030\010 \001(\0132\n.CSChatRsp\022\033\n\007MateReq\030\t \001("
+    "\0132\n.CSMateReq\022\033\n\007Matersp\030\n \001(\0132\n.CSMateR"
+    "sp\"1\n\tCSMsgHead\022\013\n\003uid\030\001 \002(\004\022\027\n\005msgID\030\002 "
+    "\002(\0162\010.CSMsgID\";\n\005CSMsg\022\030\n\004head\030\001 \002(\0132\n.C"
+    "SMsgHead\022\030\n\004body\030\002 \002(\0132\n.CSMsgBody*p\n\022CS"
+    "RegisterLoginCmd\022\037\n\033CSRegisterLoginCmd_R"
+    "egister\020\001\022\034\n\030CSRegisterLoginCmd_Login\020\002\022"
+    "\033\n\027CSRegisterLoginCmd_Quit\020\003*0\n\010CSBagCmd"
+    "\022\022\n\016CSBagCmd_Fetch\020\001\022\020\n\014CSBagCmd_Use\020\002*k"
+    "\n\020CSDecorateBagCmd\022\032\n\026CSDecorateBagCmd_F"
+    "etch\020\001\022\034\n\030CSDecorateBagCmd_ShowSet\020\002\022\035\n\031"
+    "CSDecorateBagCmd_VipFetch\020\003*\314\002\n\tCSChatCm"
+    "d\022\037\n\033CSMsgServer_RegisterSuccess\020\001\022\034\n\030CS"
+    "MsgServer_LoginSuccess\020\002\022\024\n\020CSMsgServer_"
+    "Quit\020\003\022\032\n\026CSMsgServer_FriendLine\020\004\022\034\n\030CS"
+    "MsgServer_AskAddFriend\020\005\022 \n\034CSMsgServer_"
+    "SuccessAddFriend\020\006\022\034\n\030CSMsgServer_Delete"
+    "Friend\020\007\022\030\n\024CSMsgServer_SendChat\020\010\022\030\n\024CS"
+    "MsgServer_FindName\020\t\022\034\n\030CSMsgServer_Chan"
+    "geStatus\020\n\022\036\n\032CSMsgServer_ConnectSuccess"
+    "\020\013*\331\002\n\tCSMateCmd\022\027\n\023CSMateCmd_MateFetch\020"
+    "\001\022\034\n\030CSMateCmd_MateNotSuccess\020\002\022\031\n\025CSMat"
+    "eCmd_MateNotUser\020\003\022\033\n\027CSMateCmd_QuitMate"
+    "Fetch\020\004\022 \n\034CSMateCmd_NotButtonMateFetch\020"
+    "\005\022$\n CSMateCmd_SuccessButtonMateFetch\020\006\022"
+    "\033\n\027CSMateCmd_EnterHeroShow\020\007\022\036\n\032CSMateCm"
+    "d_EnterHeroShowBag\020\010\022\036\n\032CSMateCmd_SendUs"
+    "erHeroShow\020\t\022\033\n\027CSMateCmd_ShowZhaDanBag\020"
+    "\n\022\033\n\027CSMateCmd_EnterFightMap\020\013*\233\001\n\007CSMsg"
+    "ID\022\020\n\014CS_MSGID_MIN\020\000\022\032\n\026CS_MSGID_Registe"
+    "rLogin\020\001\022\020\n\014CS_MSGID_BAG\020\002\022\030\n\024CS_MSGID_D"
+    "ecorateBAG\020\003\022\021\n\rCS_MSGID_Chat\020\004\022\021\n\rCS_MS"
+    "GID_Mate\020\005\022\020\n\014CS_MSGID_MAX\020\006", 8468);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CSmsg.proto", &protobuf_RegisterTypes);
   CSLoginReq::default_instance_ = new CSLoginReq();
@@ -2259,6 +2344,9 @@ void protobuf_AddDesc_CSmsg_2eproto() {
   CSSendUserHeroShowRsp::default_instance_ = new CSSendUserHeroShowRsp();
   CSShowZhaDanBagReq::default_instance_ = new CSShowZhaDanBagReq();
   CSShowZhaDanBagRsp::default_instance_ = new CSShowZhaDanBagRsp();
+  CSFightHeroInfo::default_instance_ = new CSFightHeroInfo();
+  CSFightHeroInfoListRsp::default_instance_ = new CSFightHeroInfoListRsp();
+  CSEnterFightMapRsp::default_instance_ = new CSEnterFightMapRsp();
   CSMateReqParam::default_instance_ = new CSMateReqParam();
   CSMateRspParam::default_instance_ = new CSMateRspParam();
   CSMateReq::default_instance_ = new CSMateReq();
@@ -2341,6 +2429,9 @@ void protobuf_AddDesc_CSmsg_2eproto() {
   CSSendUserHeroShowRsp::default_instance_->InitAsDefaultInstance();
   CSShowZhaDanBagReq::default_instance_->InitAsDefaultInstance();
   CSShowZhaDanBagRsp::default_instance_->InitAsDefaultInstance();
+  CSFightHeroInfo::default_instance_->InitAsDefaultInstance();
+  CSFightHeroInfoListRsp::default_instance_->InitAsDefaultInstance();
+  CSEnterFightMapRsp::default_instance_->InitAsDefaultInstance();
   CSMateReqParam::default_instance_->InitAsDefaultInstance();
   CSMateRspParam::default_instance_->InitAsDefaultInstance();
   CSMateReq::default_instance_->InitAsDefaultInstance();
@@ -2440,6 +2531,7 @@ bool CSMateCmd_IsValid(int value) {
     case 8:
     case 9:
     case 10:
+    case 11:
       return true;
     default:
       return false;
@@ -22156,6 +22248,967 @@ void CSShowZhaDanBagRsp::Swap(CSShowZhaDanBagRsp* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int CSFightHeroInfo::kUidFieldNumber;
+const int CSFightHeroInfo::kNameFieldNumber;
+const int CSFightHeroInfo::kPlaneIdFieldNumber;
+const int CSFightHeroInfo::kZhaDanIdFieldNumber;
+const int CSFightHeroInfo::kDiPanIdFieldNumber;
+const int CSFightHeroInfo::kSkillOneIDFieldNumber;
+const int CSFightHeroInfo::kSkillTwoIDFieldNumber;
+#endif  // !_MSC_VER
+
+CSFightHeroInfo::CSFightHeroInfo()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void CSFightHeroInfo::InitAsDefaultInstance() {
+}
+
+CSFightHeroInfo::CSFightHeroInfo(const CSFightHeroInfo& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void CSFightHeroInfo::SharedCtor() {
+  _cached_size_ = 0;
+  uid_ = GOOGLE_ULONGLONG(0);
+  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  planeid_ = 0u;
+  zhadanid_ = 0u;
+  dipanid_ = 0u;
+  skilloneid_ = 0u;
+  skilltwoid_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+CSFightHeroInfo::~CSFightHeroInfo() {
+  SharedDtor();
+}
+
+void CSFightHeroInfo::SharedDtor() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void CSFightHeroInfo::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CSFightHeroInfo::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CSFightHeroInfo_descriptor_;
+}
+
+const CSFightHeroInfo& CSFightHeroInfo::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_CSmsg_2eproto();
+  return *default_instance_;
+}
+
+CSFightHeroInfo* CSFightHeroInfo::default_instance_ = NULL;
+
+CSFightHeroInfo* CSFightHeroInfo::New() const {
+  return new CSFightHeroInfo;
+}
+
+void CSFightHeroInfo::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    uid_ = GOOGLE_ULONGLONG(0);
+    if (has_name()) {
+      if (name_ != &::google::protobuf::internal::kEmptyString) {
+        name_->clear();
+      }
+    }
+    planeid_ = 0u;
+    zhadanid_ = 0u;
+    dipanid_ = 0u;
+    skilloneid_ = 0u;
+    skilltwoid_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool CSFightHeroInfo::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 Uid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &uid_)));
+          set_has_uid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_Name;
+        break;
+      }
+
+      // optional string Name = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_Name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->name().data(), this->name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_PlaneId;
+        break;
+      }
+
+      // optional uint32 PlaneId = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_PlaneId:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &planeid_)));
+          set_has_planeid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_ZhaDanId;
+        break;
+      }
+
+      // optional uint32 ZhaDanId = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_ZhaDanId:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &zhadanid_)));
+          set_has_zhadanid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_DiPanId;
+        break;
+      }
+
+      // optional uint32 DiPanId = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_DiPanId:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &dipanid_)));
+          set_has_dipanid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_SkillOneID;
+        break;
+      }
+
+      // optional uint32 SkillOneID = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_SkillOneID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &skilloneid_)));
+          set_has_skilloneid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_SkillTwoID;
+        break;
+      }
+
+      // optional uint32 SkillTwoID = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_SkillTwoID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &skilltwoid_)));
+          set_has_skilltwoid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void CSFightHeroInfo::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 Uid = 1;
+  if (has_uid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->uid(), output);
+  }
+
+  // optional string Name = 2;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->name(), output);
+  }
+
+  // optional uint32 PlaneId = 3;
+  if (has_planeid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->planeid(), output);
+  }
+
+  // optional uint32 ZhaDanId = 4;
+  if (has_zhadanid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->zhadanid(), output);
+  }
+
+  // optional uint32 DiPanId = 5;
+  if (has_dipanid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->dipanid(), output);
+  }
+
+  // optional uint32 SkillOneID = 6;
+  if (has_skilloneid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->skilloneid(), output);
+  }
+
+  // optional uint32 SkillTwoID = 7;
+  if (has_skilltwoid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->skilltwoid(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* CSFightHeroInfo::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 Uid = 1;
+  if (has_uid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->uid(), target);
+  }
+
+  // optional string Name = 2;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->name(), target);
+  }
+
+  // optional uint32 PlaneId = 3;
+  if (has_planeid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->planeid(), target);
+  }
+
+  // optional uint32 ZhaDanId = 4;
+  if (has_zhadanid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->zhadanid(), target);
+  }
+
+  // optional uint32 DiPanId = 5;
+  if (has_dipanid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->dipanid(), target);
+  }
+
+  // optional uint32 SkillOneID = 6;
+  if (has_skilloneid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->skilloneid(), target);
+  }
+
+  // optional uint32 SkillTwoID = 7;
+  if (has_skilltwoid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->skilltwoid(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int CSFightHeroInfo::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 Uid = 1;
+    if (has_uid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->uid());
+    }
+
+    // optional string Name = 2;
+    if (has_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->name());
+    }
+
+    // optional uint32 PlaneId = 3;
+    if (has_planeid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->planeid());
+    }
+
+    // optional uint32 ZhaDanId = 4;
+    if (has_zhadanid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->zhadanid());
+    }
+
+    // optional uint32 DiPanId = 5;
+    if (has_dipanid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->dipanid());
+    }
+
+    // optional uint32 SkillOneID = 6;
+    if (has_skilloneid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->skilloneid());
+    }
+
+    // optional uint32 SkillTwoID = 7;
+    if (has_skilltwoid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->skilltwoid());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CSFightHeroInfo::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const CSFightHeroInfo* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const CSFightHeroInfo*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void CSFightHeroInfo::MergeFrom(const CSFightHeroInfo& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_uid()) {
+      set_uid(from.uid());
+    }
+    if (from.has_name()) {
+      set_name(from.name());
+    }
+    if (from.has_planeid()) {
+      set_planeid(from.planeid());
+    }
+    if (from.has_zhadanid()) {
+      set_zhadanid(from.zhadanid());
+    }
+    if (from.has_dipanid()) {
+      set_dipanid(from.dipanid());
+    }
+    if (from.has_skilloneid()) {
+      set_skilloneid(from.skilloneid());
+    }
+    if (from.has_skilltwoid()) {
+      set_skilltwoid(from.skilltwoid());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void CSFightHeroInfo::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CSFightHeroInfo::CopyFrom(const CSFightHeroInfo& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CSFightHeroInfo::IsInitialized() const {
+
+  return true;
+}
+
+void CSFightHeroInfo::Swap(CSFightHeroInfo* other) {
+  if (other != this) {
+    std::swap(uid_, other->uid_);
+    std::swap(name_, other->name_);
+    std::swap(planeid_, other->planeid_);
+    std::swap(zhadanid_, other->zhadanid_);
+    std::swap(dipanid_, other->dipanid_);
+    std::swap(skilloneid_, other->skilloneid_);
+    std::swap(skilltwoid_, other->skilltwoid_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata CSFightHeroInfo::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CSFightHeroInfo_descriptor_;
+  metadata.reflection = CSFightHeroInfo_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int CSFightHeroInfoListRsp::kHeroInfoListFieldNumber;
+#endif  // !_MSC_VER
+
+CSFightHeroInfoListRsp::CSFightHeroInfoListRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void CSFightHeroInfoListRsp::InitAsDefaultInstance() {
+}
+
+CSFightHeroInfoListRsp::CSFightHeroInfoListRsp(const CSFightHeroInfoListRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void CSFightHeroInfoListRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+CSFightHeroInfoListRsp::~CSFightHeroInfoListRsp() {
+  SharedDtor();
+}
+
+void CSFightHeroInfoListRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void CSFightHeroInfoListRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CSFightHeroInfoListRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CSFightHeroInfoListRsp_descriptor_;
+}
+
+const CSFightHeroInfoListRsp& CSFightHeroInfoListRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_CSmsg_2eproto();
+  return *default_instance_;
+}
+
+CSFightHeroInfoListRsp* CSFightHeroInfoListRsp::default_instance_ = NULL;
+
+CSFightHeroInfoListRsp* CSFightHeroInfoListRsp::New() const {
+  return new CSFightHeroInfoListRsp;
+}
+
+void CSFightHeroInfoListRsp::Clear() {
+  heroinfolist_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool CSFightHeroInfoListRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .CSFightHeroInfo HeroInfoList = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_HeroInfoList:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_heroinfolist()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_HeroInfoList;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void CSFightHeroInfoListRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .CSFightHeroInfo HeroInfoList = 1;
+  for (int i = 0; i < this->heroinfolist_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->heroinfolist(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* CSFightHeroInfoListRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .CSFightHeroInfo HeroInfoList = 1;
+  for (int i = 0; i < this->heroinfolist_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->heroinfolist(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int CSFightHeroInfoListRsp::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .CSFightHeroInfo HeroInfoList = 1;
+  total_size += 1 * this->heroinfolist_size();
+  for (int i = 0; i < this->heroinfolist_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->heroinfolist(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CSFightHeroInfoListRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const CSFightHeroInfoListRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const CSFightHeroInfoListRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void CSFightHeroInfoListRsp::MergeFrom(const CSFightHeroInfoListRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  heroinfolist_.MergeFrom(from.heroinfolist_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void CSFightHeroInfoListRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CSFightHeroInfoListRsp::CopyFrom(const CSFightHeroInfoListRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CSFightHeroInfoListRsp::IsInitialized() const {
+
+  return true;
+}
+
+void CSFightHeroInfoListRsp::Swap(CSFightHeroInfoListRsp* other) {
+  if (other != this) {
+    heroinfolist_.Swap(&other->heroinfolist_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata CSFightHeroInfoListRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CSFightHeroInfoListRsp_descriptor_;
+  metadata.reflection = CSFightHeroInfoListRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int CSEnterFightMapRsp::kMapIdFieldNumber;
+const int CSEnterFightMapRsp::kFightServerIdFieldNumber;
+const int CSEnterFightMapRsp::kHeroInfoListRspFieldNumber;
+#endif  // !_MSC_VER
+
+CSEnterFightMapRsp::CSEnterFightMapRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void CSEnterFightMapRsp::InitAsDefaultInstance() {
+  heroinfolistrsp_ = const_cast< ::CSFightHeroInfoListRsp*>(&::CSFightHeroInfoListRsp::default_instance());
+}
+
+CSEnterFightMapRsp::CSEnterFightMapRsp(const CSEnterFightMapRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void CSEnterFightMapRsp::SharedCtor() {
+  _cached_size_ = 0;
+  mapid_ = 0;
+  fightserverid_ = 0;
+  heroinfolistrsp_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+CSEnterFightMapRsp::~CSEnterFightMapRsp() {
+  SharedDtor();
+}
+
+void CSEnterFightMapRsp::SharedDtor() {
+  if (this != default_instance_) {
+    delete heroinfolistrsp_;
+  }
+}
+
+void CSEnterFightMapRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CSEnterFightMapRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CSEnterFightMapRsp_descriptor_;
+}
+
+const CSEnterFightMapRsp& CSEnterFightMapRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_CSmsg_2eproto();
+  return *default_instance_;
+}
+
+CSEnterFightMapRsp* CSEnterFightMapRsp::default_instance_ = NULL;
+
+CSEnterFightMapRsp* CSEnterFightMapRsp::New() const {
+  return new CSEnterFightMapRsp;
+}
+
+void CSEnterFightMapRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    mapid_ = 0;
+    fightserverid_ = 0;
+    if (has_heroinfolistrsp()) {
+      if (heroinfolistrsp_ != NULL) heroinfolistrsp_->::CSFightHeroInfoListRsp::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool CSEnterFightMapRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 MapId = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &mapid_)));
+          set_has_mapid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_FightServerId;
+        break;
+      }
+
+      // optional int32 FightServerId = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_FightServerId:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fightserverid_)));
+          set_has_fightserverid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_HeroInfoListRsp;
+        break;
+      }
+
+      // optional .CSFightHeroInfoListRsp HeroInfoListRsp = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_HeroInfoListRsp:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_heroinfolistrsp()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void CSEnterFightMapRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 MapId = 1;
+  if (has_mapid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->mapid(), output);
+  }
+
+  // optional int32 FightServerId = 2;
+  if (has_fightserverid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->fightserverid(), output);
+  }
+
+  // optional .CSFightHeroInfoListRsp HeroInfoListRsp = 3;
+  if (has_heroinfolistrsp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->heroinfolistrsp(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* CSEnterFightMapRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 MapId = 1;
+  if (has_mapid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->mapid(), target);
+  }
+
+  // optional int32 FightServerId = 2;
+  if (has_fightserverid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->fightserverid(), target);
+  }
+
+  // optional .CSFightHeroInfoListRsp HeroInfoListRsp = 3;
+  if (has_heroinfolistrsp()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->heroinfolistrsp(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int CSEnterFightMapRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 MapId = 1;
+    if (has_mapid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->mapid());
+    }
+
+    // optional int32 FightServerId = 2;
+    if (has_fightserverid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->fightserverid());
+    }
+
+    // optional .CSFightHeroInfoListRsp HeroInfoListRsp = 3;
+    if (has_heroinfolistrsp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->heroinfolistrsp());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CSEnterFightMapRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const CSEnterFightMapRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const CSEnterFightMapRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void CSEnterFightMapRsp::MergeFrom(const CSEnterFightMapRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_mapid()) {
+      set_mapid(from.mapid());
+    }
+    if (from.has_fightserverid()) {
+      set_fightserverid(from.fightserverid());
+    }
+    if (from.has_heroinfolistrsp()) {
+      mutable_heroinfolistrsp()->::CSFightHeroInfoListRsp::MergeFrom(from.heroinfolistrsp());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void CSEnterFightMapRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CSEnterFightMapRsp::CopyFrom(const CSEnterFightMapRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CSEnterFightMapRsp::IsInitialized() const {
+
+  return true;
+}
+
+void CSEnterFightMapRsp::Swap(CSEnterFightMapRsp* other) {
+  if (other != this) {
+    std::swap(mapid_, other->mapid_);
+    std::swap(fightserverid_, other->fightserverid_);
+    std::swap(heroinfolistrsp_, other->heroinfolistrsp_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata CSEnterFightMapRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CSEnterFightMapRsp_descriptor_;
+  metadata.reflection = CSEnterFightMapRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int CSMateReqParam::kMateFetchReqFieldNumber;
 const int CSMateReqParam::kQuitMateFetchReqFieldNumber;
 const int CSMateReqParam::kNotButtonMateFetchReqFieldNumber;
@@ -22597,6 +23650,7 @@ void CSMateReqParam::Swap(CSMateReqParam* other) {
 const int CSMateRspParam::kEnterHeroShowRspFieldNumber;
 const int CSMateRspParam::kSendUserHeroShowRspFieldNumber;
 const int CSMateRspParam::kShowZhaDanBagRspFieldNumber;
+const int CSMateRspParam::kEnterFightMapRspFieldNumber;
 #endif  // !_MSC_VER
 
 CSMateRspParam::CSMateRspParam()
@@ -22608,6 +23662,7 @@ void CSMateRspParam::InitAsDefaultInstance() {
   enterheroshowrsp_ = const_cast< ::CSEnterHeroShowRsp*>(&::CSEnterHeroShowRsp::default_instance());
   senduserheroshowrsp_ = const_cast< ::CSSendUserHeroShowRsp*>(&::CSSendUserHeroShowRsp::default_instance());
   showzhadanbagrsp_ = const_cast< ::CSShowZhaDanBagRsp*>(&::CSShowZhaDanBagRsp::default_instance());
+  enterfightmaprsp_ = const_cast< ::CSEnterFightMapRsp*>(&::CSEnterFightMapRsp::default_instance());
 }
 
 CSMateRspParam::CSMateRspParam(const CSMateRspParam& from)
@@ -22621,6 +23676,7 @@ void CSMateRspParam::SharedCtor() {
   enterheroshowrsp_ = NULL;
   senduserheroshowrsp_ = NULL;
   showzhadanbagrsp_ = NULL;
+  enterfightmaprsp_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -22633,6 +23689,7 @@ void CSMateRspParam::SharedDtor() {
     delete enterheroshowrsp_;
     delete senduserheroshowrsp_;
     delete showzhadanbagrsp_;
+    delete enterfightmaprsp_;
   }
 }
 
@@ -22667,6 +23724,9 @@ void CSMateRspParam::Clear() {
     }
     if (has_showzhadanbagrsp()) {
       if (showzhadanbagrsp_ != NULL) showzhadanbagrsp_->::CSShowZhaDanBagRsp::Clear();
+    }
+    if (has_enterfightmaprsp()) {
+      if (enterfightmaprsp_ != NULL) enterfightmaprsp_->::CSEnterFightMapRsp::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -22716,6 +23776,20 @@ bool CSMateRspParam::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(34)) goto parse_EnterFightMapRsp;
+        break;
+      }
+
+      // optional .CSEnterFightMapRsp EnterFightMapRsp = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_EnterFightMapRsp:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_enterfightmaprsp()));
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -22756,6 +23830,12 @@ void CSMateRspParam::SerializeWithCachedSizes(
       3, this->showzhadanbagrsp(), output);
   }
 
+  // optional .CSEnterFightMapRsp EnterFightMapRsp = 4;
+  if (has_enterfightmaprsp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->enterfightmaprsp(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -22783,6 +23863,13 @@ void CSMateRspParam::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         3, this->showzhadanbagrsp(), target);
+  }
+
+  // optional .CSEnterFightMapRsp EnterFightMapRsp = 4;
+  if (has_enterfightmaprsp()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->enterfightmaprsp(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -22815,6 +23902,13 @@ int CSMateRspParam::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->showzhadanbagrsp());
+    }
+
+    // optional .CSEnterFightMapRsp EnterFightMapRsp = 4;
+    if (has_enterfightmaprsp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->enterfightmaprsp());
     }
 
   }
@@ -22853,6 +23947,9 @@ void CSMateRspParam::MergeFrom(const CSMateRspParam& from) {
     if (from.has_showzhadanbagrsp()) {
       mutable_showzhadanbagrsp()->::CSShowZhaDanBagRsp::MergeFrom(from.showzhadanbagrsp());
     }
+    if (from.has_enterfightmaprsp()) {
+      mutable_enterfightmaprsp()->::CSEnterFightMapRsp::MergeFrom(from.enterfightmaprsp());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -22879,6 +23976,7 @@ void CSMateRspParam::Swap(CSMateRspParam* other) {
     std::swap(enterheroshowrsp_, other->enterheroshowrsp_);
     std::swap(senduserheroshowrsp_, other->senduserheroshowrsp_);
     std::swap(showzhadanbagrsp_, other->showzhadanbagrsp_);
+    std::swap(enterfightmaprsp_, other->enterfightmaprsp_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

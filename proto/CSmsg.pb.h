@@ -108,6 +108,9 @@ class CSEnterHeroShowBagReq;
 class CSSendUserHeroShowRsp;
 class CSShowZhaDanBagReq;
 class CSShowZhaDanBagRsp;
+class CSFightHeroInfo;
+class CSFightHeroInfoListRsp;
+class CSEnterFightMapRsp;
 class CSMateReqParam;
 class CSMateRspParam;
 class CSMateReq;
@@ -213,11 +216,12 @@ enum CSMateCmd {
   CSMateCmd_EnterHeroShow = 7,
   CSMateCmd_EnterHeroShowBag = 8,
   CSMateCmd_SendUserHeroShow = 9,
-  CSMateCmd_ShowZhaDanBag = 10
+  CSMateCmd_ShowZhaDanBag = 10,
+  CSMateCmd_EnterFightMap = 11
 };
 bool CSMateCmd_IsValid(int value);
 const CSMateCmd CSMateCmd_MIN = CSMateCmd_MateFetch;
-const CSMateCmd CSMateCmd_MAX = CSMateCmd_ShowZhaDanBag;
+const CSMateCmd CSMateCmd_MAX = CSMateCmd_EnterFightMap;
 const int CSMateCmd_ARRAYSIZE = CSMateCmd_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* CSMateCmd_descriptor();
@@ -7503,6 +7507,342 @@ class CSShowZhaDanBagRsp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class CSFightHeroInfo : public ::google::protobuf::Message {
+ public:
+  CSFightHeroInfo();
+  virtual ~CSFightHeroInfo();
+
+  CSFightHeroInfo(const CSFightHeroInfo& from);
+
+  inline CSFightHeroInfo& operator=(const CSFightHeroInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSFightHeroInfo& default_instance();
+
+  void Swap(CSFightHeroInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  CSFightHeroInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSFightHeroInfo& from);
+  void MergeFrom(const CSFightHeroInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 Uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // optional string Name = 2;
+  inline bool has_name() const;
+  inline void clear_name();
+  static const int kNameFieldNumber = 2;
+  inline const ::std::string& name() const;
+  inline void set_name(const ::std::string& value);
+  inline void set_name(const char* value);
+  inline void set_name(const char* value, size_t size);
+  inline ::std::string* mutable_name();
+  inline ::std::string* release_name();
+  inline void set_allocated_name(::std::string* name);
+
+  // optional uint32 PlaneId = 3;
+  inline bool has_planeid() const;
+  inline void clear_planeid();
+  static const int kPlaneIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 planeid() const;
+  inline void set_planeid(::google::protobuf::uint32 value);
+
+  // optional uint32 ZhaDanId = 4;
+  inline bool has_zhadanid() const;
+  inline void clear_zhadanid();
+  static const int kZhaDanIdFieldNumber = 4;
+  inline ::google::protobuf::uint32 zhadanid() const;
+  inline void set_zhadanid(::google::protobuf::uint32 value);
+
+  // optional uint32 DiPanId = 5;
+  inline bool has_dipanid() const;
+  inline void clear_dipanid();
+  static const int kDiPanIdFieldNumber = 5;
+  inline ::google::protobuf::uint32 dipanid() const;
+  inline void set_dipanid(::google::protobuf::uint32 value);
+
+  // optional uint32 SkillOneID = 6;
+  inline bool has_skilloneid() const;
+  inline void clear_skilloneid();
+  static const int kSkillOneIDFieldNumber = 6;
+  inline ::google::protobuf::uint32 skilloneid() const;
+  inline void set_skilloneid(::google::protobuf::uint32 value);
+
+  // optional uint32 SkillTwoID = 7;
+  inline bool has_skilltwoid() const;
+  inline void clear_skilltwoid();
+  static const int kSkillTwoIDFieldNumber = 7;
+  inline ::google::protobuf::uint32 skilltwoid() const;
+  inline void set_skilltwoid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:CSFightHeroInfo)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_name();
+  inline void clear_has_name();
+  inline void set_has_planeid();
+  inline void clear_has_planeid();
+  inline void set_has_zhadanid();
+  inline void clear_has_zhadanid();
+  inline void set_has_dipanid();
+  inline void clear_has_dipanid();
+  inline void set_has_skilloneid();
+  inline void clear_has_skilloneid();
+  inline void set_has_skilltwoid();
+  inline void clear_has_skilltwoid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 uid_;
+  ::std::string* name_;
+  ::google::protobuf::uint32 planeid_;
+  ::google::protobuf::uint32 zhadanid_;
+  ::google::protobuf::uint32 dipanid_;
+  ::google::protobuf::uint32 skilloneid_;
+  ::google::protobuf::uint32 skilltwoid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSFightHeroInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSFightHeroInfoListRsp : public ::google::protobuf::Message {
+ public:
+  CSFightHeroInfoListRsp();
+  virtual ~CSFightHeroInfoListRsp();
+
+  CSFightHeroInfoListRsp(const CSFightHeroInfoListRsp& from);
+
+  inline CSFightHeroInfoListRsp& operator=(const CSFightHeroInfoListRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSFightHeroInfoListRsp& default_instance();
+
+  void Swap(CSFightHeroInfoListRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSFightHeroInfoListRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSFightHeroInfoListRsp& from);
+  void MergeFrom(const CSFightHeroInfoListRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .CSFightHeroInfo HeroInfoList = 1;
+  inline int heroinfolist_size() const;
+  inline void clear_heroinfolist();
+  static const int kHeroInfoListFieldNumber = 1;
+  inline const ::CSFightHeroInfo& heroinfolist(int index) const;
+  inline ::CSFightHeroInfo* mutable_heroinfolist(int index);
+  inline ::CSFightHeroInfo* add_heroinfolist();
+  inline const ::google::protobuf::RepeatedPtrField< ::CSFightHeroInfo >&
+      heroinfolist() const;
+  inline ::google::protobuf::RepeatedPtrField< ::CSFightHeroInfo >*
+      mutable_heroinfolist();
+
+  // @@protoc_insertion_point(class_scope:CSFightHeroInfoListRsp)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::CSFightHeroInfo > heroinfolist_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSFightHeroInfoListRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CSEnterFightMapRsp : public ::google::protobuf::Message {
+ public:
+  CSEnterFightMapRsp();
+  virtual ~CSEnterFightMapRsp();
+
+  CSEnterFightMapRsp(const CSEnterFightMapRsp& from);
+
+  inline CSEnterFightMapRsp& operator=(const CSEnterFightMapRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CSEnterFightMapRsp& default_instance();
+
+  void Swap(CSEnterFightMapRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CSEnterFightMapRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CSEnterFightMapRsp& from);
+  void MergeFrom(const CSEnterFightMapRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 MapId = 1;
+  inline bool has_mapid() const;
+  inline void clear_mapid();
+  static const int kMapIdFieldNumber = 1;
+  inline ::google::protobuf::int32 mapid() const;
+  inline void set_mapid(::google::protobuf::int32 value);
+
+  // optional int32 FightServerId = 2;
+  inline bool has_fightserverid() const;
+  inline void clear_fightserverid();
+  static const int kFightServerIdFieldNumber = 2;
+  inline ::google::protobuf::int32 fightserverid() const;
+  inline void set_fightserverid(::google::protobuf::int32 value);
+
+  // optional .CSFightHeroInfoListRsp HeroInfoListRsp = 3;
+  inline bool has_heroinfolistrsp() const;
+  inline void clear_heroinfolistrsp();
+  static const int kHeroInfoListRspFieldNumber = 3;
+  inline const ::CSFightHeroInfoListRsp& heroinfolistrsp() const;
+  inline ::CSFightHeroInfoListRsp* mutable_heroinfolistrsp();
+  inline ::CSFightHeroInfoListRsp* release_heroinfolistrsp();
+  inline void set_allocated_heroinfolistrsp(::CSFightHeroInfoListRsp* heroinfolistrsp);
+
+  // @@protoc_insertion_point(class_scope:CSEnterFightMapRsp)
+ private:
+  inline void set_has_mapid();
+  inline void clear_has_mapid();
+  inline void set_has_fightserverid();
+  inline void clear_has_fightserverid();
+  inline void set_has_heroinfolistrsp();
+  inline void clear_has_heroinfolistrsp();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 mapid_;
+  ::google::protobuf::int32 fightserverid_;
+  ::CSFightHeroInfoListRsp* heroinfolistrsp_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSmsg_2eproto();
+  friend void protobuf_AssignDesc_CSmsg_2eproto();
+  friend void protobuf_ShutdownFile_CSmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static CSEnterFightMapRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class CSMateReqParam : public ::google::protobuf::Message {
  public:
   CSMateReqParam();
@@ -7728,6 +8068,15 @@ class CSMateRspParam : public ::google::protobuf::Message {
   inline ::CSShowZhaDanBagRsp* release_showzhadanbagrsp();
   inline void set_allocated_showzhadanbagrsp(::CSShowZhaDanBagRsp* showzhadanbagrsp);
 
+  // optional .CSEnterFightMapRsp EnterFightMapRsp = 4;
+  inline bool has_enterfightmaprsp() const;
+  inline void clear_enterfightmaprsp();
+  static const int kEnterFightMapRspFieldNumber = 4;
+  inline const ::CSEnterFightMapRsp& enterfightmaprsp() const;
+  inline ::CSEnterFightMapRsp* mutable_enterfightmaprsp();
+  inline ::CSEnterFightMapRsp* release_enterfightmaprsp();
+  inline void set_allocated_enterfightmaprsp(::CSEnterFightMapRsp* enterfightmaprsp);
+
   // @@protoc_insertion_point(class_scope:CSMateRspParam)
  private:
   inline void set_has_enterheroshowrsp();
@@ -7736,15 +8085,18 @@ class CSMateRspParam : public ::google::protobuf::Message {
   inline void clear_has_senduserheroshowrsp();
   inline void set_has_showzhadanbagrsp();
   inline void clear_has_showzhadanbagrsp();
+  inline void set_has_enterfightmaprsp();
+  inline void clear_has_enterfightmaprsp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::CSEnterHeroShowRsp* enterheroshowrsp_;
   ::CSSendUserHeroShowRsp* senduserheroshowrsp_;
   ::CSShowZhaDanBagRsp* showzhadanbagrsp_;
+  ::CSEnterFightMapRsp* enterfightmaprsp_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_CSmsg_2eproto();
   friend void protobuf_AssignDesc_CSmsg_2eproto();
@@ -13818,6 +14170,327 @@ inline void CSShowZhaDanBagRsp::set_zhadanid(::google::protobuf::uint32 value) {
 
 // -------------------------------------------------------------------
 
+// CSFightHeroInfo
+
+// optional uint64 Uid = 1;
+inline bool CSFightHeroInfo::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSFightHeroInfo::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSFightHeroInfo::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSFightHeroInfo::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 CSFightHeroInfo::uid() const {
+  return uid_;
+}
+inline void CSFightHeroInfo::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional string Name = 2;
+inline bool CSFightHeroInfo::has_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSFightHeroInfo::set_has_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSFightHeroInfo::clear_has_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSFightHeroInfo::clear_name() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    name_->clear();
+  }
+  clear_has_name();
+}
+inline const ::std::string& CSFightHeroInfo::name() const {
+  return *name_;
+}
+inline void CSFightHeroInfo::set_name(const ::std::string& value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void CSFightHeroInfo::set_name(const char* value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void CSFightHeroInfo::set_name(const char* value, size_t size) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CSFightHeroInfo::mutable_name() {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  return name_;
+}
+inline ::std::string* CSFightHeroInfo::release_name() {
+  clear_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = name_;
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CSFightHeroInfo::set_allocated_name(::std::string* name) {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (name) {
+    set_has_name();
+    name_ = name;
+  } else {
+    clear_has_name();
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 PlaneId = 3;
+inline bool CSFightHeroInfo::has_planeid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSFightHeroInfo::set_has_planeid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSFightHeroInfo::clear_has_planeid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSFightHeroInfo::clear_planeid() {
+  planeid_ = 0u;
+  clear_has_planeid();
+}
+inline ::google::protobuf::uint32 CSFightHeroInfo::planeid() const {
+  return planeid_;
+}
+inline void CSFightHeroInfo::set_planeid(::google::protobuf::uint32 value) {
+  set_has_planeid();
+  planeid_ = value;
+}
+
+// optional uint32 ZhaDanId = 4;
+inline bool CSFightHeroInfo::has_zhadanid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CSFightHeroInfo::set_has_zhadanid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CSFightHeroInfo::clear_has_zhadanid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CSFightHeroInfo::clear_zhadanid() {
+  zhadanid_ = 0u;
+  clear_has_zhadanid();
+}
+inline ::google::protobuf::uint32 CSFightHeroInfo::zhadanid() const {
+  return zhadanid_;
+}
+inline void CSFightHeroInfo::set_zhadanid(::google::protobuf::uint32 value) {
+  set_has_zhadanid();
+  zhadanid_ = value;
+}
+
+// optional uint32 DiPanId = 5;
+inline bool CSFightHeroInfo::has_dipanid() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void CSFightHeroInfo::set_has_dipanid() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void CSFightHeroInfo::clear_has_dipanid() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void CSFightHeroInfo::clear_dipanid() {
+  dipanid_ = 0u;
+  clear_has_dipanid();
+}
+inline ::google::protobuf::uint32 CSFightHeroInfo::dipanid() const {
+  return dipanid_;
+}
+inline void CSFightHeroInfo::set_dipanid(::google::protobuf::uint32 value) {
+  set_has_dipanid();
+  dipanid_ = value;
+}
+
+// optional uint32 SkillOneID = 6;
+inline bool CSFightHeroInfo::has_skilloneid() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void CSFightHeroInfo::set_has_skilloneid() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void CSFightHeroInfo::clear_has_skilloneid() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void CSFightHeroInfo::clear_skilloneid() {
+  skilloneid_ = 0u;
+  clear_has_skilloneid();
+}
+inline ::google::protobuf::uint32 CSFightHeroInfo::skilloneid() const {
+  return skilloneid_;
+}
+inline void CSFightHeroInfo::set_skilloneid(::google::protobuf::uint32 value) {
+  set_has_skilloneid();
+  skilloneid_ = value;
+}
+
+// optional uint32 SkillTwoID = 7;
+inline bool CSFightHeroInfo::has_skilltwoid() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void CSFightHeroInfo::set_has_skilltwoid() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void CSFightHeroInfo::clear_has_skilltwoid() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void CSFightHeroInfo::clear_skilltwoid() {
+  skilltwoid_ = 0u;
+  clear_has_skilltwoid();
+}
+inline ::google::protobuf::uint32 CSFightHeroInfo::skilltwoid() const {
+  return skilltwoid_;
+}
+inline void CSFightHeroInfo::set_skilltwoid(::google::protobuf::uint32 value) {
+  set_has_skilltwoid();
+  skilltwoid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CSFightHeroInfoListRsp
+
+// repeated .CSFightHeroInfo HeroInfoList = 1;
+inline int CSFightHeroInfoListRsp::heroinfolist_size() const {
+  return heroinfolist_.size();
+}
+inline void CSFightHeroInfoListRsp::clear_heroinfolist() {
+  heroinfolist_.Clear();
+}
+inline const ::CSFightHeroInfo& CSFightHeroInfoListRsp::heroinfolist(int index) const {
+  return heroinfolist_.Get(index);
+}
+inline ::CSFightHeroInfo* CSFightHeroInfoListRsp::mutable_heroinfolist(int index) {
+  return heroinfolist_.Mutable(index);
+}
+inline ::CSFightHeroInfo* CSFightHeroInfoListRsp::add_heroinfolist() {
+  return heroinfolist_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::CSFightHeroInfo >&
+CSFightHeroInfoListRsp::heroinfolist() const {
+  return heroinfolist_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::CSFightHeroInfo >*
+CSFightHeroInfoListRsp::mutable_heroinfolist() {
+  return &heroinfolist_;
+}
+
+// -------------------------------------------------------------------
+
+// CSEnterFightMapRsp
+
+// optional int32 MapId = 1;
+inline bool CSEnterFightMapRsp::has_mapid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CSEnterFightMapRsp::set_has_mapid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CSEnterFightMapRsp::clear_has_mapid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CSEnterFightMapRsp::clear_mapid() {
+  mapid_ = 0;
+  clear_has_mapid();
+}
+inline ::google::protobuf::int32 CSEnterFightMapRsp::mapid() const {
+  return mapid_;
+}
+inline void CSEnterFightMapRsp::set_mapid(::google::protobuf::int32 value) {
+  set_has_mapid();
+  mapid_ = value;
+}
+
+// optional int32 FightServerId = 2;
+inline bool CSEnterFightMapRsp::has_fightserverid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CSEnterFightMapRsp::set_has_fightserverid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CSEnterFightMapRsp::clear_has_fightserverid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CSEnterFightMapRsp::clear_fightserverid() {
+  fightserverid_ = 0;
+  clear_has_fightserverid();
+}
+inline ::google::protobuf::int32 CSEnterFightMapRsp::fightserverid() const {
+  return fightserverid_;
+}
+inline void CSEnterFightMapRsp::set_fightserverid(::google::protobuf::int32 value) {
+  set_has_fightserverid();
+  fightserverid_ = value;
+}
+
+// optional .CSFightHeroInfoListRsp HeroInfoListRsp = 3;
+inline bool CSEnterFightMapRsp::has_heroinfolistrsp() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CSEnterFightMapRsp::set_has_heroinfolistrsp() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CSEnterFightMapRsp::clear_has_heroinfolistrsp() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSEnterFightMapRsp::clear_heroinfolistrsp() {
+  if (heroinfolistrsp_ != NULL) heroinfolistrsp_->::CSFightHeroInfoListRsp::Clear();
+  clear_has_heroinfolistrsp();
+}
+inline const ::CSFightHeroInfoListRsp& CSEnterFightMapRsp::heroinfolistrsp() const {
+  return heroinfolistrsp_ != NULL ? *heroinfolistrsp_ : *default_instance_->heroinfolistrsp_;
+}
+inline ::CSFightHeroInfoListRsp* CSEnterFightMapRsp::mutable_heroinfolistrsp() {
+  set_has_heroinfolistrsp();
+  if (heroinfolistrsp_ == NULL) heroinfolistrsp_ = new ::CSFightHeroInfoListRsp;
+  return heroinfolistrsp_;
+}
+inline ::CSFightHeroInfoListRsp* CSEnterFightMapRsp::release_heroinfolistrsp() {
+  clear_has_heroinfolistrsp();
+  ::CSFightHeroInfoListRsp* temp = heroinfolistrsp_;
+  heroinfolistrsp_ = NULL;
+  return temp;
+}
+inline void CSEnterFightMapRsp::set_allocated_heroinfolistrsp(::CSFightHeroInfoListRsp* heroinfolistrsp) {
+  delete heroinfolistrsp_;
+  heroinfolistrsp_ = heroinfolistrsp;
+  if (heroinfolistrsp) {
+    set_has_heroinfolistrsp();
+  } else {
+    clear_has_heroinfolistrsp();
+  }
+}
+
+// -------------------------------------------------------------------
+
 // CSMateReqParam
 
 // optional .CSMateFetchReq MateFetchReq = 1;
@@ -14163,6 +14836,44 @@ inline void CSMateRspParam::set_allocated_showzhadanbagrsp(::CSShowZhaDanBagRsp*
     set_has_showzhadanbagrsp();
   } else {
     clear_has_showzhadanbagrsp();
+  }
+}
+
+// optional .CSEnterFightMapRsp EnterFightMapRsp = 4;
+inline bool CSMateRspParam::has_enterfightmaprsp() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CSMateRspParam::set_has_enterfightmaprsp() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CSMateRspParam::clear_has_enterfightmaprsp() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CSMateRspParam::clear_enterfightmaprsp() {
+  if (enterfightmaprsp_ != NULL) enterfightmaprsp_->::CSEnterFightMapRsp::Clear();
+  clear_has_enterfightmaprsp();
+}
+inline const ::CSEnterFightMapRsp& CSMateRspParam::enterfightmaprsp() const {
+  return enterfightmaprsp_ != NULL ? *enterfightmaprsp_ : *default_instance_->enterfightmaprsp_;
+}
+inline ::CSEnterFightMapRsp* CSMateRspParam::mutable_enterfightmaprsp() {
+  set_has_enterfightmaprsp();
+  if (enterfightmaprsp_ == NULL) enterfightmaprsp_ = new ::CSEnterFightMapRsp;
+  return enterfightmaprsp_;
+}
+inline ::CSEnterFightMapRsp* CSMateRspParam::release_enterfightmaprsp() {
+  clear_has_enterfightmaprsp();
+  ::CSEnterFightMapRsp* temp = enterfightmaprsp_;
+  enterfightmaprsp_ = NULL;
+  return temp;
+}
+inline void CSMateRspParam::set_allocated_enterfightmaprsp(::CSEnterFightMapRsp* enterfightmaprsp) {
+  delete enterfightmaprsp_;
+  enterfightmaprsp_ = enterfightmaprsp;
+  if (enterfightmaprsp) {
+    set_has_enterfightmaprsp();
+  } else {
+    clear_has_enterfightmaprsp();
   }
 }
 
