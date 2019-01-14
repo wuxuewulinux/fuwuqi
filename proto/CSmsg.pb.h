@@ -7807,10 +7807,17 @@ class CSEnterFightMapRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 fightserverid() const;
   inline void set_fightserverid(::google::protobuf::int32 value);
 
-  // optional .CSFightHeroInfoListRsp HeroInfoListRsp = 3;
+  // optional int32 RoomIndex = 3;
+  inline bool has_roomindex() const;
+  inline void clear_roomindex();
+  static const int kRoomIndexFieldNumber = 3;
+  inline ::google::protobuf::int32 roomindex() const;
+  inline void set_roomindex(::google::protobuf::int32 value);
+
+  // optional .CSFightHeroInfoListRsp HeroInfoListRsp = 4;
   inline bool has_heroinfolistrsp() const;
   inline void clear_heroinfolistrsp();
-  static const int kHeroInfoListRspFieldNumber = 3;
+  static const int kHeroInfoListRspFieldNumber = 4;
   inline const ::CSFightHeroInfoListRsp& heroinfolistrsp() const;
   inline ::CSFightHeroInfoListRsp* mutable_heroinfolistrsp();
   inline ::CSFightHeroInfoListRsp* release_heroinfolistrsp();
@@ -7822,6 +7829,8 @@ class CSEnterFightMapRsp : public ::google::protobuf::Message {
   inline void clear_has_mapid();
   inline void set_has_fightserverid();
   inline void clear_has_fightserverid();
+  inline void set_has_roomindex();
+  inline void clear_has_roomindex();
   inline void set_has_heroinfolistrsp();
   inline void clear_has_heroinfolistrsp();
 
@@ -7830,9 +7839,10 @@ class CSEnterFightMapRsp : public ::google::protobuf::Message {
   ::google::protobuf::int32 mapid_;
   ::google::protobuf::int32 fightserverid_;
   ::CSFightHeroInfoListRsp* heroinfolistrsp_;
+  ::google::protobuf::int32 roomindex_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_CSmsg_2eproto();
   friend void protobuf_AssignDesc_CSmsg_2eproto();
@@ -14451,15 +14461,37 @@ inline void CSEnterFightMapRsp::set_fightserverid(::google::protobuf::int32 valu
   fightserverid_ = value;
 }
 
-// optional .CSFightHeroInfoListRsp HeroInfoListRsp = 3;
-inline bool CSEnterFightMapRsp::has_heroinfolistrsp() const {
+// optional int32 RoomIndex = 3;
+inline bool CSEnterFightMapRsp::has_roomindex() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void CSEnterFightMapRsp::set_has_heroinfolistrsp() {
+inline void CSEnterFightMapRsp::set_has_roomindex() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void CSEnterFightMapRsp::clear_has_heroinfolistrsp() {
+inline void CSEnterFightMapRsp::clear_has_roomindex() {
   _has_bits_[0] &= ~0x00000004u;
+}
+inline void CSEnterFightMapRsp::clear_roomindex() {
+  roomindex_ = 0;
+  clear_has_roomindex();
+}
+inline ::google::protobuf::int32 CSEnterFightMapRsp::roomindex() const {
+  return roomindex_;
+}
+inline void CSEnterFightMapRsp::set_roomindex(::google::protobuf::int32 value) {
+  set_has_roomindex();
+  roomindex_ = value;
+}
+
+// optional .CSFightHeroInfoListRsp HeroInfoListRsp = 4;
+inline bool CSEnterFightMapRsp::has_heroinfolistrsp() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CSEnterFightMapRsp::set_has_heroinfolistrsp() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CSEnterFightMapRsp::clear_has_heroinfolistrsp() {
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void CSEnterFightMapRsp::clear_heroinfolistrsp() {
   if (heroinfolistrsp_ != NULL) heroinfolistrsp_->::CSFightHeroInfoListRsp::Clear();

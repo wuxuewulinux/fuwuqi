@@ -100,6 +100,7 @@ int MateWork::MateFetch(const CSMateFetchReq& rReq)
 			rRoom.RoomIndex = RoomIndex;
 			rRoom.UserCount = 0;
 			rRoom.Agree = 0;
+			rRoom.TimeIndex = 0;
 			rRoom.MaxCount = 5;					//五个人才开始游戏
 			++rRoom.UserCount;
 			UidInfo rInfo;
@@ -115,6 +116,7 @@ int MateWork::MateFetch(const CSMateFetchReq& rReq)
 		//没有任何等待的房间就要创建新的房间给该玩家
 		int RoomIndex = AskRoomIndex();
 		Room rRoom;
+		rRoom.TimeIndex = 0;
 		rRoom.UserCount = 0;
 		rRoom.Agree = 0;
 		rRoom.MaxCount = 5;					//五个人才开始游戏
@@ -191,6 +193,8 @@ int MateWork::NotButtonMateFetch(const CSNotButtonMateFetchReq& rReq)
 	}
 	//发送关掉定时时间
 	TimeSend(false,pRoom->TimeIndex,0,pRoom->RoomIndex);
+	DeleteTimeIndex(pRoom->TimeIndex,pRoom->RoomIndex);
+	pRoom->TimeIndex = 0;
 	--pRoom->UserCount;
 	std::vector<UidInfo>::iterator iter = pRoom->UidList.begin();
 	while( iter != pRoom->UidList.end())
@@ -544,5 +548,30 @@ int MateWork::ShowZhaDanBag(const CSShowZhaDanBagReq& rReq,CSShowZhaDanBagRsp* p
 			SendUserShowZhaDan(pRole,rReq.uid(),pShowHeroRoom->HeroList[i].Uid,rReq.zhadanid());
 		}
 	}
+	return 0;
+}
+
+
+
+
+int MateWork::QuitGame(uint64_t Uid,int RoomIndex)
+{
+	OpenMateSuo();
+	DeleteUserRoom(Uid);
+	Room* pRoom = GetRoomMap(RoomIndex);
+	if (pRoom == NULL)
+	{
+		CloseMateSuo();
+		return 0;
+	}
+	for (std::vector<UidInfo>::iterator iter = pRoom->UidList.begin();iter != pRoom->UidList.end();iter++)
+	{
+		if (Uid == iter->Uid)
+		{
+			pRoom->UidList.erase(iter);
+			break;
+		}
+	}
+	CloseMateSuo();
 	return 0;
 }

@@ -45,6 +45,18 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* SSRegisterLoginRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SSRegisterLoginRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SSFightServerReqParam_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SSFightServerReqParam_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SSFightServerRspParam_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SSFightServerRspParam_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SSFightServerReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SSFightServerReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SSFightServerRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SSFightServerRsp_reflection_ = NULL;
 const ::google::protobuf::Descriptor* SSMsgBody_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SSMsgBody_reflection_ = NULL;
@@ -55,6 +67,7 @@ const ::google::protobuf::Descriptor* SSMsg_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SSMsg_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* SSRegisterLoginCmd_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* SSFightServerCmd_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* SSMsgID_descriptor_ = NULL;
 
 }  // namespace
@@ -213,10 +226,73 @@ void protobuf_AssignDesc_SSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SSRegisterLoginRsp));
-  SSMsgBody_descriptor_ = file->message_type(9);
-  static const int SSMsgBody_offsets_[2] = {
+  SSFightServerReqParam_descriptor_ = file->message_type(9);
+  static const int SSFightServerReqParam_offsets_[1] = {
+  };
+  SSFightServerReqParam_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SSFightServerReqParam_descriptor_,
+      SSFightServerReqParam::default_instance_,
+      SSFightServerReqParam_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSFightServerReqParam, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSFightServerReqParam, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SSFightServerReqParam));
+  SSFightServerRspParam_descriptor_ = file->message_type(10);
+  static const int SSFightServerRspParam_offsets_[1] = {
+  };
+  SSFightServerRspParam_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SSFightServerRspParam_descriptor_,
+      SSFightServerRspParam::default_instance_,
+      SSFightServerRspParam_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSFightServerRspParam, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSFightServerRspParam, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SSFightServerRspParam));
+  SSFightServerReq_descriptor_ = file->message_type(11);
+  static const int SSFightServerReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSFightServerReq, cmd_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSFightServerReq, reqparam_),
+  };
+  SSFightServerReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SSFightServerReq_descriptor_,
+      SSFightServerReq::default_instance_,
+      SSFightServerReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSFightServerReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSFightServerReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SSFightServerReq));
+  SSFightServerRsp_descriptor_ = file->message_type(12);
+  static const int SSFightServerRsp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSFightServerRsp, result_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSFightServerRsp, cmd_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSFightServerRsp, rspparam_),
+  };
+  SSFightServerRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SSFightServerRsp_descriptor_,
+      SSFightServerRsp::default_instance_,
+      SSFightServerRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSFightServerRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSFightServerRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SSFightServerRsp));
+  SSMsgBody_descriptor_ = file->message_type(13);
+  static const int SSMsgBody_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSMsgBody, registerloginreq_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSMsgBody, registerloginrsp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSMsgBody, fightserverreq_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSMsgBody, fightserverrsp_),
   };
   SSMsgBody_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -229,7 +305,7 @@ void protobuf_AssignDesc_SSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SSMsgBody));
-  SSMsgHead_descriptor_ = file->message_type(10);
+  SSMsgHead_descriptor_ = file->message_type(14);
   static const int SSMsgHead_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSMsgHead, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSMsgHead, msgid_),
@@ -245,7 +321,7 @@ void protobuf_AssignDesc_SSmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SSMsgHead));
-  SSMsg_descriptor_ = file->message_type(11);
+  SSMsg_descriptor_ = file->message_type(15);
   static const int SSMsg_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSMsg, head_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SSMsg, body_),
@@ -262,7 +338,8 @@ void protobuf_AssignDesc_SSmsg_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SSMsg));
   SSRegisterLoginCmd_descriptor_ = file->enum_type(0);
-  SSMsgID_descriptor_ = file->enum_type(1);
+  SSFightServerCmd_descriptor_ = file->enum_type(1);
+  SSMsgID_descriptor_ = file->enum_type(2);
 }
 
 namespace {
@@ -294,6 +371,14 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SSRegisterLoginRsp_descriptor_, &SSRegisterLoginRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SSFightServerReqParam_descriptor_, &SSFightServerReqParam::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SSFightServerRspParam_descriptor_, &SSFightServerRspParam::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SSFightServerReq_descriptor_, &SSFightServerReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SSFightServerRsp_descriptor_, &SSFightServerRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SSMsgBody_descriptor_, &SSMsgBody::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SSMsgHead_descriptor_, &SSMsgHead::default_instance());
@@ -322,6 +407,14 @@ void protobuf_ShutdownFile_SSmsg_2eproto() {
   delete SSRegisterLoginReq_reflection_;
   delete SSRegisterLoginRsp::default_instance_;
   delete SSRegisterLoginRsp_reflection_;
+  delete SSFightServerReqParam::default_instance_;
+  delete SSFightServerReqParam_reflection_;
+  delete SSFightServerRspParam::default_instance_;
+  delete SSFightServerRspParam_reflection_;
+  delete SSFightServerReq::default_instance_;
+  delete SSFightServerReq_reflection_;
+  delete SSFightServerRsp::default_instance_;
+  delete SSFightServerRsp_reflection_;
   delete SSMsgBody::default_instance_;
   delete SSMsgBody_reflection_;
   delete SSMsgHead::default_instance_;
@@ -343,7 +436,7 @@ void protobuf_AddDesc_SSmsg_2eproto() {
     "SLoginRsp\022\014\n\004type\030\001 \001(\r\022\031\n\004Role\030\002 \001(\0132\013."
     "DBRoleInfo\"@\n\rSSRegisterReq\022\017\n\007account\030\001"
     " \001(\t\022\020\n\010password\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\"8\n\r"
-    "SSRegisterRsp\022\014\n\004type\030\001 \001(\r\022\013\n\003uid\030\002 \001(\004"
+    "SSRegisterRsp\022\014\n\004type\030\001 \001(\r\022\013\n\003Uid\030\002 \001(\004"
     "\022\014\n\004name\030\003 \001(\t\"&\n\tSSQuitReq\022\031\n\004Role\030\001 \001("
     "\0132\013.DBRoleInfo\"z\n\027SSRegisterLoginReqPara"
     "m\022\035\n\010LoginReq\030\001 \001(\0132\013.SSLoginReq\022#\n\013Regi"
@@ -356,18 +449,28 @@ void protobuf_AddDesc_SSmsg_2eproto() {
     "LoginReqParam\"r\n\022SSRegisterLoginRsp\022\016\n\006r"
     "esult\030\001 \001(\005\022 \n\003cmd\030\002 \002(\0162\023.SSRegisterLog"
     "inCmd\022*\n\010rspParam\030\003 \001(\0132\030.SSRegisterLogi"
-    "nRspParam\"i\n\tSSMsgBody\022-\n\020RegisterLoginR"
-    "eq\030\001 \001(\0132\023.SSRegisterLoginReq\022-\n\020Registe"
-    "rLoginRsp\030\002 \001(\0132\023.SSRegisterLoginRsp\"1\n\t"
-    "SSMsgHead\022\013\n\003uid\030\001 \002(\004\022\027\n\005msgID\030\002 \002(\0162\010."
-    "SSMsgID\";\n\005SSMsg\022\030\n\004head\030\001 \002(\0132\n.SSMsgHe"
-    "ad\022\030\n\004body\030\002 \002(\0132\n.SSMsgBody*\227\001\n\022SSRegis"
-    "terLoginCmd\022\037\n\033SSRegisterLoginCmd_Regist"
-    "er\020\001\022\034\n\030SSRegisterLoginCmd_Login\020\002\022\033\n\027SS"
-    "RegisterLoginCmd_Quit\020\003\022%\n!SSRegisterLog"
-    "inCmd_UpdateDatabase\020\004*H\n\007SSMsgID\022\021\n\014SS_"
-    "MSGID_MIN\020\350\007\022\027\n\022SS_MSGID_GameMysql\020\351\007\022\021\n"
-    "\014SS_MSGID_MAX\020\352\007", 1176);
+    "nRspParam\"\027\n\025SSFightServerReqParam\"\027\n\025SS"
+    "FightServerRspParam\"\\\n\020SSFightServerReq\022"
+    "\036\n\003cmd\030\001 \002(\0162\021.SSFightServerCmd\022(\n\010reqPa"
+    "ram\030\002 \001(\0132\026.SSFightServerReqParam\"l\n\020SSF"
+    "ightServerRsp\022\016\n\006result\030\001 \001(\005\022\036\n\003cmd\030\002 \002"
+    "(\0162\021.SSFightServerCmd\022(\n\010rspParam\030\003 \001(\0132"
+    "\026.SSFightServerRspParam\"\277\001\n\tSSMsgBody\022-\n"
+    "\020RegisterLoginReq\030\001 \001(\0132\023.SSRegisterLogi"
+    "nReq\022-\n\020RegisterLoginRsp\030\002 \001(\0132\023.SSRegis"
+    "terLoginRsp\022)\n\016FightServerReq\030\003 \001(\0132\021.SS"
+    "FightServerReq\022)\n\016FightServerRsp\030\004 \001(\0132\021"
+    ".SSFightServerRsp\"1\n\tSSMsgHead\022\013\n\003uid\030\001 "
+    "\002(\004\022\027\n\005msgID\030\002 \002(\0162\010.SSMsgID\";\n\005SSMsg\022\030\n"
+    "\004head\030\001 \002(\0132\n.SSMsgHead\022\030\n\004body\030\002 \002(\0132\n."
+    "SSMsgBody*\227\001\n\022SSRegisterLoginCmd\022\037\n\033SSRe"
+    "gisterLoginCmd_Register\020\001\022\034\n\030SSRegisterL"
+    "oginCmd_Login\020\002\022\033\n\027SSRegisterLoginCmd_Qu"
+    "it\020\003\022%\n!SSRegisterLoginCmd_UpdateDatabas"
+    "e\020\004*1\n\020SSFightServerCmd\022\035\n\031SSFightServer"
+    "Cmd_FightEnd\020\001*c\n\007SSMsgID\022\021\n\014SS_MSGID_MI"
+    "N\020\350\007\022\027\n\022SS_MSGID_GameMysql\020\351\007\022\031\n\024SS_MSGI"
+    "D_FightServer\020\352\007\022\021\n\014SS_MSGID_MAX\020\353\007", 1595);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "SSmsg.proto", &protobuf_RegisterTypes);
   SSLoginReq::default_instance_ = new SSLoginReq();
@@ -379,6 +482,10 @@ void protobuf_AddDesc_SSmsg_2eproto() {
   SSRegisterLoginRspParam::default_instance_ = new SSRegisterLoginRspParam();
   SSRegisterLoginReq::default_instance_ = new SSRegisterLoginReq();
   SSRegisterLoginRsp::default_instance_ = new SSRegisterLoginRsp();
+  SSFightServerReqParam::default_instance_ = new SSFightServerReqParam();
+  SSFightServerRspParam::default_instance_ = new SSFightServerRspParam();
+  SSFightServerReq::default_instance_ = new SSFightServerReq();
+  SSFightServerRsp::default_instance_ = new SSFightServerRsp();
   SSMsgBody::default_instance_ = new SSMsgBody();
   SSMsgHead::default_instance_ = new SSMsgHead();
   SSMsg::default_instance_ = new SSMsg();
@@ -391,6 +498,10 @@ void protobuf_AddDesc_SSmsg_2eproto() {
   SSRegisterLoginRspParam::default_instance_->InitAsDefaultInstance();
   SSRegisterLoginReq::default_instance_->InitAsDefaultInstance();
   SSRegisterLoginRsp::default_instance_->InitAsDefaultInstance();
+  SSFightServerReqParam::default_instance_->InitAsDefaultInstance();
+  SSFightServerRspParam::default_instance_->InitAsDefaultInstance();
+  SSFightServerReq::default_instance_->InitAsDefaultInstance();
+  SSFightServerRsp::default_instance_->InitAsDefaultInstance();
   SSMsgBody::default_instance_->InitAsDefaultInstance();
   SSMsgHead::default_instance_->InitAsDefaultInstance();
   SSMsg::default_instance_->InitAsDefaultInstance();
@@ -419,6 +530,19 @@ bool SSRegisterLoginCmd_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* SSFightServerCmd_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SSFightServerCmd_descriptor_;
+}
+bool SSFightServerCmd_IsValid(int value) {
+  switch(value) {
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
 const ::google::protobuf::EnumDescriptor* SSMsgID_descriptor() {
   protobuf_AssignDescriptorsOnce();
   return SSMsgID_descriptor_;
@@ -428,6 +552,7 @@ bool SSMsgID_IsValid(int value) {
     case 1000:
     case 1001:
     case 1002:
+    case 1003:
       return true;
     default:
       return false;
@@ -1403,15 +1528,15 @@ bool SSRegisterRsp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_uid;
+        if (input->ExpectTag(16)) goto parse_Uid;
         break;
       }
 
-      // optional uint64 uid = 2;
+      // optional uint64 Uid = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_uid:
+         parse_Uid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &uid_)));
@@ -1463,7 +1588,7 @@ void SSRegisterRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->type(), output);
   }
 
-  // optional uint64 uid = 2;
+  // optional uint64 Uid = 2;
   if (has_uid()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->uid(), output);
   }
@@ -1490,7 +1615,7 @@ void SSRegisterRsp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->type(), target);
   }
 
-  // optional uint64 uid = 2;
+  // optional uint64 Uid = 2;
   if (has_uid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->uid(), target);
   }
@@ -1523,7 +1648,7 @@ int SSRegisterRsp::ByteSize() const {
           this->type());
     }
 
-    // optional uint64 uid = 2;
+    // optional uint64 Uid = 2;
     if (has_uid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt64Size(
@@ -2951,8 +3076,882 @@ void SSRegisterLoginRsp::Swap(SSRegisterLoginRsp* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+SSFightServerReqParam::SSFightServerReqParam()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SSFightServerReqParam::InitAsDefaultInstance() {
+}
+
+SSFightServerReqParam::SSFightServerReqParam(const SSFightServerReqParam& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SSFightServerReqParam::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SSFightServerReqParam::~SSFightServerReqParam() {
+  SharedDtor();
+}
+
+void SSFightServerReqParam::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SSFightServerReqParam::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SSFightServerReqParam::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SSFightServerReqParam_descriptor_;
+}
+
+const SSFightServerReqParam& SSFightServerReqParam::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_SSmsg_2eproto();
+  return *default_instance_;
+}
+
+SSFightServerReqParam* SSFightServerReqParam::default_instance_ = NULL;
+
+SSFightServerReqParam* SSFightServerReqParam::New() const {
+  return new SSFightServerReqParam;
+}
+
+void SSFightServerReqParam::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SSFightServerReqParam::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void SSFightServerReqParam::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SSFightServerReqParam::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SSFightServerReqParam::ByteSize() const {
+  int total_size = 0;
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SSFightServerReqParam::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SSFightServerReqParam* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SSFightServerReqParam*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SSFightServerReqParam::MergeFrom(const SSFightServerReqParam& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SSFightServerReqParam::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SSFightServerReqParam::CopyFrom(const SSFightServerReqParam& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SSFightServerReqParam::IsInitialized() const {
+
+  return true;
+}
+
+void SSFightServerReqParam::Swap(SSFightServerReqParam* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SSFightServerReqParam::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SSFightServerReqParam_descriptor_;
+  metadata.reflection = SSFightServerReqParam_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+SSFightServerRspParam::SSFightServerRspParam()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SSFightServerRspParam::InitAsDefaultInstance() {
+}
+
+SSFightServerRspParam::SSFightServerRspParam(const SSFightServerRspParam& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SSFightServerRspParam::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SSFightServerRspParam::~SSFightServerRspParam() {
+  SharedDtor();
+}
+
+void SSFightServerRspParam::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SSFightServerRspParam::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SSFightServerRspParam::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SSFightServerRspParam_descriptor_;
+}
+
+const SSFightServerRspParam& SSFightServerRspParam::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_SSmsg_2eproto();
+  return *default_instance_;
+}
+
+SSFightServerRspParam* SSFightServerRspParam::default_instance_ = NULL;
+
+SSFightServerRspParam* SSFightServerRspParam::New() const {
+  return new SSFightServerRspParam;
+}
+
+void SSFightServerRspParam::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SSFightServerRspParam::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void SSFightServerRspParam::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SSFightServerRspParam::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SSFightServerRspParam::ByteSize() const {
+  int total_size = 0;
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SSFightServerRspParam::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SSFightServerRspParam* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SSFightServerRspParam*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SSFightServerRspParam::MergeFrom(const SSFightServerRspParam& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SSFightServerRspParam::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SSFightServerRspParam::CopyFrom(const SSFightServerRspParam& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SSFightServerRspParam::IsInitialized() const {
+
+  return true;
+}
+
+void SSFightServerRspParam::Swap(SSFightServerRspParam* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SSFightServerRspParam::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SSFightServerRspParam_descriptor_;
+  metadata.reflection = SSFightServerRspParam_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SSFightServerReq::kCmdFieldNumber;
+const int SSFightServerReq::kReqParamFieldNumber;
+#endif  // !_MSC_VER
+
+SSFightServerReq::SSFightServerReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SSFightServerReq::InitAsDefaultInstance() {
+  reqparam_ = const_cast< ::SSFightServerReqParam*>(&::SSFightServerReqParam::default_instance());
+}
+
+SSFightServerReq::SSFightServerReq(const SSFightServerReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SSFightServerReq::SharedCtor() {
+  _cached_size_ = 0;
+  cmd_ = 1;
+  reqparam_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SSFightServerReq::~SSFightServerReq() {
+  SharedDtor();
+}
+
+void SSFightServerReq::SharedDtor() {
+  if (this != default_instance_) {
+    delete reqparam_;
+  }
+}
+
+void SSFightServerReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SSFightServerReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SSFightServerReq_descriptor_;
+}
+
+const SSFightServerReq& SSFightServerReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_SSmsg_2eproto();
+  return *default_instance_;
+}
+
+SSFightServerReq* SSFightServerReq::default_instance_ = NULL;
+
+SSFightServerReq* SSFightServerReq::New() const {
+  return new SSFightServerReq;
+}
+
+void SSFightServerReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    cmd_ = 1;
+    if (has_reqparam()) {
+      if (reqparam_ != NULL) reqparam_->::SSFightServerReqParam::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SSFightServerReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required .SSFightServerCmd cmd = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::SSFightServerCmd_IsValid(value)) {
+            set_cmd(static_cast< ::SSFightServerCmd >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(1, value);
+          }
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_reqParam;
+        break;
+      }
+
+      // optional .SSFightServerReqParam reqParam = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_reqParam:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_reqparam()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SSFightServerReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required .SSFightServerCmd cmd = 1;
+  if (has_cmd()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->cmd(), output);
+  }
+
+  // optional .SSFightServerReqParam reqParam = 2;
+  if (has_reqparam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->reqparam(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SSFightServerReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required .SSFightServerCmd cmd = 1;
+  if (has_cmd()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->cmd(), target);
+  }
+
+  // optional .SSFightServerReqParam reqParam = 2;
+  if (has_reqparam()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->reqparam(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SSFightServerReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required .SSFightServerCmd cmd = 1;
+    if (has_cmd()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->cmd());
+    }
+
+    // optional .SSFightServerReqParam reqParam = 2;
+    if (has_reqparam()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->reqparam());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SSFightServerReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SSFightServerReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SSFightServerReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SSFightServerReq::MergeFrom(const SSFightServerReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_cmd()) {
+      set_cmd(from.cmd());
+    }
+    if (from.has_reqparam()) {
+      mutable_reqparam()->::SSFightServerReqParam::MergeFrom(from.reqparam());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SSFightServerReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SSFightServerReq::CopyFrom(const SSFightServerReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SSFightServerReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void SSFightServerReq::Swap(SSFightServerReq* other) {
+  if (other != this) {
+    std::swap(cmd_, other->cmd_);
+    std::swap(reqparam_, other->reqparam_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SSFightServerReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SSFightServerReq_descriptor_;
+  metadata.reflection = SSFightServerReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SSFightServerRsp::kResultFieldNumber;
+const int SSFightServerRsp::kCmdFieldNumber;
+const int SSFightServerRsp::kRspParamFieldNumber;
+#endif  // !_MSC_VER
+
+SSFightServerRsp::SSFightServerRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SSFightServerRsp::InitAsDefaultInstance() {
+  rspparam_ = const_cast< ::SSFightServerRspParam*>(&::SSFightServerRspParam::default_instance());
+}
+
+SSFightServerRsp::SSFightServerRsp(const SSFightServerRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SSFightServerRsp::SharedCtor() {
+  _cached_size_ = 0;
+  result_ = 0;
+  cmd_ = 1;
+  rspparam_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SSFightServerRsp::~SSFightServerRsp() {
+  SharedDtor();
+}
+
+void SSFightServerRsp::SharedDtor() {
+  if (this != default_instance_) {
+    delete rspparam_;
+  }
+}
+
+void SSFightServerRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SSFightServerRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SSFightServerRsp_descriptor_;
+}
+
+const SSFightServerRsp& SSFightServerRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_SSmsg_2eproto();
+  return *default_instance_;
+}
+
+SSFightServerRsp* SSFightServerRsp::default_instance_ = NULL;
+
+SSFightServerRsp* SSFightServerRsp::New() const {
+  return new SSFightServerRsp;
+}
+
+void SSFightServerRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    result_ = 0;
+    cmd_ = 1;
+    if (has_rspparam()) {
+      if (rspparam_ != NULL) rspparam_->::SSFightServerRspParam::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SSFightServerRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 result = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &result_)));
+          set_has_result();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_cmd;
+        break;
+      }
+
+      // required .SSFightServerCmd cmd = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_cmd:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::SSFightServerCmd_IsValid(value)) {
+            set_cmd(static_cast< ::SSFightServerCmd >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(2, value);
+          }
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_rspParam;
+        break;
+      }
+
+      // optional .SSFightServerRspParam rspParam = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_rspParam:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_rspparam()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SSFightServerRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 result = 1;
+  if (has_result()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->result(), output);
+  }
+
+  // required .SSFightServerCmd cmd = 2;
+  if (has_cmd()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      2, this->cmd(), output);
+  }
+
+  // optional .SSFightServerRspParam rspParam = 3;
+  if (has_rspparam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->rspparam(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SSFightServerRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 result = 1;
+  if (has_result()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->result(), target);
+  }
+
+  // required .SSFightServerCmd cmd = 2;
+  if (has_cmd()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->cmd(), target);
+  }
+
+  // optional .SSFightServerRspParam rspParam = 3;
+  if (has_rspparam()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->rspparam(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SSFightServerRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 result = 1;
+    if (has_result()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->result());
+    }
+
+    // required .SSFightServerCmd cmd = 2;
+    if (has_cmd()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->cmd());
+    }
+
+    // optional .SSFightServerRspParam rspParam = 3;
+    if (has_rspparam()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->rspparam());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SSFightServerRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SSFightServerRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SSFightServerRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SSFightServerRsp::MergeFrom(const SSFightServerRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_result()) {
+      set_result(from.result());
+    }
+    if (from.has_cmd()) {
+      set_cmd(from.cmd());
+    }
+    if (from.has_rspparam()) {
+      mutable_rspparam()->::SSFightServerRspParam::MergeFrom(from.rspparam());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SSFightServerRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SSFightServerRsp::CopyFrom(const SSFightServerRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SSFightServerRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000002) != 0x00000002) return false;
+
+  return true;
+}
+
+void SSFightServerRsp::Swap(SSFightServerRsp* other) {
+  if (other != this) {
+    std::swap(result_, other->result_);
+    std::swap(cmd_, other->cmd_);
+    std::swap(rspparam_, other->rspparam_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SSFightServerRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SSFightServerRsp_descriptor_;
+  metadata.reflection = SSFightServerRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int SSMsgBody::kRegisterLoginReqFieldNumber;
 const int SSMsgBody::kRegisterLoginRspFieldNumber;
+const int SSMsgBody::kFightServerReqFieldNumber;
+const int SSMsgBody::kFightServerRspFieldNumber;
 #endif  // !_MSC_VER
 
 SSMsgBody::SSMsgBody()
@@ -2963,6 +3962,8 @@ SSMsgBody::SSMsgBody()
 void SSMsgBody::InitAsDefaultInstance() {
   registerloginreq_ = const_cast< ::SSRegisterLoginReq*>(&::SSRegisterLoginReq::default_instance());
   registerloginrsp_ = const_cast< ::SSRegisterLoginRsp*>(&::SSRegisterLoginRsp::default_instance());
+  fightserverreq_ = const_cast< ::SSFightServerReq*>(&::SSFightServerReq::default_instance());
+  fightserverrsp_ = const_cast< ::SSFightServerRsp*>(&::SSFightServerRsp::default_instance());
 }
 
 SSMsgBody::SSMsgBody(const SSMsgBody& from)
@@ -2975,6 +3976,8 @@ void SSMsgBody::SharedCtor() {
   _cached_size_ = 0;
   registerloginreq_ = NULL;
   registerloginrsp_ = NULL;
+  fightserverreq_ = NULL;
+  fightserverrsp_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -2986,6 +3989,8 @@ void SSMsgBody::SharedDtor() {
   if (this != default_instance_) {
     delete registerloginreq_;
     delete registerloginrsp_;
+    delete fightserverreq_;
+    delete fightserverrsp_;
   }
 }
 
@@ -3018,6 +4023,12 @@ void SSMsgBody::Clear() {
     if (has_registerloginrsp()) {
       if (registerloginrsp_ != NULL) registerloginrsp_->::SSRegisterLoginRsp::Clear();
     }
+    if (has_fightserverreq()) {
+      if (fightserverreq_ != NULL) fightserverreq_->::SSFightServerReq::Clear();
+    }
+    if (has_fightserverrsp()) {
+      if (fightserverrsp_ != NULL) fightserverrsp_->::SSFightServerRsp::Clear();
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -3049,6 +4060,34 @@ bool SSMsgBody::MergePartialFromCodedStream(
          parse_RegisterLoginRsp:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_registerloginrsp()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_FightServerReq;
+        break;
+      }
+
+      // optional .SSFightServerReq FightServerReq = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_FightServerReq:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_fightserverreq()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_FightServerRsp;
+        break;
+      }
+
+      // optional .SSFightServerRsp FightServerRsp = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_FightServerRsp:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_fightserverrsp()));
         } else {
           goto handle_uninterpreted;
         }
@@ -3086,6 +4125,18 @@ void SSMsgBody::SerializeWithCachedSizes(
       2, this->registerloginrsp(), output);
   }
 
+  // optional .SSFightServerReq FightServerReq = 3;
+  if (has_fightserverreq()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->fightserverreq(), output);
+  }
+
+  // optional .SSFightServerRsp FightServerRsp = 4;
+  if (has_fightserverrsp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->fightserverrsp(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -3106,6 +4157,20 @@ void SSMsgBody::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         2, this->registerloginrsp(), target);
+  }
+
+  // optional .SSFightServerReq FightServerReq = 3;
+  if (has_fightserverreq()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->fightserverreq(), target);
+  }
+
+  // optional .SSFightServerRsp FightServerRsp = 4;
+  if (has_fightserverrsp()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->fightserverrsp(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3131,6 +4196,20 @@ int SSMsgBody::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->registerloginrsp());
+    }
+
+    // optional .SSFightServerReq FightServerReq = 3;
+    if (has_fightserverreq()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->fightserverreq());
+    }
+
+    // optional .SSFightServerRsp FightServerRsp = 4;
+    if (has_fightserverrsp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->fightserverrsp());
     }
 
   }
@@ -3166,6 +4245,12 @@ void SSMsgBody::MergeFrom(const SSMsgBody& from) {
     if (from.has_registerloginrsp()) {
       mutable_registerloginrsp()->::SSRegisterLoginRsp::MergeFrom(from.registerloginrsp());
     }
+    if (from.has_fightserverreq()) {
+      mutable_fightserverreq()->::SSFightServerReq::MergeFrom(from.fightserverreq());
+    }
+    if (from.has_fightserverrsp()) {
+      mutable_fightserverrsp()->::SSFightServerRsp::MergeFrom(from.fightserverrsp());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -3190,6 +4275,12 @@ bool SSMsgBody::IsInitialized() const {
   if (has_registerloginrsp()) {
     if (!this->registerloginrsp().IsInitialized()) return false;
   }
+  if (has_fightserverreq()) {
+    if (!this->fightserverreq().IsInitialized()) return false;
+  }
+  if (has_fightserverrsp()) {
+    if (!this->fightserverrsp().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -3197,6 +4288,8 @@ void SSMsgBody::Swap(SSMsgBody* other) {
   if (other != this) {
     std::swap(registerloginreq_, other->registerloginreq_);
     std::swap(registerloginrsp_, other->registerloginrsp_);
+    std::swap(fightserverreq_, other->fightserverreq_);
+    std::swap(fightserverrsp_, other->fightserverrsp_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

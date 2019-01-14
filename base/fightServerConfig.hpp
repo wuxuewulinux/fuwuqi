@@ -26,6 +26,11 @@ public:
 
 	FightServerInfo* GetFightServerById(int iFightServerId);	//按战斗服务器ID获取该战斗服务器信息
 
+	int GetEmptyFightServerID();								//获取一个空闲的战斗服务器ID给战斗房间的玩家.
+
+	void AddFightServerUserCount(int iId,uint32_t iCount);			//某个战斗服务器增加人数
+
+	void DownFightServerUserCount(int iId,uint32_t iCount);			//某个战斗服务器减少人数
 
 private:
 

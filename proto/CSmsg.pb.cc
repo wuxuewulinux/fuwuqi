@@ -1539,9 +1539,10 @@ void protobuf_AssignDesc_CSmsg_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CSFightHeroInfoListRsp));
   CSEnterFightMapRsp_descriptor_ = file->message_type(77);
-  static const int CSEnterFightMapRsp_offsets_[3] = {
+  static const int CSEnterFightMapRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSEnterFightMapRsp, mapid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSEnterFightMapRsp, fightserverid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSEnterFightMapRsp, roomindex_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CSEnterFightMapRsp, heroinfolistrsp_),
   };
   CSEnterFightMapRsp_reflection_ =
@@ -2206,67 +2207,68 @@ void protobuf_AddDesc_CSmsg_2eproto() {
     "\003 \001(\r\022\020\n\010ZhaDanId\030\004 \001(\r\022\017\n\007DiPanId\030\005 \001(\r"
     "\022\022\n\nSkillOneID\030\006 \001(\r\022\022\n\nSkillTwoID\030\007 \001(\r"
     "\"@\n\026CSFightHeroInfoListRsp\022&\n\014HeroInfoLi"
-    "st\030\001 \003(\0132\020.CSFightHeroInfo\"l\n\022CSEnterFig"
+    "st\030\001 \003(\0132\020.CSFightHeroInfo\"\177\n\022CSEnterFig"
     "htMapRsp\022\r\n\005MapId\030\001 \001(\005\022\025\n\rFightServerId"
-    "\030\002 \001(\005\0220\n\017HeroInfoListRsp\030\003 \001(\0132\027.CSFigh"
-    "tHeroInfoListRsp\"\304\002\n\016CSMateReqParam\022%\n\014M"
-    "ateFetchReq\030\001 \001(\0132\017.CSMateFetchReq\022-\n\020Qu"
-    "itMateFetchReq\030\002 \001(\0132\023.CSQuitMateFetchRe"
-    "q\0227\n\025NotButtonMateFetchReq\030\003 \001(\0132\030.CSNot"
-    "ButtonMateFetchReq\022\?\n\031SuccessButtonMateF"
-    "etchReq\030\004 \001(\0132\034.CSSuccessButtonMateFetch"
-    "Req\0223\n\023EnterHeroShowBagReq\030\005 \001(\0132\026.CSEnt"
-    "erHeroShowBagReq\022-\n\020ShowZhaDanBagReq\030\006 \001"
-    "(\0132\023.CSShowZhaDanBagReq\"\322\001\n\016CSMateRspPar"
-    "am\022-\n\020EnterHeroShowRsp\030\001 \001(\0132\023.CSEnterHe"
-    "roShowRsp\0223\n\023SendUserHeroShowRsp\030\002 \001(\0132\026"
-    ".CSSendUserHeroShowRsp\022-\n\020ShowZhaDanBagR"
-    "sp\030\003 \001(\0132\023.CSShowZhaDanBagRsp\022-\n\020EnterFi"
-    "ghtMapRsp\030\004 \001(\0132\023.CSEnterFightMapRsp\"G\n\t"
-    "CSMateReq\022\027\n\003cmd\030\001 \002(\0162\n.CSMateCmd\022!\n\010re"
-    "qParam\030\002 \001(\0132\017.CSMateReqParam\"W\n\tCSMateR"
-    "sp\022\016\n\006result\030\001 \001(\005\022\027\n\003cmd\030\002 \002(\0162\n.CSMate"
-    "Cmd\022!\n\010rspParam\030\003 \001(\0132\017.CSMateRspParam\"\351"
-    "\002\n\tCSMsgBody\022-\n\020RegisterLoginReq\030\001 \001(\0132\023"
-    ".CSRegisterLoginReq\022-\n\020RegisterLoginRsp\030"
-    "\002 \001(\0132\023.CSRegisterLoginRsp\022\031\n\006BagReq\030\003 \001"
-    "(\0132\t.CSBagReq\022\031\n\006BagRsp\030\004 \001(\0132\t.CSBagRsp"
-    "\022)\n\016DecorateBagReq\030\005 \001(\0132\021.CSDecorateBag"
-    "Req\022)\n\016DecorateBagRsp\030\006 \001(\0132\021.CSDecorate"
-    "BagRsp\022\033\n\007ChatReq\030\007 \001(\0132\n.CSChatReq\022\033\n\007C"
-    "hatRsp\030\010 \001(\0132\n.CSChatRsp\022\033\n\007MateReq\030\t \001("
-    "\0132\n.CSMateReq\022\033\n\007Matersp\030\n \001(\0132\n.CSMateR"
-    "sp\"1\n\tCSMsgHead\022\013\n\003uid\030\001 \002(\004\022\027\n\005msgID\030\002 "
-    "\002(\0162\010.CSMsgID\";\n\005CSMsg\022\030\n\004head\030\001 \002(\0132\n.C"
-    "SMsgHead\022\030\n\004body\030\002 \002(\0132\n.CSMsgBody*p\n\022CS"
-    "RegisterLoginCmd\022\037\n\033CSRegisterLoginCmd_R"
-    "egister\020\001\022\034\n\030CSRegisterLoginCmd_Login\020\002\022"
-    "\033\n\027CSRegisterLoginCmd_Quit\020\003*0\n\010CSBagCmd"
-    "\022\022\n\016CSBagCmd_Fetch\020\001\022\020\n\014CSBagCmd_Use\020\002*k"
-    "\n\020CSDecorateBagCmd\022\032\n\026CSDecorateBagCmd_F"
-    "etch\020\001\022\034\n\030CSDecorateBagCmd_ShowSet\020\002\022\035\n\031"
-    "CSDecorateBagCmd_VipFetch\020\003*\314\002\n\tCSChatCm"
-    "d\022\037\n\033CSMsgServer_RegisterSuccess\020\001\022\034\n\030CS"
-    "MsgServer_LoginSuccess\020\002\022\024\n\020CSMsgServer_"
-    "Quit\020\003\022\032\n\026CSMsgServer_FriendLine\020\004\022\034\n\030CS"
-    "MsgServer_AskAddFriend\020\005\022 \n\034CSMsgServer_"
-    "SuccessAddFriend\020\006\022\034\n\030CSMsgServer_Delete"
-    "Friend\020\007\022\030\n\024CSMsgServer_SendChat\020\010\022\030\n\024CS"
-    "MsgServer_FindName\020\t\022\034\n\030CSMsgServer_Chan"
-    "geStatus\020\n\022\036\n\032CSMsgServer_ConnectSuccess"
-    "\020\013*\331\002\n\tCSMateCmd\022\027\n\023CSMateCmd_MateFetch\020"
-    "\001\022\034\n\030CSMateCmd_MateNotSuccess\020\002\022\031\n\025CSMat"
-    "eCmd_MateNotUser\020\003\022\033\n\027CSMateCmd_QuitMate"
-    "Fetch\020\004\022 \n\034CSMateCmd_NotButtonMateFetch\020"
-    "\005\022$\n CSMateCmd_SuccessButtonMateFetch\020\006\022"
-    "\033\n\027CSMateCmd_EnterHeroShow\020\007\022\036\n\032CSMateCm"
-    "d_EnterHeroShowBag\020\010\022\036\n\032CSMateCmd_SendUs"
-    "erHeroShow\020\t\022\033\n\027CSMateCmd_ShowZhaDanBag\020"
-    "\n\022\033\n\027CSMateCmd_EnterFightMap\020\013*\233\001\n\007CSMsg"
-    "ID\022\020\n\014CS_MSGID_MIN\020\000\022\032\n\026CS_MSGID_Registe"
-    "rLogin\020\001\022\020\n\014CS_MSGID_BAG\020\002\022\030\n\024CS_MSGID_D"
-    "ecorateBAG\020\003\022\021\n\rCS_MSGID_Chat\020\004\022\021\n\rCS_MS"
-    "GID_Mate\020\005\022\020\n\014CS_MSGID_MAX\020\006", 8468);
+    "\030\002 \001(\005\022\021\n\tRoomIndex\030\003 \001(\005\0220\n\017HeroInfoLis"
+    "tRsp\030\004 \001(\0132\027.CSFightHeroInfoListRsp\"\304\002\n\016"
+    "CSMateReqParam\022%\n\014MateFetchReq\030\001 \001(\0132\017.C"
+    "SMateFetchReq\022-\n\020QuitMateFetchReq\030\002 \001(\0132"
+    "\023.CSQuitMateFetchReq\0227\n\025NotButtonMateFet"
+    "chReq\030\003 \001(\0132\030.CSNotButtonMateFetchReq\022\?\n"
+    "\031SuccessButtonMateFetchReq\030\004 \001(\0132\034.CSSuc"
+    "cessButtonMateFetchReq\0223\n\023EnterHeroShowB"
+    "agReq\030\005 \001(\0132\026.CSEnterHeroShowBagReq\022-\n\020S"
+    "howZhaDanBagReq\030\006 \001(\0132\023.CSShowZhaDanBagR"
+    "eq\"\322\001\n\016CSMateRspParam\022-\n\020EnterHeroShowRs"
+    "p\030\001 \001(\0132\023.CSEnterHeroShowRsp\0223\n\023SendUser"
+    "HeroShowRsp\030\002 \001(\0132\026.CSSendUserHeroShowRs"
+    "p\022-\n\020ShowZhaDanBagRsp\030\003 \001(\0132\023.CSShowZhaD"
+    "anBagRsp\022-\n\020EnterFightMapRsp\030\004 \001(\0132\023.CSE"
+    "nterFightMapRsp\"G\n\tCSMateReq\022\027\n\003cmd\030\001 \002("
+    "\0162\n.CSMateCmd\022!\n\010reqParam\030\002 \001(\0132\017.CSMate"
+    "ReqParam\"W\n\tCSMateRsp\022\016\n\006result\030\001 \001(\005\022\027\n"
+    "\003cmd\030\002 \002(\0162\n.CSMateCmd\022!\n\010rspParam\030\003 \001(\013"
+    "2\017.CSMateRspParam\"\351\002\n\tCSMsgBody\022-\n\020Regis"
+    "terLoginReq\030\001 \001(\0132\023.CSRegisterLoginReq\022-"
+    "\n\020RegisterLoginRsp\030\002 \001(\0132\023.CSRegisterLog"
+    "inRsp\022\031\n\006BagReq\030\003 \001(\0132\t.CSBagReq\022\031\n\006BagR"
+    "sp\030\004 \001(\0132\t.CSBagRsp\022)\n\016DecorateBagReq\030\005 "
+    "\001(\0132\021.CSDecorateBagReq\022)\n\016DecorateBagRsp"
+    "\030\006 \001(\0132\021.CSDecorateBagRsp\022\033\n\007ChatReq\030\007 \001"
+    "(\0132\n.CSChatReq\022\033\n\007ChatRsp\030\010 \001(\0132\n.CSChat"
+    "Rsp\022\033\n\007MateReq\030\t \001(\0132\n.CSMateReq\022\033\n\007Mate"
+    "rsp\030\n \001(\0132\n.CSMateRsp\"1\n\tCSMsgHead\022\013\n\003ui"
+    "d\030\001 \002(\004\022\027\n\005msgID\030\002 \002(\0162\010.CSMsgID\";\n\005CSMs"
+    "g\022\030\n\004head\030\001 \002(\0132\n.CSMsgHead\022\030\n\004body\030\002 \002("
+    "\0132\n.CSMsgBody*p\n\022CSRegisterLoginCmd\022\037\n\033C"
+    "SRegisterLoginCmd_Register\020\001\022\034\n\030CSRegist"
+    "erLoginCmd_Login\020\002\022\033\n\027CSRegisterLoginCmd"
+    "_Quit\020\003*0\n\010CSBagCmd\022\022\n\016CSBagCmd_Fetch\020\001\022"
+    "\020\n\014CSBagCmd_Use\020\002*k\n\020CSDecorateBagCmd\022\032\n"
+    "\026CSDecorateBagCmd_Fetch\020\001\022\034\n\030CSDecorateB"
+    "agCmd_ShowSet\020\002\022\035\n\031CSDecorateBagCmd_VipF"
+    "etch\020\003*\314\002\n\tCSChatCmd\022\037\n\033CSMsgServer_Regi"
+    "sterSuccess\020\001\022\034\n\030CSMsgServer_LoginSucces"
+    "s\020\002\022\024\n\020CSMsgServer_Quit\020\003\022\032\n\026CSMsgServer"
+    "_FriendLine\020\004\022\034\n\030CSMsgServer_AskAddFrien"
+    "d\020\005\022 \n\034CSMsgServer_SuccessAddFriend\020\006\022\034\n"
+    "\030CSMsgServer_DeleteFriend\020\007\022\030\n\024CSMsgServ"
+    "er_SendChat\020\010\022\030\n\024CSMsgServer_FindName\020\t\022"
+    "\034\n\030CSMsgServer_ChangeStatus\020\n\022\036\n\032CSMsgSe"
+    "rver_ConnectSuccess\020\013*\331\002\n\tCSMateCmd\022\027\n\023C"
+    "SMateCmd_MateFetch\020\001\022\034\n\030CSMateCmd_MateNo"
+    "tSuccess\020\002\022\031\n\025CSMateCmd_MateNotUser\020\003\022\033\n"
+    "\027CSMateCmd_QuitMateFetch\020\004\022 \n\034CSMateCmd_"
+    "NotButtonMateFetch\020\005\022$\n CSMateCmd_Succes"
+    "sButtonMateFetch\020\006\022\033\n\027CSMateCmd_EnterHer"
+    "oShow\020\007\022\036\n\032CSMateCmd_EnterHeroShowBag\020\010\022"
+    "\036\n\032CSMateCmd_SendUserHeroShow\020\t\022\033\n\027CSMat"
+    "eCmd_ShowZhaDanBag\020\n\022\033\n\027CSMateCmd_EnterF"
+    "ightMap\020\013*\233\001\n\007CSMsgID\022\020\n\014CS_MSGID_MIN\020\000\022"
+    "\032\n\026CS_MSGID_RegisterLogin\020\001\022\020\n\014CS_MSGID_"
+    "BAG\020\002\022\030\n\024CS_MSGID_DecorateBAG\020\003\022\021\n\rCS_MS"
+    "GID_Chat\020\004\022\021\n\rCS_MSGID_Mate\020\005\022\020\n\014CS_MSGI"
+    "D_MAX\020\006", 8487);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CSmsg.proto", &protobuf_RegisterTypes);
   CSLoginReq::default_instance_ = new CSLoginReq();
@@ -22918,6 +22920,7 @@ void CSFightHeroInfoListRsp::Swap(CSFightHeroInfoListRsp* other) {
 #ifndef _MSC_VER
 const int CSEnterFightMapRsp::kMapIdFieldNumber;
 const int CSEnterFightMapRsp::kFightServerIdFieldNumber;
+const int CSEnterFightMapRsp::kRoomIndexFieldNumber;
 const int CSEnterFightMapRsp::kHeroInfoListRspFieldNumber;
 #endif  // !_MSC_VER
 
@@ -22940,6 +22943,7 @@ void CSEnterFightMapRsp::SharedCtor() {
   _cached_size_ = 0;
   mapid_ = 0;
   fightserverid_ = 0;
+  roomindex_ = 0;
   heroinfolistrsp_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -22979,6 +22983,7 @@ void CSEnterFightMapRsp::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     mapid_ = 0;
     fightserverid_ = 0;
+    roomindex_ = 0;
     if (has_heroinfolistrsp()) {
       if (heroinfolistrsp_ != NULL) heroinfolistrsp_->::CSFightHeroInfoListRsp::Clear();
     }
@@ -23020,12 +23025,28 @@ bool CSEnterFightMapRsp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_HeroInfoListRsp;
+        if (input->ExpectTag(24)) goto parse_RoomIndex;
         break;
       }
 
-      // optional .CSFightHeroInfoListRsp HeroInfoListRsp = 3;
+      // optional int32 RoomIndex = 3;
       case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_RoomIndex:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &roomindex_)));
+          set_has_roomindex();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_HeroInfoListRsp;
+        break;
+      }
+
+      // optional .CSFightHeroInfoListRsp HeroInfoListRsp = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_HeroInfoListRsp:
@@ -23066,10 +23087,15 @@ void CSEnterFightMapRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->fightserverid(), output);
   }
 
-  // optional .CSFightHeroInfoListRsp HeroInfoListRsp = 3;
+  // optional int32 RoomIndex = 3;
+  if (has_roomindex()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->roomindex(), output);
+  }
+
+  // optional .CSFightHeroInfoListRsp HeroInfoListRsp = 4;
   if (has_heroinfolistrsp()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->heroinfolistrsp(), output);
+      4, this->heroinfolistrsp(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -23090,11 +23116,16 @@ void CSEnterFightMapRsp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->fightserverid(), target);
   }
 
-  // optional .CSFightHeroInfoListRsp HeroInfoListRsp = 3;
+  // optional int32 RoomIndex = 3;
+  if (has_roomindex()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->roomindex(), target);
+  }
+
+  // optional .CSFightHeroInfoListRsp HeroInfoListRsp = 4;
   if (has_heroinfolistrsp()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        3, this->heroinfolistrsp(), target);
+        4, this->heroinfolistrsp(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -23122,7 +23153,14 @@ int CSEnterFightMapRsp::ByteSize() const {
           this->fightserverid());
     }
 
-    // optional .CSFightHeroInfoListRsp HeroInfoListRsp = 3;
+    // optional int32 RoomIndex = 3;
+    if (has_roomindex()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->roomindex());
+    }
+
+    // optional .CSFightHeroInfoListRsp HeroInfoListRsp = 4;
     if (has_heroinfolistrsp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -23162,6 +23200,9 @@ void CSEnterFightMapRsp::MergeFrom(const CSEnterFightMapRsp& from) {
     if (from.has_fightserverid()) {
       set_fightserverid(from.fightserverid());
     }
+    if (from.has_roomindex()) {
+      set_roomindex(from.roomindex());
+    }
     if (from.has_heroinfolistrsp()) {
       mutable_heroinfolistrsp()->::CSFightHeroInfoListRsp::MergeFrom(from.heroinfolistrsp());
     }
@@ -23190,6 +23231,7 @@ void CSEnterFightMapRsp::Swap(CSEnterFightMapRsp* other) {
   if (other != this) {
     std::swap(mapid_, other->mapid_);
     std::swap(fightserverid_, other->fightserverid_);
+    std::swap(roomindex_, other->roomindex_);
     std::swap(heroinfolistrsp_, other->heroinfolistrsp_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
